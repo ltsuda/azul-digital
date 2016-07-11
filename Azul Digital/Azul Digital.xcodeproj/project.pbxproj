@@ -58,13 +58,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27CBD2A91D34451F00B01D6E /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				2728D1C81D3432B600694B53 /* CarViewController.swift */,
+				2728D1CA1D3434F300694B53 /* CardViewController.swift */,
+				2728D1C61D34319000694B53 /* ProfileViewController.swift */,
+				2728D1D41D3439B500694B53 /* Register.storyboard */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		27CBD2AA1D34454100B01D6E /* Present */ = {
+			isa = PBXGroup;
+			children = (
+				2728D1C41D341FB200694B53 /* CreateAccViewController.swift */,
+				278C49A81D33FBBE00D43AAF /* LoginViewController.swift */,
+				27D4D6461D33E661007BB63A /* Main.storyboard */,
+				278C49A61D33FA5A00D43AAF /* PresentViewController.swift */,
+			);
+			path = Present;
+			sourceTree = "<group>";
+		};
+		27CBD2AB1D34454F00B01D6E /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				2728D1CF1D34386000694B53 /* Map.storyboard */,
+				2728D1D21D3438B800694B53 /* MapViewController.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		27CBD2AC1D34455900B01D6E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				27D4D6421D33E661007BB63A /* AppDelegate.swift */,
+				27D4D6491D33E661007BB63A /* Assets.xcassets */,
+				27799FB61D33E85C00D807E3 /* GoogleService-Info.plist */,
+				27D4D64E1D33E661007BB63A /* Info.plist */,
+				27D4D64B1D33E661007BB63A /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		27D4D6361D33E661007BB63A = {
 			isa = PBXGroup;
 			children = (
 				27D4D6411D33E661007BB63A /* Azul Digital */,
-				27D4D6401D33E661007BB63A /* Products */,
-				A35206380E51DBAC2234AA5D /* Pods */,
 				B092E07884898CD39D0B968C /* Frameworks */,
+				A35206380E51DBAC2234AA5D /* Pods */,
+				27D4D6401D33E661007BB63A /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,21 +122,10 @@
 		27D4D6411D33E661007BB63A /* Azul Digital */ = {
 			isa = PBXGroup;
 			children = (
-				27D4D6421D33E661007BB63A /* AppDelegate.swift */,
-				278C49A81D33FBBE00D43AAF /* LoginViewController.swift */,
-				2728D1C41D341FB200694B53 /* CreateAccViewController.swift */,
-				2728D1C61D34319000694B53 /* ProfileViewController.swift */,
-				27D4D6461D33E661007BB63A /* Main.storyboard */,
-				2728D1CF1D34386000694B53 /* Map.storyboard */,
-				2728D1D41D3439B500694B53 /* Register.storyboard */,
-				27D4D6491D33E661007BB63A /* Assets.xcassets */,
-				27D4D64B1D33E661007BB63A /* LaunchScreen.storyboard */,
-				27D4D64E1D33E661007BB63A /* Info.plist */,
-				27799FB61D33E85C00D807E3 /* GoogleService-Info.plist */,
-				278C49A61D33FA5A00D43AAF /* PresentViewController.swift */,
-				2728D1C81D3432B600694B53 /* CarViewController.swift */,
-				2728D1CA1D3434F300694B53 /* CardViewController.swift */,
-				2728D1D21D3438B800694B53 /* MapViewController.swift */,
+				27CBD2AB1D34454F00B01D6E /* Map */,
+				27CBD2AA1D34454100B01D6E /* Present */,
+				27CBD2A91D34451F00B01D6E /* Register */,
+				27CBD2AC1D34455900B01D6E /* Supporting Files */,
 			);
 			path = "Azul Digital";
 			sourceTree = "<group>";
@@ -263,6 +295,7 @@
 				2728D1D01D34386000694B53 /* Base */,
 			);
 			name = Map.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		2728D1D41D3439B500694B53 /* Register.storyboard */ = {
@@ -271,6 +304,7 @@
 				2728D1D51D3439B500694B53 /* Base */,
 			);
 			name = Register.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		27D4D6461D33E661007BB63A /* Main.storyboard */ = {
@@ -279,6 +313,7 @@
 				27D4D6471D33E661007BB63A /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		27D4D64B1D33E661007BB63A /* LaunchScreen.storyboard */ = {
@@ -287,6 +322,7 @@
 				27D4D64C1D33E661007BB63A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -384,7 +420,7 @@
 			baseConfigurationReference = 0C1CE793A240DB8FA3FC0C0C /* Pods-Azul Digital.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "Azul Digital/Info.plist";
+				INFOPLIST_FILE = "Azul Digital/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.ltsuda.Azul-Digital";
@@ -398,7 +434,7 @@
 			baseConfigurationReference = 78AABDC445D1127DE4923E8E /* Pods-Azul Digital.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "Azul Digital/Info.plist";
+				INFOPLIST_FILE = "Azul Digital/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.ltsuda.Azul-Digital";
