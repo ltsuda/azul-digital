@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11163.2" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zNd-SS-G9M">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11133"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profile View Controller-->
+        <scene sceneID="88Q-vw-kLe">
+            <objects>
+                <viewController id="lYs-jE-hdS" customClass="ProfileViewController" customModule="Azul_Digital" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ss7-uo-YNI"/>
+                        <viewControllerLayoutGuide type="bottom" id="fCe-fy-TVd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WWB-Mz-bOl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="veF-SQ-cmo">
+                        <barButtonItem key="backBarButtonItem" title="Voltar" id="7qS-FV-fLj"/>
+                        <barButtonItem key="rightBarButtonItem" title="Próximo" id="IEZ-rb-u4c">
+                            <connections>
+                                <segue destination="Ruz-9m-gtH" kind="show" identifier="CarSegue" id="b9l-Qv-yw9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ktG-by-Jx8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1616" y="-28"/>
+        </scene>
+        <!--RegisterNavigationController-->
+        <scene sceneID="SJp-K0-aDw">
+            <objects>
+                <navigationController title="RegisterNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="zNd-SS-G9M" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WyP-8e-Tab">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lYs-jE-hdS" kind="relationship" relationship="rootViewController" id="Cfq-bF-Hbb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vD9-aA-rzP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="870" y="-28"/>
+        </scene>
+        <!--CarViewController-->
+        <scene sceneID="1fD-Rh-R46">
+            <objects>
+                <viewController title="CarViewController" id="Ruz-9m-gtH" customClass="CarViewController" customModule="Azul_Digital" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="D4W-rK-uxc"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZEN-0n-RMQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="n0c-69-rVE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="skF-UE-fBJ">
+                        <barButtonItem key="backBarButtonItem" title="Voltar" id="BVM-el-Z0K"/>
+                        <barButtonItem key="rightBarButtonItem" title="Próximo" id="pyn-W0-5cg" userLabel="Próximo">
+                            <connections>
+                                <segue destination="h5r-F6-ehz" kind="show" identifier="CardSegue" id="f27-aX-aaa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Erd-kg-Xu0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2324" y="-29"/>
+        </scene>
+        <!--CardViewController-->
+        <scene sceneID="pAv-OG-vvW">
+            <objects>
+                <viewController title="CardViewController" id="h5r-F6-ehz" customClass="CardViewController" customModule="Azul_Digital" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ccn-zd-dMM"/>
+                        <viewControllerLayoutGuide type="bottom" id="8fg-Mk-mKg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OQX-cA-VEd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="U65-Fo-sBp">
+                        <barButtonItem key="backBarButtonItem" title="Voltar" id="bAU-SA-XZv"/>
+                        <barButtonItem key="rightBarButtonItem" title="Finalizar" id="ICx-lM-fdS" userLabel="Próximo"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Knz-bS-I2C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3138" y="-28"/>
+        </scene>
+    </scenes>
+</document>
