@@ -6,7 +6,7 @@ target 'Azul Digital' do
   use_frameworks!
 
   # Pods for Azul Digital
- pod 'Firebase/Core'	
+ pod 'Firebase'	
  pod 'Firebase/Database'
  pod 'Firebase/Auth'
  pod 'Firebase/Storage'
