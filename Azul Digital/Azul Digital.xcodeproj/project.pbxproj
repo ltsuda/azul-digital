@@ -18,6 +18,7 @@
 		27799FB71D33E85C00D807E3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27799FB61D33E85C00D807E3 /* GoogleService-Info.plist */; };
 		278C49A71D33FA5A00D43AAF /* PresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278C49A61D33FA5A00D43AAF /* PresentViewController.swift */; };
 		278C49A91D33FBBE00D43AAF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278C49A81D33FBBE00D43AAF /* LoginViewController.swift */; };
+		279F16D91D3572D600CC0C9D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F16D81D3572D600CC0C9D /* Extension.swift */; };
 		27D4D6431D33E661007BB63A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D4D6421D33E661007BB63A /* AppDelegate.swift */; };
 		27D4D6481D33E661007BB63A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D4D6461D33E661007BB63A /* Main.storyboard */; };
 		27D4D64A1D33E661007BB63A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D4D6491D33E661007BB63A /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		27799FB61D33E85C00D807E3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		278C49A61D33FA5A00D43AAF /* PresentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentViewController.swift; sourceTree = "<group>"; };
 		278C49A81D33FBBE00D43AAF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		279F16D81D3572D600CC0C9D /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		27D4D63F1D33E661007BB63A /* Azul Digital.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Azul Digital.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D4D6421D33E661007BB63A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27D4D6471D33E661007BB63A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				27D4D6461D33E661007BB63A /* Main.storyboard */,
 				278C49A61D33FA5A00D43AAF /* PresentViewController.swift */,
 				2712DB511D3449CE008FD476 /* Gradient.swift */,
+				279F16D81D3572D600CC0C9D /* Extension.swift */,
 			);
 			path = Present;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				2728D1C91D3432B600694B53 /* CarViewController.swift in Sources */,
 				278C49A71D33FA5A00D43AAF /* PresentViewController.swift in Sources */,
 				2728D1C71D34319000694B53 /* ProfileViewController.swift in Sources */,
+				279F16D91D3572D600CC0C9D /* Extension.swift in Sources */,
 				2728D1C51D341FB200694B53 /* CreateAccViewController.swift in Sources */,
 				27D4D6431D33E661007BB63A /* AppDelegate.swift in Sources */,
 				2728D1D31D3438B800694B53 /* MapViewController.swift in Sources */,

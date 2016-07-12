@@ -49,6 +49,7 @@
                                     <constraint firstAttribute="height" constant="32" id="QeS-wJ-hE6"/>
                                     <constraint firstAttribute="height" constant="32" id="cTq-JR-lGW"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Create an account">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -78,6 +79,7 @@
                                     <constraint firstAttribute="height" constant="32" id="gKd-pp-Cla"/>
                                     <constraint firstAttribute="height" constant="32" id="wL8-nX-dsC"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Already a member? Log In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -404,7 +406,7 @@
                             <constraint firstItem="7P6-JR-spG" firstAttribute="top" secondItem="E9a-JO-g6D" secondAttribute="bottom" constant="8" id="9KK-YZ-NBe"/>
                             <constraint firstItem="E9a-JO-g6D" firstAttribute="leading" secondItem="QEA-cg-zDu" secondAttribute="leadingMargin" id="Fyj-2i-9BK"/>
                             <constraint firstItem="UAe-bh-l1w" firstAttribute="top" secondItem="6ZS-uD-XgB" secondAttribute="bottom" constant="130" id="Gu1-L1-87N">
-                                <variation key="heightClass=regular" constant="120"/>
+                                <variation key="heightClass=regular" constant="68"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="7P6-JR-spG" secondAttribute="trailing" id="HP5-sj-Sd4"/>
                             <constraint firstItem="lEa-vc-W3y" firstAttribute="width" secondItem="QEA-cg-zDu" secondAttribute="width" multiplier="0.22" id="Hxd-g7-4RF"/>
@@ -426,7 +428,7 @@
                             <constraint firstItem="7P6-JR-spG" firstAttribute="leading" secondItem="QEA-cg-zDu" secondAttribute="leadingMargin" id="tkP-EP-25L"/>
                             <constraint firstItem="E9a-JO-g6D" firstAttribute="top" secondItem="UAe-bh-l1w" secondAttribute="bottom" constant="12" id="vYz-dN-9HA"/>
                             <constraint firstItem="UAe-bh-l1w" firstAttribute="leading" secondItem="QEA-cg-zDu" secondAttribute="leadingMargin" id="w3d-Bx-fcq"/>
-                            <constraint firstItem="lEa-vc-W3y" firstAttribute="top" secondItem="X6V-by-6WR" secondAttribute="bottom" constant="8" id="zjB-hU-NAp"/>
+                            <constraint firstItem="lEa-vc-W3y" firstAttribute="top" secondItem="X6V-by-6WR" secondAttribute="bottom" constant="60" id="zjB-hU-NAp"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -560,31 +562,6 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium " textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfR-a0-kmB">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="1Qk-2H-9m6"/>
-                                    <constraint firstAttribute="height" constant="40" id="H7O-ZG-3GM"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="1Qk-2H-9m6"/>
-                                        <exclude reference="H7O-ZG-3GM"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="H7O-ZG-3GM"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular">
-                                    <mask key="constraints">
-                                        <include reference="1Qk-2H-9m6"/>
-                                    </mask>
-                                </variation>
-                            </textView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="user@email.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ESg-OB-1D3">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="I7C-Rl-1ui"/>
@@ -681,6 +658,31 @@
                                     </mask>
                                 </variation>
                             </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium " textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfR-a0-kmB">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1Qk-2H-9m6"/>
+                                    <constraint firstAttribute="height" constant="40" id="H7O-ZG-3GM"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="1Qk-2H-9m6"/>
+                                        <exclude reference="H7O-ZG-3GM"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="H7O-ZG-3GM"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="1Qk-2H-9m6"/>
+                                    </mask>
+                                </variation>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.058823529409999999" green="0.49803921569999998" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -688,7 +690,7 @@
                             <constraint firstItem="UNK-I1-4Az" firstAttribute="top" secondItem="v6q-av-j0E" secondAttribute="bottom" constant="8" id="7a3-rb-sBQ"/>
                             <constraint firstItem="v6q-av-j0E" firstAttribute="top" secondItem="ESg-OB-1D3" secondAttribute="bottom" constant="12" id="9ad-W9-8Kk"/>
                             <constraint firstItem="ESg-OB-1D3" firstAttribute="trailing" secondItem="HdD-qP-GrU" secondAttribute="trailingMargin" id="AX5-2O-pgW"/>
-                            <constraint firstItem="uFD-G4-Qih" firstAttribute="top" secondItem="c6K-HG-SDb" secondAttribute="bottom" constant="8" id="BuJ-s9-Ilo"/>
+                            <constraint firstItem="uFD-G4-Qih" firstAttribute="top" secondItem="c6K-HG-SDb" secondAttribute="bottom" constant="60" id="BuJ-s9-Ilo"/>
                             <constraint firstItem="vfR-a0-kmB" firstAttribute="leading" secondItem="HdD-qP-GrU" secondAttribute="leadingMargin" id="C3I-4P-JX4"/>
                             <constraint firstItem="UNK-I1-4Az" firstAttribute="top" secondItem="v6q-av-j0E" secondAttribute="bottom" constant="8" id="DmT-oH-Gbu"/>
                             <constraint firstItem="vfR-a0-kmB" firstAttribute="leading" secondItem="HdD-qP-GrU" secondAttribute="leadingMargin" id="E3V-Kq-wgx"/>
@@ -713,7 +715,7 @@
                             <constraint firstItem="ESg-OB-1D3" firstAttribute="top" secondItem="vfR-a0-kmB" secondAttribute="bottom" constant="8" id="eNw-wK-Vf2"/>
                             <constraint firstItem="v6q-av-j0E" firstAttribute="trailing" secondItem="HdD-qP-GrU" secondAttribute="trailingMargin" id="hdn-cX-wx0"/>
                             <constraint firstItem="ESg-OB-1D3" firstAttribute="top" secondItem="vfR-a0-kmB" secondAttribute="bottom" constant="130" id="jH7-Bh-q06">
-                                <variation key="heightClass=regular" constant="120"/>
+                                <variation key="heightClass=regular" constant="68"/>
                             </constraint>
                             <constraint firstItem="ESg-OB-1D3" firstAttribute="leading" secondItem="HdD-qP-GrU" secondAttribute="leadingMargin" id="p3b-wT-XAL"/>
                             <constraint firstItem="vfR-a0-kmB" firstAttribute="top" secondItem="uFD-G4-Qih" secondAttribute="bottom" constant="8" id="ql8-GQ-Gje"/>

@@ -26,8 +26,15 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         view.gradientBackbround(to: view)
+        cancelButton.configureCorner(to: cancelButton)
+        loginButton.configureCorner(to: loginButton)
     }
 
+    override func viewWillLayoutSubviews() {
+        emailTextField.configureBorder(to: PlaceHolder.fill(.email))
+        passwordTextField.configureBorder(to: PlaceHolder.fill(.password))
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

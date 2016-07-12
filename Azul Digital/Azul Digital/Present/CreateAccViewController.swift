@@ -29,6 +29,14 @@ class CreateAccViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         view.gradientBackbround(to: view)
+
+        cancelButton.configureCorner(to: cancelButton)
+        registerButton.configureCorner(to: registerButton)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        emailTextField.configureBorder(to: PlaceHolder.fill(.email))
+        passwordTextField.configureBorder(to: PlaceHolder.fill(.password))
     }
     
     override func didReceiveMemoryWarning() {
