@@ -10,10 +10,22 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBAction func cancel(_ sender: AnyObject) {
+    }
+    @IBOutlet weak var loginButton: UIButton!
+    @IBAction func login(_ sender: AnyObject) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        view.gradientBackbround(to: view)
     }
 
     override func didReceiveMemoryWarning() {

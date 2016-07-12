@@ -10,12 +10,27 @@ import UIKit
 
 class CreateAccViewController: UIViewController {
 
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBAction func cancel(_ sender: AnyObject) {
+    }
+    @IBOutlet weak var registerButton: UIButton!
+    @IBAction func register(_ sender: AnyObject) {
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        view.gradientBackbround(to: view)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

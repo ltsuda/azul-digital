@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="bottom" id="LUF-gR-4US"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TV4-0g-b7K">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="sl1-pH-J6U">
@@ -43,31 +43,6 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium " textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKx-nK-OqB">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="ADM-7F-qnN"/>
-                                    <constraint firstAttribute="height" constant="40" id="QZ5-Z6-0Sh"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="ADM-7F-qnN"/>
-                                        <exclude reference="QZ5-Z6-0Sh"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="ADM-7F-qnN"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular">
-                                    <mask key="constraints">
-                                        <include reference="QZ5-Z6-0Sh"/>
-                                    </mask>
-                                </variation>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Bx-VS-5lL">
                                 <color key="backgroundColor" red="0.03089032467" green="0.29884586909999999" blue="0.80410679269999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -94,6 +69,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
+                                    <action selector="createAcc:" destination="bgp-pc-qqd" eventType="touchUpInside" id="Ypb-ES-KEi"/>
                                     <segue destination="SLk-zq-vkO" kind="show" identifier="CreateAccSegue" id="CbU-YY-xqD"/>
                                 </connections>
                             </button>
@@ -122,9 +98,35 @@
                                     </mask>
                                 </variation>
                                 <connections>
+                                    <action selector="alreadyMember:" destination="bgp-pc-qqd" eventType="touchUpInside" id="XwX-ZR-z3I"/>
                                     <segue destination="xhs-LR-leL" kind="show" identifier="LoginSegue" id="hjU-C7-dpC"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium " textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKx-nK-OqB">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ADM-7F-qnN"/>
+                                    <constraint firstAttribute="height" constant="40" id="QZ5-Z6-0Sh"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ADM-7F-qnN"/>
+                                        <exclude reference="QZ5-Z6-0Sh"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="ADM-7F-qnN"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="QZ5-Z6-0Sh"/>
+                                    </mask>
+                                </variation>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.058823529411764705" green="0.49803921568627452" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -151,14 +153,14 @@
                             </constraint>
                             <constraint firstItem="sl1-pH-J6U" firstAttribute="width" secondItem="TV4-0g-b7K" secondAttribute="width" multiplier="0.5" id="jM5-yc-3Dl"/>
                             <constraint firstItem="0Bx-VS-5lL" firstAttribute="top" secondItem="LKx-nK-OqB" secondAttribute="bottom" constant="144" id="jbR-V0-MCv">
-                                <variation key="heightClass=regular" constant="152"/>
+                                <variation key="heightClass=regular" constant="100"/>
                             </constraint>
                             <constraint firstItem="JBO-yI-nMX" firstAttribute="top" secondItem="0Bx-VS-5lL" secondAttribute="bottom" constant="8" id="lW9-vX-p7d"/>
                             <constraint firstItem="sl1-pH-J6U" firstAttribute="centerX" secondItem="TV4-0g-b7K" secondAttribute="centerX" id="om5-hF-Sum"/>
                             <constraint firstItem="JBO-yI-nMX" firstAttribute="trailing" secondItem="TV4-0g-b7K" secondAttribute="trailingMargin" id="u8B-kg-rjc"/>
                             <constraint firstItem="sl1-pH-J6U" firstAttribute="centerX" secondItem="TV4-0g-b7K" secondAttribute="centerX" id="veN-O7-XhX"/>
                             <constraint firstItem="sl1-pH-J6U" firstAttribute="centerX" secondItem="TV4-0g-b7K" secondAttribute="centerX" id="xdh-n9-AI3"/>
-                            <constraint firstItem="sl1-pH-J6U" firstAttribute="top" secondItem="Wnc-wV-Ux2" secondAttribute="bottom" constant="8" id="zsx-9Z-rG8"/>
+                            <constraint firstItem="sl1-pH-J6U" firstAttribute="top" secondItem="Wnc-wV-Ux2" secondAttribute="bottom" constant="60" id="zsx-9Z-rG8"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -223,6 +225,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="alreadyMemberButton" destination="JBO-yI-nMX" id="Qp2-PH-cFV"/>
+                        <outlet property="createAccButton" destination="0Bx-VS-5lL" id="6NI-MC-Fwr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g6Z-bY-t9N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -237,7 +243,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Zzt-M8-mDD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QEA-cg-zDu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="lEa-vc-W3y">
@@ -262,7 +268,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium " textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZS-uD-XgB">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium " textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZS-uD-XgB">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="IKR-bB-BEa"/>
                                     <constraint firstAttribute="height" constant="40" id="Sxa-Sm-kgZ"/>
@@ -345,6 +351,9 @@
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="cancel:" destination="xhs-LR-leL" eventType="touchUpInside" id="EaY-5J-GlC"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQh-OZ-xAR">
                                         <color key="backgroundColor" red="0.03089032467" green="0.29884586909999999" blue="0.80410679269999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -352,6 +361,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="login:" destination="xhs-LR-leL" eventType="touchUpInside" id="H40-lT-Prr"/>
                                             <segue destination="xnB-NZ-Dkn" kind="show" id="2b1-34-TI0"/>
                                         </connections>
                                     </button>
@@ -497,6 +507,12 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="eWo-5D-cMd" id="1FO-TW-ab3"/>
+                        <outlet property="emailTextField" destination="UAe-bh-l1w" id="TBj-D7-PqB"/>
+                        <outlet property="loginButton" destination="SQh-OZ-xAR" id="W16-FS-zWm"/>
+                        <outlet property="passwordTextField" destination="E9a-JO-g6D" id="e6m-GC-5MF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vaU-ep-Qzk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -519,7 +535,7 @@
                         <viewControllerLayoutGuide type="bottom" id="0MI-iE-6Uo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HdD-qP-GrU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="uFD-G4-Qih">
@@ -544,7 +560,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium " textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfR-a0-kmB">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium " textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfR-a0-kmB">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="1Qk-2H-9m6"/>
                                     <constraint firstAttribute="height" constant="40" id="H7O-ZG-3GM"/>
@@ -627,6 +643,9 @@
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="cancel:" destination="SLk-zq-vkO" eventType="touchUpInside" id="G21-Bx-JCQ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtR-pL-mJd">
                                         <color key="backgroundColor" red="0.03089032467" green="0.29884586909999999" blue="0.80410679269999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -634,6 +653,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="register:" destination="SLk-zq-vkO" eventType="touchUpInside" id="EsK-u3-ips"/>
                                             <segue destination="lHd-tQ-8PG" kind="show" identifier="ProfileSegue" id="fhU-VL-pRF"/>
                                         </connections>
                                     </button>
@@ -781,6 +801,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="Uuy-aP-Cee"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="HwY-LR-FcY" id="CCi-z4-91x"/>
+                        <outlet property="emailTextField" destination="ESg-OB-1D3" id="c0L-cP-wpo"/>
+                        <outlet property="passwordTextField" destination="v6q-av-j0E" id="D94-XT-xla"/>
+                        <outlet property="registerButton" destination="CtR-pL-mJd" id="TO0-mN-QZ6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ltH-cr-ZyO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

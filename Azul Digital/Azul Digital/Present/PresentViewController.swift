@@ -10,12 +10,27 @@ import UIKit
 
 class PresentViewController: UIViewController {
 
+    @IBOutlet weak var createAccButton: UIButton!
+    @IBAction func createAcc(_ sender: AnyObject) {
+    }
+    @IBOutlet weak var alreadyMemberButton: UIButton!
+    @IBAction func alreadyMember(_ sender: AnyObject) {
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+      
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        view.gradientBackbround(to: view)
 
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
