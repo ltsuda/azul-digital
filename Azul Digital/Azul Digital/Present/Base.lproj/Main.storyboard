@@ -12,7 +12,7 @@
         <!--PresentViewController-->
         <scene sceneID="ntO-UV-bvd">
             <objects>
-                <viewController title="PresentViewController" id="bgp-pc-qqd" customClass="PresentViewController" customModule="Azul_Digital" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PresentViewController" title="PresentViewController" id="bgp-pc-qqd" customClass="PresentViewController" customModule="Azul_Digital" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wnc-wV-Ux2"/>
                         <viewControllerLayoutGuide type="bottom" id="LUF-gR-4US"/>
@@ -354,7 +354,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="cancel:" destination="xhs-LR-leL" eventType="touchUpInside" id="EaY-5J-GlC"/>
+                                            <segue destination="t3M-5h-SAa" kind="unwind" identifier="unwindToPresentWithSegue" unwindAction="unwindToPresentWithSegue:" id="yAz-lH-sRe"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQh-OZ-xAR">
@@ -510,13 +510,14 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="cancelButton" destination="eWo-5D-cMd" id="1FO-TW-ab3"/>
+                        <outlet property="cancelButton" destination="eWo-5D-cMd" id="4uY-Xi-pMe"/>
                         <outlet property="emailTextField" destination="UAe-bh-l1w" id="TBj-D7-PqB"/>
                         <outlet property="loginButton" destination="SQh-OZ-xAR" id="W16-FS-zWm"/>
                         <outlet property="passwordTextField" destination="E9a-JO-g6D" id="e6m-GC-5MF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vaU-ep-Qzk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="t3M-5h-SAa" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-281" y="721"/>
         </scene>
@@ -528,10 +529,10 @@
             </objects>
             <point key="canvasLocation" x="466" y="721"/>
         </scene>
-        <!--LoginViewController-->
+        <!--CreateAccViewController-->
         <scene sceneID="T1s-es-AyW">
             <objects>
-                <viewController title="LoginViewController" id="SLk-zq-vkO" customClass="CreateAccViewController" customModule="Azul_Digital" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateAccViewController" title="CreateAccViewController" id="SLk-zq-vkO" customClass="CreateAccViewController" customModule="Azul_Digital" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c6K-HG-SDb"/>
                         <viewControllerLayoutGuide type="bottom" id="0MI-iE-6Uo"/>
@@ -621,7 +622,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="cancel:" destination="SLk-zq-vkO" eventType="touchUpInside" id="G21-Bx-JCQ"/>
+                                            <segue destination="lip-MX-IPJ" kind="unwind" identifier="unwindToPresentWithSegue" unwindAction="unwindToPresentWithSegue:" id="COQ-vN-ca0"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtR-pL-mJd">
@@ -811,6 +812,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ltH-cr-ZyO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lip-MX-IPJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="552" y="-27"/>
         </scene>

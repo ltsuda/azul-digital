@@ -19,6 +19,7 @@ extension UIButton {
     
 }
 
+
 enum PlaceHolder: String {
     case email
     case password
@@ -33,19 +34,19 @@ enum PlaceHolder: String {
     func fill() -> String {
         switch self {
         case .email:
-            return "user@provider.com"
+            return "Usuario@provedor.com.br"
         case .password:
-            return "password"
+            return "Senha"
         case .firstName:
-            return "first"
+            return "Nome"
         case .lastName:
-            return "last"
+            return "Sobrenome"
         case .brand:
             return "Chevrolet"
         case .model:
             return "Cruze"
         case .color:
-            return "Black"
+            return "Preto"
         case .plate:
             return "CRZ0001"
         case .card:

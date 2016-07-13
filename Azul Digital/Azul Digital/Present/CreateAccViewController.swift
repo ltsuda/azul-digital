@@ -13,14 +13,10 @@ class CreateAccViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var cancelButton: UIButton!
-    @IBAction func cancel(_ sender: AnyObject) {
-    }
     @IBOutlet weak var registerButton: UIButton!
     @IBAction func register(_ sender: AnyObject) {
     }
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

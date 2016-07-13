@@ -13,8 +13,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var cancelButton: UIButton!
-    @IBAction func cancel(_ sender: AnyObject) {
-    }
     @IBOutlet weak var loginButton: UIButton!
     @IBAction func login(_ sender: AnyObject) {
     }
