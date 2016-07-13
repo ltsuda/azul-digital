@@ -11,11 +11,18 @@ import Firebase
 
 class MapViewController: UIViewController {
 
+    @IBAction func logout(_ sender: AnyObject) {
+        //        try! FIRAuth.auth()?.signOut()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "UINavigationControllerMain")
+        present(initialViewController, animated: true, completion: nil)
+//        UIApplication.shared().delegate?.window??.rootViewController = initialViewController
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(MapViewController.logout))
+
         
     }
 
@@ -23,15 +30,6 @@ class MapViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func logout() {
-//        try! FIRAuth.auth()?.signOut()
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateInitialViewController()
-        UIApplication.shared().delegate?.window??.rootViewController = initialViewController
-        
-    }
-    
 
     /*
     // MARK: - Navigation
