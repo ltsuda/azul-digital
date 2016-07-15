@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Firebase
 
-class CreateAccViewController: UIViewController {
+class CreateAccViewController: UIViewController, alertable {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -19,7 +20,6 @@ class CreateAccViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 

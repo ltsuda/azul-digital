@@ -359,8 +359,7 @@
                                             <segue destination="t3M-5h-SAa" kind="unwind" identifier="unwindToPresentWithSegue" unwindAction="unwindToPresentWithSegue:" id="yAz-lH-sRe"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQh-OZ-xAR">
-                                        <frame key="frameInset" minX="197" width="177" height="32"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQh-OZ-xAR">
                                         <color key="backgroundColor" red="0.03089032467" green="0.29884586909999999" blue="0.80410679269999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Login">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -628,15 +627,13 @@
                                             <segue destination="lip-MX-IPJ" kind="unwind" identifier="unwindToPresentWithSegue" unwindAction="unwindToPresentWithSegue:" id="COQ-vN-ca0"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtR-pL-mJd">
-                                        <frame key="frameInset" minX="197" width="177" height="32"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtR-pL-mJd">
                                         <color key="backgroundColor" red="0.03089032467" green="0.29884586909999999" blue="0.80410679269999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Register">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="register:" destination="SLk-zq-vkO" eventType="touchUpInside" id="EsK-u3-ips"/>
-                                            <segue destination="lHd-tQ-8PG" kind="show" identifier="ProfileSegue" id="fhU-VL-pRF"/>
                                         </connections>
                                     </button>
                                 </subviews>
