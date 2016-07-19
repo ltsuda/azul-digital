@@ -6,7 +6,7 @@
 //  Copyright © 2016 Leonardo Tsuda. All rights reserved.
 //
 
-import Firebase
+import FirebaseAuth
 import UIKit
 
 protocol alertable {
@@ -23,26 +23,30 @@ extension alertable where Self: UIViewController {
 }
 
 protocol creatable {
-    func create(email: String, password: String) -> (String, String, String)
+    func create(email: String, password: String, completion: (String, String, String) -> ())
 }
 
 extension creatable {
-    func create(email: String, password: String) -> (String, String, String) {
+    func create(email: String, password: String, completion: (String, String, String) -> ()) {
         
-        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error: NSError?) in
+        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
             if error != nil {
-                
+                if let code = FIRAuthErrorCode(rawValue: (error?.code)!) {
+                    switch code {
+                    case .errorCodeInvalidEmail:
+                        completion("Email inválido", "Favor preencher no formato usuario@provedor.com.br", "Tentar novamente")
+                    case .errorCodeEmailAlreadyInUse:
+                        completion("Email em uso", "Este email já está em uso, favor utilizar outro email", "Tentar novamente")
+                    case .errorCodeWeakPassword:
+                        completion("Senha insegura", "Favor utilizar uma senha com mais de 6 dígitos", "Tentar novamente")
+                    default:
+                        completion("\(code.rawValue)", "\(error?.localizedDescription)", "teste")
+                    }
+                }
             } else {
-                
+                completion("", "", "")
             }
-            
         })
-        
-        
-        
-        
-        
-        return ("", "", "")
     }
 
 }
