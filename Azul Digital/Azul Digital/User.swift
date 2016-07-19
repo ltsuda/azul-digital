@@ -10,7 +10,6 @@ import Foundation
 
 struct User {
     var email: String?
-    var password: String?
     var card: Int?
     var isOfficer: Bool?
     var firstName: String?
@@ -18,9 +17,8 @@ struct User {
     var carPlate: String?
     var photo: String?
     
-    init?(email: String, password: String) {
+    init?(email: String) {
         self.email = email
-        self.password = password
     }
     
     init(first: String, last: String, photo: String, isOfficer: Bool) {

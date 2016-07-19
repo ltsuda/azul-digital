@@ -66,7 +66,7 @@ extension UITextField {
         border.borderColor = UIColor.white().cgColor
         border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: self.frame.size.width, height: self.frame.size.height)
         border.borderWidth = width
-        let placeholder = AttributedString(string: uitextField(), attributes: [NSForegroundColorAttributeName: UIColor.white()])
+        let placeholder = AttributedString(string: uitextField(), attributes: [NSForegroundColorAttributeName: UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.5)])
         self.textColor = UIColor.white()
         self.tintColor = UIColor.white()
         self.attributedPlaceholder = placeholder

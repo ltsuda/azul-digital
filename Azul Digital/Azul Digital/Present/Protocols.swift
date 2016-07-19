@@ -22,6 +22,31 @@ extension alertable where Self: UIViewController {
     }
 }
 
+protocol creatable {
+    func create(email: String, password: String) -> (String, String, String)
+}
+
+extension creatable {
+    func create(email: String, password: String) -> (String, String, String) {
+        
+        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error: NSError?) in
+            if error != nil {
+                
+            } else {
+                
+            }
+            
+        })
+        
+        
+        
+        
+        
+        return ("", "", "")
+    }
+
+}
+
 
 
 
