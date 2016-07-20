@@ -15,12 +15,8 @@ class CreateAccViewController: UIViewController, alertable, creatable {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     @IBAction func register(_ sender: AnyObject) {
-        guard let email = emailTextField.text , !(emailTextField.text?.isEmpty)!, let password = passwordTextField.text, !(passwordTextField.text?.isEmpty)! else {
-            return alert(title: "Campos vazios", message: "Favor preencher os campos Email e Senha", actionTitle: "OK")
-        }
-        
         // create account with email/password and if there're an error, use closure to send an alert, else perform RegisterSegue
-        create(email: email, password: password) { [weak self] (title, message, action) in
+        create(email: emailTextField.text!, password: passwordTextField.text!) { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
                 print("\(title, message, action)")
                 self?.alert(title: title, message: message, actionTitle: action)
@@ -31,8 +27,7 @@ class CreateAccViewController: UIViewController, alertable, creatable {
                 }
                 self?.present(destionation, animated: true, completion: nil)
             }
-        }
-        
+        }       
         
     }
     

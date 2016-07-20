@@ -17,25 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         FIRApp.configure()
+        FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
+            if let _ = user {
+                //             úsuario autenticado/logado
+                let storyboard = UIStoryboard(name: "Map", bundle: nil)
+                let initialViewController = storyboard.instantiateInitialViewController()
+                UIApplication.shared().delegate?.window??.rootViewController = initialViewController
+            }
+        })
         
         return true
         
-    }
-    
-    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]? = [:]) -> Bool {
-        
-//        MARK: -   Logica pra iniciar na tela MapViewController, simulando que usuario já está logado.
-//        let teste = "abc"
-//        
-//        if teste == "abc" {
-//            let storyboard = UIStoryboard(name: "Map", bundle: nil)
-//            let initialViewController = storyboard.instantiateInitialViewController()
-//            UIApplication.shared().delegate?.window??.rootViewController = initialViewController
-//            
-//            return true
-//        }
-        
-        return true
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

@@ -23,24 +23,27 @@ extension alertable where Self: UIViewController {
 }
 
 protocol creatable {
-    func create(email: String, password: String, completion: (String, String, String) -> ())
+    func create(email: String?, password: String?, completion: (String, String, String) -> ())
 }
 
 extension creatable {
-    func create(email: String, password: String, completion: (String, String, String) -> ()) {
-        
+    func create(email: String?, password: String?, completion: (String, String, String) -> ()) {
+        guard let email = email , !(email.isEmpty), let password = password, !(password.isEmpty) else {
+           return completion("Campos vazios", "Favor preencher os campos Email e Senha", "Tentar novamente")
+        }
+
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
             if error != nil {
                 if let code = FIRAuthErrorCode(rawValue: (error?.code)!) {
                     switch code {
                     case .errorCodeInvalidEmail:
-                        completion("Email inválido", "Favor preencher no formato usuario@provedor.com.br", "Tentar novamente")
+                        completion("Email inválido: \(code.rawValue)", "Favor preencher no formato usuario@provedor.com.br", "Tentar novamente")
                     case .errorCodeEmailAlreadyInUse:
-                        completion("Email em uso", "Este email já está em uso, favor utilizar outro email", "Tentar novamente")
+                        completion("Email em uso: \(code.rawValue)", "Este email já está em uso, favor utilizar outro email", "Tentar novamente")
                     case .errorCodeWeakPassword:
-                        completion("Senha insegura", "Favor utilizar uma senha com mais de 6 dígitos", "Tentar novamente")
+                        completion("Senha insegura: \(code.rawValue)", "Favor utilizar uma senha com mais de 6 dígitos", "Tentar novamente")
                     default:
-                        completion("\(code.rawValue)", "\(error?.localizedDescription)", "teste")
+                        completion("Código: \(code.rawValue)", "\(error?.localizedDescription)", "OK")
                     }
                 }
             } else {
@@ -48,7 +51,38 @@ extension creatable {
             }
         })
     }
+}
 
+protocol loggable {
+    func login(email: String?, password: String?, completion: (String, String, String) -> ())
+}
+
+extension loggable {
+    func login(email: String?, password: String?, completion: (String, String, String) -> ()) {
+        guard let email = email , !(email.isEmpty), let password = password, !(password.isEmpty) else {
+            return completion("Campos vazios", "Favor preencher os campos Email e Senha", "Tentar novamente")
+        }
+        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
+            if error != nil {
+                if let code = FIRAuthErrorCode(rawValue: (error?.code)!) {
+                    switch code {
+                    case .errorCodeInvalidEmail:
+                        completion("Email inválido: \(code.rawValue)", "Favor preencher no formato usuario@provedor.com.br", "Tentar novamente")
+                    case .errorCodeOperationNotAllowed:
+                        completion("Serviço desabilitado: \(code.rawValue)", "Favor entrar em contato com o desenvolvedor", "Tentar novamente")
+                    case .errorCodeUserDisabled:
+                        completion("Conta desabilitada: \(code.rawValue)", "Favor entrar em contato com o desenvolvedor", "Tentar novamente")
+                    case .errorCodeWrongPassword:
+                        completion("Senha incorreta: \(code.rawValue)", "Favor verifique sua senha", "Tentar novamente")
+                    default:
+                        completion("Código: \(code.rawValue)", "\(error?.localizedDescription)", "OK")
+                    }
+                }
+            } else {
+                completion("", "", "")
+            }
+        })
+    }
 }
 
 

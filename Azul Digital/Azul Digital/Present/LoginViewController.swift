@@ -8,14 +8,22 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, alertable, loggable {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     @IBAction func login(_ sender: AnyObject) {
-        performSegue(withIdentifier: "LoginSegue", sender: nil)
+        login(email: emailTextField.text!, password: passwordTextField.text!) { [weak self] (title, message, action) in
+            if title != "" && message != "" && action != "" {
+                print("\(title, message, action)")
+                self?.alert(title: title, message: message, actionTitle: action)
+            } else {
+                self?.performSegue(withIdentifier: "LoginSegue", sender: nil)
+            }
+        }
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,19 +52,13 @@ class LoginViewController: UIViewController {
     }
     
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "LoginSegue" {
-            let storyboard = UIStoryboard(name: "Map", bundle: nil)
-            let destination = storyboard.instantiateInitialViewController()
-            present(destination!, animated: true, completion: nil)
-        }
-    }
+
+    }*/
  
 
 }
