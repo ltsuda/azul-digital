@@ -75,5 +75,12 @@ extension UITextField {
         self.layer.addSublayer(border)
         self.layer.masksToBounds = true
     }
+    func placeHolderText(in uitextField: () -> String) {
+        let placeholder = AttributedString(string: uitextField(), attributes: [NSForegroundColorAttributeName: UIColor.init(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5)])
+        self.textColor = UIColor.black()
+        self.tintColor = UIColor.lightGray()
+        self.attributedPlaceholder = placeholder
+
+    }
     
 }

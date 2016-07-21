@@ -7,13 +7,52 @@
 //
 
 import UIKit
+import FirebaseAuth
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, alertable, profile {
 
+    @IBAction func cancel(_ sender: AnyObject) {
+        let user = FIRAuth.auth()?.currentUser
+        
+        user?.delete { error in
+            if let error = error {
+                self.alert(title: "\(error.code)", message: "\(error.localizedDescription)", actionTitle: "OK")
+            } else {
+                // Account deleted.
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let initialViewController = storyboard.instantiateViewController(withIdentifier: "UINavigationControllerMain")
+                self.present(initialViewController, animated: true, completion: nil)
+            }
+        }
+        
+    }
+    @IBAction func next(_ sender: AnyObject) {
+        
+        checkEmpty(firstName: nameTextField.text!, lastName: lastNameTextField.text!) { [weak self] (title, message, action) in
+            if title != "" && message != "" && action != "" {
+                self?.alert(title: title, message: message, actionTitle: action)
+            } else {
+                self?.performSegue(withIdentifier: "CarSegue", sender: nil)
+            }
+        }
+        
+    }
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+
+        
+        
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        nameTextField.placeHolderText(in: PlaceHolder.fill(.firstName))
+        lastNameTextField.placeHolderText(in: PlaceHolder.fill(.lastName))
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,14 +61,23 @@ class ProfileViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue == "CarSegue" {
+            let _ = User(first: nameTextField.text!, last: lastNameTextField.text!, photo: "", isOfficer: false)
+            
+            
+        } else {
+            return print("failed segue CarSegue")
+
+        }
+        
     }
-    */
+ 
 
 }

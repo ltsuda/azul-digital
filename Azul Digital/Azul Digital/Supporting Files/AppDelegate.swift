@@ -16,8 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        UINavigationBar.appearance().barTintColor = UIColor(red: 15/255, green: 127/255, blue: 223/255, alpha: 1)
+        UINavigationBar.appearance().tintColor = UIColor.white()
+        
         FIRApp.configure()
-        FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
+        let authListener = FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
             if let _ = user {
                 //             úsuario autenticado/logado
                 let storyboard = UIStoryboard(name: "Map", bundle: nil)
@@ -25,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 UIApplication.shared().delegate?.window??.rootViewController = initialViewController
             }
         })
-        
+        FIRAuth.auth()?.removeStateDidChangeListener(authListener!)
         return true
         
     }

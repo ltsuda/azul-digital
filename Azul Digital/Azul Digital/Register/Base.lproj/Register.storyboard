@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11173.2" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zNd-SS-G9M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11173.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zNd-SS-G9M">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11143.2"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,20 +18,62 @@
                     <view key="view" contentMode="scaleToFill" id="WWB-Mz-bOl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vD5-iC-pJQ">
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nXm-rO-PeY">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="3zn-mP-7SR"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="c6p-bH-ZRY">
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="aRI-SL-1pv" userLabel="Nome">
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sobrenome" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="pQK-R3-2fM" userLabel="Nome">
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="vD5-iC-pJQ" secondAttribute="trailing" id="47D-eu-muD"/>
+                            <constraint firstItem="vD5-iC-pJQ" firstAttribute="leading" secondItem="WWB-Mz-bOl" secondAttribute="leadingMargin" id="awN-q6-iRY"/>
+                            <constraint firstItem="vD5-iC-pJQ" firstAttribute="top" secondItem="Ss7-uo-YNI" secondAttribute="bottom" constant="8" id="yrv-He-igA"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="veF-SQ-cmo">
                         <barButtonItem key="backBarButtonItem" title="Voltar" id="7qS-FV-fLj"/>
-                        <barButtonItem key="rightBarButtonItem" title="Próximo" id="IEZ-rb-u4c">
+                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="tmS-lH-xL9">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="Ruz-9m-gtH" kind="show" identifier="CarSegue" id="b9l-Qv-yw9"/>
+                                <action selector="cancel:" destination="lYs-jE-hdS" id="LKl-VS-q3e"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Próximo" id="IEZ-rb-u4c">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="next:" destination="lYs-jE-hdS" id="9zs-em-UpW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="lastNameTextField" destination="pQK-R3-2fM" id="mhB-59-h5D"/>
+                        <outlet property="nameTextField" destination="aRI-SL-1pv" id="gWb-7O-pKK"/>
+                        <outlet property="profileImageView" destination="nXm-rO-PeY" id="90J-gx-6Sw"/>
+                        <segue destination="Ruz-9m-gtH" kind="show" identifier="CarSegue" id="oSz-ts-1x2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ktG-by-Jx8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1616" y="-28"/>
+            <point key="canvasLocation" x="1615.2" y="-28.335832083958024"/>
         </scene>
         <!--RegisterNavigationController-->
         <scene sceneID="SJp-K0-aDw">
@@ -61,17 +104,18 @@
                     <view key="view" contentMode="scaleToFill" id="n0c-69-rVE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="skF-UE-fBJ">
                         <barButtonItem key="backBarButtonItem" title="Voltar" id="BVM-el-Z0K"/>
                         <barButtonItem key="rightBarButtonItem" title="Próximo" id="pyn-W0-5cg" userLabel="Próximo">
-                            <connections>
-                                <segue destination="h5r-F6-ehz" kind="show" identifier="CardSegue" id="f27-aX-aaa"/>
-                            </connections>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="h5r-F6-ehz" kind="show" identifier="CardSegue" id="sgw-Y9-OsP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Erd-kg-Xu0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -88,12 +132,14 @@
                     <view key="view" contentMode="scaleToFill" id="OQX-cA-VEd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="U65-Fo-sBp">
                         <barButtonItem key="backBarButtonItem" title="Voltar" id="bAU-SA-XZv"/>
-                        <barButtonItem key="rightBarButtonItem" title="Finalizar" id="ICx-lM-fdS" userLabel="Próximo"/>
+                        <barButtonItem key="rightBarButtonItem" title="Finalizar" id="ICx-lM-fdS" userLabel="Próximo">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Knz-bS-I2C" userLabel="First Responder" sceneMemberID="firstResponder"/>

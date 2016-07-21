@@ -29,9 +29,9 @@ protocol creatable {
 extension creatable {
     func create(email: String?, password: String?, completion: (String, String, String) -> ()) {
         guard let email = email , !(email.isEmpty), let password = password, !(password.isEmpty) else {
-           return completion("Campos vazios", "Favor preencher os campos Email e Senha", "Tentar novamente")
+            return completion("Campos vazios", "Favor preencher os campos Email e Senha", "Tentar novamente")
         }
-
+        
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
             if error != nil {
                 if let code = FIRAuthErrorCode(rawValue: (error?.code)!) {
@@ -82,6 +82,18 @@ extension loggable {
                 completion("", "", "")
             }
         })
+    }
+}
+
+protocol profile {
+    func checkEmpty(firstName: String?, lastName: String?, completion: (String, String, String) -> ())
+}
+extension profile {
+    func checkEmpty(firstName: String?, lastName: String?, completion: (String, String, String) -> ()) {
+        guard let firstName = firstName , !(firstName.isEmpty), let lastName = lastName, !(lastName.isEmpty) else {
+            return completion("Campos vazios", "Favor preencher os campos Nome e Sobrenome", "Tentar novamente")
+        }
+        completion("", "", "")
     }
 }
 

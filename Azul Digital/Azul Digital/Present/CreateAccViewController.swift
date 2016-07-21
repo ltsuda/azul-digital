@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class CreateAccViewController: UIViewController, alertable, creatable {
     
@@ -34,6 +35,7 @@ class CreateAccViewController: UIViewController, alertable, creatable {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
