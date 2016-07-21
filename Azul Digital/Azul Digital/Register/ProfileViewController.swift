@@ -43,7 +43,7 @@ class ProfileViewController: UIViewController, alertable, profile {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImageView)))
+        profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentPickerViewController)))
         
     }
     
@@ -81,7 +81,7 @@ class ProfileViewController: UIViewController, alertable, profile {
 }
 
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func handleSelectProfileImageView() {
+    func presentPickerViewController() {
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
