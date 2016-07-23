@@ -35,9 +35,9 @@ enum PlaceHolder: String {
     func fill() -> String {
         switch self {
         case .email:
-            return "Usuario@provedor.com.br"
+            return "usuario@provedor.com.br"
         case .password:
-            return "Senha"
+            return "senha"
         case .firstName:
             return "Nome"
         case .lastName:

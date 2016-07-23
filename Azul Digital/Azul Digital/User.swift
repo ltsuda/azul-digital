@@ -17,11 +17,8 @@ struct User {
     var carPlate: String?
     var photo: String?
     
-    init?(email: String) {
+    init(email: String, first: String, last: String, photo: String, isOfficer: Bool) {
         self.email = email
-    }
-    
-    init(first: String, last: String, photo: String, isOfficer: Bool) {
         self.firstName = first
         self.lastName = last
         self.photo = photo

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11173.2" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ejf-mR-DJk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11173.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ejf-mR-DJk">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11143.2"/>
@@ -70,7 +70,6 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="createAcc:" destination="bgp-pc-qqd" eventType="touchUpInside" id="Ypb-ES-KEi"/>
                                     <segue destination="SLk-zq-vkO" kind="show" identifier="CreateAccSegue" id="CbU-YY-xqD"/>
                                 </connections>
                             </button>
@@ -100,7 +99,6 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="alreadyMember:" destination="bgp-pc-qqd" eventType="touchUpInside" id="XwX-ZR-z3I"/>
                                     <segue destination="xhs-LR-leL" kind="show" identifier="LoginSegue" id="hjU-C7-dpC"/>
                                 </connections>
                             </button>
@@ -515,7 +513,7 @@
                         <outlet property="emailTextField" destination="UAe-bh-l1w" id="TBj-D7-PqB"/>
                         <outlet property="loginButton" destination="SQh-OZ-xAR" id="W16-FS-zWm"/>
                         <outlet property="passwordTextField" destination="E9a-JO-g6D" id="e6m-GC-5MF"/>
-                        <segue destination="xnB-NZ-Dkn" kind="show" identifier="LoginSegue" id="b11-Cz-2Mw"/>
+                        <segue destination="xnB-NZ-Dkn" kind="show" identifier="MapLoginSegue" id="b11-Cz-2Mw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vaU-ep-Qzk" userLabel="First Responder" sceneMemberID="firstResponder"/>

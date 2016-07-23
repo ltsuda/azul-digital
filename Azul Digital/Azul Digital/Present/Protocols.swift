@@ -37,7 +37,7 @@ extension creatable {
                 if let code = FIRAuthErrorCode(rawValue: (error?.code)!) {
                     switch code {
                     case .errorCodeInvalidEmail:
-                        completion("Email inválido: \(code.rawValue)", "Favor preencher no formato usuario@provedor.com.br", "Tentar novamente")            
+                        completion("Email inválido: \(code.rawValue)", "Favor preencher no formato usuario@provedor.com.br", "Tentar novamente")
                     case .errorCodeEmailAlreadyInUse:
                         completion("Email em uso: \(code.rawValue)", "Este email já está em uso, favor utilizar outro email", "Tentar novamente")
                     case .errorCodeWeakPassword:
@@ -85,15 +85,59 @@ extension loggable {
     }
 }
 
-protocol profile {
-    func checkEmpty(firstName: String?, lastName: String?, completion: (String, String, String) -> ())
+protocol CheckTextField {
+    func checkEmpty(textfield: [String]?, completion: (String, String, String) -> ())
 }
-extension profile {
-    func checkEmpty(firstName: String?, lastName: String?, completion: (String, String, String) -> ()) {
-        guard let firstName = firstName , !(firstName.isEmpty), let lastName = lastName, !(lastName.isEmpty) else {
-            return completion("Campos vazios", "Favor preencher os campos Nome e Sobrenome", "Tentar novamente")
+extension CheckTextField {
+    func checkEmpty(textfield: [String]?, completion: (String, String, String) -> ()) {
+        var isFilled = true
+        for text in textfield! {
+            if text.isEmpty {
+                isFilled = false
+                break
+            }
         }
-        completion("", "", "")
+        if isFilled == false {
+            completion("Campos vazios", "Favor preencher os campos Nome e Sobrenome", "Tentar novamente")
+        } else {
+            completion("", "", "")
+        }
+    }
+}
+
+protocol ValidatePlate {
+    func validatePlate(plate: String) -> Bool
+}
+
+extension ValidatePlate {
+    func validatePlate(plate: String) -> Bool {
+        let regex = try! RegularExpression(pattern: "^[A-Za-z]{3}[0-9]{4}$", options: [.caseInsensitive])
+        
+        let regexResult = regex.firstMatch(in: plate, options:[], range: NSRange(location: 0, length: plate.characters.count)) != nil
+        
+        if !regexResult {
+            return false
+        }
+        
+        return true
+    }
+}
+
+protocol ValidateCard {
+    func validateCard(card: String) -> Bool
+}
+
+extension ValidateCard {
+    func validateCard(card: String) -> Bool {
+        let regex = try! RegularExpression(pattern: "^[0-9]{16}$", options: [.caseInsensitive])
+        
+        let regexResult = regex.firstMatch(in: card, options:[], range: NSRange(location: 0, length: card.characters.count)) != nil
+        
+        if !regexResult {
+            return false
+        }
+        
+        return true
     }
 }
 

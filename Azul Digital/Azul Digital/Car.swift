@@ -9,20 +9,22 @@
 import Foundation
 
 struct Car {
-    let plate: String
-    let brand: String
-    let color: String
-    let model: String
-    var ticket: [Ticket]?
+    var plate: String?
+    var brand: String?
+    var color: String?
+    var model: String?
+    var ticket: Ticket?
 
-    init(plate: String, brand: String, color: String, model: String, ticket: [Ticket]) {
+    init(plate: String, brand: String, color: String, model: String) {
         self.plate = plate
         self.brand = brand
         self.color = color
         self.model = model
-        self.ticket = nil
     }
 
+    init(ticket: Ticket) {
+        self.ticket = ticket
+    }
 
 
 }

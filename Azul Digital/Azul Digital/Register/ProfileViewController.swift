@@ -9,12 +9,13 @@
 import UIKit
 import FirebaseAuth
 
-class ProfileViewController: UIViewController, alertable, profile {
+class ProfileViewController: UIViewController, alertable, CheckTextField {
     
     var imageURL: String?
     
     @IBAction func cancel(_ sender: AnyObject) {
         let user = FIRAuth.auth()?.currentUser
+//        FIXME: implement this method delete(completion:) before delete user and if there's an error while deleting the image, sends the Alert and do not delete the user.
         
         delete(completion: { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
@@ -38,7 +39,7 @@ class ProfileViewController: UIViewController, alertable, profile {
     }
     @IBAction func next(_ sender: AnyObject) {
         
-        checkEmpty(firstName: nameTextField.text!, lastName: lastNameTextField.text!) { [weak self] (title, message, action) in
+        checkEmpty(textfield: [nameTextField.text!, lastNameTextField.text!]) { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
                 self?.alert(title: title, message: message, actionTitle: action)
             } else {
@@ -79,9 +80,15 @@ class ProfileViewController: UIViewController, alertable, profile {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "CarSegue" {
-            let _ = User(first: nameTextField.text!, last: lastNameTextField.text!, photo: imageURL!, isOfficer: false)
-            print(imageURL!)
+            guard let destination = segue.destinationViewController as? CarViewController else {
+                return print("failed segue destination")
+            }
+            if imageURL == nil  {
+                imageURL = ""
+            }
             
+            let userBasic = User(email: (FIRAuth.auth()?.currentUser?.email)!, first: nameTextField.text!, last: lastNameTextField.text!, photo: imageURL!, isOfficer: false)
+            destination.user = userBasic
             
         } else {
             return print("failed segue CarSegue")
@@ -119,7 +126,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
                 } else if !title.isEmpty {
                     self?.imageURL = title
                 }
-                })
+            })
         }
         dismiss(animated: true, completion: nil)
     }
