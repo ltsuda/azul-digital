@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 
 class ProfileViewController: UIViewController, alertable, profile {
-
+    
     var imageURL: String?
     
     @IBAction func cancel(_ sender: AnyObject) {
@@ -23,6 +23,7 @@ class ProfileViewController: UIViewController, alertable, profile {
         })
         
         user?.delete { error in
+            
             if let error = error {
                 self.alert(title: "\(error.code)", message: "\(error.localizedDescription)", actionTitle: "OK")
             } else {
@@ -51,27 +52,28 @@ class ProfileViewController: UIViewController, alertable, profile {
     @IBOutlet weak var lastNameTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentPickerViewController)))
-        
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        
         nameTextField.placeHolderText(in: PlaceHolder.fill(.firstName))
         lastNameTextField.placeHolderText(in: PlaceHolder.fill(.lastName))
+        profileImageView.configureBorder()
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
@@ -83,11 +85,11 @@ class ProfileViewController: UIViewController, alertable, profile {
             
         } else {
             return print("failed segue CarSegue")
-
+            
         }
         
     }
-
+    
 }
 
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, storage {
@@ -117,7 +119,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
                 } else if !title.isEmpty {
                     self?.imageURL = title
                 }
-            })
+                })
         }
         dismiss(animated: true, completion: nil)
     }

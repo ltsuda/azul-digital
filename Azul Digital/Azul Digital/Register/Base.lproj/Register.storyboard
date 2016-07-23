@@ -3,7 +3,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11143.2"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,34 +21,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vD5-iC-pJQ">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="c6p-bH-ZRY">
                                 <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nXm-rO-PeY">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="3zn-mP-7SR"/>
-                                        </constraints>
-                                    </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="c6p-bH-ZRY">
-                                        <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="aRI-SL-1pv" userLabel="Nome">
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                                            </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sobrenome" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="pQK-R3-2fM" userLabel="Nome">
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="aRI-SL-1pv" userLabel="Nome">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sobrenome" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="pQK-R3-2fM" userLabel="Nome">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    </textField>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="wjn-TA-bdV"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="wjn-TA-bdV"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="wjn-TA-bdV"/>
+                                    </mask>
+                                </variation>
                             </stackView>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="nXm-rO-PeY">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nXm-rO-PeY" secondAttribute="height" multiplier="1:1" id="koE-hP-SCt"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="koE-hP-SCt"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="koE-hP-SCt"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="vD5-iC-pJQ" secondAttribute="trailing" id="47D-eu-muD"/>
-                            <constraint firstItem="vD5-iC-pJQ" firstAttribute="leading" secondItem="WWB-Mz-bOl" secondAttribute="leadingMargin" id="awN-q6-iRY"/>
-                            <constraint firstItem="vD5-iC-pJQ" firstAttribute="top" secondItem="Ss7-uo-YNI" secondAttribute="bottom" constant="8" id="yrv-He-igA"/>
+                            <constraint firstItem="nXm-rO-PeY" firstAttribute="top" secondItem="Ss7-uo-YNI" secondAttribute="bottom" constant="8" id="FJO-Ml-Nhq"/>
+                            <constraint firstItem="c6p-bH-ZRY" firstAttribute="leading" secondItem="nXm-rO-PeY" secondAttribute="trailing" constant="147" id="M1b-MM-d60">
+                                <variation key="heightClass=regular-widthClass=compact" constant="8"/>
+                            </constraint>
+                            <constraint firstItem="c6p-bH-ZRY" firstAttribute="trailing" secondItem="WWB-Mz-bOl" secondAttribute="trailingMargin" id="OC9-Gi-A89"/>
+                            <constraint firstItem="c6p-bH-ZRY" firstAttribute="top" secondItem="Ss7-uo-YNI" secondAttribute="bottom" constant="8" id="c2r-MF-8eo"/>
+                            <constraint firstItem="nXm-rO-PeY" firstAttribute="width" secondItem="WWB-Mz-bOl" secondAttribute="width" multiplier="0.25" id="cd4-Mj-f1R"/>
+                            <constraint firstItem="nXm-rO-PeY" firstAttribute="leading" secondItem="WWB-Mz-bOl" secondAttribute="leadingMargin" id="sGC-mI-Xgb"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="FJO-Ml-Nhq"/>
+                                <exclude reference="cd4-Mj-f1R"/>
+                                <exclude reference="sGC-mI-Xgb"/>
+                                <exclude reference="M1b-MM-d60"/>
+                                <exclude reference="OC9-Gi-A89"/>
+                                <exclude reference="c2r-MF-8eo"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="FJO-Ml-Nhq"/>
+                                <include reference="cd4-Mj-f1R"/>
+                                <include reference="sGC-mI-Xgb"/>
+                                <include reference="M1b-MM-d60"/>
+                                <include reference="OC9-Gi-A89"/>
+                                <include reference="c2r-MF-8eo"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="veF-SQ-cmo">
                         <barButtonItem key="backBarButtonItem" title="Voltar" id="7qS-FV-fLj"/>
@@ -146,4 +192,7 @@
             <point key="canvasLocation" x="3138" y="-28"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icon" width="795" height="728"/>
+    </resources>
 </document>
