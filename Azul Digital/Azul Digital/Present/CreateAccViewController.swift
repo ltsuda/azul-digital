@@ -10,7 +10,6 @@ import UIKit
 import FirebaseAuth
 
 class CreateAccViewController: UIViewController, alertable, creatable {
-    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var cancelButton: UIButton!

@@ -37,7 +37,7 @@ extension creatable {
                 if let code = FIRAuthErrorCode(rawValue: (error?.code)!) {
                     switch code {
                     case .errorCodeInvalidEmail:
-                        completion("Email inválido: \(code.rawValue)", "Favor preencher no formato usuario@provedor.com.br", "Tentar novamente")
+                        completion("Email inválido: \(code.rawValue)", "Favor preencher no formato usuario@provedor.com.br", "Tentar novamente")            
                     case .errorCodeEmailAlreadyInUse:
                         completion("Email em uso: \(code.rawValue)", "Este email já está em uso, favor utilizar outro email", "Tentar novamente")
                     case .errorCodeWeakPassword:

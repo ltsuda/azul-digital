@@ -11,14 +11,23 @@ import FirebaseAuth
 
 class ProfileViewController: UIViewController, alertable, profile {
 
+    var imageURL: String?
+    
     @IBAction func cancel(_ sender: AnyObject) {
         let user = FIRAuth.auth()?.currentUser
+        
+        delete(completion: { [weak self] (title, message, action) in
+            if title != "" && message != "" && action != "" {
+                self?.alert(title: title, message: message, actionTitle: action)
+            }
+        })
         
         user?.delete { error in
             if let error = error {
                 self.alert(title: "\(error.code)", message: "\(error.localizedDescription)", actionTitle: "OK")
             } else {
-                // Account deleted.
+                // Account and image from storage deleted.
+                
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let initialViewController = storyboard.instantiateViewController(withIdentifier: "UINavigationControllerMain")
                 self.present(initialViewController, animated: true, completion: nil)
@@ -67,8 +76,9 @@ class ProfileViewController: UIViewController, alertable, profile {
     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue == "CarSegue" {
-            let _ = User(first: nameTextField.text!, last: lastNameTextField.text!, photo: "", isOfficer: false)
+        if segue.identifier == "CarSegue" {
+            let _ = User(first: nameTextField.text!, last: lastNameTextField.text!, photo: imageURL!, isOfficer: false)
+            print(imageURL!)
             
             
         } else {
@@ -80,7 +90,7 @@ class ProfileViewController: UIViewController, alertable, profile {
 
 }
 
-extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, storage {
     func presentPickerViewController() {
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -101,6 +111,13 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
             DispatchQueue.main.async {
                 self.profileImageView.image = selectedImage
             }
+            upload(image: selectedImage, completion: { [weak self] (title, message, action) in
+                if title != "" && message != "" && action != "" {
+                    self?.alert(title: title, message: message, actionTitle: action)
+                } else if !title.isEmpty {
+                    self?.imageURL = title
+                }
+            })
         }
         dismiss(animated: true, completion: nil)
     }
