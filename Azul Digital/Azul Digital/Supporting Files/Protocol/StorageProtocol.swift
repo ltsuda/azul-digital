@@ -10,30 +10,25 @@ import Foundation
 import Firebase
 
 protocol storage {
-    var reference: String { get }
-    var storageReference: FIRStorageReference { get }
+    var storageRef: FIRStorageReference { get }
     var imageName: String { get }
     func upload(image: UIImage, completion: (String, String, String) -> ())
     func delete(completion: (String, String, String) -> ())
 }
 
 extension storage {
-    var reference: String {
-        return "gs://azul-digital.appspot.com"
-    }
     var imageName: String {
         guard let userID = FIRAuth.auth()?.currentUser?.uid else {
             return "\(arc4random_stir())"
         }
         return userID
     }
-    var storageReference: FIRStorageReference {
+    var storageRef: FIRStorageReference {
         return FIRStorage.storage().reference().child("profile_img").child("\(imageName).jpg")
     }
-    
     func upload(image: UIImage, completion: (String, String, String) -> ()) {
         if let imageToUpload = UIImageJPEGRepresentation(image, 0.1) {
-            storageReference.put(imageToUpload, metadata: nil, completion: { (metadata, error) in
+            storageRef.put(imageToUpload, metadata: nil, completion: { (metadata, error) in
                 if error != nil {
                     if let code = FIRStorageErrorCode(rawValue: (error?.code)!) {
                         switch code {
@@ -53,12 +48,12 @@ extension storage {
     }
     
     func delete(completion: (String, String, String) -> ()) {
-        storageReference.delete(completion: { error in
+        storageRef.delete(completion: { error in
             if error != nil {
                 if let code = FIRStorageErrorCode(rawValue: (error?.code)!) {
                     switch code {
                     case .retryLimitExceeded:
-                        completion("Tempo excedido: \(code.rawValue)", "O tempo para salvar a imagem excedeu", "Tentar novamente")
+                        completion("Tempo excedido: \(code.rawValue)", "O tempo para deletar a imagem excedeu", "Tentar novamente")
                     default:
                         completion("Código: \(code.rawValue)", "\(error?.localizedDescription)", "OK")
                     }

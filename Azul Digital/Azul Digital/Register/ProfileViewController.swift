@@ -14,26 +14,12 @@ class ProfileViewController: UIViewController, alertable, CheckTextField {
     var imageURL: String?
     
     @IBAction func cancel(_ sender: AnyObject) {
-        let user = FIRAuth.auth()?.currentUser
-//        FIXME: implement this method delete(completion:) before delete user and if there's an error while deleting the image, sends the Alert and do not delete the user.
-        
-        delete(completion: { [weak self] (title, message, action) in
-            if title != "" && message != "" && action != "" {
-                self?.alert(title: title, message: message, actionTitle: action)
-            }
-        })
-        
-        user?.delete { error in
-            
-            if let error = error {
-                self.alert(title: "\(error.code)", message: "\(error.localizedDescription)", actionTitle: "OK")
-            } else {
-                // Account and image from storage deleted.
-                
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let initialViewController = storyboard.instantiateViewController(withIdentifier: "UINavigationControllerMain")
-                self.present(initialViewController, animated: true, completion: nil)
-            }
+//        FIXME: Could have a bug here, if isImageLoaded = true but there's an error deleting the image, the user may be deleted and if we try to call deleteImage() again, it'll fail and never logout.
+        if isImageLoaded == false {
+            deleteUser()
+        } else {
+            deleteImage()
+            deleteUser()
         }
         
     }
@@ -51,6 +37,8 @@ class ProfileViewController: UIViewController, alertable, CheckTextField {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
+    var isImageLoaded = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,9 +58,7 @@ class ProfileViewController: UIViewController, alertable, CheckTextField {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    
+
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -87,7 +73,7 @@ class ProfileViewController: UIViewController, alertable, CheckTextField {
                 imageURL = ""
             }
             
-            let userBasic = User(email: (FIRAuth.auth()?.currentUser?.email)!, first: nameTextField.text!, last: lastNameTextField.text!, photo: imageURL!, isOfficer: false)
+            let userBasic = User(userID: (FIRAuth.auth()?.currentUser?.uid)!, email: (FIRAuth.auth()?.currentUser?.email)!, first: nameTextField.text!, last: lastNameTextField.text!, photo: imageURL!, isOfficer: false)
             destination.user = userBasic
             
         } else {
@@ -95,6 +81,28 @@ class ProfileViewController: UIViewController, alertable, CheckTextField {
             
         }
         
+    }
+    
+    func deleteUser() {
+        let user = FIRAuth.auth()?.currentUser
+        user?.delete { error in
+            if let error = error {
+                self.alert(title: "\(error.code)", message: "\(error.localizedDescription)", actionTitle: "OK")
+                self.isImageLoaded = false
+            } else {
+                // Account and image from storage deleted.
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let initialViewController = storyboard.instantiateViewController(withIdentifier: "UINavigationControllerMain")
+                self.present(initialViewController, animated: true, completion: nil)
+            }
+        }
+    }
+    func deleteImage() {
+        delete(completion: { [weak self] (title, message, action) in
+            if title != "" && message != "" && action != "" {
+                self?.alert(title: title, message: message, actionTitle: action)
+            }
+            })
     }
     
 }
@@ -106,11 +114,10 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         picker.allowsEditing = true
         present(picker, animated: true, completion: nil)
     }
-    
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         var selectedImageFromPicker: UIImage?
-        
         if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
             selectedImageFromPicker = editedImage
         } else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
@@ -125,6 +132,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
                     self?.alert(title: title, message: message, actionTitle: action)
                 } else if !title.isEmpty {
                     self?.imageURL = title
+                    self?.isImageLoaded = true
                 }
             })
         }
