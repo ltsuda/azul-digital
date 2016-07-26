@@ -10,6 +10,15 @@ import UIKit
 
 class CarEditViewController: UIViewController {
 
+    @IBOutlet weak var brandEditTextField: UITextField!
+    @IBOutlet weak var modelEditTextField: UITextField!
+    @IBOutlet weak var colorEditTextField: UITextField!
+    @IBOutlet weak var plateEditTextField: UITextField!
+    @IBOutlet weak var textView: UITextView!
+
+    @IBAction func save(_ sender: AnyObject) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

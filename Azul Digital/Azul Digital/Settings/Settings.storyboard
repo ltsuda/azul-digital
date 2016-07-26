@@ -104,8 +104,16 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Salvar" id="qSA-DA-npf">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="save:" destination="tJg-qd-Vrr" id="Wdu-6f-5jo"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="editImageView" destination="chX-2F-sLL" id="0h6-wh-Ioj"/>
+                        <outlet property="lastNameEditTextField" destination="b6L-GT-hT5" id="23L-1r-L8u"/>
+                        <outlet property="nameEditTextField" destination="UVs-ji-ROb" id="JAH-8C-vNj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tqY-Hu-Rec" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="kcF-qG-pIT" userLabel="Exit" sceneMemberID="exit"/>
@@ -130,6 +138,29 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zFz-vY-0mA" id="iBc-aU-Vgh">
                                             <frame key="frameInset" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="RCL-Ac-hF2">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="32" id="Rui-Tz-4Up"/>
+                                                        <constraint firstAttribute="height" constant="32" id="ToI-ra-Be8"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="cdU-lf-9nm">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="UnX-LF-2Tn"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cdU-lf-9nm" firstAttribute="leading" secondItem="RCL-Ac-hF2" secondAttribute="trailing" constant="8" id="32x-yP-Scd"/>
+                                                <constraint firstItem="cdU-lf-9nm" firstAttribute="centerY" secondItem="iBc-aU-Vgh" secondAttribute="centerY" id="4X9-Vt-Gte"/>
+                                                <constraint firstAttribute="trailing" secondItem="cdU-lf-9nm" secondAttribute="trailing" id="Whe-QH-yS9"/>
+                                                <constraint firstItem="RCL-Ac-hF2" firstAttribute="leading" secondItem="iBc-aU-Vgh" secondAttribute="leading" constant="8" id="dDO-hi-xfK"/>
+                                                <constraint firstItem="RCL-Ac-hF2" firstAttribute="centerY" secondItem="iBc-aU-Vgh" secondAttribute="centerY" id="mCY-Kq-1oC"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="tJg-qd-Vrr" kind="show" identifier="ProfileEditSegue" id="Rec-Lp-aGu"/>
@@ -141,6 +172,29 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ihx-dZ-u92" id="773-Mr-2VU">
                                             <frame key="frameInset" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Carro" translatesAutoresizingMaskIntoConstraints="NO" id="F2v-Lk-UBw">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="LMK-Jq-XAI"/>
+                                                        <constraint firstAttribute="width" constant="32" id="tc9-6g-jdy"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="CNM-mz-OMy">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="wcG-8N-wl0"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="CNM-mz-OMy" firstAttribute="leading" secondItem="F2v-Lk-UBw" secondAttribute="trailing" constant="8" id="Ngd-GR-TlI"/>
+                                                <constraint firstItem="F2v-Lk-UBw" firstAttribute="centerY" secondItem="773-Mr-2VU" secondAttribute="centerY" id="jec-TA-OdH"/>
+                                                <constraint firstItem="CNM-mz-OMy" firstAttribute="centerY" secondItem="773-Mr-2VU" secondAttribute="centerY" id="v0w-AU-Deq"/>
+                                                <constraint firstAttribute="trailing" secondItem="CNM-mz-OMy" secondAttribute="trailing" id="vm8-Vy-lz2"/>
+                                                <constraint firstItem="F2v-Lk-UBw" firstAttribute="leading" secondItem="773-Mr-2VU" secondAttribute="leading" constant="8" id="xtr-ks-sYe"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="ebh-Mw-SAc" kind="show" identifier="CarEditSegue" id="GBd-ZO-sfd"/>
@@ -152,6 +206,29 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tgr-fh-XmM" id="Prn-gO-K3Q">
                                             <frame key="frameInset" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardSetting" translatesAutoresizingMaskIntoConstraints="NO" id="Kra-0F-V7p">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="32" id="Cbk-bq-UNQ"/>
+                                                        <constraint firstAttribute="height" constant="32" id="e0f-qh-d4n"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="bSI-b7-P3b">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="1fU-cO-RhW"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bSI-b7-P3b" firstAttribute="centerY" secondItem="Prn-gO-K3Q" secondAttribute="centerY" id="3rF-Hu-iRr"/>
+                                                <constraint firstItem="Kra-0F-V7p" firstAttribute="leading" secondItem="Prn-gO-K3Q" secondAttribute="leading" constant="8" id="5eh-Ud-G0G"/>
+                                                <constraint firstItem="bSI-b7-P3b" firstAttribute="leading" secondItem="Kra-0F-V7p" secondAttribute="trailing" constant="8" id="8yB-27-6m1"/>
+                                                <constraint firstAttribute="trailing" secondItem="bSI-b7-P3b" secondAttribute="trailing" id="FZp-oE-XHf"/>
+                                                <constraint firstItem="Kra-0F-V7p" firstAttribute="centerY" secondItem="Prn-gO-K3Q" secondAttribute="centerY" id="yKo-qO-KbR"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="dM1-mT-0pc" kind="show" identifier="CardEditSegue" id="tA1-1u-zCC"/>
@@ -163,6 +240,29 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HKk-8T-7yh" id="8Gw-aA-Yos">
                                             <frame key="frameInset" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about" translatesAutoresizingMaskIntoConstraints="NO" id="R9X-WT-3br">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="W2n-x8-XnE"/>
+                                                        <constraint firstAttribute="width" constant="32" id="xhf-3G-sfJ"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="00d-ya-YdJ">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="FsH-gf-YLF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="00d-ya-YdJ" firstAttribute="leading" secondItem="R9X-WT-3br" secondAttribute="trailing" constant="8" id="5U0-u0-SV5"/>
+                                                <constraint firstItem="R9X-WT-3br" firstAttribute="leading" secondItem="8Gw-aA-Yos" secondAttribute="leading" constant="8" id="IQP-PB-67F"/>
+                                                <constraint firstItem="R9X-WT-3br" firstAttribute="centerY" secondItem="8Gw-aA-Yos" secondAttribute="centerY" id="lhx-ka-Y91"/>
+                                                <constraint firstItem="00d-ya-YdJ" firstAttribute="centerY" secondItem="8Gw-aA-Yos" secondAttribute="centerY" id="nWZ-di-u4s"/>
+                                                <constraint firstAttribute="trailing" secondItem="00d-ya-YdJ" secondAttribute="trailing" id="yKu-s1-C9B"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="iG8-4Z-dMp" kind="show" identifier="AboutSegue" id="i2T-1j-FW0"/>
@@ -179,7 +279,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iER-il-Ftg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1172" y="-27"/>
+            <point key="canvasLocation" x="1172" y="-27.436281859070466"/>
         </scene>
         <!--CarViewController-->
         <scene sceneID="cZw-K2-kBZ">
@@ -275,8 +375,18 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Salvar" id="QOL-4d-cqR">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="save:" destination="ebh-Mw-SAc" id="wqW-AV-3jd"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="brandEditTextField" destination="cks-ro-iVo" id="vdQ-3c-Duy"/>
+                        <outlet property="colorEditTextField" destination="Kuq-La-e6R" id="Dun-1x-67p"/>
+                        <outlet property="modelEditTextField" destination="YaE-6g-8fA" id="RMq-Bw-E8g"/>
+                        <outlet property="plateEditTextField" destination="TAT-cw-iS2" id="sY3-5z-fjB"/>
+                        <outlet property="textView" destination="C2R-aG-Nga" id="BDa-LT-wmV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0J4-ju-V3F" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="raL-YT-RGI" userLabel="Exit" sceneMemberID="exit"/>
@@ -464,8 +574,15 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Salvar" id="wmQ-zN-ezK">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="save:" destination="dM1-mT-0pc" id="q7F-F2-bx8"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="cardEditTextField" destination="fhi-qN-xdO" id="b81-v4-IAZ"/>
+                        <outlet property="textView" destination="gXq-ke-9WB" id="Lxa-F9-mH0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rv0-eL-EgU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="MPy-sr-jjd" userLabel="Exit" sceneMemberID="exit"/>
@@ -474,7 +591,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Carro" width="29" height="29"/>
         <image name="Icon" width="795" height="728"/>
+        <image name="User" width="29" height="29"/>
+        <image name="about" width="29" height="29"/>
         <image name="card" width="32" height="22"/>
+        <image name="cardSetting" width="29" height="29"/>
     </resources>
 </document>

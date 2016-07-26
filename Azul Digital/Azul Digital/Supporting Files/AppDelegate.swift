@@ -17,7 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         UINavigationBar.appearance().barTintColor = UIColor(red: 15/255, green: 127/255, blue: 223/255, alpha: 1)
-        UINavigationBar.appearance().tintColor = UIColor.white()
+        UINavigationBar.appearance().tintColor = .white()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white()]
+        UINavigationBar.appearance().isTranslucent = false
         
         FIRApp.configure()
         let authListener = FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
@@ -30,9 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         FIRAuth.auth()?.removeStateDidChangeListener(authListener!)
         
-        UINavigationBar.appearance().tintColor = .white()
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white()]
-        UINavigationBar.appearance().isTranslucent = false
+
         
         return true
         

@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="qNW-ND-zqr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ELI-PY-WIK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="c9p-Ph-1Wo"/>
@@ -49,7 +49,7 @@
                                 <color key="backgroundColor" red="0.058823529409999999" green="0.49803921569999998" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="Lha-cr-K91" firstAttribute="centerY" secondItem="Gj8-t2-bP4" secondAttribute="centerY" id="HiT-Lf-wp2"/>
-                                    <constraint firstAttribute="height" constant="44" id="jIz-Yf-bKX"/>
+                                    <constraint firstAttribute="height" constant="40" id="jIz-Yf-bKX"/>
                                     <constraint firstItem="Lha-cr-K91" firstAttribute="leading" secondItem="Gj8-t2-bP4" secondAttribute="leading" constant="8" id="vFd-IF-PCM"/>
                                     <constraint firstAttribute="trailing" secondItem="Lha-cr-K91" secondAttribute="trailing" constant="8" id="zha-I8-Mqm"/>
                                 </constraints>
@@ -95,12 +95,12 @@
                                 <exclude reference="Gj8-t2-bP4"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="6yq-ck-FG9"/>
-                                <exclude reference="ag4-Bo-KeA"/>
-                                <exclude reference="z6N-Mc-SjI"/>
                                 <exclude reference="8zq-et-btY"/>
                                 <exclude reference="llH-rP-5gg"/>
                                 <exclude reference="nPU-gs-68U"/>
+                                <exclude reference="6yq-ck-FG9"/>
+                                <exclude reference="ag4-Bo-KeA"/>
+                                <exclude reference="z6N-Mc-SjI"/>
                                 <exclude reference="bF7-oK-b4q"/>
                             </mask>
                         </variation>
@@ -110,12 +110,12 @@
                                 <include reference="Gj8-t2-bP4"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="6yq-ck-FG9"/>
-                                <include reference="ag4-Bo-KeA"/>
-                                <include reference="z6N-Mc-SjI"/>
                                 <include reference="8zq-et-btY"/>
                                 <include reference="llH-rP-5gg"/>
                                 <include reference="nPU-gs-68U"/>
+                                <include reference="6yq-ck-FG9"/>
+                                <include reference="ag4-Bo-KeA"/>
+                                <include reference="z6N-Mc-SjI"/>
                                 <include reference="bF7-oK-b4q"/>
                             </mask>
                         </variation>
@@ -127,7 +127,8 @@
                                 <action selector="logout:" destination="3Pv-Hd-aEm" id="kRW-Tn-qS2"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="mVN-Xg-ZaK">
+                        <barButtonItem key="rightBarButtonItem" image="Settings" id="mVN-Xg-ZaK">
+                            <inset key="imageInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
                             <connections>
                                 <segue destination="Y9z-Cx-D3T" kind="show" identifier="SettingsSegue" id="G8k-nB-hOj"/>
                             </connections>
@@ -167,6 +168,7 @@
     </scenes>
     <resources>
         <image name="Pagar" width="125" height="32"/>
+        <image name="Settings" width="25" height="25"/>
         <image name="location" width="33" height="31"/>
         <image name="location enabled" width="33" height="31"/>
     </resources>

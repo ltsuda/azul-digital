@@ -10,6 +10,12 @@ import UIKit
 
 class CardEditViewController: UIViewController {
 
+    @IBOutlet weak var cardEditTextField: UITextField!
+    @IBOutlet weak var textView: UITextView!
+    @IBAction func save(_ sender: AnyObject) {
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -10,6 +10,11 @@ import UIKit
 
 class ProfileEditViewController: UIViewController {
 
+    @IBOutlet weak var editImageView: UIImageView!
+    @IBOutlet weak var nameEditTextField: UITextField!
+    @IBOutlet weak var lastNameEditTextField: UITextField!
+    @IBAction func save(_ sender: AnyObject) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
