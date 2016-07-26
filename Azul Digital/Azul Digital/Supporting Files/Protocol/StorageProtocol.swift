@@ -46,7 +46,7 @@ extension storage {
             })
         }
     }
-    
+
     func delete(completion: (String, String, String) -> ()) {
         storageRef.delete(completion: { error in
             if error != nil {
@@ -61,6 +61,6 @@ extension storage {
             }
         })
     }
-    
+
     
 }

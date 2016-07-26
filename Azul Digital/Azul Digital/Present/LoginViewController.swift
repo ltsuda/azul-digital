@@ -20,7 +20,7 @@ class LoginViewController: UIViewController, alertable, loggable {
                 print("\(title, message, action)")
                 self?.alert(title: title, message: message, actionTitle: action)
             } else {
-                self?.performSegue(withIdentifier: "LoginSegue", sender: nil)
+                self?.performSegue(withIdentifier: "MapLoginSegue", sender: nil)
             }
         }
 

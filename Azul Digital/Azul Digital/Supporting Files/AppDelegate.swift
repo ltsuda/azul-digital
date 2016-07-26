@@ -29,6 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
         FIRAuth.auth()?.removeStateDidChangeListener(authListener!)
+        
+        UINavigationBar.appearance().tintColor = .white()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white()]
+        UINavigationBar.appearance().isTranslucent = false
+        
         return true
         
     }

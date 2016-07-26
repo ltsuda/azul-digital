@@ -26,6 +26,11 @@
 		279F16D91D3572D600CC0C9D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F16D81D3572D600CC0C9D /* Extension.swift */; };
 		27ABD5521D42DA3100C11469 /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ABD5511D42DA3100C11469 /* StorageProtocol.swift */; };
 		27AD34321D395B0D0084E8FE /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AD34311D395B0D0084E8FE /* Protocols.swift */; };
+		27B50B721D46FC9E009BF635 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B50B711D46FC9E009BF635 /* Settings.storyboard */; };
+		27C7BA411D4704C200746C97 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C7BA401D4704C200746C97 /* ProfileEditViewController.swift */; };
+		27C7BA431D4704D300746C97 /* CarEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C7BA421D4704D300746C97 /* CarEditViewController.swift */; };
+		27C7BA451D4704DE00746C97 /* CardEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C7BA441D4704DE00746C97 /* CardEditViewController.swift */; };
+		27C7BA471D47063200746C97 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C7BA461D47063200746C97 /* SettingsTableViewController.swift */; };
 		27D4D6431D33E661007BB63A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D4D6421D33E661007BB63A /* AppDelegate.swift */; };
 		27D4D6481D33E661007BB63A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D4D6461D33E661007BB63A /* Main.storyboard */; };
 		27D4D64A1D33E661007BB63A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D4D6491D33E661007BB63A /* Assets.xcassets */; };
@@ -54,6 +59,11 @@
 		279F16D81D3572D600CC0C9D /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		27ABD5511D42DA3100C11469 /* StorageProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageProtocol.swift; sourceTree = "<group>"; };
 		27AD34311D395B0D0084E8FE /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		27B50B711D46FC9E009BF635 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = "Azul Digital/Settings.storyboard"; sourceTree = SOURCE_ROOT; };
+		27C7BA401D4704C200746C97 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileEditViewController.swift; path = "Azul Digital/ProfileEditViewController.swift"; sourceTree = SOURCE_ROOT; };
+		27C7BA421D4704D300746C97 /* CarEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarEditViewController.swift; path = "Azul Digital/CarEditViewController.swift"; sourceTree = SOURCE_ROOT; };
+		27C7BA441D4704DE00746C97 /* CardEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardEditViewController.swift; path = "Azul Digital/CardEditViewController.swift"; sourceTree = SOURCE_ROOT; };
+		27C7BA461D47063200746C97 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = "Azul Digital/SettingsTableViewController.swift"; sourceTree = SOURCE_ROOT; };
 		27D4D63F1D33E661007BB63A /* Azul Digital.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Azul Digital.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D4D6421D33E661007BB63A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27D4D6471D33E661007BB63A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,6 +105,19 @@
 				279D0B121D3AC53800BC1D4C /* User.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		27B50B701D46D147009BF635 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				27B50B711D46FC9E009BF635 /* Settings.storyboard */,
+				27C7BA401D4704C200746C97 /* ProfileEditViewController.swift */,
+				27C7BA421D4704D300746C97 /* CarEditViewController.swift */,
+				27C7BA441D4704DE00746C97 /* CardEditViewController.swift */,
+				27C7BA461D47063200746C97 /* SettingsTableViewController.swift */,
+			);
+			name = Settings;
+			path = Map;
 			sourceTree = "<group>";
 		};
 		27CBD2A91D34451F00B01D6E /* Register */ = {
@@ -164,6 +187,7 @@
 		27D4D6411D33E661007BB63A /* Azul Digital */ = {
 			isa = PBXGroup;
 			children = (
+				27B50B701D46D147009BF635 /* Settings */,
 				27CBD2AB1D34454F00B01D6E /* Map */,
 				279D0B111D3AC52600BC1D4C /* Model */,
 				27CBD2AA1D34454100B01D6E /* Present */,
@@ -261,6 +285,7 @@
 				2728D1D11D34386000694B53 /* Map.storyboard in Resources */,
 				2728D1D61D3439B500694B53 /* Register.storyboard in Resources */,
 				272ECE2D1D3ED0CC00E251DF /* GoogleService-Info.plist in Resources */,
+				27B50B721D46FC9E009BF635 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,15 +365,19 @@
 				279D0B151D3AC54200BC1D4C /* Car.swift in Sources */,
 				279D0B171D3AC54B00BC1D4C /* Ticket.swift in Sources */,
 				278C49A71D33FA5A00D43AAF /* PresentViewController.swift in Sources */,
+				27C7BA431D4704D300746C97 /* CarEditViewController.swift in Sources */,
 				27ABD5521D42DA3100C11469 /* StorageProtocol.swift in Sources */,
 				2728D1C71D34319000694B53 /* ProfileViewController.swift in Sources */,
+				27C7BA411D4704C200746C97 /* ProfileEditViewController.swift in Sources */,
 				279F16D91D3572D600CC0C9D /* Extension.swift in Sources */,
 				2728D1C51D341FB200694B53 /* CreateAccViewController.swift in Sources */,
+				27C7BA451D4704DE00746C97 /* CardEditViewController.swift in Sources */,
 				279D0B131D3AC53800BC1D4C /* User.swift in Sources */,
 				27D4D6431D33E661007BB63A /* AppDelegate.swift in Sources */,
 				2790778F1D468D8C005BA179 /* DatabaseProtocol.swift in Sources */,
 				2728D1D31D3438B800694B53 /* MapViewController.swift in Sources */,
 				2712DB521D3449CE008FD476 /* Gradient.swift in Sources */,
+				27C7BA471D47063200746C97 /* SettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
