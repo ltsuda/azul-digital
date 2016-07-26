@@ -59,11 +59,11 @@
 		279F16D81D3572D600CC0C9D /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		27ABD5511D42DA3100C11469 /* StorageProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageProtocol.swift; sourceTree = "<group>"; };
 		27AD34311D395B0D0084E8FE /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		27B50B711D46FC9E009BF635 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = "Azul Digital/Settings.storyboard"; sourceTree = SOURCE_ROOT; };
-		27C7BA401D4704C200746C97 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileEditViewController.swift; path = "Azul Digital/ProfileEditViewController.swift"; sourceTree = SOURCE_ROOT; };
-		27C7BA421D4704D300746C97 /* CarEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarEditViewController.swift; path = "Azul Digital/CarEditViewController.swift"; sourceTree = SOURCE_ROOT; };
-		27C7BA441D4704DE00746C97 /* CardEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardEditViewController.swift; path = "Azul Digital/CardEditViewController.swift"; sourceTree = SOURCE_ROOT; };
-		27C7BA461D47063200746C97 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = "Azul Digital/SettingsTableViewController.swift"; sourceTree = SOURCE_ROOT; };
+		27B50B711D46FC9E009BF635 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		27C7BA401D4704C200746C97 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
+		27C7BA421D4704D300746C97 /* CarEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarEditViewController.swift; sourceTree = "<group>"; };
+		27C7BA441D4704DE00746C97 /* CardEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardEditViewController.swift; sourceTree = "<group>"; };
+		27C7BA461D47063200746C97 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		27D4D63F1D33E661007BB63A /* Azul Digital.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Azul Digital.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D4D6421D33E661007BB63A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27D4D6471D33E661007BB63A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -110,14 +110,13 @@
 		27B50B701D46D147009BF635 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				27B50B711D46FC9E009BF635 /* Settings.storyboard */,
-				27C7BA401D4704C200746C97 /* ProfileEditViewController.swift */,
 				27C7BA421D4704D300746C97 /* CarEditViewController.swift */,
 				27C7BA441D4704DE00746C97 /* CardEditViewController.swift */,
+				27C7BA401D4704C200746C97 /* ProfileEditViewController.swift */,
+				27B50B711D46FC9E009BF635 /* Settings.storyboard */,
 				27C7BA461D47063200746C97 /* SettingsTableViewController.swift */,
 			);
-			name = Settings;
-			path = Map;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		27CBD2A91D34451F00B01D6E /* Register */ = {
@@ -187,11 +186,11 @@
 		27D4D6411D33E661007BB63A /* Azul Digital */ = {
 			isa = PBXGroup;
 			children = (
-				27B50B701D46D147009BF635 /* Settings */,
 				27CBD2AB1D34454F00B01D6E /* Map */,
 				279D0B111D3AC52600BC1D4C /* Model */,
 				27CBD2AA1D34454100B01D6E /* Present */,
 				27CBD2A91D34451F00B01D6E /* Register */,
+				27B50B701D46D147009BF635 /* Settings */,
 				27CBD2AC1D34455900B01D6E /* Supporting Files */,
 			);
 			path = "Azul Digital";
