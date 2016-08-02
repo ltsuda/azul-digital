@@ -56,7 +56,7 @@ class CarViewController: UIViewController, alertable, CheckTextField, ValidatePl
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "CardSegue" {
-            guard let destination = segue.destinationViewController as? CardViewController else {
+            guard let destination = segue.destination as? CardViewController else {
                 return print("failed segue destination")
             }
             let car = Car(plate: plateTextField.text!, brand: brandTextField.text!, color: colorTextField.text!, model: modelTextField.text!)

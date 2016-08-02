@@ -35,7 +35,9 @@ extension SaveUser {
         ]
         databaseRef.child(user.userID!).setValue(userData) { (error, _) in
             if error != nil {
-                completion("Código: \(error?.code)", "\(error?.localizedDescription)", "Tentar novamente")
+                if let code = (error as? NSError)?.code {
+                    completion("Código: \(code)", "\(error?.localizedDescription)", "Tentar novamente")
+                }
             } else {
                 completion("", "", "")
             }
@@ -65,7 +67,9 @@ extension SaveCar {
         ]
         databaseCarRef.child("\(car.plate!)").setValue(carData) { (error, _) in
             if error != nil {
-                completion("Código: \(error?.code)", "\(error?.localizedDescription)", "Tentar novamente")
+                if let code = (error as? NSError)?.code {
+                    completion("Código: \(code)", "\(error?.localizedDescription)", "Tentar novamente")
+                }
             } else {
                 completion("", "", "")
             }

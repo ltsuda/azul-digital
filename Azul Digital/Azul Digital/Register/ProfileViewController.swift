@@ -66,7 +66,7 @@ class ProfileViewController: UIViewController, alertable, CheckTextField {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "CarSegue" {
-            guard let destination = segue.destinationViewController as? CarViewController else {
+            guard let destination = segue.destination as? CarViewController else {
                 return print("failed segue destination")
             }
             if imageURL == nil  {
@@ -87,7 +87,7 @@ class ProfileViewController: UIViewController, alertable, CheckTextField {
         let user = FIRAuth.auth()?.currentUser
         user?.delete { error in
             if let error = error {
-                self.alert(title: "\(error.code)", message: "\(error.localizedDescription)", actionTitle: "OK")
+                self.alert(title: "\(error._code)", message: "\(error.localizedDescription)", actionTitle: "OK")
                 self.isImageLoaded = false
             } else {
                 // Account and image from storage deleted.

@@ -30,7 +30,7 @@ extension storage {
         if let imageToUpload = UIImageJPEGRepresentation(image, 0.1) {
             storageRef.put(imageToUpload, metadata: nil, completion: { (metadata, error) in
                 if error != nil {
-                    if let code = FIRStorageErrorCode(rawValue: (error?.code)!) {
+                    if let code = FIRStorageErrorCode(rawValue: (error?._code)!) {
                         switch code {
                         case .retryLimitExceeded:
                             completion("Tempo excedido: \(code.rawValue)", "O tempo para salvar a imagem excedeu", "Tentar novamente")
@@ -46,11 +46,11 @@ extension storage {
             })
         }
     }
-
+    
     func delete(completion: (String, String, String) -> ()) {
         storageRef.delete(completion: { error in
             if error != nil {
-                if let code = FIRStorageErrorCode(rawValue: (error?.code)!) {
+                if let code = FIRStorageErrorCode(rawValue: (error?._code)!) {
                     switch code {
                     case .retryLimitExceeded:
                         completion("Tempo excedido: \(code.rawValue)", "O tempo para deletar a imagem excedeu", "Tentar novamente")
@@ -61,6 +61,6 @@ extension storage {
             }
         })
     }
-
+    
     
 }

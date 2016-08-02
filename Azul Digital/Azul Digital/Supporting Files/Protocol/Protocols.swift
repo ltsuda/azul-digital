@@ -48,7 +48,7 @@ protocol ValidatePlate {
 
 extension ValidatePlate {
     func validatePlate(plate: String) -> Bool {
-        let regex = try! RegularExpression(pattern: "^[A-Za-z]{3}[0-9]{4}$", options: [.caseInsensitive])
+        let regex = try! NSRegularExpression(pattern: "^[A-Za-z]{3}[0-9]{4}$", options: [.caseInsensitive])
         
         let regexResult = regex.firstMatch(in: plate, options:[], range: NSRange(location: 0, length: plate.characters.count)) != nil
         
@@ -66,7 +66,7 @@ protocol ValidateCard {
 
 extension ValidateCard {
     func validateCard(card: String) -> Bool {
-        let regex = try! RegularExpression(pattern: "^[0-9]{16}$", options: [.caseInsensitive])
+        let regex = try! NSRegularExpression(pattern: "^[0-9]{16}$", options: [.caseInsensitive])
         
         let regexResult = regex.firstMatch(in: card, options:[], range: NSRange(location: 0, length: card.characters.count)) != nil
         
