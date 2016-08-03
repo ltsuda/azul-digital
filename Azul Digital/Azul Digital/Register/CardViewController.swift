@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CardViewController: UIViewController, alertable, CheckTextField, ValidateCard {
+class CardViewController: UIViewController, Alertable, CheckTextField, ValidateCard {
     
     @IBAction func finalizar(_ sender: AnyObject) {
         checkEmpty(textfield: [cardTextField.text!]) { [weak self] (title, message, action) in
@@ -25,11 +25,11 @@ class CardViewController: UIViewController, alertable, CheckTextField, ValidateC
                 }
             }
         }
-
+        
         if tryUser == true {
             saveUser()
         }
-
+        
     }
     @IBOutlet weak var cardTextField: UITextField!
     var user: User?
@@ -40,7 +40,7 @@ class CardViewController: UIViewController, alertable, CheckTextField, ValidateC
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,15 +48,11 @@ class CardViewController: UIViewController, alertable, CheckTextField, ValidateC
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Navigation
-    
-    /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }*/
-
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        cardTextField.placeHolderText(in: PlaceHolder.Card.Number)
+        
+    }
 }
 
 extension CardViewController: SaveUser, SaveCar {

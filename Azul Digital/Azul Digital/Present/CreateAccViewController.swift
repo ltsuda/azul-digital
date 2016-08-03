@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class CreateAccViewController: UIViewController, alertable, creatable {
+class CreateAccViewController: UIViewController, Alertable, Creatable {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var cancelButton: UIButton!
@@ -22,10 +22,10 @@ class CreateAccViewController: UIViewController, alertable, creatable {
                 self?.alert(title: title, message: message, actionTitle: action)
             } else {
                 let storyBoard = UIStoryboard(name: "Register", bundle: nil)
-                guard let destionation = storyBoard.instantiateInitialViewController() else {
+                guard let destination = storyBoard.instantiateInitialViewController() else {
                     return
                 }
-                self?.present(destionation, animated: true, completion: nil)
+                self?.present(destination, animated: true, completion: nil)
             }
         }       
         
@@ -48,8 +48,8 @@ class CreateAccViewController: UIViewController, alertable, creatable {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        emailTextField.configureBorder(to: PlaceHolder.fill(.email))
-        passwordTextField.configureBorder(to: PlaceHolder.fill(.password))
+        emailTextField.configureBorder(to: PlaceHolder.User.Email)
+        passwordTextField.configureBorder(to: PlaceHolder.User.Password)
     }
     
     override func didReceiveMemoryWarning() {

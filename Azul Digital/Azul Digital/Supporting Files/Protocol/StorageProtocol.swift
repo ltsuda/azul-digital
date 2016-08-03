@@ -9,14 +9,15 @@
 import Foundation
 import Firebase
 
-protocol storage {
+protocol Storagable {
     var storageRef: FIRStorageReference { get }
     var imageName: String { get }
     func upload(image: UIImage, completion: (String, String, String) -> ())
     func delete(completion: (String, String, String) -> ())
+    func download(completion: (AnyObject, String, String) -> ())
 }
 
-extension storage {
+extension Storagable {
     var imageName: String {
         guard let userID = FIRAuth.auth()?.currentUser?.uid else {
             return "\(arc4random_stir())"
@@ -58,6 +59,17 @@ extension storage {
                         completion("Código: \(code.rawValue)", "\(error?.localizedDescription)", "OK")
                     }
                 }
+            }
+        })
+    }
+    
+    func download(completion: (AnyObject, String, String) -> ()) {
+        storageRef.data(withMaxSize: 100 * 1024, completion: { (data, error) in
+            if error != nil {
+                completion("Código: -1", "\(error?.localizedDescription)", "Tentar novamente")
+            } else {
+                guard let image = data else { return }
+                completion(image, "", "")
             }
         })
     }

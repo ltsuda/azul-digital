@@ -33,5 +33,8 @@ struct User {
     init(carPlate: String) {
         self.carPlate = carPlate
     }
+    init() {
+        
+    }
     
 }

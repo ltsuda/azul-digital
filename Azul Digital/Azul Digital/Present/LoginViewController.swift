@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, alertable, loggable {
+class LoginViewController: UIViewController, Alertable, Loggable {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -20,7 +20,9 @@ class LoginViewController: UIViewController, alertable, loggable {
                 print("\(title, message, action)")
                 self?.alert(title: title, message: message, actionTitle: action)
             } else {
-                self?.performSegue(withIdentifier: "MapLoginSegue", sender: nil)
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                guard let destination = storyBoard.instantiateViewController(withIdentifier: "MapViewController") as? MapViewController else { return }
+                self?.present(destination, animated:true, completion:nil)
             }
         }
 
@@ -42,23 +44,13 @@ class LoginViewController: UIViewController, alertable, loggable {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        emailTextField.configureBorder(to: PlaceHolder.fill(.email))
-        passwordTextField.configureBorder(to: PlaceHolder.fill(.password))
+        emailTextField.configureBorder(to: PlaceHolder.User.Email)
+        passwordTextField.configureBorder(to: PlaceHolder.User.Password)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-
-    }*/
- 
 
 }

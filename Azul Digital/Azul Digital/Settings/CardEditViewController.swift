@@ -8,18 +8,35 @@
 
 import UIKit
 
-class CardEditViewController: UIViewController {
+class CardEditViewController: UIViewController, Readable {
 
     @IBOutlet weak var cardEditTextField: UITextField!
     @IBOutlet weak var textView: UITextView!
     @IBAction func save(_ sender: AnyObject) {
     }
 
+    var id = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        LoadingIndicatorView.show(loadingText: "Loading data")
+        read(child: "users", id: id, completionObject: { [weak self] (user, _) in
+            
+            DispatchQueue.main.async {
+                LoadingIndicatorView.hide()
+                self?.cardEditTextField.text = user?.card
+            }
+
+        })
+        
     }
 
     override func didReceiveMemoryWarning() {

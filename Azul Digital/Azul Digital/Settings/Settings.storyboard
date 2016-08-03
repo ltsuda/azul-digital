@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11173.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yvA-Qo-KGN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11185.3" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yvA-Qo-KGN">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11143.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11151.4"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -542,12 +542,12 @@
                                 <exclude reference="ZR7-xB-Gdt"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="7NB-yn-d1J"/>
-                                <exclude reference="NbY-hN-K8n"/>
-                                <exclude reference="z4k-dI-ICw"/>
                                 <exclude reference="4fc-2s-ZxX"/>
                                 <exclude reference="TRa-FW-tgb"/>
                                 <exclude reference="aF8-br-a6a"/>
+                                <exclude reference="7NB-yn-d1J"/>
+                                <exclude reference="NbY-hN-K8n"/>
+                                <exclude reference="z4k-dI-ICw"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -555,12 +555,12 @@
                                 <include reference="ZR7-xB-Gdt"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="7NB-yn-d1J"/>
-                                <include reference="NbY-hN-K8n"/>
-                                <include reference="z4k-dI-ICw"/>
                                 <include reference="4fc-2s-ZxX"/>
                                 <include reference="TRa-FW-tgb"/>
                                 <include reference="aF8-br-a6a"/>
+                                <include reference="7NB-yn-d1J"/>
+                                <include reference="NbY-hN-K8n"/>
+                                <include reference="z4k-dI-ICw"/>
                             </mask>
                         </variation>
                     </view>

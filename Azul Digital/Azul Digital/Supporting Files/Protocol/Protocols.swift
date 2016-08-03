@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol alertable {
+protocol Alertable {
     func alert(title: String, message: String, actionTitle: String)
 }
 
-extension alertable where Self: UIViewController {
+extension Alertable where Self: UIViewController {
     func alert(title: String, message: String, actionTitle: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: actionTitle, style: .default, handler: nil)

@@ -15,11 +15,11 @@ protocol SaveUser {
 }
 
 extension SaveUser {
-
+    
     var databaseRef: FIRDatabaseReference {
         return FIRDatabase.database().reference().child("users")
     }
-
+    
     func saveData(user: User?, completion: (String, String, String) -> ()) {
         guard  let user = user else {
             return completion("Usuário inexistente", "Dados do usuário não existem", "Tentar novamente")
@@ -55,7 +55,7 @@ extension SaveCar {
     
     var databaseCarRef: FIRDatabaseReference {
         return FIRDatabase.database().reference().child("cars")
-    }    
+    }
     func save(car: Car?, completion: (String, String, String) -> ()) {
         guard  let car = car else {
             return completion("Usuário inexistente", "Dados do usuário não existem", "Tentar novamente")
@@ -75,5 +75,48 @@ extension SaveCar {
             }
         }
     }
+}
+
+protocol Readable {
+    var databaseCarRef: FIRDatabaseReference { get }
+    func read(child: String, id: String, completionObject: ((User?, Car?)) -> ())
+}
+
+extension Readable {
     
+    var databaseCarRef: FIRDatabaseReference {
+        return FIRDatabase.database().reference()
+    }
+    
+    func read(child: String, id: String, completionObject: ((User?, Car?)) -> ()) {
+        var objects = (User(), Car())
+        
+        databaseCarRef.child(child).child(id).observeSingleEvent(of: .value, with: { snapshot in
+            
+            if child == "users" {
+                if let first = snapshot.value?["firstName"] as? String,
+                    let last = snapshot.value?["lastName"] as? String,
+                    let card = snapshot.value?["card"] as? String,
+                    let photo = snapshot.value?["photoURL"] as? String,
+                    let carPlate = snapshot.value?["carPlate"] as? String {
+                    var user = User(userID: "", email: "", first: first, last: last, photo: photo, isOfficer: false)
+                    user.card = card
+                    objects.0 = user
+                    objects.1.plate = carPlate
+                }
+                
+            } else if child == "cars" {
+                if let brand = snapshot.value?["brand"] as? String,
+                    let model = snapshot.value?["model"] as? String,
+                    let color = snapshot.value?["color"] as? String {
+                    objects.1.brand = brand
+                    objects.1.model = model
+                    objects.1.color = color
+                    objects.1.plate = snapshot.key
+                }
+                
+            }
+            completionObject((objects.0, objects.1))
+        })
+    }
 }

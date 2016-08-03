@@ -9,12 +9,12 @@
 import UIKit
 import FirebaseAuth
 
-class ProfileViewController: UIViewController, alertable, CheckTextField {
+class ProfileViewController: UIViewController, Alertable, CheckTextField {
     
     var imageURL: String?
     
     @IBAction func cancel(_ sender: AnyObject) {
-//        FIXME: Could have a bug here, if isImageLoaded = true but there's an error deleting the image, the user may be deleted and if we try to call deleteImage() again, it'll fail and never logout.
+        //        FIXME: Could have a bug here, if isImageLoaded = true but there's an error deleting the image, the user may be deleted and if we try to call deleteImage() again, it'll fail and never logout.
         if isImageLoaded == false {
             deleteUser()
         } else {
@@ -44,21 +44,28 @@ class ProfileViewController: UIViewController, alertable, CheckTextField {
         
         // Do any additional setup after loading the view.
         profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentPickerViewController)))
+        
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        nameTextField.placeHolderText(in: PlaceHolder.fill(.firstName))
-        lastNameTextField.placeHolderText(in: PlaceHolder.fill(.lastName))
+        nameTextField.placeHolderText(in: PlaceHolder.User.FirstName)
+        lastNameTextField.placeHolderText(in: PlaceHolder.User.LastName)
         profileImageView.configureBorder()
-        
+        profileImageView.layoutIfNeeded()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -107,14 +114,14 @@ class ProfileViewController: UIViewController, alertable, CheckTextField {
     
 }
 
-extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, storage {
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, Storagable {
     func presentPickerViewController() {
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
         present(picker, animated: true, completion: nil)
     }
-
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         var selectedImageFromPicker: UIImage?
@@ -134,7 +141,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
                     self?.imageURL = title
                     self?.isImageLoaded = true
                 }
-            })
+                })
         }
         dismiss(animated: true, completion: nil)
     }

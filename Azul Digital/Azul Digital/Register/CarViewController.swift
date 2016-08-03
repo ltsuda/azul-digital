@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CarViewController: UIViewController, alertable, CheckTextField, ValidatePlate {
+class CarViewController: UIViewController, Alertable, CheckTextField, ValidatePlate {
     
     @IBOutlet weak var brandTextField: UITextField!
     @IBOutlet weak var modelTextField: UITextField!
@@ -32,21 +32,18 @@ class CarViewController: UIViewController, alertable, CheckTextField, ValidatePl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        brandTextField.placeHolderText(in: PlaceHolder.fill(.brand))
-        modelTextField.placeHolderText(in: PlaceHolder.fill(.model))
-        colorTextField.placeHolderText(in: PlaceHolder.fill(.color))
-        plateTextField.placeHolderText(in: PlaceHolder.fill(.plate))
+        brandTextField.placeHolderText(in: PlaceHolder.Car.Brand)
+        modelTextField.placeHolderText(in: PlaceHolder.Car.Model)
+        colorTextField.placeHolderText(in: PlaceHolder.Car.Color)
+        plateTextField.placeHolderText(in: PlaceHolder.Car.Plate)
     }
     
     // MARK: - Navigation
@@ -69,6 +66,5 @@ class CarViewController: UIViewController, alertable, CheckTextField, ValidatePl
             
         }
     }
-    
-    
+
 }

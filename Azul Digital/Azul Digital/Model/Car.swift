@@ -25,6 +25,10 @@ struct Car {
     init(ticket: Ticket) {
         self.ticket = ticket
     }
+    
+    init() {
+        
+    }
 
 
 }

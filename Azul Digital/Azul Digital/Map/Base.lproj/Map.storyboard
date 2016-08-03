@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11173.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pbt-Ix-qmM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11185.3" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pbt-Ix-qmM">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11143.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11151.4"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--MapViewController-->
+        <!--Map-->
         <scene sceneID="Yvb-7b-dpM">
             <objects>
-                <viewController storyboardIdentifier="MapViewController" title="MapViewController" id="3Pv-Hd-aEm" customClass="MapViewController" customModule="Azul_Digital" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" title="Map" id="3Pv-Hd-aEm" customClass="MapViewController" customModule="Azul_Digital" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="quQ-KP-Gp0"/>
                         <viewControllerLayoutGuide type="bottom" id="qNW-ND-zqr"/>
@@ -95,13 +95,13 @@
                                 <exclude reference="Gj8-t2-bP4"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="bF7-oK-b4q"/>
                                 <exclude reference="8zq-et-btY"/>
                                 <exclude reference="llH-rP-5gg"/>
                                 <exclude reference="nPU-gs-68U"/>
                                 <exclude reference="6yq-ck-FG9"/>
                                 <exclude reference="ag4-Bo-KeA"/>
                                 <exclude reference="z6N-Mc-SjI"/>
-                                <exclude reference="bF7-oK-b4q"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -110,13 +110,13 @@
                                 <include reference="Gj8-t2-bP4"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="bF7-oK-b4q"/>
                                 <include reference="8zq-et-btY"/>
                                 <include reference="llH-rP-5gg"/>
                                 <include reference="nPU-gs-68U"/>
                                 <include reference="6yq-ck-FG9"/>
                                 <include reference="ag4-Bo-KeA"/>
                                 <include reference="z6N-Mc-SjI"/>
-                                <include reference="bF7-oK-b4q"/>
                             </mask>
                         </variation>
                     </view>

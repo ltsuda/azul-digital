@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11173.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zNd-SS-G9M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11185.3" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zNd-SS-G9M">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11143.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11151.4"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -46,7 +47,7 @@
                                     </mask>
                                 </variation>
                             </stackView>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="nXm-rO-PeY">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Settings" translatesAutoresizingMaskIntoConstraints="NO" id="nXm-rO-PeY">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nXm-rO-PeY" secondAttribute="height" multiplier="1:1" id="koE-hP-SCt"/>
                                 </constraints>
@@ -366,12 +367,12 @@
                                 <exclude reference="f9B-lR-d92"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="G6v-f5-Uqi"/>
-                                <exclude reference="cnj-Rb-0Ij"/>
-                                <exclude reference="rrR-Mg-6Rw"/>
                                 <exclude reference="f48-YP-Sbu"/>
                                 <exclude reference="fo6-Om-y5J"/>
                                 <exclude reference="jhl-m9-hhQ"/>
+                                <exclude reference="G6v-f5-Uqi"/>
+                                <exclude reference="cnj-Rb-0Ij"/>
+                                <exclude reference="rrR-Mg-6Rw"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -379,12 +380,12 @@
                                 <include reference="f9B-lR-d92"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="G6v-f5-Uqi"/>
-                                <include reference="cnj-Rb-0Ij"/>
-                                <include reference="rrR-Mg-6Rw"/>
                                 <include reference="f48-YP-Sbu"/>
                                 <include reference="fo6-Om-y5J"/>
                                 <include reference="jhl-m9-hhQ"/>
+                                <include reference="G6v-f5-Uqi"/>
+                                <include reference="cnj-Rb-0Ij"/>
+                                <include reference="rrR-Mg-6Rw"/>
                             </mask>
                         </variation>
                     </view>
@@ -417,7 +418,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icon" width="795" height="728"/>
+        <image name="Settings" width="25" height="25"/>
         <image name="card" width="32" height="22"/>
     </resources>
 </document>

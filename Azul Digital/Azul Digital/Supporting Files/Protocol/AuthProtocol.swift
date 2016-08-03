@@ -9,11 +9,11 @@
 import Foundation
 import FirebaseAuth
 
-protocol creatable {
+protocol Creatable {
     func create(email: String?, password: String?, completion: (String, String, String) -> ())
 }
 
-extension creatable {
+extension Creatable {
     func create(email: String?, password: String?, completion: (String, String, String) -> ()) {
         guard let email = email , !(email.isEmpty), let password = password, !(password.isEmpty) else {
             return completion("Campos vazios", "Favor preencher os campos Email e Senha", "Tentar novamente")
@@ -45,11 +45,11 @@ extension creatable {
     }
 }
 
-protocol loggable {
+protocol Loggable {
     func login(email: String?, password: String?, completion: (String, String, String) -> ())
 }
 
-extension loggable {
+extension Loggable {
     func login(email: String?, password: String?, completion: (String, String, String) -> ()) {
         guard let email = email , !(email.isEmpty), let password = password, !(password.isEmpty) else {
             return completion("Campos vazios", "Favor preencher os campos Email e Senha", "Tentar novamente")

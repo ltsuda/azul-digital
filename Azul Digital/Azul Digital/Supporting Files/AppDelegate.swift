@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().isTranslucent = false
         
         FIRApp.configure()
-        let authListener = FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
+        FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
             if let _ = user {
                 //             úsuario autenticado/logado
                 let storyboard = UIStoryboard(name: "Map", bundle: nil)
@@ -30,10 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 UIApplication.shared.delegate?.window??.rootViewController = initialViewController
             }
         })
-        FIRAuth.auth()?.removeStateDidChangeListener(authListener!)
-        
+//        FIRAuth.auth()?.removeStateDidChangeListener(authListener!)
 
-        
         return true
         
     }
