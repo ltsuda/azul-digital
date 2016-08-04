@@ -10,13 +10,13 @@ import Foundation
 import Firebase
 
 protocol SaveUser {
-    var databaseRef: FIRDatabaseReference { get }
+    var userRef: FIRDatabaseReference { get }
     func saveData(user: User?, completion: (String, String, String) -> ())
 }
 
 extension SaveUser {
     
-    var databaseRef: FIRDatabaseReference {
+    var userRef: FIRDatabaseReference {
         return FIRDatabase.database().reference().child("users")
     }
     
@@ -33,7 +33,7 @@ extension SaveUser {
             "carPlate" : user.carPlate!,
             "isOfficer" : false
         ]
-        databaseRef.child(user.userID!).setValue(userData) { (error, _) in
+        userRef.child(user.userID!).setValue(userData) { (error, _) in
             if error != nil {
                 if let code = (error as? NSError)?.code {
                     completion("Código: \(code)", "\(error?.localizedDescription)", "Tentar novamente")
@@ -79,20 +79,20 @@ extension SaveCar {
 }
 
 protocol Readable {
-    var databaseCarRef: FIRDatabaseReference { get }
+    var readableRef: FIRDatabaseReference { get }
     func read(child: String, id: String, completionObject: ((User?, Car?)) -> ())
 }
 
 extension Readable {
     
-    var databaseCarRef: FIRDatabaseReference {
+    var readableRef: FIRDatabaseReference {
         return FIRDatabase.database().reference()
     }
     
     func read(child: String, id: String, completionObject: ((User?, Car?)) -> ()) {
         var objects = (User(), Car())
         
-        databaseCarRef.child(child).child(id).observeSingleEvent(of: .value, with: { snapshot in
+        readableRef.child(child).child(id).observeSingleEvent(of: .value, with: { snapshot in
             
             if child == "users" {
                 if let first = snapshot.value?["firstName"] as? String,
@@ -125,14 +125,46 @@ extension Readable {
     }
 }
 
+protocol EditableProfile {
+    var editProfileRef: FIRDatabaseReference { get }
+    func editProfile(user: User?, dbUserID: String, completion: (String, String, String) -> ())
+}
+
+extension EditableProfile {
+    
+    var editProfileRef: FIRDatabaseReference {
+        return FIRDatabase.database().reference().child("users")
+    }
+    
+    func editProfile(user: User?, dbUserID: String, completion: (String, String, String) -> ()) {
+        guard  let user = user else {
+            return completion("Usuário inexistente", "Dados do usuário não existem", "Tentar novamente")
+        }
+        let userData = [
+            "firstName" : user.firstName!,
+            "lastName" : user.lastName!,
+            "photoURL" : user.photo!
+        ]
+        editProfileRef.child(dbUserID).updateChildValues(userData) { (error, _) in
+            if error != nil {
+                if let code = (error as? NSError)?.code {
+                    completion("Código: \(code)", "\(error?.localizedDescription)", "Tentar novamente")
+                }
+            } else {
+                completion("", "", "")
+            }
+        }
+    }
+}
+
 protocol EditableCard {
-    var databaseRef: FIRDatabaseReference { get }
+    var editCardRef: FIRDatabaseReference { get }
     func editCard(user: User?, dbUserID: String, completion: (String, String, String) -> ())
 }
 
 extension EditableCard {
     
-    var databaseRef: FIRDatabaseReference {
+    var editCardRef: FIRDatabaseReference {
         return FIRDatabase.database().reference().child("users")
     }
     
@@ -143,7 +175,7 @@ extension EditableCard {
         let userData = [
             "card" : user.card!
         ]
-        databaseRef.child(dbUserID).updateChildValues(userData) { (error, _) in
+        editCardRef.child(dbUserID).updateChildValues(userData) { (error, _) in
             if error != nil {
                 if let code = (error as? NSError)?.code {
                     completion("Código: \(code)", "\(error?.localizedDescription)", "Tentar novamente")

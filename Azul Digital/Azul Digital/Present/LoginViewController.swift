@@ -20,6 +20,7 @@ class LoginViewController: UIViewController, Alertable, Loggable {
                 print("\(title, message, action)")
                 self?.alert(title: title, message: message, actionTitle: action)
             } else {
+                print("login success")
                 self?.performSegue(withIdentifier: "MapLoginSegue", sender: nil)
             }
         }

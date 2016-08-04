@@ -521,10 +521,10 @@
             </objects>
             <point key="canvasLocation" x="625" y="705"/>
         </scene>
-        <!--MapViewController-->
+        <!--Map-->
         <scene sceneID="Khi-Bk-Yop">
             <objects>
-                <viewControllerPlaceholder storyboardName="Map" referencedIdentifier="MapViewController" id="xnB-NZ-Dkn" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Map" id="xnB-NZ-Dkn" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k62-Vh-Ivs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1371" y="705"/>

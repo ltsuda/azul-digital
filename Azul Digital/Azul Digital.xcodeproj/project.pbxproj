@@ -135,11 +135,11 @@
 		27CBD2AA1D34454100B01D6E /* Present */ = {
 			isa = PBXGroup;
 			children = (
-				2728D1C41D341FB200694B53 /* CreateAccViewController.swift */,
-				2712DB511D3449CE008FD476 /* Gradient.swift */,
-				278C49A81D33FBBE00D43AAF /* LoginViewController.swift */,
-				27D4D6461D33E661007BB63A /* Main.storyboard */,
 				278C49A61D33FA5A00D43AAF /* PresentViewController.swift */,
+				2728D1C41D341FB200694B53 /* CreateAccViewController.swift */,
+				278C49A81D33FBBE00D43AAF /* LoginViewController.swift */,
+				2712DB511D3449CE008FD476 /* Gradient.swift */,
+				27D4D6461D33E661007BB63A /* Main.storyboard */,
 			);
 			path = Present;
 			sourceTree = "<group>";
@@ -156,8 +156,8 @@
 		27CBD2AC1D34455900B01D6E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				275D46171D5179BD0040E64A /* LoadingIndicatorView.swift */,
 				2790778D1D468CFB005BA179 /* Protocol */,
+				275D46171D5179BD0040E64A /* LoadingIndicatorView.swift */,
 				27D4D6421D33E661007BB63A /* AppDelegate.swift */,
 				27D4D6491D33E661007BB63A /* Assets.xcassets */,
 				279F16D81D3572D600CC0C9D /* Extension.swift */,

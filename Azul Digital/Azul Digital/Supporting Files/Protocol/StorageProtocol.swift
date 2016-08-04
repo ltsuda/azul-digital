@@ -64,7 +64,7 @@ extension Storagable {
     }
     
     func download(completion: (AnyObject, String, String) -> ()) {
-        storageRef.data(withMaxSize: 100 * 1024, completion: { (data, error) in
+        storageRef.data(withMaxSize: 500 * 1024, completion: { (data, error) in
             if error != nil {
                 completion("Código: -1", "\(error?.localizedDescription)", "Tentar novamente")
             } else {

@@ -71,10 +71,10 @@ extension Loggable {
                             completion("Código: \(firebaseCode.rawValue)", "\(error?.localizedDescription)", "OK")
                             
                         }
-                    } else {
-                        completion("", "", "")
                     }
                 }
+            } else {
+                completion("", "", "")
             }
         })
     }

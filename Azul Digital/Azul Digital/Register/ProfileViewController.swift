@@ -44,7 +44,8 @@ class ProfileViewController: UIViewController, Alertable, CheckTextField {
         
         // Do any additional setup after loading the view.
         profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentPickerViewController)))
-            }
+        
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -56,11 +57,13 @@ class ProfileViewController: UIViewController, Alertable, CheckTextField {
         nameTextField.placeHolderText(in: PlaceHolder.User.FirstName)
         lastNameTextField.placeHolderText(in: PlaceHolder.User.LastName)
         profileImageView.configureBorder()
+        profileImageView.layoutIfNeeded()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
     }
     
     // MARK: - Navigation
@@ -116,6 +119,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
+        picker.modalPresentationStyle = .popover
         present(picker, animated: true, completion: nil)
     }
     
@@ -129,8 +133,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         }
         if let selectedImage = selectedImageFromPicker {
             DispatchQueue.main.async {
-                self.profileImageView.image = selectedImage
-            }
+                self.profileImageView.image = selectedImage            }
             upload(image: selectedImage, completion: { [weak self] (title, message, action) in
                 if title != "" && message != "" && action != "" {
                     self?.alert(title: title, message: message, actionTitle: action)
