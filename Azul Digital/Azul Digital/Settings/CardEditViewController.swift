@@ -7,21 +7,36 @@
 //
 
 import UIKit
+import Firebase
 
-class CardEditViewController: UIViewController, Readable {
-
+class CardEditViewController: UIViewController, Readable, CheckTextField, Alertable, ValidateCard {
+    
     @IBOutlet weak var cardEditTextField: UITextField!
     @IBOutlet weak var textView: UITextView!
     @IBAction func save(_ sender: AnyObject) {
+        checkEmpty(textfield: [cardEditTextField.text!]) { [weak self] (title, message, action) in
+            if title != "" && message != "" && action != "" {
+                self?.alert(title: title, message: message, actionTitle: action)
+            } else {
+                let validate = self?.validateCard(card: (self?.cardEditTextField.text!)!)
+                if validate == true {
+                    self?.currentUser?.card = self?.cardEditTextField.text!
+                    self?.editCard()
+                } else {
+                    self?.alert(title: "Formato incorreto", message: "Favor preencher o numero do cartão corretamente", actionTitle: "Tentar novamente")
+                }
+            }
+        }
     }
-
+    
     var id = String()
+    var currentUser: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,26 +48,27 @@ class CardEditViewController: UIViewController, Readable {
             DispatchQueue.main.async {
                 LoadingIndicatorView.hide()
                 self?.cardEditTextField.text = user?.card
+                self?.currentUser = user
             }
-
-        })
-        
+            
+            })
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension CardEditViewController: EditableCard {
+    func editCard() {
+        saveCard(user: currentUser, dbUserID: id, completion: { [weak self] (title, message, action) in
+            if title != "" && message != "" && action != "" {
+                self?.alert(title: title, message: message, actionTitle: action)
+            } else {
+                let _ = self?.navigationController?.popViewController(animated: true)
+            }
+            })
     }
-    */
-
 }

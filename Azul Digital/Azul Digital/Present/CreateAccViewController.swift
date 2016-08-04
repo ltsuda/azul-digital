@@ -18,14 +18,9 @@ class CreateAccViewController: UIViewController, Alertable, Creatable {
         // create account with email/password and if there're an error, use closure to send an alert, else perform RegisterSegue
         create(email: emailTextField.text!, password: passwordTextField.text!) { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
-                print("\(title, message, action)")
                 self?.alert(title: title, message: message, actionTitle: action)
             } else {
-                let storyBoard = UIStoryboard(name: "Register", bundle: nil)
-                guard let destination = storyBoard.instantiateInitialViewController() else {
-                    return
-                }
-                self?.present(destination, animated: true, completion: nil)
+                self?.performSegue(withIdentifier: "RegisterSegue", sender: nil)
             }
         }       
         
@@ -47,7 +42,6 @@ class CreateAccViewController: UIViewController, Alertable, Creatable {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        
         emailTextField.configureBorder(to: PlaceHolder.User.Email)
         passwordTextField.configureBorder(to: PlaceHolder.User.Password)
     }

@@ -16,6 +16,7 @@ class SettingsTableViewController: UITableViewController {
     }
     
     var userID = String()
+    var user: FIRUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +33,8 @@ class SettingsTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        guard let id = FIRAuth.auth()?.currentUser?.uid else { return }
-        userID = id
+        guard let current = FIRAuth.auth()?.currentUser else { return }
+        userID = current.uid
         
     }
     

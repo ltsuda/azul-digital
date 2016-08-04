@@ -20,9 +20,7 @@ class LoginViewController: UIViewController, Alertable, Loggable {
                 print("\(title, message, action)")
                 self?.alert(title: title, message: message, actionTitle: action)
             } else {
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                guard let destination = storyBoard.instantiateViewController(withIdentifier: "MapViewController") as? MapViewController else { return }
-                self?.present(destination, animated:true, completion:nil)
+                self?.performSegue(withIdentifier: "MapLoginSegue", sender: nil)
             }
         }
 

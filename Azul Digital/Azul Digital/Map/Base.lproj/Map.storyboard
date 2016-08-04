@@ -9,6 +9,7 @@
         <!--Map-->
         <scene sceneID="Yvb-7b-dpM">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LjI-oL-sbo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="MapViewController" title="Map" id="3Pv-Hd-aEm" customClass="MapViewController" customModule="Azul_Digital" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="quQ-KP-Gp0"/>
@@ -135,7 +136,6 @@
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LjI-oL-sbo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="694.20289855072474" y="163.04347826086959"/>
         </scene>
@@ -150,6 +150,7 @@
         <!--Navigation Controller-->
         <scene sceneID="yjW-4n-Vaf">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SPN-0j-tQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="UINavigationController" automaticallyAdjustsScrollViewInsets="NO" id="pbt-Ix-qmM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zGm-Yo-TBW">
@@ -161,7 +162,6 @@
                         <segue destination="3Pv-Hd-aEm" kind="relationship" relationship="rootViewController" id="YE5-tt-nSZ"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SPN-0j-tQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-242.40000000000001" y="164.16791604197903"/>
         </scene>

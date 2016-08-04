@@ -50,8 +50,6 @@ class ProfileEditViewController: UIViewController, Alertable, Readable, Storagab
             })
     }
     
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

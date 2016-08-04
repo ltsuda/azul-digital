@@ -13,7 +13,7 @@
         <!--Profile View Controller-->
         <scene sceneID="88Q-vw-kLe">
             <objects>
-                <viewController id="lYs-jE-hdS" customClass="ProfileViewController" customModule="Azul_Digital" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="lYs-jE-hdS" customClass="ProfileViewController" customModule="Azul_Digital" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ss7-uo-YNI"/>
                         <viewControllerLayoutGuide type="bottom" id="fCe-fy-TVd"/>

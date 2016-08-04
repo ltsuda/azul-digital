@@ -120,3 +120,33 @@ extension Readable {
         })
     }
 }
+
+protocol EditableCard {
+    var databaseRef: FIRDatabaseReference { get }
+    func saveCard(user: User?, dbUserID: String, completion: (String, String, String) -> ())
+}
+
+extension EditableCard {
+    
+    var databaseRef: FIRDatabaseReference {
+        return FIRDatabase.database().reference().child("users")
+    }
+    
+    func saveCard(user: User?, dbUserID: String, completion: (String, String, String) -> ()) {
+        guard  let user = user else {
+            return completion("Usuário inexistente", "Dados do usuário não existem", "Tentar novamente")
+        }
+        let userData = [
+            "card" : user.card!
+        ]
+        databaseRef.child(dbUserID).updateChildValues(userData) { (error, _) in
+            if error != nil {
+                if let code = (error as? NSError)?.code {
+                    completion("Código: \(code)", "\(error?.localizedDescription)", "Tentar novamente")
+                }
+            } else {
+                completion("", "", "")
+            }
+        }
+    }
+}

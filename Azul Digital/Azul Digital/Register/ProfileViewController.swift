@@ -44,9 +44,7 @@ class ProfileViewController: UIViewController, Alertable, CheckTextField {
         
         // Do any additional setup after loading the view.
         profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentPickerViewController)))
-        
-
-    }
+            }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -58,7 +56,6 @@ class ProfileViewController: UIViewController, Alertable, CheckTextField {
         nameTextField.placeHolderText(in: PlaceHolder.User.FirstName)
         lastNameTextField.placeHolderText(in: PlaceHolder.User.LastName)
         profileImageView.configureBorder()
-        profileImageView.layoutIfNeeded()
     }
     
     override func didReceiveMemoryWarning() {
