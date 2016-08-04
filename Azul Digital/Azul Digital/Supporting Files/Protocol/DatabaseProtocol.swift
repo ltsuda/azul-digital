@@ -47,13 +47,13 @@ extension SaveUser {
 }
 
 protocol SaveCar {
-    var databaseCarRef: FIRDatabaseReference { get }
+    var carRef: FIRDatabaseReference { get }
     func save(car: Car?, completion: (String, String, String) -> ())
 }
 
 extension SaveCar {
     
-    var databaseCarRef: FIRDatabaseReference {
+    var carRef: FIRDatabaseReference {
         return FIRDatabase.database().reference().child("cars")
     }
     func save(car: Car?, completion: (String, String, String) -> ()) {
@@ -63,9 +63,10 @@ extension SaveCar {
         let carData: [String : AnyObject] = [
             "brand" : car.brand!,
             "model" : car.model!,
-            "color" : car.color!
+            "color" : car.color!,
+            "userID" : car.userID!
         ]
-        databaseCarRef.child("\(car.plate!)").setValue(carData) { (error, _) in
+        carRef.child("\(car.plate!)").setValue(carData) { (error, _) in
             if error != nil {
                 if let code = (error as? NSError)?.code {
                     completion("Código: \(code)", "\(error?.localizedDescription)", "Tentar novamente")
@@ -100,6 +101,7 @@ extension Readable {
                     let photo = snapshot.value?["photoURL"] as? String,
                     let carPlate = snapshot.value?["carPlate"] as? String {
                     var user = User(userID: "", email: "", first: first, last: last, photo: photo, isOfficer: false)
+                    user.carPlate = carPlate
                     user.card = card
                     objects.0 = user
                     objects.1.plate = carPlate
@@ -108,11 +110,13 @@ extension Readable {
             } else if child == "cars" {
                 if let brand = snapshot.value?["brand"] as? String,
                     let model = snapshot.value?["model"] as? String,
-                    let color = snapshot.value?["color"] as? String {
+                    let color = snapshot.value?["color"] as? String,
+                    let userID = snapshot.value?["userID"] as? String {
                     objects.1.brand = brand
                     objects.1.model = model
                     objects.1.color = color
                     objects.1.plate = snapshot.key
+                    objects.1.userID = userID
                 }
                 
             }
@@ -123,7 +127,7 @@ extension Readable {
 
 protocol EditableCard {
     var databaseRef: FIRDatabaseReference { get }
-    func saveCard(user: User?, dbUserID: String, completion: (String, String, String) -> ())
+    func editCard(user: User?, dbUserID: String, completion: (String, String, String) -> ())
 }
 
 extension EditableCard {
@@ -132,7 +136,7 @@ extension EditableCard {
         return FIRDatabase.database().reference().child("users")
     }
     
-    func saveCard(user: User?, dbUserID: String, completion: (String, String, String) -> ()) {
+    func editCard(user: User?, dbUserID: String, completion: (String, String, String) -> ()) {
         guard  let user = user else {
             return completion("Usuário inexistente", "Dados do usuário não existem", "Tentar novamente")
         }
@@ -140,6 +144,36 @@ extension EditableCard {
             "card" : user.card!
         ]
         databaseRef.child(dbUserID).updateChildValues(userData) { (error, _) in
+            if error != nil {
+                if let code = (error as? NSError)?.code {
+                    completion("Código: \(code)", "\(error?.localizedDescription)", "Tentar novamente")
+                }
+            } else {
+                completion("", "", "")
+            }
+        }
+    }
+}
+
+protocol EditableCar {
+    var editCarRef: FIRDatabaseReference { get }
+    func editCar(dbUserID: String, plate: String?, completion: (String, String, String) -> ())
+}
+
+extension EditableCar {
+    
+    var editCarRef: FIRDatabaseReference {
+        return FIRDatabase.database().reference().child("users")
+    }
+    
+    func editCar(dbUserID: String, plate: String?, completion: (String, String, String) -> ()) {
+        guard  let carPlate = plate else {
+            return completion("Usuário inexistente", "Dados do usuário não existem", "Tentar novamente")
+        }
+        let userData = [
+            "carPlate" : carPlate
+        ]
+        editCarRef.child(dbUserID).updateChildValues(userData) { (error, _) in
             if error != nil {
                 if let code = (error as? NSError)?.code {
                     completion("Código: \(code)", "\(error?.localizedDescription)", "Tentar novamente")

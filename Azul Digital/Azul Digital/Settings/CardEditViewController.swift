@@ -38,7 +38,6 @@ class CardEditViewController: UIViewController, Readable, CheckTextField, Alerta
         // Do any additional setup after loading the view.
         
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
@@ -63,7 +62,7 @@ class CardEditViewController: UIViewController, Readable, CheckTextField, Alerta
 
 extension CardEditViewController: EditableCard {
     func editCard() {
-        saveCard(user: currentUser, dbUserID: id, completion: { [weak self] (title, message, action) in
+        editCard(user: currentUser, dbUserID: id, completion: { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
                 self?.alert(title: title, message: message, actionTitle: action)
             } else {

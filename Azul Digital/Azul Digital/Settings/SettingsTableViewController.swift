@@ -16,7 +16,6 @@ class SettingsTableViewController: UITableViewController {
     }
     
     var userID = String()
-    var user: FIRUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()

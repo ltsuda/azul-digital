@@ -56,7 +56,7 @@ class CarViewController: UIViewController, Alertable, CheckTextField, ValidatePl
             guard let destination = segue.destination as? CardViewController else {
                 return print("failed segue destination")
             }
-            let car = Car(plate: plateTextField.text!, brand: brandTextField.text!, color: colorTextField.text!, model: modelTextField.text!)
+            let car = Car(plate: plateTextField.text!, brand: brandTextField.text!, color: colorTextField.text!, model: modelTextField.text!, userID: user?.userID)
             user?.carPlate = car.plate
             destination.car = car
             destination.user = user           
