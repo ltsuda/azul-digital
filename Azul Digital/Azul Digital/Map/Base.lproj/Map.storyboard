@@ -9,7 +9,6 @@
         <!--Map-->
         <scene sceneID="Yvb-7b-dpM">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LjI-oL-sbo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="MapViewController" title="Map" id="3Pv-Hd-aEm" customClass="MapViewController" customModule="Azul_Digital" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="quQ-KP-Gp0"/>
@@ -19,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="c9p-Ph-1Wo"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c9p-Ph-1Wo"/>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gj8-t2-bP4">
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="Lha-cr-K91">
@@ -27,9 +26,15 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZ3-1Q-V1b" userLabel="location">
                                                 <state key="normal" image="location"/>
                                                 <state key="highlighted" image="location enabled"/>
+                                                <connections>
+                                                    <action selector="requestLocation:" destination="3Pv-Hd-aEm" eventType="touchUpInside" id="7MU-2T-kYY"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="831-cz-UfD" userLabel="pay">
                                                 <state key="normal" image="Pagar"/>
+                                                <connections>
+                                                    <action selector="buyTicket:" destination="3Pv-Hd-aEm" eventType="touchUpInside" id="9oD-T0-F85"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -135,7 +140,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="c9p-Ph-1Wo" id="NsF-fd-Q8O"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LjI-oL-sbo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="694.20289855072474" y="163.04347826086959"/>
         </scene>
@@ -150,7 +159,6 @@
         <!--Navigation Controller-->
         <scene sceneID="yjW-4n-Vaf">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SPN-0j-tQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="UINavigationController" automaticallyAdjustsScrollViewInsets="NO" id="pbt-Ix-qmM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zGm-Yo-TBW">
@@ -162,6 +170,7 @@
                         <segue destination="3Pv-Hd-aEm" kind="relationship" relationship="rootViewController" id="YE5-tt-nSZ"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SPN-0j-tQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-242.40000000000001" y="164.16791604197903"/>
         </scene>

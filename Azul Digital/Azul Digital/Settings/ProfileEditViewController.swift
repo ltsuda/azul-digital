@@ -44,6 +44,7 @@ class ProfileEditViewController: UIViewController, Alertable, Readable, CheckTex
 
         
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         LoadingIndicatorView.show(loadingText: "Loading data")
