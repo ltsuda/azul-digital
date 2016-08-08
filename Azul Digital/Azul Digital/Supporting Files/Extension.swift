@@ -37,6 +37,7 @@ enum PlaceHolder {
     
     enum Card {
         static let Number  = "4444000011113333"
+        static let Funds  = "R$100,00"
     }
 }
 

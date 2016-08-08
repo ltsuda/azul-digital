@@ -17,7 +17,11 @@ struct User {
     var lastName: String?
     var carPlate: String?
     var photo: String?
-    
+    var funds: Float?
+
+}
+
+extension User {
     init(userID: String, email: String, first: String, last: String, photo: String, isOfficer: Bool) {
         self.userID = userID
         self.email = email
@@ -33,8 +37,9 @@ struct User {
     init(carPlate: String) {
         self.carPlate = carPlate
     }
-    init() {
-        
-    }
     
+    init(funds: Float) {
+        self.funds = funds
+    }
+
 }

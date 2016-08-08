@@ -30,6 +30,7 @@ extension SaveUser {
             "lastName" : user.lastName!,
             "photoURL" : user.photo!,
             "card" : user.card!,
+            "funds" : user.funds!,
             "carPlate" : user.carPlate!,
             "isOfficer" : false
         ]
