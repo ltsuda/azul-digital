@@ -14,16 +14,16 @@ class CardEditViewController: UIViewController, Readable, CheckTextField, Alerta
     @IBOutlet weak var cardEditTextField: UITextField!
     @IBOutlet weak var textView: UITextView!
     @IBAction func save(_ sender: AnyObject) {
-        checkEmpty(textfield: [cardEditTextField.text!]) { [weak self] (title, message, action) in
+        checkEmpty([cardEditTextField.text!]) { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
-                self?.alert(title: title, message: message, actionTitle: action)
+                self?.alert(title, message: message, actionTitle: action)
             } else {
-                let validate = self?.validateCard(card: (self?.cardEditTextField.text!)!)
+                let validate = self?.validateCard((self?.cardEditTextField.text!)!)
                 if validate == true {
                     self?.currentUser?.card = self?.cardEditTextField.text!
                     self?.editCard()
                 } else {
-                    self?.alert(title: "Formato incorreto", message: "Favor preencher o numero do cartão corretamente", actionTitle: "Tentar novamente")
+                    self?.alert("Formato incorreto", message: "Favor preencher o numero do cartão corretamente", actionTitle: "Tentar novamente")
                 }
             }
         }
@@ -41,8 +41,8 @@ class CardEditViewController: UIViewController, Readable, CheckTextField, Alerta
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        LoadingIndicatorView.show(loadingText: "Loading data")
-        read(child: "users", id: id, completionObject: { [weak self] (user, _) in
+        LoadingIndicatorView.show("Loading data")
+        read("users", id: id, completionObject: { [weak self] (user, _) in
             
             DispatchQueue.main.async {
                 LoadingIndicatorView.hide()
@@ -62,9 +62,9 @@ class CardEditViewController: UIViewController, Readable, CheckTextField, Alerta
 
 extension CardEditViewController: EditableCard {
     func editCard() {
-        editCard(user: currentUser, dbUserID: id, completion: { [weak self] (title, message, action) in
+        editCard(currentUser, dbUserID: id, completion: { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
-                self?.alert(title: title, message: message, actionTitle: action)
+                self?.alert(title, message: message, actionTitle: action)
             } else {
                 let _ = self?.navigationController?.popViewController(animated: true)
             }

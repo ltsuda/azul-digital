@@ -15,10 +15,10 @@ class LoginViewController: UIViewController, Alertable, Loggable {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     @IBAction func login(_ sender: AnyObject) {
-        login(email: emailTextField.text!, password: passwordTextField.text!) { [weak self] (title, message, action) in
+        login(emailTextField.text!, password: passwordTextField.text!) { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
                 print("\(title, message, action)")
-                self?.alert(title: title, message: message, actionTitle: action)
+                self?.alert(title, message: message, actionTitle: action)
             } else {
                 print("login success")
                 self?.performSegue(withIdentifier: "MapLoginSegue", sender: nil)

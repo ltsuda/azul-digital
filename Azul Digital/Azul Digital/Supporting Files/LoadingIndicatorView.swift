@@ -11,15 +11,15 @@ class LoadingIndicatorView {
     
     static var currentOverlay : UIView?
     
-    static func show(window: UIWindow) {
+    static func show(_ window: UIWindow) {
         guard let currentMainWindow = UIApplication.shared.keyWindow else {
             print("No main window.")
             return
         }
-        show(window: currentMainWindow)
+        show(currentMainWindow)
     }
     
-    static func show(loadingText: String) {
+    static func show(_ loadingText: String) {
         guard let currentMainWindow = UIApplication.shared.keyWindow else {
             print("No main window.")
             return
@@ -27,11 +27,11 @@ class LoadingIndicatorView {
         show(overlayTarget: currentMainWindow, loadingText: loadingText)
     }
     
-    static func show(overlayTarget : UIView) {
+    static func show(_ overlayTarget : UIView) {
         show(overlayTarget: overlayTarget, loadingText: nil)
     }
     
-    static func show(overlayTarget : UIView, loadingText: String?) {
+    static func show(overlayTarget: UIView, loadingText: String?) {
         // Clear it first in case it was already shown
         hide()
         

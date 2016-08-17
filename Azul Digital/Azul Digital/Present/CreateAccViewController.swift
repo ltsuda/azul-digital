@@ -16,9 +16,9 @@ class CreateAccViewController: UIViewController, Alertable, Creatable {
     @IBOutlet weak var registerButton: UIButton!
     @IBAction func register(_ sender: AnyObject) {
         // create account with email/password and if there're an error, use closure to send an alert, else perform RegisterSegue
-        create(email: emailTextField.text!, password: passwordTextField.text!) { [weak self] (title, message, action) in
+        create(emailTextField.text!, password: passwordTextField.text!) { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
-                self?.alert(title: title, message: message, actionTitle: action)
+                self?.alert(title, message: message, actionTitle: action)
             } else {
                 self?.performSegue(withIdentifier: "RegisterSegue", sender: nil)
             }

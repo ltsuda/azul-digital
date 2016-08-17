@@ -14,9 +14,9 @@ class ProfileEditViewController: UIViewController, Alertable, Readable, CheckTex
     @IBOutlet weak var nameEditTextField: UITextField!
     @IBOutlet weak var lastNameEditTextField: UITextField!
     @IBAction func save(_ sender: AnyObject) {
-        checkEmpty(textfield: [nameEditTextField.text!, lastNameEditTextField.text!]) { [weak self] (title, message, action) in
+        checkEmpty([nameEditTextField.text!, lastNameEditTextField.text!]) { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
-                self?.alert(title: title, message: message, actionTitle: action)
+                self?.alert(title, message: message, actionTitle: action)
             } else {
                 self?.currentUser?.firstName = self?.nameEditTextField.text!
                 self?.currentUser?.lastName = self?.lastNameEditTextField.text!
@@ -47,13 +47,13 @@ class ProfileEditViewController: UIViewController, Alertable, Readable, CheckTex
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        LoadingIndicatorView.show(loadingText: "Loading data")
+        LoadingIndicatorView.show("Loading data" as String)
         
-        read(child: "users", id: id, completionObject: { [weak self] (user, _) in
+        read("users", id: id, completionObject: { [weak self] (user, _) in
             
-            self?.download(completion: { (object, message, action) in
+            self?.download({ (object, message, action) in
                 if message != "" && action != "" {
-                    self?.alert(title: object as! String, message: message, actionTitle: action)
+                    self?.alert(object as! String, message: message, actionTitle: action)
                 } else {
                     DispatchQueue.main.async {
                         LoadingIndicatorView.hide()
@@ -82,23 +82,23 @@ class ProfileEditViewController: UIViewController, Alertable, Readable, CheckTex
 extension ProfileEditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, Storagable, EditableProfile {
     
     func edit() {
-        editProfile(user: currentUser, dbUserID: id, completion: { [weak self] (title, message, action) in
+        editProfile(currentUser, dbUserID: id, completion: { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
-                self?.alert(title: title, message: message, actionTitle: action)
+                self?.alert(title, message: message, actionTitle: action)
             } else {
                 let _ = self?.navigationController?.popViewController(animated: true)
             }
         })
     }
     
-    func presentPickerViewController(sender: AnyObject) {
+    func presentPickerViewController(_ sender: AnyObject) {
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
         present(picker, animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         var selectedImageFromPicker: UIImage?
         if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
@@ -111,9 +111,9 @@ extension ProfileEditViewController: UIImagePickerControllerDelegate, UINavigati
                 self.editImageView.image = selectedImage
                 
             }
-            upload(image: selectedImage, completion: { [weak self] (title, message, action) in
+            upload(selectedImage, completion: { [weak self] (title, message, action) in
                 if title != "" && message != "" && action != "" {
-                    self?.alert(title: title, message: message, actionTitle: action)
+                    self?.alert(title, message: message, actionTitle: action)
                 } else if !title.isEmpty {
                     self?.currentUser?.photo = title
                     self?.isImageLoaded = true

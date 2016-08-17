@@ -42,7 +42,7 @@ class SettingsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "CardEditSegue" {
             guard let destination = segue.destination as? CardEditViewController else { return print("failed CardEditViewController")}

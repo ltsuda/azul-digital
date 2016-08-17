@@ -15,15 +15,15 @@ class CarViewController: UIViewController, Alertable, CheckTextField, ValidatePl
     @IBOutlet weak var colorTextField: UITextField!
     @IBOutlet weak var plateTextField: UITextField!
     @IBAction func next(_ sender: AnyObject) {
-        checkEmpty(textfield: [brandTextField.text!, modelTextField.text!, colorTextField.text!, plateTextField.text!]) { [weak self] (title, message, action) in
+        checkEmpty([brandTextField.text!, modelTextField.text!, colorTextField.text!, plateTextField.text!]) { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
-                self?.alert(title: title, message: message, actionTitle: action)
+                self?.alert(title, message: message, actionTitle: action)
             } else {
-                let validate = self?.validatePlate(plate: (self?.plateTextField.text!)!)
+                let validate = self?.validatePlate((self?.plateTextField.text!)!)
                 if validate == true {
                     self?.performSegue(withIdentifier: "CardSegue", sender: nil)
                 } else {
-                    self?.alert(title: "Formato incorreto", message: "Favor preencher a placa no formato ABC0001", actionTitle: "Tentar novamente")
+                    self?.alert("Formato incorreto", message: "Favor preencher a placa no formato ABC0001", actionTitle: "Tentar novamente")
                 }
             }
         }
@@ -49,7 +49,7 @@ class CarViewController: UIViewController, Alertable, CheckTextField, ValidatePl
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "CardSegue" {

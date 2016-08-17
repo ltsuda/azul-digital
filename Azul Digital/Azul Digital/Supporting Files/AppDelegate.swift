@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         // Override point for customization after application launch.
         UINavigationBar.appearance().barTintColor = UIColor(red: 15/255, green: 127/255, blue: 223/255, alpha: 1)
         UINavigationBar.appearance().tintColor = .white
@@ -32,20 +32,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         
-//        FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
-//            if let _ = user {
-//                //             úsuario autenticado/logado
-//                let storyboard = UIStoryboard(name: "Map", bundle: nil)
-//                let initialViewController = storyboard.instantiateInitialViewController()
-//                UIApplication.shared.delegate?.window??.rootViewController = initialViewController
-//            }
-//        })
+        //        FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
+        //            if let _ = user {
+        //                //             úsuario autenticado/logado
+        //                let storyboard = UIStoryboard(name: "Map", bundle: nil)
+        //                let initialViewController = storyboard.instantiateInitialViewController()
+        //                UIApplication.shared.delegate?.window??.rootViewController = initialViewController
+        //            }
+        //        })
         //        FIRAuth.auth()?.removeStateDidChangeListener(authListener!)
         
         return true
-        
+
     }
-    
+
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

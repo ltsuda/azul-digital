@@ -25,9 +25,9 @@ class ProfileViewController: UIViewController, Alertable, CheckTextField {
     }
     @IBAction func next(_ sender: AnyObject) {
         
-        checkEmpty(textfield: [nameTextField.text!, lastNameTextField.text!]) { [weak self] (title, message, action) in
+        checkEmpty([nameTextField.text!, lastNameTextField.text!]) { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
-                self?.alert(title: title, message: message, actionTitle: action)
+                self?.alert(title, message: message, actionTitle: action)
             } else {
                 self?.performSegue(withIdentifier: "CarSegue", sender: nil)
             }
@@ -69,7 +69,7 @@ class ProfileViewController: UIViewController, Alertable, CheckTextField {
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "CarSegue" {
@@ -94,7 +94,7 @@ class ProfileViewController: UIViewController, Alertable, CheckTextField {
         let user = FIRAuth.auth()?.currentUser
         user?.delete { error in
             if let error = error {
-                self.alert(title: "\(error._code)", message: "\(error.localizedDescription)", actionTitle: "OK")
+                self.alert("\(error._code)", message: "\(error.localizedDescription)", actionTitle: "OK")
                 self.isImageLoaded = false
             } else {
                 // Account and image from storage deleted.
@@ -105,9 +105,9 @@ class ProfileViewController: UIViewController, Alertable, CheckTextField {
         }
     }
     func deleteImage() {
-        delete(completion: { [weak self] (title, message, action) in
+        delete({ [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
-                self?.alert(title: title, message: message, actionTitle: action)
+                self?.alert(title, message: message, actionTitle: action)
             }
             })
     }
@@ -123,7 +123,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         present(picker, animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         var selectedImageFromPicker: UIImage?
         if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
@@ -134,9 +134,9 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         if let selectedImage = selectedImageFromPicker {
             DispatchQueue.main.async {
                 self.profileImageView.image = selectedImage            }
-            upload(image: selectedImage, completion: { [weak self] (title, message, action) in
+            upload(selectedImage, completion: { [weak self] (title, message, action) in
                 if title != "" && message != "" && action != "" {
-                    self?.alert(title: title, message: message, actionTitle: action)
+                    self?.alert(title, message: message, actionTitle: action)
                 } else if !title.isEmpty {
                     self?.imageURL = title
                     self?.isImageLoaded = true

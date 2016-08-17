@@ -254,6 +254,7 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = H7US45YQ9L;
 						DevelopmentTeamName = "Leonardo Tsuda";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};

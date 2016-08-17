@@ -17,19 +17,19 @@ class CarEditViewController: UIViewController, Readable, CheckTextField, Alertab
     @IBOutlet weak var textView: UITextView!
     
     @IBAction func save(_ sender: AnyObject) {
-        checkEmpty(textfield: [brandEditTextField.text!, modelEditTextField.text!, colorEditTextField.text!, plateEditTextField.text!]) { [weak self] (title, message, action) in
+        checkEmpty([brandEditTextField.text!, modelEditTextField.text!, colorEditTextField.text!, plateEditTextField.text!]) { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
-                self?.alert(title: title, message: message, actionTitle: action)
+                self?.alert(title, message: message, actionTitle: action)
             } else {
-                let validate = self?.validatePlate(plate: (self?.plateEditTextField.text!)!)
+                let validate = self?.validatePlate((self?.plateEditTextField.text!)!)
                 if validate == true {
                     if self?.plateEditTextField.text! != self?.tempCar?.plate {
                         self?.editCar()
                     } else {
-                        self?.alert(title: "Veículo já existente", message: "Favor preencher os campos com os dados do seu novo veículo", actionTitle: "Tentar novamente")
+                        self?.alert("Veículo já existente", message: "Favor preencher os campos com os dados do seu novo veículo", actionTitle: "Tentar novamente")
                     }
                 } else {
-                    self?.alert(title: "Formato incorreto", message: "Favor preencher a placa no formato ABC0001", actionTitle: "Tentar novamente")
+                    self?.alert("Formato incorreto", message: "Favor preencher a placa no formato ABC0001", actionTitle: "Tentar novamente")
                 }
             }
         }
@@ -46,14 +46,14 @@ class CarEditViewController: UIViewController, Readable, CheckTextField, Alertab
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        LoadingIndicatorView.show(loadingText: "Loading data")
+        LoadingIndicatorView.show("Loading data")
         
-        read(child: "users", id: id, completionObject: { [weak self] (user, car) in
+        read("users", id: id, completionObject: { [weak self] (user, car) in
             guard let plate = car?.plate, let user = user else { return }
             DispatchQueue.main.async {
                 self?.user = user
             }
-            self?.read(child: "cars", id: plate, completionObject: { [weak self] (_, car) in
+            self?.read("cars", id: plate, completionObject: { [weak self] (_, car) in
                 
                 DispatchQueue.main.async {
                     LoadingIndicatorView.hide()
@@ -81,13 +81,13 @@ extension CarEditViewController: SaveCar, EditableCar {
     func editCar() {
         let car = Car(plate: plateEditTextField.text!, brand: brandEditTextField.text!, color: colorEditTextField.text!, model: modelEditTextField.text!, userID: id)
         user?.carPlate = car.plate
-        save(car: car, completion: { [weak self] (title, message, action) in
+        save(car, completion: { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
-                self?.alert(title: title, message: message, actionTitle: action)
+                self?.alert(title, message: message, actionTitle: action)
             } else {
-                self?.editCar(dbUserID: (self?.id)!, plate: self?.user?.carPlate, completion: { (title, message, action) in
+                self?.editCar((self?.id)!, plate: self?.user?.carPlate, completion: { (title, message, action) in
                     if title != "" && message != "" && action != "" {
-                        self?.alert(title: title, message: message, actionTitle: action)
+                        self?.alert(title, message: message, actionTitle: action)
                     } else {
                         let _ = self?.navigationController?.popViewController(animated: true)
                     }

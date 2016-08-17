@@ -11,7 +11,7 @@ import Firebase
 
 protocol SaveUser {
     var userRef: FIRDatabaseReference { get }
-    func saveData(user: User?, completion: (String, String, String) -> ())
+    func saveData(_ user: User?, completion: @escaping (String, String, String) -> ())
 }
 
 extension SaveUser {
@@ -20,11 +20,11 @@ extension SaveUser {
         return FIRDatabase.database().reference().child("users")
     }
     
-    func saveData(user: User?, completion: (String, String, String) -> ()) {
+    func saveData(_ user: User?, completion: @escaping (String, String, String) -> ()) {
         guard  let user = user else {
             return completion("Usuário inexistente", "Dados do usuário não existem", "Tentar novamente")
         }
-        let userData: [String : AnyObject] = [
+        let userData: [String : Any] = [
             "email" : user.email!,
             "firstName" : user.firstName!,
             "lastName" : user.lastName!,
@@ -49,7 +49,7 @@ extension SaveUser {
 
 protocol SaveCar {
     var carRef: FIRDatabaseReference { get }
-    func save(car: Car?, completion: (String, String, String) -> ())
+    func save(_ car: Car?, completion: @escaping (String, String, String) -> ())
 }
 
 extension SaveCar {
@@ -57,11 +57,11 @@ extension SaveCar {
     var carRef: FIRDatabaseReference {
         return FIRDatabase.database().reference().child("cars")
     }
-    func save(car: Car?, completion: (String, String, String) -> ()) {
+    func save(_ car: Car?, completion: @escaping (String, String, String) -> ()) {
         guard  let car = car else {
             return completion("Usuário inexistente", "Dados do usuário não existem", "Tentar novamente")
         }
-        let carData: [String : AnyObject] = [
+        let carData: [String : Any] = [
             "brand" : car.brand!,
             "model" : car.model!,
             "color" : car.color!,
@@ -81,7 +81,7 @@ extension SaveCar {
 
 protocol Readable {
     var readableRef: FIRDatabaseReference { get }
-    func read(child: String, id: String, completionObject: ((User?, Car?)) -> ())
+    func read(_ child: String, id: String, completionObject: @escaping ((User?, Car?)) -> ())
 }
 
 extension Readable {
@@ -90,17 +90,18 @@ extension Readable {
         return FIRDatabase.database().reference()
     }
     
-    func read(child: String, id: String, completionObject: ((User?, Car?)) -> ()) {
+    func read(_ child: String, id: String, completionObject: @escaping ((User?, Car?)) -> ()) {
         var objects = (User(), Car())
         
         readableRef.child(child).child(id).observeSingleEvent(of: .value, with: { snapshot in
             
             if child == "users" {
-                if let first = snapshot.value?["firstName"] as? String,
-                    let last = snapshot.value?["lastName"] as? String,
-                    let card = snapshot.value?["card"] as? String,
-                    let photo = snapshot.value?["photoURL"] as? String,
-                    let carPlate = snapshot.value?["carPlate"] as? String {
+                
+                if let first = snapshot.childSnapshot(forPath: "firstName").value as? String,
+                    let last = snapshot.childSnapshot(forPath: "lastName").value as? String,
+                    let card = snapshot.childSnapshot(forPath: "card").value as? String,
+                    let photo = snapshot.childSnapshot(forPath: "photoURL").value as? String,
+                    let carPlate = snapshot.childSnapshot(forPath: "carPlate").value as? String {
                     var user = User(userID: "", email: "", first: first, last: last, photo: photo, isOfficer: false)
                     user.carPlate = carPlate
                     user.card = card
@@ -109,10 +110,10 @@ extension Readable {
                 }
                 
             } else if child == "cars" {
-                if let brand = snapshot.value?["brand"] as? String,
-                    let model = snapshot.value?["model"] as? String,
-                    let color = snapshot.value?["color"] as? String,
-                    let userID = snapshot.value?["userID"] as? String {
+                if let brand = snapshot.childSnapshot(forPath: "brand").value as? String,
+                    let model = snapshot.childSnapshot(forPath: "model").value as? String,
+                    let color = snapshot.childSnapshot(forPath: "color").value as? String,
+                    let userID = snapshot.childSnapshot(forPath: "userID").value as? String {
                     objects.1.brand = brand
                     objects.1.model = model
                     objects.1.color = color
@@ -128,7 +129,7 @@ extension Readable {
 
 protocol EditableProfile {
     var editProfileRef: FIRDatabaseReference { get }
-    func editProfile(user: User?, dbUserID: String, completion: (String, String, String) -> ())
+    func editProfile(_ user: User?, dbUserID: String, completion: @escaping (String, String, String) -> ())
 }
 
 extension EditableProfile {
@@ -137,7 +138,7 @@ extension EditableProfile {
         return FIRDatabase.database().reference().child("users")
     }
     
-    func editProfile(user: User?, dbUserID: String, completion: (String, String, String) -> ()) {
+    func editProfile(_ user: User?, dbUserID: String, completion: @escaping (String, String, String) -> ()) {
         guard  let user = user else {
             return completion("Usuário inexistente", "Dados do usuário não existem", "Tentar novamente")
         }
@@ -160,7 +161,7 @@ extension EditableProfile {
 
 protocol EditableCard {
     var editCardRef: FIRDatabaseReference { get }
-    func editCard(user: User?, dbUserID: String, completion: (String, String, String) -> ())
+    func editCard(_ user: User?, dbUserID: String, completion: @escaping (String, String, String) -> ())
 }
 
 extension EditableCard {
@@ -169,7 +170,7 @@ extension EditableCard {
         return FIRDatabase.database().reference().child("users")
     }
     
-    func editCard(user: User?, dbUserID: String, completion: (String, String, String) -> ()) {
+    func editCard(_ user: User?, dbUserID: String, completion: @escaping (String, String, String) -> ()) {
         guard  let user = user else {
             return completion("Usuário inexistente", "Dados do usuário não existem", "Tentar novamente")
         }
@@ -190,7 +191,7 @@ extension EditableCard {
 
 protocol EditableCar {
     var editCarRef: FIRDatabaseReference { get }
-    func editCar(dbUserID: String, plate: String?, completion: (String, String, String) -> ())
+    func editCar(_ dbUserID: String, plate: String?, completion: @escaping (String, String, String) -> ())
 }
 
 extension EditableCar {
@@ -199,7 +200,7 @@ extension EditableCar {
         return FIRDatabase.database().reference().child("users")
     }
     
-    func editCar(dbUserID: String, plate: String?, completion: (String, String, String) -> ()) {
+    func editCar(_ dbUserID: String, plate: String?, completion: @escaping (String, String, String) -> ()) {
         guard  let carPlate = plate else {
             return completion("Usuário inexistente", "Dados do usuário não existem", "Tentar novamente")
         }

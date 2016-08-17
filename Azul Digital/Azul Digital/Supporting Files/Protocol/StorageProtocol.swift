@@ -12,9 +12,9 @@ import Firebase
 protocol Storagable {
     var storageRef: FIRStorageReference { get }
     var imageName: String { get }
-    func upload(image: UIImage, completion: (String, String, String) -> ())
-    func delete(completion: (String, String, String) -> ())
-    func download(completion: (AnyObject, String, String) -> ())
+    func upload(_ image: UIImage, completion: @escaping (String, String, String) -> ())
+    func delete(_ completion: @escaping (String, String, String) -> ())
+    func download(_ completion: @escaping (AnyObject, String, String) -> ())
 }
 
 extension Storagable {
@@ -27,7 +27,7 @@ extension Storagable {
     var storageRef: FIRStorageReference {
         return FIRStorage.storage().reference().child("profile_img").child("\(imageName).jpg")
     }
-    func upload(image: UIImage, completion: (String, String, String) -> ()) {
+    func upload(_ image: UIImage, completion: @escaping (String, String, String) -> ()) {
         if let imageToUpload = UIImageJPEGRepresentation(image, 0.1) {
             storageRef.put(imageToUpload, metadata: nil, completion: { (metadata, error) in
                 if error != nil {
@@ -48,7 +48,7 @@ extension Storagable {
         }
     }
     
-    func delete(completion: (String, String, String) -> ()) {
+    func delete(_ completion: @escaping (String, String, String) -> ()) {
         storageRef.delete(completion: { error in
             if error != nil {
                 if let code = FIRStorageErrorCode(rawValue: (error?._code)!) {
@@ -63,13 +63,13 @@ extension Storagable {
         })
     }
     
-    func download(completion: (AnyObject, String, String) -> ()) {
+    func download(_ completion: @escaping (AnyObject, String, String) -> ()) {
         storageRef.data(withMaxSize: 500 * 1024, completion: { (data, error) in
             if error != nil {
-                completion("Código: -1", "\(error?.localizedDescription)", "Tentar novamente")
+                completion("Código: -1" as AnyObject, "\(error?.localizedDescription)", "Tentar novamente")
             } else {
                 guard let image = data else { return }
-                completion(image, "", "")
+                completion(image as AnyObject, "", "")
             }
         })
     }
