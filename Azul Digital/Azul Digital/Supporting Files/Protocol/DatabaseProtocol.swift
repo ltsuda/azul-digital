@@ -30,7 +30,7 @@ extension SaveUser {
             "lastName" : user.lastName!,
             "photoURL" : user.photo!,
             "card" : user.card!,
-            "funds" : user.funds!,
+            "cash" : user.cash!,
             "carPlate" : user.carPlate!,
             "isOfficer" : false
         ]
@@ -101,10 +101,12 @@ extension Readable {
                     let last = snapshot.childSnapshot(forPath: "lastName").value as? String,
                     let card = snapshot.childSnapshot(forPath: "card").value as? String,
                     let photo = snapshot.childSnapshot(forPath: "photoURL").value as? String,
-                    let carPlate = snapshot.childSnapshot(forPath: "carPlate").value as? String {
+                    let carPlate = snapshot.childSnapshot(forPath: "carPlate").value as? String,
+                    let cash = snapshot.childSnapshot(forPath: "cash").value as? Double {
                     var user = User(userID: "", email: "", first: first, last: last, photo: photo, isOfficer: false)
                     user.carPlate = carPlate
                     user.card = card
+                    user.cash = cash
                     objects.0 = user
                     objects.1.plate = carPlate
                 }
@@ -175,8 +177,9 @@ extension EditableCard {
             return completion("Usuário inexistente", "Dados do usuário não existem", "Tentar novamente")
         }
         let userData = [
-            "card" : user.card!
-        ]
+            "card" : user.card!,
+            "cash" : user.cash!
+        ] as [String : Any]
         editCardRef.child(dbUserID).updateChildValues(userData) { (error, _) in
             if error != nil {
                 if let code = (error as? NSError)?.code {

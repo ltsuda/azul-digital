@@ -96,12 +96,13 @@ extension ValidateCard {
 //    }
 //}
 
-func roundTwoDecimal(_ number: String) -> Float? {
+func roundTwoDecimal(_ number: String) -> Double? {
     let format = NumberFormatter()
     format.numberStyle = .currency
     format.currencySymbol = ""
+    format.alwaysShowsDecimalSeparator = true
     format.minimumFractionDigits = 2
     format.maximumFractionDigits = 2
     format.locale = Locale.current
-    return format.number(from: number)?.floatValue
+    return format.number(from: number)?.doubleValue
 }

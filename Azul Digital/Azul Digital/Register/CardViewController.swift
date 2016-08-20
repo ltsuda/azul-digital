@@ -11,14 +11,14 @@ import UIKit
 class CardViewController: UIViewController, Alertable, CheckTextField, ValidateCard {
     
     @IBAction func finalizar(_ sender: AnyObject) {
-        checkEmpty([cardTextField.text!, fundsTextField.text!]) { [weak self] (title, message, action) in
+        checkEmpty([cardTextField.text!, cashTextField.text!]) { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
                 self?.alert(title, message: message, actionTitle: action)
             } else {
                 let cardIsValid = self?.validateCard((self?.cardTextField.text!)!)
                 if cardIsValid == true {
                     self?.user?.card = self?.cardTextField.text!
-                    self?.user?.funds = roundTwoDecimal((self?.fundsTextField.text!)!)
+                    self?.user?.cash = roundTwoDecimal((self?.cashTextField.text!)!)
                     self?.tryUser = true
                 } else {
                     self?.tryUser = false
@@ -32,7 +32,7 @@ class CardViewController: UIViewController, Alertable, CheckTextField, ValidateC
         }
         
     }
-    @IBOutlet weak var fundsTextField: UITextField!
+    @IBOutlet weak var cashTextField: UITextField!
     @IBOutlet weak var cardTextField: UITextField!
     var user: User?
     var car: Car?
@@ -53,7 +53,7 @@ class CardViewController: UIViewController, Alertable, CheckTextField, ValidateC
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         cardTextField.placeHolderText(in: PlaceHolder.Card.Number)
-        fundsTextField.placeHolderText(in: PlaceHolder.Card.Funds)
+        cashTextField.placeHolderText(in: PlaceHolder.Card.Funds)
     }
 }
 
