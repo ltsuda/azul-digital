@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11185.3" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pbt-Ix-qmM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pbt-Ix-qmM">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11151.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -82,15 +83,23 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Lv4-8E-1ok">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Lv4-8E-1ok" firstAttribute="top" secondItem="quQ-KP-Gp0" secondAttribute="bottom" constant="8" id="4xE-Xg-A0t"/>
                             <constraint firstItem="c9p-Ph-1Wo" firstAttribute="top" secondItem="quQ-KP-Gp0" secondAttribute="bottom" id="6yq-ck-FG9"/>
                             <constraint firstItem="Gj8-t2-bP4" firstAttribute="top" secondItem="c9p-Ph-1Wo" secondAttribute="bottom" constant="-1" id="8zq-et-btY">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
+                            <constraint firstItem="Lv4-8E-1ok" firstAttribute="trailing" secondItem="ELI-PY-WIK" secondAttribute="trailingMargin" id="Qfw-R5-opj"/>
                             <constraint firstItem="c9p-Ph-1Wo" firstAttribute="leading" secondItem="ELI-PY-WIK" secondAttribute="leading" id="ag4-Bo-KeA"/>
                             <constraint firstItem="qNW-ND-zqr" firstAttribute="top" secondItem="Gj8-t2-bP4" secondAttribute="bottom" id="bF7-oK-b4q"/>
+                            <constraint firstItem="Lv4-8E-1ok" firstAttribute="leading" secondItem="ELI-PY-WIK" secondAttribute="leadingMargin" id="jI4-cK-vaK"/>
                             <constraint firstAttribute="trailing" secondItem="Gj8-t2-bP4" secondAttribute="trailing" id="llH-rP-5gg"/>
                             <constraint firstItem="Gj8-t2-bP4" firstAttribute="leading" secondItem="ELI-PY-WIK" secondAttribute="leading" id="nPU-gs-68U"/>
                             <constraint firstAttribute="trailing" secondItem="c9p-Ph-1Wo" secondAttribute="trailing" id="z6N-Mc-SjI"/>
@@ -101,13 +110,13 @@
                                 <exclude reference="Gj8-t2-bP4"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="bF7-oK-b4q"/>
-                                <exclude reference="8zq-et-btY"/>
-                                <exclude reference="llH-rP-5gg"/>
-                                <exclude reference="nPU-gs-68U"/>
                                 <exclude reference="6yq-ck-FG9"/>
                                 <exclude reference="ag4-Bo-KeA"/>
                                 <exclude reference="z6N-Mc-SjI"/>
+                                <exclude reference="8zq-et-btY"/>
+                                <exclude reference="llH-rP-5gg"/>
+                                <exclude reference="nPU-gs-68U"/>
+                                <exclude reference="bF7-oK-b4q"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -116,13 +125,13 @@
                                 <include reference="Gj8-t2-bP4"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="bF7-oK-b4q"/>
-                                <include reference="8zq-et-btY"/>
-                                <include reference="llH-rP-5gg"/>
-                                <include reference="nPU-gs-68U"/>
                                 <include reference="6yq-ck-FG9"/>
                                 <include reference="ag4-Bo-KeA"/>
                                 <include reference="z6N-Mc-SjI"/>
+                                <include reference="8zq-et-btY"/>
+                                <include reference="llH-rP-5gg"/>
+                                <include reference="nPU-gs-68U"/>
+                                <include reference="bF7-oK-b4q"/>
                             </mask>
                         </variation>
                     </view>
@@ -141,12 +150,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="locationTextField" destination="Lv4-8E-1ok" id="Y8z-mI-Ze9"/>
                         <outlet property="mapView" destination="c9p-Ph-1Wo" id="NsF-fd-Q8O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LjI-oL-sbo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="694.20289855072474" y="163.04347826086959"/>
+            <point key="canvasLocation" x="693.60000000000002" y="162.3688155922039"/>
         </scene>
         <!--Settings-->
         <scene sceneID="X1t-og-x4F">

@@ -9,9 +9,11 @@
 import UIKit
 import Firebase
 import MapKit
+import AddressBook
 
 class MapViewController: UIViewController {
     
+    @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var mapView: MKMapView!
     @IBAction func logout(_ sender: AnyObject) {
         try! FIRAuth.auth()?.signOut()
@@ -27,20 +29,18 @@ class MapViewController: UIViewController {
     @IBAction func buyTicket(_ sender: AnyObject) {
         
     }
+    
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        requestUserLocation()
+
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        requestUserLocation()
-
-    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -61,12 +61,14 @@ class MapViewController: UIViewController {
 extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     
     func requestUserLocation() {
+        mapView.removeAnnotations(mapView.annotations)
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        mapView.showsUserLocation = true
+//        mapView.showsUserLocation = true
     }
+    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else {
@@ -76,10 +78,26 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
         mapView.setRegion(region, animated: true)
         locationManager.stopUpdatingLocation()
+        
+        CLGeocoder().reverseGeocodeLocation(location) { [weak self](placemarks, error) in
+            if error != nil {
+                print("\(error)")
+            }
+            guard let placemark = placemarks, let mostAccurate = placemark.first else { return }
+            let street = mostAccurate.addressDictionary?["FormattedAddressLines"] as? [String]
+            let formattedAddress = street?.joined(separator: ", ")
+            self?.mapView.addAnnotation(MKPlacemark(placemark: mostAccurate))
+            self?.locationTextField.text = formattedAddress
+            
+        }
+        CLGeocoder().cancelGeocode()
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Erro: \(error.localizedDescription)")
     }
+    
+    
     
 }
