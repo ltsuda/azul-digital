@@ -19,7 +19,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c9p-Ph-1Wo"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c9p-Ph-1Wo">
+                                <connections>
+                                    <outlet property="delegate" destination="3Pv-Hd-aEm" id="NdH-RY-Whb"/>
+                                </connections>
+                            </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gj8-t2-bP4">
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="Lha-cr-K91">
@@ -88,6 +92,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="S3O-4g-CLc">
+                                <frame key="frameInset" minX="165" minY="323" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="annotation" translatesAutoresizingMaskIntoConstraints="NO" id="NMe-Dc-QLh">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="Qhe-Pe-J0F"/>
+                                    <constraint firstAttribute="width" constant="44" id="lsN-Os-XXe"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -96,7 +110,9 @@
                             <constraint firstItem="Gj8-t2-bP4" firstAttribute="top" secondItem="c9p-Ph-1Wo" secondAttribute="bottom" constant="-1" id="8zq-et-btY">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
+                            <constraint firstItem="NMe-Dc-QLh" firstAttribute="centerX" secondItem="c9p-Ph-1Wo" secondAttribute="centerX" id="Dl2-oa-SD4"/>
                             <constraint firstItem="Lv4-8E-1ok" firstAttribute="trailing" secondItem="ELI-PY-WIK" secondAttribute="trailingMargin" id="Qfw-R5-opj"/>
+                            <constraint firstItem="NMe-Dc-QLh" firstAttribute="centerY" secondItem="c9p-Ph-1Wo" secondAttribute="centerY" id="XkC-7y-ufw"/>
                             <constraint firstItem="c9p-Ph-1Wo" firstAttribute="leading" secondItem="ELI-PY-WIK" secondAttribute="leading" id="ag4-Bo-KeA"/>
                             <constraint firstItem="qNW-ND-zqr" firstAttribute="top" secondItem="Gj8-t2-bP4" secondAttribute="bottom" id="bF7-oK-b4q"/>
                             <constraint firstItem="Lv4-8E-1ok" firstAttribute="leading" secondItem="ELI-PY-WIK" secondAttribute="leadingMargin" id="jI4-cK-vaK"/>
@@ -106,7 +122,6 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="c9p-Ph-1Wo"/>
                                 <exclude reference="Gj8-t2-bP4"/>
                             </mask>
                             <mask key="constraints">
@@ -121,7 +136,6 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="c9p-Ph-1Wo"/>
                                 <include reference="Gj8-t2-bP4"/>
                             </mask>
                             <mask key="constraints">
@@ -188,6 +202,7 @@
     <resources>
         <image name="Pagar" width="125" height="32"/>
         <image name="Settings" width="25" height="25"/>
+        <image name="annotation" width="44" height="58"/>
         <image name="location" width="33" height="31"/>
         <image name="location enabled" width="33" height="31"/>
     </resources>

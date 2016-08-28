@@ -61,14 +61,28 @@ class MapViewController: UIViewController {
 extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     
     func requestUserLocation() {
-        mapView.removeAnnotations(mapView.annotations)
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-//        mapView.showsUserLocation = true
+        mapView.showsUserLocation = false
     }
     
+    
+    func getAddress(location: CLLocation) {
+        CLGeocoder().cancelGeocode()
+        CLGeocoder().reverseGeocodeLocation(location) { [weak self](placemarks, error) in
+            if error != nil {
+                print("\(error)")
+            }
+            guard let placemark = placemarks, let mostAccurate = placemark.first else { return }
+            let street = mostAccurate.addressDictionary?["FormattedAddressLines"] as? [String]
+            let formattedAddress = street?.joined(separator: ", ")
+
+            self?.locationTextField.text = formattedAddress
+            
+        }
+    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else {
@@ -78,26 +92,18 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
         mapView.setRegion(region, animated: true)
         locationManager.stopUpdatingLocation()
+        getAddress(location: location)
         
-        CLGeocoder().reverseGeocodeLocation(location) { [weak self](placemarks, error) in
-            if error != nil {
-                print("\(error)")
-            }
-            guard let placemark = placemarks, let mostAccurate = placemark.first else { return }
-            let street = mostAccurate.addressDictionary?["FormattedAddressLines"] as? [String]
-            let formattedAddress = street?.joined(separator: ", ")
-            self?.mapView.addAnnotation(MKPlacemark(placemark: mostAccurate))
-            self?.locationTextField.text = formattedAddress
-            
-        }
-        CLGeocoder().cancelGeocode()
         
+    }
+
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        let newLocation = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
+        getAddress(location: newLocation)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Erro: \(error.localizedDescription)")
     }
-    
-    
-    
+
 }
