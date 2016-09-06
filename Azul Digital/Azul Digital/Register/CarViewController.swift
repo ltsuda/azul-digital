@@ -32,6 +32,11 @@ class CarViewController: UIViewController, Alertable, CheckTextField, ValidatePl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        brandTextField.delegate = self
+        modelTextField.delegate = self
+        colorTextField.delegate = self
+        plateTextField.delegate = self
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -67,4 +72,15 @@ class CarViewController: UIViewController, Alertable, CheckTextField, ValidatePl
         }
     }
 
+}
+
+extension CarViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
 }

@@ -36,11 +36,23 @@ PODS:
   - GoogleSymbolUtilities (1.1.1)
   - GoogleUtilities (1.3.1):
     - GoogleSymbolUtilities (~> 1.0)
+  - IQKeyboardManagerSwift (4.0.4)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Database
   - Firebase/Storage
+  - IQKeyboardManagerSwift (from `https://github.com/hackiftekhar/IQKeyboardManager.git`, branch `swift3`)
+
+EXTERNAL SOURCES:
+  IQKeyboardManagerSwift:
+    :branch: swift3
+    :git: https://github.com/hackiftekhar/IQKeyboardManager.git
+
+CHECKOUT OPTIONS:
+  IQKeyboardManagerSwift:
+    :commit: d27180d877c8d36d5be80ee9d8c24d184ac26081
+    :git: https://github.com/hackiftekhar/IQKeyboardManager.git
 
 SPEC CHECKSUMS:
   Firebase: 94e63112efcad75226c0356a8f3032397b8547c9
@@ -54,7 +66,8 @@ SPEC CHECKSUMS:
   GoogleParsingUtilities: 30b3896f9ee167dc78747f013d3de157ced1cadf
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
+  IQKeyboardManagerSwift: e0964d04d6a29b71016fd346dca13ecb80a2823a
 
-PODFILE CHECKSUM: b36e3c271983fb55740655867453b79e6a4faa4a
+PODFILE CHECKSUM: 2d7c48e96dffe0c8952ba14a611e8e8047e79e1e
 
-COCOAPODS: 1.1.0.beta.1
+COCOAPODS: 1.1.0.beta.2

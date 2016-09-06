@@ -41,6 +41,8 @@ class CardEditViewController: UIViewController, Readable, CheckTextField, Alerta
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        cardEditTextField.delegate = self
+        cashEditTextField.delegate = self
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -75,5 +77,16 @@ extension CardEditViewController: EditableCard {
                 let _ = self?.navigationController?.popViewController(animated: true)
             }
             })
+    }
+}
+
+extension CardEditViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 }

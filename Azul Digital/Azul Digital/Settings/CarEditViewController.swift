@@ -42,6 +42,10 @@ class CarEditViewController: UIViewController, Readable, CheckTextField, Alertab
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        brandEditTextField.delegate = self
+        modelEditTextField.delegate = self
+        colorEditTextField.delegate = self
+        plateEditTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -94,5 +98,16 @@ extension CarEditViewController: SaveCar, EditableCar {
                 })
             }
             })
+    }
+}
+
+extension CarEditViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 }

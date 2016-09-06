@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import MapKit
 import AddressBook
+import IQKeyboardManagerSwift
 
 class MapViewController: UIViewController {
     
@@ -37,8 +38,8 @@ class MapViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         requestUserLocation()
+        locationTextField.delegate = self
 
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -106,4 +107,15 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         print("Erro: \(error.localizedDescription)")
     }
 
+}
+
+extension MapViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
 }

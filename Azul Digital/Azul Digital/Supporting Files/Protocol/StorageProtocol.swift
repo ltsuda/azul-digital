@@ -28,7 +28,7 @@ extension Storagable {
         return FIRStorage.storage().reference().child("profile_img").child("\(imageName).jpg")
     }
     func upload(_ image: UIImage, completion: @escaping (String, String, String) -> ()) {
-        if let imageToUpload = UIImageJPEGRepresentation(image, 0.1) {
+        if let imageToUpload = UIImageJPEGRepresentation(image, 0.0) {
             storageRef.put(imageToUpload, metadata: nil, completion: { (metadata, error) in
                 if error != nil {
                     if let code = FIRStorageErrorCode(rawValue: (error?._code)!) {

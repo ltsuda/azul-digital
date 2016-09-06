@@ -44,6 +44,8 @@ class ProfileViewController: UIViewController, Alertable, CheckTextField {
         
         // Do any additional setup after loading the view.
         profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentPickerViewController)))
+        nameTextField.delegate = self
+        lastNameTextField.delegate = self
         
     }
     
@@ -147,5 +149,16 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ProfileViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 }

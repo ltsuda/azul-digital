@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pbt-Ix-qmM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pbt-Ix-qmM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -90,7 +90,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Lv4-8E-1ok">
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="S3O-4g-CLc">
                                 <frame key="frameInset" minX="165" minY="323" width="50" height="50"/>
@@ -128,10 +128,10 @@
                                 <exclude reference="6yq-ck-FG9"/>
                                 <exclude reference="ag4-Bo-KeA"/>
                                 <exclude reference="z6N-Mc-SjI"/>
+                                <exclude reference="bF7-oK-b4q"/>
                                 <exclude reference="8zq-et-btY"/>
                                 <exclude reference="llH-rP-5gg"/>
                                 <exclude reference="nPU-gs-68U"/>
-                                <exclude reference="bF7-oK-b4q"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -142,10 +142,10 @@
                                 <include reference="6yq-ck-FG9"/>
                                 <include reference="ag4-Bo-KeA"/>
                                 <include reference="z6N-Mc-SjI"/>
+                                <include reference="bF7-oK-b4q"/>
                                 <include reference="8zq-et-btY"/>
                                 <include reference="llH-rP-5gg"/>
                                 <include reference="nPU-gs-68U"/>
-                                <include reference="bF7-oK-b4q"/>
                             </mask>
                         </variation>
                     </view>

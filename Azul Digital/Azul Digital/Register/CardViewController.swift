@@ -42,7 +42,8 @@ class CardViewController: UIViewController, Alertable, CheckTextField, ValidateC
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
+        cashTextField.delegate = self
+        cardTextField.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,5 +77,16 @@ extension CardViewController: SaveUser, SaveCar {
                 self?.performSegue(withIdentifier: "MapSegue", sender: nil)
             }
             })
+    }
+}
+
+extension CardViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 }

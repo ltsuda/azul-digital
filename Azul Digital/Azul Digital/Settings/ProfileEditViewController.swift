@@ -41,7 +41,8 @@ class ProfileEditViewController: UIViewController, Alertable, Readable, CheckTex
         
         // Do any additional setup after loading the view.
         editImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentPickerViewController)))
-
+        nameEditTextField.delegate = self
+        lastNameEditTextField.delegate = self
         
     }
     
@@ -124,6 +125,17 @@ extension ProfileEditViewController: UIImagePickerControllerDelegate, UINavigati
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ProfileEditViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 }
 
