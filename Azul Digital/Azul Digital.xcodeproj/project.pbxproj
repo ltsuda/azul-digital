@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270525D51D861ACA001DEB03 /* SharedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270525D41D861ACA001DEB03 /* SharedNavigationController.swift */; };
 		2712DB521D3449CE008FD476 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2712DB511D3449CE008FD476 /* Gradient.swift */; };
 		2728D1C51D341FB200694B53 /* CreateAccViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2728D1C41D341FB200694B53 /* CreateAccViewController.swift */; };
 		2728D1C71D34319000694B53 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2728D1C61D34319000694B53 /* ProfileViewController.swift */; };
@@ -16,6 +17,8 @@
 		2728D1D31D3438B800694B53 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2728D1D21D3438B800694B53 /* MapViewController.swift */; };
 		2728D1D61D3439B500694B53 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2728D1D41D3439B500694B53 /* Register.storyboard */; };
 		272ECE2D1D3ED0CC00E251DF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 272ECE2C1D3ED0CC00E251DF /* GoogleService-Info.plist */; };
+		273360F51D8620E6009B20B0 /* BuyTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273360F31D8620E6009B20B0 /* BuyTicketViewController.swift */; };
+		273360F61D8620E6009B20B0 /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273360F41D8620E6009B20B0 /* ConfirmationViewController.swift */; };
 		275D46181D5179BD0040E64A /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275D46171D5179BD0040E64A /* LoadingIndicatorView.swift */; };
 		278C49A71D33FA5A00D43AAF /* PresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278C49A61D33FA5A00D43AAF /* PresentViewController.swift */; };
 		278C49A91D33FBBE00D43AAF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278C49A81D33FBBE00D43AAF /* LoginViewController.swift */; };
@@ -41,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		0C1CE793A240DB8FA3FC0C0C /* Pods-Azul Digital.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Azul Digital.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Azul Digital/Pods-Azul Digital.debug.xcconfig"; sourceTree = "<group>"; };
+		270525D41D861ACA001DEB03 /* SharedNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedNavigationController.swift; sourceTree = "<group>"; };
 		2712DB511D3449CE008FD476 /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		2728D1C41D341FB200694B53 /* CreateAccViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccViewController.swift; sourceTree = "<group>"; };
 		2728D1C61D34319000694B53 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +54,8 @@
 		2728D1D21D3438B800694B53 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2728D1D51D3439B500694B53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Register.storyboard; sourceTree = "<group>"; };
 		272ECE2C1D3ED0CC00E251DF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		273360F31D8620E6009B20B0 /* BuyTicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyTicketViewController.swift; sourceTree = "<group>"; };
+		273360F41D8620E6009B20B0 /* ConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
 		275D46171D5179BD0040E64A /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 		278C49A61D33FA5A00D43AAF /* PresentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentViewController.swift; sourceTree = "<group>"; };
 		278C49A81D33FBBE00D43AAF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +153,8 @@
 		27CBD2AB1D34454F00B01D6E /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				273360F31D8620E6009B20B0 /* BuyTicketViewController.swift */,
+				273360F41D8620E6009B20B0 /* ConfirmationViewController.swift */,
 				2728D1CF1D34386000694B53 /* Map.storyboard */,
 				2728D1D21D3438B800694B53 /* MapViewController.swift */,
 			);
@@ -156,6 +164,7 @@
 		27CBD2AC1D34455900B01D6E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				270525D41D861ACA001DEB03 /* SharedNavigationController.swift */,
 				2790778D1D468CFB005BA179 /* Protocol */,
 				275D46171D5179BD0040E64A /* LoadingIndicatorView.swift */,
 				27D4D6421D33E661007BB63A /* AppDelegate.swift */,
@@ -369,7 +378,10 @@
 				279D0B171D3AC54B00BC1D4C /* Ticket.swift in Sources */,
 				278C49A71D33FA5A00D43AAF /* PresentViewController.swift in Sources */,
 				27C7BA431D4704D300746C97 /* CarEditViewController.swift in Sources */,
+				273360F61D8620E6009B20B0 /* ConfirmationViewController.swift in Sources */,
 				27ABD5521D42DA3100C11469 /* StorageProtocol.swift in Sources */,
+				270525D51D861ACA001DEB03 /* SharedNavigationController.swift in Sources */,
+				273360F51D8620E6009B20B0 /* BuyTicketViewController.swift in Sources */,
 				2728D1C71D34319000694B53 /* ProfileViewController.swift in Sources */,
 				27C7BA411D4704C200746C97 /* ProfileEditViewController.swift in Sources */,
 				279F16D91D3572D600CC0C9D /* Extension.swift in Sources */,

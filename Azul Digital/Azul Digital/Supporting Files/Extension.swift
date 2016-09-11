@@ -15,7 +15,7 @@ extension UIButton {
         button.backgroundColor = UIColor.clear
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.white.cgColor
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = 12
     }
     
 }

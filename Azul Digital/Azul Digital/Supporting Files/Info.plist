@@ -39,7 +39,7 @@
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
+	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Precisamos acessar sua biblioteca de fotos para que você escolha a imagem de perfil</string>
 </dict>

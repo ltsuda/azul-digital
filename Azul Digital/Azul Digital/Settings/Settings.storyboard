@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yvA-Qo-KGN">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A319" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yvA-Qo-KGN">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -95,12 +95,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="76o-Sa-QUf">
-                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="ePB-7S-ylZ">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="kcF-qG-pIT" kind="unwind" unwindAction="cancelModificationWithSegue:" id="SkY-wM-CWA"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="cqH-zW-GFg"/>
                         <barButtonItem key="rightBarButtonItem" title="Salvar" id="qSA-DA-npf">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -115,7 +110,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tqY-Hu-Rec" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="kcF-qG-pIT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2324" y="-692"/>
         </scene>
@@ -366,12 +360,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="QHp-Mi-5hG">
-                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="req-AQ-9Bw">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="raL-YT-RGI" kind="unwind" unwindAction="cancelModificationWithSegue:" id="e5C-Qx-IT2"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="m4B-zX-q2A"/>
                         <barButtonItem key="rightBarButtonItem" title="Salvar" id="QOL-4d-cqR">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -388,7 +377,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0J4-ju-V3F" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="raL-YT-RGI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2324" y="-27"/>
         </scene>
@@ -406,16 +394,11 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="I1c-y2-24A">
-                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="wua-B9-VAG">
-                            <connections>
-                                <segue destination="pbs-Vp-kth" kind="unwind" unwindAction="cancelModificationWithSegue:" id="gh9-bE-EZr"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" id="I1c-y2-24A">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="yw6-6L-yqc"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oiO-Sg-Vxw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="pbs-Vp-kth" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1171" y="756"/>
         </scene>
@@ -505,12 +488,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="uFL-za-Mpz">
-                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="LlL-ZV-4pz">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="MPy-sr-jjd" kind="unwind" unwindAction="cancelModificationWithSegue:" id="ZtO-lM-pZ7"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="8dm-EK-YZL"/>
                         <barButtonItem key="rightBarButtonItem" title="Salvar" id="wmQ-zN-ezK">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -525,7 +503,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rv0-eL-EgU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="MPy-sr-jjd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2324" y="731"/>
         </scene>

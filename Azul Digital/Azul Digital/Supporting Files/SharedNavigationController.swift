@@ -21,6 +21,11 @@ class SharedNavigationController: UINavigationController {
         // Dispose of any resources that can be recreated.
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        get {
+            return .lightContent
+        }
+    }
 
     /*
     // MARK: - Navigation
