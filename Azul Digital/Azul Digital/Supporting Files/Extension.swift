@@ -12,9 +12,7 @@ import Foundation
 extension UIButton {
     
     func configureCorner(to button: UIButton) {
-        button.backgroundColor = UIColor.clear
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.white.cgColor
+//        button.backgroundColor = UIColor(red: 15/255, green: 127/255, blue: 223/255, alpha: 1)
         button.layer.cornerRadius = 12
     }
     
@@ -51,19 +49,8 @@ extension UIImageView {
 extension UITextField {
     
     func configureBorder(to uitextField: String) {
-        let border = CALayer()
-        let width = CGFloat(1.0)
-        border.borderColor = UIColor.white.cgColor
-        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: self.frame.size.width, height: self.frame.size.height)
-        border.borderWidth = width
-        let placeholder = NSAttributedString(string: uitextField, attributes: [NSForegroundColorAttributeName: UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.5)])
-        self.textColor = UIColor.white
-        self.tintColor = UIColor.white
+        let placeholder = NSAttributedString(string: uitextField, attributes: [NSForegroundColorAttributeName: UIColor.lightGray])
         self.attributedPlaceholder = placeholder
-        self.borderStyle = .none
-        self.backgroundColor = UIColor.clear
-        self.layer.addSublayer(border)
-        self.layer.masksToBounds = true
     }
     func placeHolderText(in uitextField: String) {
         let placeholder = NSAttributedString(string: uitextField, attributes: [NSForegroundColorAttributeName: UIColor.init(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5)])

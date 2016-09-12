@@ -31,6 +31,7 @@
 		27ABD5521D42DA3100C11469 /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ABD5511D42DA3100C11469 /* StorageProtocol.swift */; };
 		27AD34321D395B0D0084E8FE /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AD34311D395B0D0084E8FE /* Protocols.swift */; };
 		27B50B721D46FC9E009BF635 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B50B711D46FC9E009BF635 /* Settings.storyboard */; };
+		27C5292B1D86482800D43616 /* RegisterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C5292A1D86482800D43616 /* RegisterTextField.swift */; };
 		27C7BA411D4704C200746C97 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C7BA401D4704C200746C97 /* ProfileEditViewController.swift */; };
 		27C7BA431D4704D300746C97 /* CarEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C7BA421D4704D300746C97 /* CarEditViewController.swift */; };
 		27C7BA451D4704DE00746C97 /* CardEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C7BA441D4704DE00746C97 /* CardEditViewController.swift */; };
@@ -68,6 +69,7 @@
 		27ABD5511D42DA3100C11469 /* StorageProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageProtocol.swift; sourceTree = "<group>"; };
 		27AD34311D395B0D0084E8FE /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		27B50B711D46FC9E009BF635 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		27C5292A1D86482800D43616 /* RegisterTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterTextField.swift; sourceTree = "<group>"; };
 		27C7BA401D4704C200746C97 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		27C7BA421D4704D300746C97 /* CarEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarEditViewController.swift; sourceTree = "<group>"; };
 		27C7BA441D4704DE00746C97 /* CardEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardEditViewController.swift; sourceTree = "<group>"; };
@@ -164,8 +166,9 @@
 		27CBD2AC1D34455900B01D6E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				270525D41D861ACA001DEB03 /* SharedNavigationController.swift */,
 				2790778D1D468CFB005BA179 /* Protocol */,
+				270525D41D861ACA001DEB03 /* SharedNavigationController.swift */,
+				27C5292A1D86482800D43616 /* RegisterTextField.swift */,
 				275D46171D5179BD0040E64A /* LoadingIndicatorView.swift */,
 				27D4D6421D33E661007BB63A /* AppDelegate.swift */,
 				27D4D6491D33E661007BB63A /* Assets.xcassets */,
@@ -383,6 +386,7 @@
 				270525D51D861ACA001DEB03 /* SharedNavigationController.swift in Sources */,
 				273360F51D8620E6009B20B0 /* BuyTicketViewController.swift in Sources */,
 				2728D1C71D34319000694B53 /* ProfileViewController.swift in Sources */,
+				27C5292B1D86482800D43616 /* RegisterTextField.swift in Sources */,
 				27C7BA411D4704C200746C97 /* ProfileEditViewController.swift in Sources */,
 				279F16D91D3572D600CC0C9D /* Extension.swift in Sources */,
 				275D46181D5179BD0040E64A /* LoadingIndicatorView.swift in Sources */,
