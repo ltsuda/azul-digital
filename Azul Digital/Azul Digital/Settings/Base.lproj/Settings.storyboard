@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Profile Edit View Controller-->
+        <!--Profile-->
         <scene sceneID="uGK-AZ-Sk6">
             <objects>
                 <viewController id="tJg-qd-Vrr" customClass="ProfileEditViewController" customModule="Azul_Digital" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,11 +23,11 @@
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TPq-GX-yHH">
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UVs-ji-ROb" userLabel="Nome">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UVs-ji-ROb" userLabel="Nome">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sobrenome" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="b6L-GT-hT5" userLabel="Nome">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="b6L-GT-hT5" userLabel="Nome">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
@@ -94,9 +94,9 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="76o-Sa-QUf">
+                    <navigationItem key="navigationItem" title="Profile" id="76o-Sa-QUf">
                         <barButtonItem key="backBarButtonItem" title="Back" id="cqH-zW-GFg"/>
-                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="qSA-DA-npf">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="qSA-DA-npf">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="save:" destination="tJg-qd-Vrr" id="Wdu-6f-5jo"/>
@@ -288,26 +288,26 @@
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LXB-BM-oQn">
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Marca" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cks-ro-iVo" userLabel="Marca">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Brand" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cks-ro-iVo" userLabel="Marca">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Modelo" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YaE-6g-8fA" userLabel="Marca">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Model" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YaE-6g-8fA" userLabel="Marca">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cor" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Kuq-La-e6R" userLabel="Marca">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Color" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Kuq-La-e6R" userLabel="Marca">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Placa: ABC0001" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TAT-cw-iS2" userLabel="Marca">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Plate: ABC0001" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TAT-cw-iS2" userLabel="Marca">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
                                 </subviews>
                                 <variation key="heightClass=regular-widthClass=compact" axis="vertical"/>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Precisamos das informações do seu veículo apenas para associá-las ao seu perfil" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2R-aG-Nga">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="We need these information only to associate with your profile" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2R-aG-Nga">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="bEh-Ag-RqN">
                                         <variation key="heightClass=regular-widthClass=compact" constant="80"/>
@@ -359,9 +359,9 @@
                         </variation>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="QHp-Mi-5hG">
+                    <navigationItem key="navigationItem" title="Car" id="QHp-Mi-5hG">
                         <barButtonItem key="backBarButtonItem" title="Back" id="m4B-zX-q2A"/>
-                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="QOL-4d-cqR">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="QOL-4d-cqR">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="save:" destination="ebh-Mw-SAc" id="wqW-AV-3jd"/>
@@ -394,7 +394,7 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="I1c-y2-24A">
+                    <navigationItem key="navigationItem" title="About" id="I1c-y2-24A">
                         <barButtonItem key="backBarButtonItem" title="Back" id="yw6-6L-yqc"/>
                     </navigationItem>
                 </viewController>
@@ -464,7 +464,7 @@
                                     <constraint firstItem="F1B-Wf-i8o" firstAttribute="leading" secondItem="VSn-no-bc9" secondAttribute="leading" id="vuu-kB-yse"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Precisamos das informações do seu veículo para associá-las ao seu perfil e só será cobrado quando comprar o ticket Zona Azul" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXq-ke-9WB">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="We need these information only to associate with your profile and you'll only be charged if you buy a ticket" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXq-ke-9WB">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="le1-Mu-YbA"/>
                                 </constraints>
@@ -487,7 +487,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="uFL-za-Mpz">
+                    <navigationItem key="navigationItem" title="Card" id="uFL-za-Mpz">
                         <barButtonItem key="backBarButtonItem" title="Back" id="8dm-EK-YZL"/>
                         <barButtonItem key="rightBarButtonItem" title="Salvar" id="wmQ-zN-ezK">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -47,6 +47,8 @@ class CardEditViewController: UIViewController, Readable, CheckTextField, Alerta
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.title = NSLocalizedString("Card", comment: "edit-card")
+        textView.text = NSLocalizedString("privacy-card", comment: "edit-card")
         
         LoadingIndicatorView.show("Loading data")
         read("users", id: id, completionObject: { [weak self] (user, _) in

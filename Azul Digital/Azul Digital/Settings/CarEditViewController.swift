@@ -50,6 +50,9 @@ class CarEditViewController: UIViewController, Readable, CheckTextField, Alertab
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.title = NSLocalizedString("Car", comment: "edit-car")
+        textView.text = NSLocalizedString("privacy-car", comment: "edit-car")
+        
         LoadingIndicatorView.show("Loading data")
         
         read("users", id: id, completionObject: { [weak self] (user, car) in

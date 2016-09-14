@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="88Q-vw-kLe">
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" id="lYs-jE-hdS" customClass="ProfileViewController" customModule="Azul_Digital" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,11 +23,11 @@
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="c6p-bH-ZRY">
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aRI-SL-1pv" userLabel="Nome">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aRI-SL-1pv" userLabel="Nome">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sobrenome" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pQK-R3-2fM" userLabel="Nome">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pQK-R3-2fM" userLabel="Nome">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
@@ -94,15 +94,15 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="veF-SQ-cmo">
-                        <barButtonItem key="backBarButtonItem" title="Voltar" id="7qS-FV-fLj"/>
-                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="tmS-lH-xL9">
+                    <navigationItem key="navigationItem" title="Profile" id="veF-SQ-cmo">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="7qS-FV-fLj"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="tmS-lH-xL9">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="cancel:" destination="lYs-jE-hdS" id="LKl-VS-q3e"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Próximo" id="IEZ-rb-u4c">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="IEZ-rb-u4c">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="next:" destination="lYs-jE-hdS" id="9zs-em-UpW"/>
@@ -152,26 +152,26 @@
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lBG-6n-TdA">
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Marca" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="L5v-yr-9ry" userLabel="Marca">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Brand" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="L5v-yr-9ry" userLabel="Marca">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Modelo" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2a5-ym-T8s" userLabel="Marca">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Model" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2a5-ym-T8s" userLabel="Marca">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cor" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TrA-Qu-m6b" userLabel="Marca">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Color" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TrA-Qu-m6b" userLabel="Marca">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Placa: ABC0001" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tLv-SD-1p7" userLabel="Marca">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Plate: ABC0001" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tLv-SD-1p7" userLabel="Marca">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
                                 </subviews>
                                 <variation key="heightClass=regular-widthClass=compact" axis="vertical"/>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Precisamos das informações do seu veículo apenas para associá-las ao seu perfil" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmd-cz-APe">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="We need these information only to associate with your profile" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmd-cz-APe">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="KtL-hG-SHH">
                                         <variation key="heightClass=regular-widthClass=compact" constant="80"/>
@@ -223,9 +223,9 @@
                         </variation>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="skF-UE-fBJ">
-                        <barButtonItem key="backBarButtonItem" title="Voltar" id="BVM-el-Z0K"/>
-                        <barButtonItem key="rightBarButtonItem" title="Próximo" id="pyn-W0-5cg" userLabel="Próximo">
+                    <navigationItem key="navigationItem" title="Car" id="skF-UE-fBJ">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="BVM-el-Z0K"/>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="pyn-W0-5cg" userLabel="Próximo">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="next:" destination="Ruz-9m-gtH" id="sWM-zP-2aw"/>
@@ -237,6 +237,7 @@
                         <outlet property="colorTextField" destination="TrA-Qu-m6b" id="Yjf-ZN-Xxb"/>
                         <outlet property="modelTextField" destination="2a5-ym-T8s" id="ei0-jc-ivU"/>
                         <outlet property="plateTextField" destination="tLv-SD-1p7" id="YL8-S1-iHj"/>
+                        <outlet property="privacyTextView" destination="tmd-cz-APe" id="Lij-ST-RBN"/>
                         <segue destination="h5r-F6-ehz" kind="show" identifier="CardSegue" id="sgw-Y9-OsP"/>
                     </connections>
                 </viewController>
@@ -303,7 +304,7 @@
                                     <constraint firstAttribute="height" constant="30" id="wLG-Ka-PF9"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Precisamos das informações do seu cartão para associá-las ao seu perfil e só será cobrado quando comprar o ticket Zona Azul" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FmG-uz-oYV">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="We need these information only to associate with your profile and you'll only be charged if you buy a ticket" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FmG-uz-oYV">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Vmu-Sw-TNU"/>
                                 </constraints>
@@ -326,9 +327,9 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="U65-Fo-sBp">
-                        <barButtonItem key="backBarButtonItem" title="Voltar" id="bAU-SA-XZv"/>
-                        <barButtonItem key="rightBarButtonItem" title="Finalizar" id="ICx-lM-fdS" userLabel="Próximo">
+                    <navigationItem key="navigationItem" title="Card" id="U65-Fo-sBp">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="bAU-SA-XZv"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="ICx-lM-fdS" userLabel="Próximo">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="finalizar:" destination="h5r-F6-ehz" id="ANk-rD-Obb"/>
@@ -338,6 +339,7 @@
                     <connections>
                         <outlet property="cardTextField" destination="7Nl-ai-fbM" id="XHU-oM-jbA"/>
                         <outlet property="cashTextField" destination="yl7-Tz-Uno" id="Ae2-KX-jRV"/>
+                        <outlet property="privacyTextView" destination="FmG-uz-oYV" id="Nem-C0-bcX"/>
                         <segue destination="dYl-u9-gCf" kind="show" identifier="MapSegue" id="fnZ-uW-LqV"/>
                     </connections>
                 </viewController>

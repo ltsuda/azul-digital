@@ -1,0 +1,53 @@
+/* car-brand */
+"Brand" = "Marca";
+
+/* buy-map */
+"Buy" = "Comprar";
+
+/* buy-map-enabled */
+"Buy_enabled" = "Comprar_enabled";
+
+/* edit-car */
+"Car" = "Carro";
+
+/* edit-card */
+"Card" = "Cartão";
+
+/* color-brand */
+"Color" = "Cor";
+
+/* email-address */
+"Email-provider" = "usuario@provedor.com.br";
+
+/* user-firstName */
+"First" = "Nome";
+
+/* user-lastName */
+"Last" = "Sobrenome";
+
+/* model-brand */
+"Model" = "Modelo";
+
+/* user-password */
+"Password" = "senha";
+
+/* edit-profile */
+"Profile" = "Perfil";
+
+/* settings-table */
+"Settings" = "Configuração";
+
+/* lastname-profile */
+"lastname-profile" = "Sobrenome";
+
+/* username-profile */
+"name-profile" = "Nome";
+
+/* car-register
+   edit-car */
+"privacy-car" = "Precisamos das informações do seu veículo apenas para associá-las ao seu perfil";
+
+/* card-register
+   edit-card */
+"privacy-card" = "Precisamos das informações do seu cartão para associá-las ao seu perfil e só será cobrado quando comprar o ticket";
+

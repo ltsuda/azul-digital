@@ -20,16 +20,16 @@ extension UIButton {
 
 enum PlaceHolder {
     enum User {
-        static let Email = "usuario@provedor.com.br"
-        static let Password = "senha"
-        static let FirstName = "Nome"
-        static let LastName = "Sobrenome"
+        static let Email = NSLocalizedString("Email-provider", comment: "email-address")
+        static let Password = NSLocalizedString("Password", comment: "user-password")
+        static let FirstName = NSLocalizedString("First", comment: "user-firstName")
+        static let LastName = NSLocalizedString("Last", comment: "user-lastName")
     }
     
     enum Car {
-        static let Brand = "Chevrolet"
-        static let Model = "Cruze"
-        static let Color = "Preto"
+        static let Brand = NSLocalizedString("Brand", comment: "car-brand")
+        static let Model = NSLocalizedString("Model", comment: "model-brand")
+        static let Color = NSLocalizedString("Color", comment: "color-brand")
         static let Plate = "CRZ0001"
     }
     

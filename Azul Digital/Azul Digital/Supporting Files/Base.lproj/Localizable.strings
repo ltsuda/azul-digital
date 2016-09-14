@@ -1,0 +1,53 @@
+/* car-brand */
+"Brand" = "Brand";
+
+/* buy-map */
+"Buy" = "Buy";
+
+/* buy-map-enabled */
+"Buy_enabled" = "Buy_enabled";
+
+/* edit-car */
+"Car" = "Car";
+
+/* edit-card */
+"Card" = "Card";
+
+/* color-brand */
+"Color" = "Color";
+
+/* email-address */
+"Email-provider" = "user@provider.com";
+
+/* user-firstName */
+"First" = "First";
+
+/* user-lastName */
+"Last" = "Last";
+
+/* model-brand */
+"Model" = "Model";
+
+/* user-password */
+"Password" = "password";
+
+/* edit-profile */
+"Profile" = "Profile";
+
+/* settings-table */
+"Settings" = "Settings";
+
+/* lastname-profile */
+"lastname-profile" = "Last";
+
+/* username-profile */
+"name-profile" = "First";
+
+/* car-register
+   edit-car */
+"privacy-car" = "We need these information only to associate with your profile";
+
+/* card-register
+   edit-card */
+"privacy-card" = "We need these information only to associate with your profile and you'll only be charged if you buy a ticket";
+

@@ -25,7 +25,6 @@ class PresentViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        view.gradientBackbround(to: view)
         createAccButton.configureCorner(to: createAccButton)
         alreadyMemberButton.configureCorner(to: alreadyMemberButton)
 

@@ -51,6 +51,8 @@ class ProfileViewController: UIViewController, Alertable, CheckTextField {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        nameTextField.placeholder = NSLocalizedString("name-profile", comment: "username-profile")
+        lastNameTextField.placeholder = NSLocalizedString("lastname-profile", comment: "lastname-profile")
         
     }
     

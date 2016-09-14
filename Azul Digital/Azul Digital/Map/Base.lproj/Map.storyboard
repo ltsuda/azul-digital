@@ -36,7 +36,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="831-cz-UfD" userLabel="pay">
-                                                <state key="normal" image="Pagar"/>
+                                                <state key="normal" image="Buy"/>
                                                 <state key="highlighted" image="BuyTicket_enabled"/>
                                                 <connections>
                                                     <action selector="buyTicket:" destination="3Pv-Hd-aEm" eventType="touchUpInside" id="9oD-T0-F85"/>
@@ -165,6 +165,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="buy" destination="831-cz-UfD" id="RXl-mn-SYP"/>
                         <outlet property="locationTextField" destination="Lv4-8E-1ok" id="Y8z-mI-Ze9"/>
                         <outlet property="mapView" destination="c9p-Ph-1Wo" id="NsF-fd-Q8O"/>
                     </connections>
@@ -201,8 +202,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Buy" width="125" height="32"/>
         <image name="BuyTicket_enabled" width="123" height="30"/>
-        <image name="Pagar" width="125" height="32"/>
         <image name="Settings" width="25" height="25"/>
         <image name="annotation" width="44" height="58"/>
         <image name="location" width="33" height="31"/>

@@ -113,6 +113,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWo-5D-cMd">
                                         <color key="backgroundColor" red="0.058823529411764705" green="0.49803921568627452" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -122,6 +123,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQh-OZ-xAR">
                                         <color key="backgroundColor" red="0.058823529411764705" green="0.49803921568627452" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <state key="normal" title="Login">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -176,6 +178,7 @@
                         <outlet property="cancelButton" destination="eWo-5D-cMd" id="4uY-Xi-pMe"/>
                         <outlet property="emailTextField" destination="UAe-bh-l1w" id="TBj-D7-PqB"/>
                         <outlet property="loginButton" destination="SQh-OZ-xAR" id="W16-FS-zWm"/>
+                        <outlet property="passwordLabel" destination="Qjw-YW-bxy" id="OG4-aU-J9q"/>
                         <outlet property="passwordTextField" destination="E9a-JO-g6D" id="e6m-GC-5MF"/>
                         <segue destination="xnB-NZ-Dkn" kind="show" identifier="MapLoginSegue" id="b11-Cz-2Mw"/>
                     </connections>
@@ -301,6 +304,7 @@
                     <connections>
                         <outlet property="cancelButton" destination="HwY-LR-FcY" id="CCi-z4-91x"/>
                         <outlet property="emailTextField" destination="ESg-OB-1D3" id="c0L-cP-wpo"/>
+                        <outlet property="passwordLabel" destination="FiJ-yG-ufr" id="J85-z5-LeK"/>
                         <outlet property="passwordTextField" destination="v6q-av-j0E" id="D94-XT-xla"/>
                         <outlet property="registerButton" destination="CtR-pL-mJd" id="TO0-mN-QZ6"/>
                         <segue destination="lHd-tQ-8PG" kind="show" identifier="RegisterSegue" id="BGO-pX-tg7"/>

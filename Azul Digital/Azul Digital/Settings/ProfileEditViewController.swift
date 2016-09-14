@@ -48,6 +48,9 @@ class ProfileEditViewController: UIViewController, Alertable, Readable, CheckTex
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        self.title = NSLocalizedString("Profile", comment: "edit-profile")
+        
         LoadingIndicatorView.show("Loading data" as String)
         
         read("users", id: id, completionObject: { [weak self] (user, _) in

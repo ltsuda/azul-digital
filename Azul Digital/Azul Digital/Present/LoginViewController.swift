@@ -12,6 +12,7 @@ class LoginViewController: UIViewController, Alertable, Loggable {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     @IBAction func login(_ sender: AnyObject) {
@@ -36,8 +37,6 @@ class LoginViewController: UIViewController, Alertable, Loggable {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
-        view.gradientBackbround(to: view)
         cancelButton.configureCorner(to: cancelButton)
         loginButton.configureCorner(to: loginButton)
     }

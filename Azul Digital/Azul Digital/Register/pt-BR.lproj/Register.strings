@@ -1,0 +1,66 @@
+/* Class = "UITextField"; placeholder = "Model"; ObjectID = "2a5-ym-T8s"; */
+"2a5-ym-T8s.placeholder" = "Modelo";
+
+/* Class = "UITextField"; placeholder = "4444 1111 2222 0000"; ObjectID = "7Nl-ai-fbM"; */
+"7Nl-ai-fbM.placeholder" = "4444 1111 2222 0000";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "7qS-FV-fLj"; */
+"7qS-FV-fLj.title" = "Voltar";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "BVM-el-Z0K"; */
+"BVM-el-Z0K.title" = "Voltar";
+
+/* Class = "UITextView"; text = "We need these information only to associate with your profile and you'll only be charged if you buy a ticket"; ObjectID = "FmG-uz-oYV"; */
+"FmG-uz-oYV.text" = "Precisamos das informações do seu cartão para associá-las ao seu perfil e só será cobrado quando comprar o ticket";
+
+/* Class = "UIBarButtonItem"; title = "Next"; ObjectID = "IEZ-rb-u4c"; */
+"IEZ-rb-u4c.title" = "Próximo";
+
+/* Class = "UITextField"; placeholder = "Brand"; ObjectID = "L5v-yr-9ry"; */
+"L5v-yr-9ry.placeholder" = "Marca";
+
+/* Class = "UIViewController"; title = "CarViewController"; ObjectID = "Ruz-9m-gtH"; */
+"Ruz-9m-gtH.title" = "CarViewController";
+
+/* Class = "UITextField"; placeholder = "Color"; ObjectID = "TrA-Qu-m6b"; */
+"TrA-Qu-m6b.placeholder" = "Cor";
+
+/* Class = "UINavigationItem"; title = "Card"; ObjectID = "U65-Fo-sBp"; */
+"U65-Fo-sBp.title" = "Cartão";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "aRI-SL-1pv"; */
+"aRI-SL-1pv.placeholder" = "Nome";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "bAU-SA-XZv"; */
+"bAU-SA-XZv.title" = "Voltar";
+
+/* Class = "UIViewController"; title = "CardViewController"; ObjectID = "h5r-F6-ehz"; */
+"h5r-F6-ehz.title" = "CardViewController";
+
+/* Class = "UITextField"; placeholder = "Last"; ObjectID = "pQK-R3-2fM"; */
+"pQK-R3-2fM.placeholder" = "Sobrenome";
+
+/* Class = "UIBarButtonItem"; title = "Next"; ObjectID = "pyn-W0-5cg"; */
+"pyn-W0-5cg.title" = "Próximo";
+
+/* Class = "UINavigationItem"; title = "Car"; ObjectID = "skF-UE-fBJ"; */
+"skF-UE-fBJ.title" = "Carro";
+
+/* Class = "UITextField"; placeholder = "Plate: ABC0001"; ObjectID = "tLv-SD-1p7"; */
+"tLv-SD-1p7.placeholder" = "Placa: ABC0001";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "tmS-lH-xL9"; */
+"tmS-lH-xL9.title" = "Cancelar";
+
+/* Class = "UITextView"; text = "We need these information only to associate with your profile"; ObjectID = "tmd-cz-APe"; */
+"tmd-cz-APe.text" = "Precisamos das informações do seu veículo apenas para associá-las ao seu perfil";
+
+/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "veF-SQ-cmo"; */
+"veF-SQ-cmo.title" = "Perfil";
+
+/* Class = "UITextField"; placeholder = "R$100.00"; ObjectID = "yl7-Tz-Uno"; */
+"yl7-Tz-Uno.placeholder" = "R$100.00";
+
+/* Class = "UINavigationController"; title = "RegisterNavigationController"; ObjectID = "zNd-SS-G9M"; */
+"zNd-SS-G9M.title" = "RegisterNavigationController";
+

@@ -12,6 +12,7 @@ import FirebaseAuth
 class CreateAccViewController: UIViewController, Alertable, Creatable {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     @IBAction func register(_ sender: AnyObject) {
@@ -36,8 +37,6 @@ class CreateAccViewController: UIViewController, Alertable, Creatable {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
-        view.gradientBackbround(to: view)
         cancelButton.configureCorner(to: cancelButton)
         registerButton.configureCorner(to: registerButton)
     }

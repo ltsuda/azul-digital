@@ -10,6 +10,7 @@ import UIKit
 
 class CarViewController: UIViewController, Alertable, CheckTextField, ValidatePlate {
     
+    @IBOutlet weak var privacyTextView: UITextView!
     @IBOutlet weak var brandTextField: UITextField!
     @IBOutlet weak var modelTextField: UITextField!
     @IBOutlet weak var colorTextField: UITextField!
@@ -43,6 +44,11 @@ class CarViewController: UIViewController, Alertable, CheckTextField, ValidatePl
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        privacyTextView.text = NSLocalizedString("privacy-car", comment: "car-register")
+    }
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         brandTextField.placeHolderText(in: PlaceHolder.Car.Brand)

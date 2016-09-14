@@ -32,6 +32,7 @@ class CardViewController: UIViewController, Alertable, CheckTextField, ValidateC
         }
         
     }
+    @IBOutlet weak var privacyTextView: UITextView!
     @IBOutlet weak var cashTextField: UITextField!
     @IBOutlet weak var cardTextField: UITextField!
     var user: User?
@@ -46,6 +47,11 @@ class CardViewController: UIViewController, Alertable, CheckTextField, ValidateC
         cardTextField.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        privacyTextView.text = NSLocalizedString("privacy-card", comment: "card-register")
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
