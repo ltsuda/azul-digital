@@ -12,7 +12,7 @@ import Firebase
 class BuyTicketViewController: UIViewController, Readable {
     
     var user: User?
-    var car: Car?
+    var uid: String?
     var address: String?
     
     @IBOutlet weak var buyDescription: UITextView!
@@ -31,6 +31,7 @@ class BuyTicketViewController: UIViewController, Readable {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        LoadingIndicatorView.show("Loading data")
         buyDescription.text = NSLocalizedString("buy-description", comment: "buy-ticket-description")
         buyButton.setImage(UIImage(named: NSLocalizedString("Buy-Ticket", comment: "buy-view")) , for: .normal)
         buyButton.setImage(UIImage(named: NSLocalizedString("Buy-Ticket-enabled", comment: "buy-view")) , for: .highlighted)
@@ -38,17 +39,12 @@ class BuyTicketViewController: UIViewController, Readable {
         guard let currentUser = FIRAuth.auth()?.currentUser else { return }
         
         read("users", id: currentUser.uid, completionObject: { [weak self] (user, car) in
-            guard let plate = car?.plate, let user = user else { return }
+            guard let user = user else { return }
             DispatchQueue.main.async {
                 self?.user = user
-            }
-            self?.read("cars", id: plate, completionObject: { [weak self] (_, car) in
-                DispatchQueue.main.async {
-                    self?.car = car
-                }
-                })
-            })
-        
+                self?.uid = currentUser.uid
+                LoadingIndicatorView.hide()
+            }})
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,7 +57,7 @@ class BuyTicketViewController: UIViewController, Readable {
             guard let destination = segue.destination as? ConfirmationViewController else { return }
             destination.address = address ?? "No address"
             destination.user = user
-            destination.car = car
+            destination.uid = uid
         }
     }
 }
