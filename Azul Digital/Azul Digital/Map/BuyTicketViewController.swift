@@ -7,30 +7,61 @@
 //
 
 import UIKit
+import Firebase
 
-class BuyTicketViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+class BuyTicketViewController: UIViewController, Readable {
+    
+    var user: User?
+    var car: Car?
+    var address: String?
+    
+    @IBOutlet weak var buyDescription: UITextView!
+    @IBOutlet weak var buyButton: UIButton!
+    @IBAction func buy(_ sender: AnyObject) {
+        performSegue(withIdentifier: "ConfirmationSegue", sender: nil)
+    }
+    @IBAction func unwindToPresent(withSegue segue: UIStoryboardSegue) {
+        dismiss(animated: true, completion: nil)
     }
     
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        buyDescription.text = NSLocalizedString("buy-description", comment: "buy-ticket-description")
+        buyButton.setImage(UIImage(named: NSLocalizedString("Buy-Ticket", comment: "buy-view")) , for: .normal)
+        buyButton.setImage(UIImage(named: NSLocalizedString("Buy-Ticket-enabled", comment: "buy-view")) , for: .highlighted)
+        
+        guard let currentUser = FIRAuth.auth()?.currentUser else { return }
+        
+        read("users", id: currentUser.uid, completionObject: { [weak self] (user, car) in
+            guard let plate = car?.plate, let user = user else { return }
+            DispatchQueue.main.async {
+                self?.user = user
+            }
+            self?.read("cars", id: plate, completionObject: { [weak self] (_, car) in
+                DispatchQueue.main.async {
+                    self?.car = car
+                }
+                })
+            })
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ConfirmationSegue" {
+            guard let destination = segue.destination as? ConfirmationViewController else { return }
+            destination.address = address ?? "No address"
+            destination.user = user
+            destination.car = car
+        }
     }
-    */
-
 }

@@ -3,7 +3,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,7 +41,7 @@
                                                 <state key="normal" image="Buy"/>
                                                 <state key="highlighted" image="BuyTicket_enabled"/>
                                                 <connections>
-                                                    <action selector="buyTicket:" destination="3Pv-Hd-aEm" eventType="touchUpInside" id="9oD-T0-F85"/>
+                                                    <segue destination="LRz-Uc-Zz3" kind="show" identifier="BuySegue" id="ajJ-fY-Xzd"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -165,7 +167,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="buy" destination="831-cz-UfD" id="RXl-mn-SYP"/>
+                        <outlet property="buy" destination="831-cz-UfD" id="gtp-ut-p9J"/>
                         <outlet property="locationTextField" destination="Lv4-8E-1ok" id="Y8z-mI-Ze9"/>
                         <outlet property="mapView" destination="c9p-Ph-1Wo" id="NsF-fd-Q8O"/>
                     </connections>
@@ -173,6 +175,214 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LjI-oL-sbo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="693.60000000000002" y="162.3688155922039"/>
+        </scene>
+        <!--Buy Ticket View Controller-->
+        <scene sceneID="wBi-m5-kGO">
+            <objects>
+                <viewController storyboardIdentifier="BuyTicketViewController" id="LRz-Uc-Zz3" customClass="BuyTicketViewController" customModule="Azul_Digital" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bSk-CA-Jvz"/>
+                        <viewControllerLayoutGuide type="bottom" id="0uB-dt-JKr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mn8-Zi-TLa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Clock" translatesAutoresizingMaskIntoConstraints="NO" id="yoq-Ah-3xx">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="yoq-Ah-3xx" secondAttribute="height" multiplier="1:1" id="hIv-O9-Z2d"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLR-AD-cgx">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="Aes-3A-I49"/>
+                                </constraints>
+                                <state key="normal" image="Buy-ticket"/>
+                                <connections>
+                                    <action selector="buy:" destination="LRz-Uc-Zz3" eventType="touchUpInside" id="N4U-Co-2l5"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Your ticket is valid for 1 hour only, it’s possible to renew after the timer expires" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VL6-fE-k1X">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="mFX-Jg-MyC"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="yoq-Ah-3xx" firstAttribute="width" secondItem="mn8-Zi-TLa" secondAttribute="width" multiplier="0.45" id="04U-mn-aqn"/>
+                            <constraint firstItem="VLR-AD-cgx" firstAttribute="top" secondItem="VL6-fE-k1X" secondAttribute="bottom" constant="23" id="9Em-aS-ZDU"/>
+                            <constraint firstItem="yoq-Ah-3xx" firstAttribute="top" secondItem="bSk-CA-Jvz" secondAttribute="bottom" constant="36" id="Mfe-VH-AXa"/>
+                            <constraint firstItem="VLR-AD-cgx" firstAttribute="centerX" secondItem="mn8-Zi-TLa" secondAttribute="centerX" id="fZ7-5W-fCA"/>
+                            <constraint firstItem="yoq-Ah-3xx" firstAttribute="centerX" secondItem="mn8-Zi-TLa" secondAttribute="centerX" id="hZr-WR-H1l"/>
+                            <constraint firstItem="VL6-fE-k1X" firstAttribute="top" secondItem="yoq-Ah-3xx" secondAttribute="bottom" constant="8" id="tfq-VL-7SR"/>
+                            <constraint firstItem="VL6-fE-k1X" firstAttribute="trailing" secondItem="mn8-Zi-TLa" secondAttribute="trailingMargin" id="xOi-Mq-nVa"/>
+                            <constraint firstItem="VL6-fE-k1X" firstAttribute="leading" secondItem="mn8-Zi-TLa" secondAttribute="leadingMargin" id="yWD-gA-HZ1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buyButton" destination="VLR-AD-cgx" id="P20-bP-WJq"/>
+                        <outlet property="buyDescription" destination="VL6-fE-k1X" id="nsE-t1-b9N"/>
+                        <segue destination="egh-d9-6hg" kind="presentation" identifier="ConfirmationSegue" id="rsj-o5-VUv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Se8-Xr-1gx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1549.5999999999999" y="161.46926536731635"/>
+        </scene>
+        <!--Confirmation View Controller-->
+        <scene sceneID="8Ys-w7-2Ve">
+            <objects>
+                <viewController storyboardIdentifier="ConfirmationViewController" modalPresentationStyle="overCurrentContext" id="egh-d9-6hg" customClass="ConfirmationViewController" customModule="Azul_Digital" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tfc-vQ-Zee"/>
+                        <viewControllerLayoutGuide type="bottom" id="n9h-SZ-vsz"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="GoU-bC-2O9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5qx-eA-HSr">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="receipt" translatesAutoresizingMaskIntoConstraints="NO" id="Hhr-a0-BFp"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nX5-c4-HAc">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="N6Q-No-cNN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                        <color key="textColor" red="0.058823529411764705" green="0.49803921568627452" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fSw-1Y-bgT">
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="UZX-3P-zib"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rua Doutor Sales de Oliveira, 1745, Vila Industrial" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dr-ON-xsL" customClass="ReceiptLabel" customModule="Azul_Digital" customModuleProvider="target">
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4aE-PH-UPJ">
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYD-cN-74p">
+                                                <color key="backgroundColor" red="0.058823529409999999" green="0.49803921569999998" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="q6Y-Qo-EdV" kind="unwind" unwindAction="unwindToPresentWithSegue:" id="CNo-Gh-p2K"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DlD-46-ma2">
+                                                <color key="backgroundColor" red="0.058823529409999999" green="0.49803921569999998" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <state key="normal" title="Buy">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="buy:" destination="egh-d9-6hg" eventType="touchUpInside" id="loE-tQ-8cW"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="31A-7v-dk7"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hhW-I9-rWg">
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="kcM-Dz-RQq">
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Value:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQo-Ni-ydK" customClass="ReceiptLabel" customModule="Azul_Digital" customModuleProvider="target">
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="21" id="MmH-Qv-Nc1"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$3,50" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuU-69-Q75" customClass="ReceiptLabel" customModule="Azul_Digital" customModuleProvider="target">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="afZ-9Y-cNd"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="vSm-iV-jtS">
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uir-W8-6tV" customClass="ReceiptLabel" customModule="Azul_Digital" customModuleProvider="target">
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14H30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCX-Xd-Ye0" customClass="ReceiptLabel" customModule="Azul_Digital" customModuleProvider="target">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="vSm-iV-jtS" firstAttribute="height" secondItem="kcM-Dz-RQq" secondAttribute="height" id="Mt6-wi-lfa"/>
+                                            <constraint firstItem="vSm-iV-jtS" firstAttribute="width" secondItem="kcM-Dz-RQq" secondAttribute="width" id="OMm-BY-YUt"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="fSw-1Y-bgT" firstAttribute="leading" secondItem="Hhr-a0-BFp" secondAttribute="leading" constant="8" id="5VY-Ib-84G"/>
+                                    <constraint firstItem="nX5-c4-HAc" firstAttribute="trailing" secondItem="Hhr-a0-BFp" secondAttribute="trailing" constant="-8" id="DLk-2E-XXP"/>
+                                    <constraint firstItem="hhW-I9-rWg" firstAttribute="leading" secondItem="Hhr-a0-BFp" secondAttribute="leading" constant="16" id="F2j-Sb-R92"/>
+                                    <constraint firstAttribute="height" constant="409" id="FkG-ao-I7O"/>
+                                    <constraint firstItem="4aE-PH-UPJ" firstAttribute="bottom" secondItem="Hhr-a0-BFp" secondAttribute="bottom" constant="-16" id="R5W-NN-sJO"/>
+                                    <constraint firstItem="4aE-PH-UPJ" firstAttribute="leading" secondItem="Hhr-a0-BFp" secondAttribute="leading" constant="16" id="UIg-d6-QWo"/>
+                                    <constraint firstItem="Hhr-a0-BFp" firstAttribute="top" secondItem="nX5-c4-HAc" secondAttribute="top" constant="-50" id="Y8t-gg-LNA"/>
+                                    <constraint firstAttribute="width" constant="308" id="YKS-ZJ-mic"/>
+                                    <constraint firstItem="4aE-PH-UPJ" firstAttribute="trailing" secondItem="Hhr-a0-BFp" secondAttribute="trailing" constant="-16" id="Z0t-ma-zSr"/>
+                                    <constraint firstItem="5dr-ON-xsL" firstAttribute="leading" secondItem="Hhr-a0-BFp" secondAttribute="leading" constant="16" id="bIf-ce-dK2"/>
+                                    <constraint firstItem="Hhr-a0-BFp" firstAttribute="height" secondItem="5qx-eA-HSr" secondAttribute="height" id="cZt-RN-IBA"/>
+                                    <constraint firstItem="5dr-ON-xsL" firstAttribute="trailing" secondItem="Hhr-a0-BFp" secondAttribute="trailing" constant="-16" id="eiC-RK-aJ7"/>
+                                    <constraint firstItem="hhW-I9-rWg" firstAttribute="trailing" secondItem="Hhr-a0-BFp" secondAttribute="trailing" constant="-16" id="ggK-r3-Q4O"/>
+                                    <constraint firstItem="4aE-PH-UPJ" firstAttribute="top" secondItem="hhW-I9-rWg" secondAttribute="bottom" constant="28" id="hPB-Z7-VrU"/>
+                                    <constraint firstItem="fSw-1Y-bgT" firstAttribute="trailing" secondItem="Hhr-a0-BFp" secondAttribute="trailing" constant="-8" id="j7C-FF-tUh"/>
+                                    <constraint firstItem="Hhr-a0-BFp" firstAttribute="width" secondItem="5qx-eA-HSr" secondAttribute="width" id="kdJ-yA-T7P"/>
+                                    <constraint firstItem="fSw-1Y-bgT" firstAttribute="top" secondItem="nX5-c4-HAc" secondAttribute="bottom" constant="8" id="rYB-hd-b3E"/>
+                                    <constraint firstItem="Hhr-a0-BFp" firstAttribute="centerY" secondItem="5qx-eA-HSr" secondAttribute="centerY" id="tn5-Mt-FuM"/>
+                                    <constraint firstItem="Hhr-a0-BFp" firstAttribute="centerX" secondItem="5qx-eA-HSr" secondAttribute="centerX" id="uZZ-kZ-TSe"/>
+                                    <constraint firstItem="5dr-ON-xsL" firstAttribute="top" secondItem="fSw-1Y-bgT" secondAttribute="bottom" constant="46" id="vhQ-x8-lNW"/>
+                                    <constraint firstItem="nX5-c4-HAc" firstAttribute="leading" secondItem="Hhr-a0-BFp" secondAttribute="leading" constant="8" id="xOU-BE-pOU"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5qx-eA-HSr" firstAttribute="centerX" secondItem="GoU-bC-2O9" secondAttribute="centerX" id="1W5-8k-aTt"/>
+                            <constraint firstItem="5qx-eA-HSr" firstAttribute="centerY" secondItem="GoU-bC-2O9" secondAttribute="centerY" id="el7-ul-lKJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addressLabel" destination="5dr-ON-xsL" id="Emb-QC-oYQ"/>
+                        <outlet property="askLabel" destination="nX5-c4-HAc" id="lr8-r0-vn6"/>
+                        <outlet property="buyButton" destination="DlD-46-ma2" id="cDs-R8-xJe"/>
+                        <outlet property="cancelButton" destination="sYD-cN-74p" id="Sym-dl-2vz"/>
+                        <outlet property="timeDescriptionLabel" destination="uir-W8-6tV" id="BhW-Ui-xi6"/>
+                        <outlet property="timeLabel" destination="lCX-Xd-Ye0" id="oy3-om-lN1"/>
+                        <outlet property="valueDescriptionLabel" destination="SQo-Ni-ydK" id="JeU-id-Qnq"/>
+                        <outlet property="valueLabel" destination="vuU-69-Q75" id="y5Q-Iz-jIr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z4S-Ta-zv9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="q6Y-Qo-EdV" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2356" y="163.26836581709148"/>
         </scene>
         <!--Settings-->
         <scene sceneID="X1t-og-x4F">
@@ -203,10 +413,13 @@
     </scenes>
     <resources>
         <image name="Buy" width="125" height="32"/>
+        <image name="Buy-ticket" width="268" height="58"/>
         <image name="BuyTicket_enabled" width="123" height="30"/>
+        <image name="Clock" width="137" height="137"/>
         <image name="Settings" width="25" height="25"/>
         <image name="annotation" width="44" height="58"/>
         <image name="location" width="33" height="31"/>
         <image name="location enabled" width="33" height="31"/>
+        <image name="receipt" width="280" height="372"/>
     </resources>
 </document>

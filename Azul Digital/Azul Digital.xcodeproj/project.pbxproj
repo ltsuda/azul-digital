@@ -17,7 +17,7 @@
 		2728D1D61D3439B500694B53 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2728D1D41D3439B500694B53 /* Register.storyboard */; };
 		272ECE2D1D3ED0CC00E251DF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 272ECE2C1D3ED0CC00E251DF /* GoogleService-Info.plist */; };
 		273360F51D8620E6009B20B0 /* BuyTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273360F31D8620E6009B20B0 /* BuyTicketViewController.swift */; };
-		273360F61D8620E6009B20B0 /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273360F41D8620E6009B20B0 /* ConfirmationViewController.swift */; };
+		2747C40A1D89A772003FB864 /* ReceiptLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2747C4091D89A772003FB864 /* ReceiptLabel.swift */; };
 		275D46181D5179BD0040E64A /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275D46171D5179BD0040E64A /* LoadingIndicatorView.swift */; };
 		27689CD91D88D3FE00ECC2CD /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27689CDB1D88D3FE00ECC2CD /* Settings.storyboard */; };
 		2777946F1D88FF04006E9CC6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 277794711D88FF04006E9CC6 /* InfoPlist.strings */; };
@@ -32,6 +32,7 @@
 		279F16D91D3572D600CC0C9D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F16D81D3572D600CC0C9D /* Extension.swift */; };
 		27ABD5521D42DA3100C11469 /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ABD5511D42DA3100C11469 /* StorageProtocol.swift */; };
 		27AD34321D395B0D0084E8FE /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AD34311D395B0D0084E8FE /* Protocols.swift */; };
+		27C2B9321D89D71300F6551B /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2B9311D89D71300F6551B /* ConfirmationViewController.swift */; };
 		27C5292B1D86482800D43616 /* RegisterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C5292A1D86482800D43616 /* RegisterTextField.swift */; };
 		27C7BA411D4704C200746C97 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C7BA401D4704C200746C97 /* ProfileEditViewController.swift */; };
 		27C7BA431D4704D300746C97 /* CarEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C7BA421D4704D300746C97 /* CarEditViewController.swift */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		0C1CE793A240DB8FA3FC0C0C /* Pods-Azul Digital.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Azul Digital.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Azul Digital/Pods-Azul Digital.debug.xcconfig"; sourceTree = "<group>"; };
 		270525D41D861ACA001DEB03 /* SharedNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedNavigationController.swift; sourceTree = "<group>"; };
+		271DAB021D89D56500ADEC3D /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Map.strings"; sourceTree = "<group>"; };
 		2728D1C41D341FB200694B53 /* CreateAccViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccViewController.swift; sourceTree = "<group>"; };
 		2728D1C61D34319000694B53 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2728D1C81D3432B600694B53 /* CarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarViewController.swift; sourceTree = "<group>"; };
@@ -56,12 +58,11 @@
 		2728D1D51D3439B500694B53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Register.storyboard; sourceTree = "<group>"; };
 		272ECE2C1D3ED0CC00E251DF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		273360F31D8620E6009B20B0 /* BuyTicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyTicketViewController.swift; sourceTree = "<group>"; };
-		273360F41D8620E6009B20B0 /* ConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
-		273606661D88D80A00A95D83 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Map.strings"; sourceTree = "<group>"; };
 		273606671D88D80A00A95D83 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
 		273606681D88D80B00A95D83 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Register.strings"; sourceTree = "<group>"; };
 		273606691D88D80B00A95D83 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Settings.strings"; sourceTree = "<group>"; };
 		2736066A1D88D80B00A95D83 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		2747C4091D89A772003FB864 /* ReceiptLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptLabel.swift; sourceTree = "<group>"; };
 		275D46171D5179BD0040E64A /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 		27689CDA1D88D3FE00ECC2CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		277794701D88FF04006E9CC6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -77,6 +78,7 @@
 		279F16D81D3572D600CC0C9D /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		27ABD5511D42DA3100C11469 /* StorageProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageProtocol.swift; sourceTree = "<group>"; };
 		27AD34311D395B0D0084E8FE /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		27C2B9311D89D71300F6551B /* ConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
 		27C5292A1D86482800D43616 /* RegisterTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterTextField.swift; sourceTree = "<group>"; };
 		27C7BA401D4704C200746C97 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		27C7BA421D4704D300746C97 /* CarEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarEditViewController.swift; sourceTree = "<group>"; };
@@ -162,8 +164,8 @@
 		27CBD2AB1D34454F00B01D6E /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				27C2B9311D89D71300F6551B /* ConfirmationViewController.swift */,
 				273360F31D8620E6009B20B0 /* BuyTicketViewController.swift */,
-				273360F41D8620E6009B20B0 /* ConfirmationViewController.swift */,
 				2728D1D21D3438B800694B53 /* MapViewController.swift */,
 				2728D1CF1D34386000694B53 /* Map.storyboard */,
 			);
@@ -178,6 +180,7 @@
 				2790778D1D468CFB005BA179 /* Protocol */,
 				270525D41D861ACA001DEB03 /* SharedNavigationController.swift */,
 				27C5292A1D86482800D43616 /* RegisterTextField.swift */,
+				2747C4091D89A772003FB864 /* ReceiptLabel.swift */,
 				275D46171D5179BD0040E64A /* LoadingIndicatorView.swift */,
 				27D4D6421D33E661007BB63A /* AppDelegate.swift */,
 				27D4D6491D33E661007BB63A /* Assets.xcassets */,
@@ -391,9 +394,9 @@
 				27AD34321D395B0D0084E8FE /* Protocols.swift in Sources */,
 				279D0B151D3AC54200BC1D4C /* Car.swift in Sources */,
 				279D0B171D3AC54B00BC1D4C /* Ticket.swift in Sources */,
+				2747C40A1D89A772003FB864 /* ReceiptLabel.swift in Sources */,
 				278C49A71D33FA5A00D43AAF /* PresentViewController.swift in Sources */,
 				27C7BA431D4704D300746C97 /* CarEditViewController.swift in Sources */,
-				273360F61D8620E6009B20B0 /* ConfirmationViewController.swift in Sources */,
 				27ABD5521D42DA3100C11469 /* StorageProtocol.swift in Sources */,
 				270525D51D861ACA001DEB03 /* SharedNavigationController.swift in Sources */,
 				273360F51D8620E6009B20B0 /* BuyTicketViewController.swift in Sources */,
@@ -408,6 +411,7 @@
 				27D4D6431D33E661007BB63A /* AppDelegate.swift in Sources */,
 				2790778F1D468D8C005BA179 /* DatabaseProtocol.swift in Sources */,
 				2728D1D31D3438B800694B53 /* MapViewController.swift in Sources */,
+				27C2B9321D89D71300F6551B /* ConfirmationViewController.swift in Sources */,
 				27C7BA471D47063200746C97 /* SettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,7 +423,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2728D1D01D34386000694B53 /* Base */,
-				273606661D88D80A00A95D83 /* pt-BR */,
+				271DAB021D89D56500ADEC3D /* pt-BR */,
 			);
 			name = Map.storyboard;
 			path = .;

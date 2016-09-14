@@ -121,7 +121,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="rvS-RF-bGn">
                                 <cells>
@@ -307,7 +307,7 @@
                                 </subviews>
                                 <variation key="heightClass=regular-widthClass=compact" axis="vertical"/>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="We need these information only to associate with your profile" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2R-aG-Nga">
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="We need these information only to associate with your profile" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2R-aG-Nga">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="bEh-Ag-RqN">
                                         <variation key="heightClass=regular-widthClass=compact" constant="80"/>
@@ -391,7 +391,7 @@
                     <view key="view" contentMode="scaleToFill" id="JzI-HI-6r3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="About" id="I1c-y2-24A">
@@ -464,7 +464,7 @@
                                     <constraint firstItem="F1B-Wf-i8o" firstAttribute="leading" secondItem="VSn-no-bc9" secondAttribute="leading" id="vuu-kB-yse"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="We need these information only to associate with your profile and you'll only be charged if you buy a ticket" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXq-ke-9WB">
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="We need these information only to associate with your profile and you'll only be charged if you buy a ticket" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXq-ke-9WB">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="le1-Mu-YbA"/>
                                 </constraints>

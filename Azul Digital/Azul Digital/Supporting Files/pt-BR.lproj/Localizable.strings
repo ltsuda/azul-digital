@@ -51,3 +51,22 @@
    edit-card */
 "privacy-card" = "Precisamos das informações do seu cartão para associá-las ao seu perfil e só será cobrado quando comprar o ticket";
 
+/* buy-ticket-description */
+"buy-description" = "O ticket é válido por apenas 1 hora, é possível renová-lo após o tempo expirar";
+
+/* Buy-Ticket */
+"Buy-Ticket" = "Comprar-ticket";
+
+/* Buy-Ticket-enabled */
+"Buy-Ticket-enabled" = "Comprar-ticket-enabled";
+
+"ask-label" = "Tem certeza?";
+
+"value-description" = "Valor:";
+
+"time-description" = "Hora:";
+
+"buy-button" = "Comprar";
+
+"cancel-button" = "Cancelar";
+

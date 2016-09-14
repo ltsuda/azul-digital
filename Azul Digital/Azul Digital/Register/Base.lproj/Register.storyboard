@@ -171,7 +171,7 @@
                                 </subviews>
                                 <variation key="heightClass=regular-widthClass=compact" axis="vertical"/>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="We need these information only to associate with your profile" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmd-cz-APe">
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="We need these information only to associate with your profile" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmd-cz-APe">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="KtL-hG-SHH">
                                         <variation key="heightClass=regular-widthClass=compact" constant="80"/>
@@ -304,7 +304,7 @@
                                     <constraint firstAttribute="height" constant="30" id="wLG-Ka-PF9"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="We need these information only to associate with your profile and you'll only be charged if you buy a ticket" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FmG-uz-oYV">
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="We need these information only to associate with your profile and you'll only be charged if you buy a ticket" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FmG-uz-oYV">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Vmu-Sw-TNU"/>
                                 </constraints>

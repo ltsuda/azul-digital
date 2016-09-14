@@ -28,19 +28,16 @@ class MapViewController: UIViewController {
     @IBAction func requestLocation(_ sender: AnyObject) {
         requestUserLocation()
     }
-    @IBAction func buyTicket(_ sender: AnyObject) {
-        
-    }
-    
+
     let locationManager = CLLocationManager()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         requestUserLocation()
         locationTextField.delegate = self
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +51,12 @@ class MapViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "BuySegue" {
+            guard let destination = segue.destination as? BuyTicketViewController else { return }
+            destination.address = locationTextField.text ?? "Empty Address"
+        }
+    }
 }
 
 extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
@@ -76,7 +79,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
             guard let placemark = placemarks, let mostAccurate = placemark.first else { return }
             let street = mostAccurate.addressDictionary?["FormattedAddressLines"] as? [String]
             let formattedAddress = street?.joined(separator: ", ")
-
+            
             self?.locationTextField.text = formattedAddress
             
         }
@@ -94,7 +97,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         
         
     }
-
+    
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         let newLocation = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
         getAddress(location: newLocation)
@@ -103,7 +106,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Erro: \(error.localizedDescription)")
     }
-
+    
 }
 
 extension MapViewController: UITextFieldDelegate {
