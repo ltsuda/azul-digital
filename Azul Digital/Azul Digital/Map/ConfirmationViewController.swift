@@ -28,10 +28,9 @@ class ConfirmationViewController: UIViewController, Alertable {
         let ticketData: [String : Any] = [
             "name" : "\(user.firstName!) \(user.lastName!)",
             "address" : street,
-            "userID" : uid!,
             "isPaid" : true,
             "value" : getValue().1,
-            "timeStamp" : getTime()
+            "timeStampSince1970" : getTime().1
         ]
         ticketReference?.child("ticket").childByAutoId().setValue(ticketData, withCompletionBlock: { (error, _) in
             if error != nil {
@@ -46,7 +45,6 @@ class ConfirmationViewController: UIViewController, Alertable {
     
     var address: String?
     var user: User?
-    var uid: String?
     let valueToPay = 3.50
     var ticketReference: FIRDatabaseReference?
     
@@ -74,7 +72,7 @@ class ConfirmationViewController: UIViewController, Alertable {
             self.valueDescriptionLabel.text = NSLocalizedString("value-description", comment: "value-confirmation")
             self.timeDescriptionLabel.text = NSLocalizedString("time-description", comment: "time-confirmation")
             self.valueLabel.text = "R$\(self.getValue().0)"
-            self.timeLabel.text = self.getTime()
+            self.timeLabel.text = self.getTime().0
         }
         
     }
@@ -86,12 +84,12 @@ class ConfirmationViewController: UIViewController, Alertable {
 }
 
 extension ConfirmationViewController {
-    func getTime() -> String {
+    func getTime() -> (String, Double) {
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "pt-BR")
-        dateFormatter.dateFormat = "HH:mm"
-        return dateFormatter.string(from: date)
+        dateFormatter.dateFormat = "dd/MM/YYYY HH:mm"
+        return (dateFormatter.string(from: date), date.timeIntervalSince1970)
     }
     
     func getValue() -> (String, Double) {

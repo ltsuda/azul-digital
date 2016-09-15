@@ -12,7 +12,6 @@ import Firebase
 class BuyTicketViewController: UIViewController, Readable {
     
     var user: User?
-    var uid: String?
     var address: String?
     
     @IBOutlet weak var buyDescription: UITextView!
@@ -42,7 +41,6 @@ class BuyTicketViewController: UIViewController, Readable {
             guard let user = user else { return }
             DispatchQueue.main.async {
                 self?.user = user
-                self?.uid = currentUser.uid
                 LoadingIndicatorView.hide()
             }})
     }
@@ -57,7 +55,6 @@ class BuyTicketViewController: UIViewController, Readable {
             guard let destination = segue.destination as? ConfirmationViewController else { return }
             destination.address = address ?? "No address"
             destination.user = user
-            destination.uid = uid
         }
     }
 }
