@@ -46,7 +46,7 @@
                                     </mask>
                                 </variation>
                             </stackView>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="chX-2F-sLL">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="chX-2F-sLL">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="chX-2F-sLL" secondAttribute="height" multiplier="1:1" id="Ueh-XY-MGp"/>
                                 </constraints>
@@ -509,7 +509,6 @@
     </scenes>
     <resources>
         <image name="Carro" width="29" height="29"/>
-        <image name="Icon" width="795" height="728"/>
         <image name="User" width="29" height="29"/>
         <image name="about" width="29" height="29"/>
         <image name="card" width="32" height="22"/>

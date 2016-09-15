@@ -28,7 +28,7 @@ class CardViewController: UIViewController, Alertable, CheckTextField, ValidateC
         }
         
         if tryUser == true {
-            saveUser()
+            save()
         }
         
     }
@@ -41,10 +41,6 @@ class CardViewController: UIViewController, Alertable, CheckTextField, ValidateC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        cashTextField.delegate = self
-        cardTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,35 +60,14 @@ class CardViewController: UIViewController, Alertable, CheckTextField, ValidateC
     }
 }
 
-extension CardViewController: SaveUser, SaveCar {
-    func saveUser() {
-        saveData(user, completion: { [weak self] (title, message, action) in
-            if title != "" && message != "" && action != "" {
-                self?.alert(title, message: message, actionTitle: action)
-                self?.tryUser = false
-            } else {
-                self?.saveCar()
-            }
-            })
-    }
-    func saveCar() {
-        save(car, completion: { [weak self] (title, message, action) in
+extension CardViewController: FBRegistrable {
+    func save() {
+        saveData(withUser: user, withCar: car) { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
                 self?.alert(title, message: message, actionTitle: action)
             } else {
                 self?.performSegue(withIdentifier: "MapSegue", sender: nil)
             }
-            })
-    }
-}
-
-extension CardViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
+        }
     }
 }

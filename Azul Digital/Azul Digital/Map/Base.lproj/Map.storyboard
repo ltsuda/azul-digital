@@ -276,7 +276,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="q6Y-Qo-EdV" kind="unwind" unwindAction="unwindToPresentWithSegue:" id="CNo-Gh-p2K"/>
+                                                    <segue destination="q6Y-Qo-EdV" kind="unwind" unwindAction="unwindToBuyWithSegue:" id="nwx-Df-6RY"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DlD-46-ma2">

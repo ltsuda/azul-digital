@@ -46,7 +46,7 @@
                                     </mask>
                                 </variation>
                             </stackView>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Settings" translatesAutoresizingMaskIntoConstraints="NO" id="nXm-rO-PeY">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nXm-rO-PeY">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nXm-rO-PeY" secondAttribute="height" multiplier="1:1" id="koE-hP-SCt"/>
                                 </constraints>
@@ -332,7 +332,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="ICx-lM-fdS" userLabel="Próximo">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="finalizar:" destination="h5r-F6-ehz" id="ANk-rD-Obb"/>
+                                <action selector="finalizar:" destination="h5r-F6-ehz" id="2cB-2e-UOt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -357,7 +357,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Settings" width="25" height="25"/>
         <image name="card" width="32" height="22"/>
         <image name="cash" width="123" height="76"/>
     </resources>

@@ -40,12 +40,6 @@ class CarEditViewController: UIViewController, Readable, CheckTextField, Alertab
     var tempCar: Car?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        brandEditTextField.delegate = self
-        modelEditTextField.delegate = self
-        colorEditTextField.delegate = self
-        plateEditTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,35 +76,15 @@ class CarEditViewController: UIViewController, Readable, CheckTextField, Alertab
     
 }
 
-
-extension CarEditViewController: SaveCar, EditableCar {
-    
+extension CarEditViewController: SaveCar, FBCarEditable {
     func editCar() {
         let car = Car(plate: plateEditTextField.text!, brand: brandEditTextField.text!, color: colorEditTextField.text!, model: modelEditTextField.text!, userID: id)
-        user?.carPlate = car.plate
-        save(car, completion: { [weak self] (title, message, action) in
+        saveData(withUser: user, withCar: car) { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
                 self?.alert(title, message: message, actionTitle: action)
             } else {
-                self?.editCar((self?.id)!, plate: self?.user?.carPlate, completion: { (title, message, action) in
-                    if title != "" && message != "" && action != "" {
-                        self?.alert(title, message: message, actionTitle: action)
-                    } else {
-                        let _ = self?.navigationController?.popViewController(animated: true)
-                    }
-                })
+                let _ = self?.navigationController?.popViewController(animated: true)
             }
-            })
-    }
-}
-
-extension CarEditViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
+        }
     }
 }

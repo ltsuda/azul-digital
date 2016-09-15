@@ -19,7 +19,7 @@ class BuyTicketViewController: UIViewController, Readable {
     @IBAction func buy(_ sender: AnyObject) {
         performSegue(withIdentifier: "ConfirmationSegue", sender: nil)
     }
-    @IBAction func unwindToPresent(withSegue segue: UIStoryboardSegue) {
+    @IBAction func unwindToBuy(withSegue segue: UIStoryboardSegue) {
         dismiss(animated: true, completion: nil)
     }
     
@@ -36,7 +36,6 @@ class BuyTicketViewController: UIViewController, Readable {
         buyButton.setImage(UIImage(named: NSLocalizedString("Buy-Ticket-enabled", comment: "buy-view")) , for: .highlighted)
         
         guard let currentUser = FIRAuth.auth()?.currentUser else { return }
-        
         read("users", id: currentUser.uid, completionObject: { [weak self] (user, car) in
             guard let user = user else { return }
             DispatchQueue.main.async {

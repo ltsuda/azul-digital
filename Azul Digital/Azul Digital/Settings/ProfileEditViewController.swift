@@ -41,8 +41,6 @@ class ProfileEditViewController: UIViewController, Alertable, Readable, CheckTex
         
         // Do any additional setup after loading the view.
         editImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentPickerViewController)))
-        nameEditTextField.delegate = self
-        lastNameEditTextField.delegate = self
         
     }
     
@@ -54,25 +52,28 @@ class ProfileEditViewController: UIViewController, Alertable, Readable, CheckTex
         LoadingIndicatorView.show("Loading data" as String)
         
         read("users", id: id, completionObject: { [weak self] (user, _) in
-            
-            self?.download({ (object, message, action) in
-                if message != "" && action != "" {
-                    self?.alert(object as! String, message: message, actionTitle: action)
-                } else {
-                    DispatchQueue.main.async {
-                        LoadingIndicatorView.hide()
-                        self?.editImageView.image = UIImage(data: object as! Data)
-                        self?.editImageView.configureBorder()
-                        self?.editImageView.layoutIfNeeded()
+            if user?.photo != "localImage" {
+                self?.download({ (object, message, action) in
+                    if message != "" && action != "" {
+                        self?.alert(object as! String, message: message, actionTitle: action)
+                    } else {
+                        DispatchQueue.main.async {
+                            self?.editImageView.image = UIImage(data: object as! Data)
+                            LoadingIndicatorView.hide()
+                        }
                     }
-                }
-            })
-            
+                })
+            } else {
+                self?.editImageView.image = UIImage(named: (user?.photo)!)
+                LoadingIndicatorView.hide()
+            }
             DispatchQueue.main.async {
                 self?.nameEditTextField.text = user?.firstName
                 self?.lastNameEditTextField.text = user?.lastName
                 self?.currentUser = user
                 self?.tempURL = user?.photo
+                self?.editImageView.configureBorder()
+                self?.editImageView.layoutIfNeeded()
             }
             })
     }
@@ -86,7 +87,7 @@ class ProfileEditViewController: UIViewController, Alertable, Readable, CheckTex
 extension ProfileEditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, Storagable, EditableProfile {
     
     func edit() {
-        editProfile(currentUser, dbUserID: id, completion: { [weak self] (title, message, action) in
+        editProfile(currentUser, completion: { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
                 self?.alert(title, message: message, actionTitle: action)
             } else {
@@ -130,15 +131,3 @@ extension ProfileEditViewController: UIImagePickerControllerDelegate, UINavigati
         dismiss(animated: true, completion: nil)
     }
 }
-
-extension ProfileEditViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
-}
-

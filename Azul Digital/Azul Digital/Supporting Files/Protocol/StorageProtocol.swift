@@ -13,7 +13,6 @@ protocol Storagable {
     var storageRef: FIRStorageReference { get }
     var imageName: String { get }
     func upload(_ image: UIImage, completion: @escaping (String, String, String) -> ())
-    func delete(_ completion: @escaping (String, String, String) -> ())
     func download(_ completion: @escaping (AnyObject, String, String) -> ())
 }
 
@@ -47,22 +46,6 @@ extension Storagable {
             })
         }
     }
-    
-    func delete(_ completion: @escaping (String, String, String) -> ()) {
-        storageRef.delete(completion: { error in
-            if error != nil {
-                if let code = FIRStorageErrorCode(rawValue: (error?._code)!) {
-                    switch code {
-                    case .retryLimitExceeded:
-                        completion("Tempo excedido: \(code.rawValue)", "O tempo para deletar a imagem excedeu", "Tentar novamente")
-                    default:
-                        completion("Código: \(code.rawValue)", "\(error?.localizedDescription)", "OK")
-                    }
-                }
-            }
-        })
-    }
-    
     func download(_ completion: @escaping (AnyObject, String, String) -> ()) {
         storageRef.data(withMaxSize: 500 * 1024, completion: { (data, error) in
             if error != nil {
@@ -73,6 +56,4 @@ extension Storagable {
             }
         })
     }
-    
-    
 }
