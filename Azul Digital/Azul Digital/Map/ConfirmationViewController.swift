@@ -20,19 +20,28 @@ class ConfirmationViewController: UIViewController, Alertable {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var buyButton: UIButton!
     @IBAction func buy(_ sender: AnyObject) {
-        guard  let user = user else {
+        guard  let user = user, let funds = user.cash, let plate = user.carPlate else {
             return alert("Usuário inexistente", message: "Dados do usuário não existem", actionTitle: "Tentar novamente")
         }
-        guard let street = address else { return }
         
-        let ticketData: [String : Any] = [
-            "name" : "\(user.firstName!) \(user.lastName!)",
-            "address" : street,
-            "isPaid" : true,
-            "value" : getValue().1,
-            "timeStampSince1970" : getTime().1
+        let userFunds = funds - valueToPay
+        
+        guard let street = address else { return }
+        guard let userID = FIRAuth.auth()?.currentUser?.uid else { return }
+        
+        let ticketKey = rootFBReference.child("ticket").childByAutoId().key
+        
+        let updateData: [String : Any] = [
+            "users/\(userID)/cash" : userFunds,
+            "cars/\(plate)/ticket/\(ticketKey)" : [
+                "name" : "\(user.firstName!) \(user.lastName!)",
+                "address" : street,
+                "isPaid" : true,
+                "value" : getValue().1,
+                "timeStampSince1970" : getTime().1]
         ]
-        ticketReference?.child("ticket").childByAutoId().setValue(ticketData, withCompletionBlock: { (error, _) in
+        
+        rootFBReference.updateChildValues(updateData) { (error, _) in
             if error != nil {
                 if let code = (error as? NSError)?.code {
                     self.alert("Código: \(code)", message: "\(error?.localizedDescription)", actionTitle: "Tentar novamente")
@@ -40,7 +49,8 @@ class ConfirmationViewController: UIViewController, Alertable {
             } else {
                 self.dismiss(animated: true, completion: nil)
             }
-        })
+        }
+        
     }
     
     var address: String?
@@ -63,8 +73,6 @@ class ConfirmationViewController: UIViewController, Alertable {
         buyButton.configureCorner(to: buyButton)
         
         DispatchQueue.main.async {
-            guard let plate = self.user?.carPlate else { return }
-            self.ticketReference = FIRDatabase.database().reference().child("cars").child(plate)
             self.cancelButton.titleLabel?.text = NSLocalizedString("cancel-button", comment: "cancel-confirmation")
             self.buyButton.titleLabel?.text = NSLocalizedString("buy-button", comment: "buy-confirmation")
             self.askLabel.text = NSLocalizedString("ask-label", comment: "ask-confirmation")

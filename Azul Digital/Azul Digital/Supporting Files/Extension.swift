@@ -9,6 +9,24 @@
 import UIKit
 import Foundation
 
+
+extension UIView {
+    func applyMotionEffect(magnitude: Float) {
+        let xMotion = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
+        xMotion.minimumRelativeValue = -magnitude
+        xMotion.maximumRelativeValue = magnitude
+        
+        let yMotion = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+        yMotion.minimumRelativeValue = -magnitude
+        yMotion.maximumRelativeValue = magnitude
+        
+        let motionGroup = UIMotionEffectGroup()
+        motionGroup.motionEffects = [xMotion, yMotion]
+        
+        self.addMotionEffect(motionGroup)
+    }
+}
+
 extension UIButton {
     
     func configureCorner(to button: UIButton) {

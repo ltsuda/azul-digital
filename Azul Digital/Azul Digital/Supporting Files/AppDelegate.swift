@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 import IQKeyboardManagerSwift
 
+    let rootFBReference = FIRDatabase.database().reference()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     

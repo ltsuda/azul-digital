@@ -10,6 +10,7 @@ import UIKit
 
 class PresentViewController: UIViewController {
 
+    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var createAccButton: UIButton!
     @IBOutlet weak var alreadyMemberButton: UIButton!
     @IBAction func unwindToPresent(withSegue segue: UIStoryboardSegue) {
@@ -20,7 +21,9 @@ class PresentViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-      
+        backgroundImage.applyMotionEffect(magnitude: 10)
+        createAccButton.applyMotionEffect(magnitude: -20)
+        alreadyMemberButton.applyMotionEffect(magnitude: -20)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -40,5 +43,7 @@ class PresentViewController: UIViewController {
             return .lightContent
         }
     }
+    
+    
     
 }

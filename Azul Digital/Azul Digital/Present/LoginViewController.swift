@@ -10,6 +10,8 @@ import UIKit
 
 class LoginViewController: UIViewController, Alertable, Loggable {
 
+    @IBOutlet weak var loginCardImage: UIImageView!
+    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordLabel: UILabel!
@@ -33,6 +35,9 @@ class LoginViewController: UIViewController, Alertable, Loggable {
         // Do any additional setup after loading the view.
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        
+        backgroundImage.applyMotionEffect(magnitude: 10)
+        loginCardImage.applyMotionEffect(magnitude: -20)
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -10,6 +10,9 @@ import UIKit
 import FirebaseAuth
 
 class CreateAccViewController: UIViewController, Alertable, Creatable {
+    
+    @IBOutlet weak var registerCardImage: UIImageView!
+    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordLabel: UILabel!
@@ -33,6 +36,9 @@ class CreateAccViewController: UIViewController, Alertable, Creatable {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
+        backgroundImage.applyMotionEffect(magnitude: 10)
+        registerCardImage.applyMotionEffect(magnitude: -20)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
