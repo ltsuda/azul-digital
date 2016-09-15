@@ -17,6 +17,7 @@
 		2728D1D61D3439B500694B53 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2728D1D41D3439B500694B53 /* Register.storyboard */; };
 		272ECE2D1D3ED0CC00E251DF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 272ECE2C1D3ED0CC00E251DF /* GoogleService-Info.plist */; };
 		273360F51D8620E6009B20B0 /* BuyTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273360F31D8620E6009B20B0 /* BuyTicketViewController.swift */; };
+		273A9BA41D8AD47A00AD9EC5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273A9BA31D8AD47A00AD9EC5 /* Constants.swift */; };
 		2747C40A1D89A772003FB864 /* ReceiptLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2747C4091D89A772003FB864 /* ReceiptLabel.swift */; };
 		275D46181D5179BD0040E64A /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275D46171D5179BD0040E64A /* LoadingIndicatorView.swift */; };
 		27689CD91D88D3FE00ECC2CD /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27689CDB1D88D3FE00ECC2CD /* Settings.storyboard */; };
@@ -62,6 +63,7 @@
 		273606681D88D80B00A95D83 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Register.strings"; sourceTree = "<group>"; };
 		273606691D88D80B00A95D83 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Settings.strings"; sourceTree = "<group>"; };
 		2736066A1D88D80B00A95D83 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		273A9BA31D8AD47A00AD9EC5 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2747C4091D89A772003FB864 /* ReceiptLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptLabel.swift; sourceTree = "<group>"; };
 		275D46171D5179BD0040E64A /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 		27689CDA1D88D3FE00ECC2CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
@@ -106,6 +108,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		273A9BA01D8AD45900AD9EC5 /* Designables */ = {
+			isa = PBXGroup;
+			children = (
+				27C5292A1D86482800D43616 /* RegisterTextField.swift */,
+				2747C4091D89A772003FB864 /* ReceiptLabel.swift */,
+			);
+			name = Designables;
+			sourceTree = "<group>";
+		};
 		2790778D1D468CFB005BA179 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,8 +190,8 @@
 				277794711D88FF04006E9CC6 /* InfoPlist.strings */,
 				2790778D1D468CFB005BA179 /* Protocol */,
 				270525D41D861ACA001DEB03 /* SharedNavigationController.swift */,
-				27C5292A1D86482800D43616 /* RegisterTextField.swift */,
-				2747C4091D89A772003FB864 /* ReceiptLabel.swift */,
+				273A9BA31D8AD47A00AD9EC5 /* Constants.swift */,
+				273A9BA01D8AD45900AD9EC5 /* Designables */,
 				275D46171D5179BD0040E64A /* LoadingIndicatorView.swift */,
 				27D4D6421D33E661007BB63A /* AppDelegate.swift */,
 				27D4D6491D33E661007BB63A /* Assets.xcassets */,
@@ -413,6 +424,7 @@
 				2728D1D31D3438B800694B53 /* MapViewController.swift in Sources */,
 				27C2B9321D89D71300F6551B /* ConfirmationViewController.swift in Sources */,
 				27C7BA471D47063200746C97 /* SettingsTableViewController.swift in Sources */,
+				273A9BA41D8AD47A00AD9EC5 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

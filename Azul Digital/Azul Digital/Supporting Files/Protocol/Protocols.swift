@@ -19,6 +19,14 @@ extension Alertable where Self: UIViewController {
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
+    func alertWithHanlder(_ title: String, message: String, actionTitle: String, completion: @escaping ()->()) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: actionTitle, style: .default) { (_) in
+            completion()
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
 }
 
 

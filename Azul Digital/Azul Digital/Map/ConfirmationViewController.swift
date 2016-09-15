@@ -20,41 +20,25 @@ class ConfirmationViewController: UIViewController, Alertable {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var buyButton: UIButton!
     @IBAction func buy(_ sender: AnyObject) {
-        guard  let user = user, let funds = user.cash, let plate = user.carPlate else {
+        guard  let user = user, let funds = user.cash else {
             return alert("Usuário inexistente", message: "Dados do usuário não existem", actionTitle: "Tentar novamente")
         }
         
-        let userFunds = funds - valueToPay
-        
-        guard let street = address else { return }
-        guard let userID = FIRAuth.auth()?.currentUser?.uid else { return }
-        
-        let ticketKey = rootFBReference.child("ticket").childByAutoId().key
-        
-        let updateData: [String : Any] = [
-            "users/\(userID)/cash" : userFunds,
-            "cars/\(plate)/ticket/\(ticketKey)" : [
-                "name" : "\(user.firstName!) \(user.lastName!)",
-                "address" : street,
-                "isPaid" : true,
-                "value" : getValue().1,
-                "timeStampSince1970" : getTime().1]
-        ]
-        
-        rootFBReference.updateChildValues(updateData) { (error, _) in
-            if error != nil {
-                if let code = (error as? NSError)?.code {
-                    self.alert("Código: \(code)", message: "\(error?.localizedDescription)", actionTitle: "Tentar novamente")
-                }
-            } else {
-                self.dismiss(animated: true, completion: nil)
+        if funds < valueToPay {
+            alertWithHanlder("Saldo insuficiente", message: "Deseha recarregar?", actionTitle: "OK") { [weak self] in
+                self?.userFunds = 100.0 - (self?.valueToPay)!
+                self?.saveValues(user: user)
             }
+
+        } else {
+            userFunds = funds - valueToPay
+            saveValues(user: user)
         }
-        
     }
     
     var address: String?
     var user: User?
+    var userFunds = Double()
     let valueToPay = 3.50
     var ticketReference: FIRDatabaseReference?
     
@@ -108,5 +92,31 @@ extension ConfirmationViewController {
         guard let valueString = format.string(for: valueToPay) else { return ("0.0", 0.0)}
         guard let valueDouble = format.number(from: valueString)?.doubleValue else { return ("0.00", 0.0)}
         return (valueString, valueDouble)
+    }
+    
+    func saveValues(user: User) {
+        guard  let plate = user.carPlate else { return }
+        guard let street = address else { return }
+        guard let userID = FIRAuth.auth()?.currentUser?.uid else { return }
+        
+        let updateData: [String : Any] = [
+            "users/\(userID)/cash" : userFunds,
+            "cars/\(plate)/ticket/\(ticketKey)" : [
+                "name" : "\(user.firstName!) \(user.lastName!)",
+                "address" : street,
+                "isPaid" : true,
+                "value" : getValue().1,
+                "timeStampSince1970" : getTime().1]
+        ]
+        
+        rootFBReference.updateChildValues(updateData) { (error, _) in
+            if error != nil {
+                if let code = (error as? NSError)?.code {
+                    self.alert("Código: \(code)", message: "\(error?.localizedDescription)", actionTitle: "Tentar novamente")
+                }
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
 }
