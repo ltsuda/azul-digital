@@ -44,6 +44,14 @@ class MapViewController: UIViewController {
         super.viewWillAppear(true)
         buy.setImage(UIImage(named: NSLocalizedString("Buy", comment: "buy-map")) , for: .normal)
         buy.setImage(UIImage(named: NSLocalizedString("Buy_enabled", comment: "buy-map-enabled")) , for: .highlighted)
+        locationTextField.leftViewMode = .always
+        let addImageView = UIView(frame: CGRect(x: 0, y: 11, width: 22, height: 44))
+        let image = UIImage(named: "annotation")
+        let imageView = UIImageView(frame: CGRect(x: 6, y: 11, width: 22, height: 22))
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFit
+        addImageView.addSubview(imageView)
+        locationTextField.leftView = addImageView
     }
     
     override func didReceiveMemoryWarning() {
