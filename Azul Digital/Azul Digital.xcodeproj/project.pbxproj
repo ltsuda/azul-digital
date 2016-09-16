@@ -49,7 +49,7 @@
 /* Begin PBXFileReference section */
 		0C1CE793A240DB8FA3FC0C0C /* Pods-Azul Digital.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Azul Digital.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Azul Digital/Pods-Azul Digital.debug.xcconfig"; sourceTree = "<group>"; };
 		270525D41D861ACA001DEB03 /* SharedNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedNavigationController.swift; sourceTree = "<group>"; };
-		271DAB021D89D56500ADEC3D /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Map.strings"; sourceTree = "<group>"; };
+		271DAB021D89D56500ADEC3D /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Map.storyboard"; sourceTree = "<group>"; };
 		2728D1C41D341FB200694B53 /* CreateAccViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccViewController.swift; sourceTree = "<group>"; };
 		2728D1C61D34319000694B53 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2728D1C81D3432B600694B53 /* CarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarViewController.swift; sourceTree = "<group>"; };
@@ -59,10 +59,10 @@
 		2728D1D51D3439B500694B53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Register.storyboard; sourceTree = "<group>"; };
 		272ECE2C1D3ED0CC00E251DF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		273360F31D8620E6009B20B0 /* BuyTicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyTicketViewController.swift; sourceTree = "<group>"; };
-		273606671D88D80A00A95D83 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
-		273606681D88D80B00A95D83 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Register.strings"; sourceTree = "<group>"; };
-		273606691D88D80B00A95D83 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Settings.strings"; sourceTree = "<group>"; };
-		2736066A1D88D80B00A95D83 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		273606671D88D80A00A95D83 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.storyboard"; sourceTree = "<group>"; };
+		273606681D88D80B00A95D83 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Register.storyboard"; sourceTree = "<group>"; };
+		273606691D88D80B00A95D83 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Settings.storyboard"; sourceTree = "<group>"; };
+		2736066A1D88D80B00A95D83 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		273A9BA31D8AD47A00AD9EC5 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2747C4091D89A772003FB864 /* ReceiptLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptLabel.swift; sourceTree = "<group>"; };
 		275D46171D5179BD0040E64A /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
@@ -111,10 +111,10 @@
 		273A9BA01D8AD45900AD9EC5 /* Designables */ = {
 			isa = PBXGroup;
 			children = (
-				27C5292A1D86482800D43616 /* RegisterTextField.swift */,
 				2747C4091D89A772003FB864 /* ReceiptLabel.swift */,
+				27C5292A1D86482800D43616 /* RegisterTextField.swift */,
 			);
-			name = Designables;
+			path = Designables;
 			sourceTree = "<group>";
 		};
 		2790778D1D468CFB005BA179 /* Protocol */ = {
@@ -164,10 +164,10 @@
 		27CBD2AA1D34454100B01D6E /* Present */ = {
 			isa = PBXGroup;
 			children = (
-				278C49A61D33FA5A00D43AAF /* PresentViewController.swift */,
 				2728D1C41D341FB200694B53 /* CreateAccViewController.swift */,
 				278C49A81D33FBBE00D43AAF /* LoginViewController.swift */,
 				27D4D6461D33E661007BB63A /* Main.storyboard */,
+				278C49A61D33FA5A00D43AAF /* PresentViewController.swift */,
 			);
 			path = Present;
 			sourceTree = "<group>";
@@ -175,10 +175,10 @@
 		27CBD2AB1D34454F00B01D6E /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				27C2B9311D89D71300F6551B /* ConfirmationViewController.swift */,
 				273360F31D8620E6009B20B0 /* BuyTicketViewController.swift */,
-				2728D1D21D3438B800694B53 /* MapViewController.swift */,
+				27C2B9311D89D71300F6551B /* ConfirmationViewController.swift */,
 				2728D1CF1D34386000694B53 /* Map.storyboard */,
+				2728D1D21D3438B800694B53 /* MapViewController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -186,19 +186,19 @@
 		27CBD2AC1D34455900B01D6E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				277794771D890171006E9CC6 /* Localizable.strings */,
-				277794711D88FF04006E9CC6 /* InfoPlist.strings */,
-				2790778D1D468CFB005BA179 /* Protocol */,
 				273A9BA01D8AD45900AD9EC5 /* Designables */,
-				270525D41D861ACA001DEB03 /* SharedNavigationController.swift */,
-				273A9BA31D8AD47A00AD9EC5 /* Constants.swift */,
-				275D46171D5179BD0040E64A /* LoadingIndicatorView.swift */,
+				2790778D1D468CFB005BA179 /* Protocol */,
 				27D4D6421D33E661007BB63A /* AppDelegate.swift */,
 				27D4D6491D33E661007BB63A /* Assets.xcassets */,
+				273A9BA31D8AD47A00AD9EC5 /* Constants.swift */,
 				279F16D81D3572D600CC0C9D /* Extension.swift */,
 				272ECE2C1D3ED0CC00E251DF /* GoogleService-Info.plist */,
 				27D4D64E1D33E661007BB63A /* Info.plist */,
+				277794711D88FF04006E9CC6 /* InfoPlist.strings */,
 				27D4D64B1D33E661007BB63A /* LaunchScreen.storyboard */,
+				275D46171D5179BD0040E64A /* LoadingIndicatorView.swift */,
+				277794771D890171006E9CC6 /* Localizable.strings */,
+				270525D41D861ACA001DEB03 /* SharedNavigationController.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -458,6 +458,7 @@
 				273606691D88D80B00A95D83 /* pt-BR */,
 			);
 			name = Settings.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		277794711D88FF04006E9CC6 /* InfoPlist.strings */ = {
@@ -466,15 +467,17 @@
 				277794701D88FF04006E9CC6 /* pt-BR */,
 			);
 			name = InfoPlist.strings;
+			path = .;
 			sourceTree = "<group>";
 		};
 		277794771D890171006E9CC6 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				277794761D890171006E9CC6 /* pt-BR */,
 				277794781D890176006E9CC6 /* Base */,
+				277794761D890171006E9CC6 /* pt-BR */,
 			);
 			name = Localizable.strings;
+			path = .;
 			sourceTree = "<group>";
 		};
 		27D4D6461D33E661007BB63A /* Main.storyboard */ = {

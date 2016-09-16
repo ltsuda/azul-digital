@@ -400,7 +400,7 @@
             <objects>
                 <navigationController storyboardIdentifier="UINavigationController" automaticallyAdjustsScrollViewInsets="NO" id="pbt-Ix-qmM" customClass="SharedNavigationController" customModule="Azul_Digital" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zGm-Yo-TBW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zGm-Yo-TBW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
