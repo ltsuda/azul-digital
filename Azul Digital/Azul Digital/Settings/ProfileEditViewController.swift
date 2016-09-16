@@ -20,7 +20,7 @@ class ProfileEditViewController: UIViewController, Alertable, Readable, CheckTex
             } else {
                 self?.currentUser?.firstName = self?.nameEditTextField.text!
                 self?.currentUser?.lastName = self?.lastNameEditTextField.text!
-
+                
                 if self?.isImageLoaded == false {
                     self?.currentUser?.photo = self?.tempURL
                     self?.edit()
@@ -35,7 +35,7 @@ class ProfileEditViewController: UIViewController, Alertable, Readable, CheckTex
     var currentUser: User?
     var isImageLoaded = false
     var tempURL: String?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -84,22 +84,23 @@ class ProfileEditViewController: UIViewController, Alertable, Readable, CheckTex
     }
 }
 
-extension ProfileEditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, Storagable, EditableProfile {
+extension ProfileEditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, Storagable, FBProfileEditable {
     
     func edit() {
-        editProfile(currentUser, completion: { [weak self] (title, message, action) in
+        saveProfile(withUser: currentUser) { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
                 self?.alert(title, message: message, actionTitle: action)
             } else {
                 let _ = self?.navigationController?.popViewController(animated: true)
             }
-        })
+        }
     }
     
     func presentPickerViewController(_ sender: AnyObject) {
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
+        picker.modalPresentationStyle = .overCurrentContext
         present(picker, animated: true, completion: nil)
     }
     

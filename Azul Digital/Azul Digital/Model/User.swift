@@ -18,9 +18,7 @@ struct User {
     var carPlate: String?
     var photo: String?
     var cash: Double?
-
 }
-
 extension User {
     init(userID: String, email: String, first: String, last: String, photo: String, isOfficer: Bool) {
         self.userID = userID
@@ -33,13 +31,10 @@ extension User {
     init(card: String) {
         self.card = card
     }
-    
     init(carPlate: String) {
         self.carPlate = carPlate
     }
-    
     init(cash: Double) {
         self.cash = cash
     }
-
 }

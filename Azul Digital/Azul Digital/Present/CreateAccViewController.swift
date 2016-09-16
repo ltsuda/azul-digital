@@ -26,7 +26,7 @@ class CreateAccViewController: UIViewController, Alertable, Creatable {
             } else {
                 self?.performSegue(withIdentifier: "RegisterSegue", sender: nil)
             }
-        }       
+        }
         
     }
     
@@ -38,7 +38,7 @@ class CreateAccViewController: UIViewController, Alertable, Creatable {
         
         backgroundImage.applyMotionEffect(magnitude: 10)
         registerCardImage.applyMotionEffect(magnitude: -20)
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -43,7 +43,7 @@ class CarViewController: UIViewController, Alertable, CheckTextField, ValidatePl
         super.viewWillAppear(true)
         privacyTextView.text = NSLocalizedString("privacy-car", comment: "car-register")
     }
-
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         brandTextField.placeHolderText(in: PlaceHolder.Car.Brand)
@@ -65,12 +65,12 @@ class CarViewController: UIViewController, Alertable, CheckTextField, ValidatePl
             let car = Car(plate: plateTextField.text!, brand: brandTextField.text!, color: colorTextField.text!, model: modelTextField.text!, userID: user?.userID)
             user?.carPlate = car.plate
             destination.car = car
-            destination.user = user           
+            destination.user = user
             
         } else {
             return print("failed segue CardSegue")
             
         }
     }
-
+    
 }

@@ -28,9 +28,9 @@ class MapViewController: UIViewController {
     @IBAction func requestLocation(_ sender: AnyObject) {
         requestUserLocation()
     }
-
+    
     let locationManager = CLLocationManager()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

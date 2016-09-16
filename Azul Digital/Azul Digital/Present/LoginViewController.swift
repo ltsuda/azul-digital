@@ -9,7 +9,7 @@
 import UIKit
 
 class LoginViewController: UIViewController, Alertable, Loggable {
-
+    
     @IBOutlet weak var loginCardImage: UIImageView!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
@@ -27,11 +27,11 @@ class LoginViewController: UIViewController, Alertable, Loggable {
                 self?.performSegue(withIdentifier: "MapLoginSegue", sender: nil)
             }
         }
-
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         emailTextField.delegate = self
         passwordTextField.delegate = self
@@ -39,16 +39,15 @@ class LoginViewController: UIViewController, Alertable, Loggable {
         backgroundImage.applyMotionEffect(magnitude: 10)
         loginCardImage.applyMotionEffect(magnitude: -20)
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         cancelButton.configureCorner(to: cancelButton)
         loginButton.configureCorner(to: loginButton)
     }
-
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-//        
         emailTextField.configureBorder(to: PlaceHolder.User.Email)
         passwordTextField.configureBorder(to: PlaceHolder.User.Password)
     }
@@ -63,7 +62,7 @@ class LoginViewController: UIViewController, Alertable, Loggable {
             return .lightContent
         }
     }
-
+    
 }
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

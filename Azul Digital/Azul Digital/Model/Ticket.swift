@@ -9,13 +9,11 @@
 import Foundation
 
 struct Ticket {
-//    let id: String ????
     let name: String
     let userID: String
     let isPaid: Bool
     let value: Int
     let timeStamp: Int
-    
     init(name: String, userID: String, isPaid: Bool, value: Int, timeStamp: Int){
         self.name = name
         self.userID = userID

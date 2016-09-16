@@ -25,11 +25,11 @@ class ConfirmationViewController: UIViewController, Alertable {
         }
         
         if funds < valueToPay {
-            alertWithHanlder("Saldo insuficiente", message: "Deseha recarregar?", actionTitle: "OK") { [weak self] in
+            alertWithHanlder("Saldo insuficiente", message: "Deseja recarregar?", actionTitle: "OK") { [weak self] in
                 self?.userFunds = 100.0 - (self?.valueToPay)!
                 self?.saveValues(user: user)
             }
-
+            
         } else {
             userFunds = funds - valueToPay
             saveValues(user: user)

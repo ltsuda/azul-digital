@@ -9,15 +9,20 @@
 import Foundation
 import Firebase
 
-protocol FBRegistrable {
+protocol FBUpdatable {
     func saveData(withUser user: User?, withCar car: Car?, completion: @escaping (String, String, String) -> ())
 }
 
-extension FBRegistrable {
+extension FBUpdatable {
     func saveData(withUser user: User?, withCar car: Car?, completion: @escaping (String, String, String) -> ()) {
-        guard  let user = user, let car = car else {
+        guard  var user = user, let car = car else {
             return completion("Dados inexistente", "Dados do usuário não existem", "Tentar novamente")
         }
+        
+        if user.carPlate != car.plate {
+            user.carPlate = car.plate
+        }
+        
         let userPath = "users/\(user.userID!)"
         let carPath = "cars/\(car.plate!)"
         
@@ -50,93 +55,15 @@ extension FBRegistrable {
         }
     }
 }
-
-protocol SaveUser {
-    var userRef: FIRDatabaseReference { get }
-    func saveData(_ user: User?, completion: @escaping (String, String, String) -> ())
-}
-
-extension SaveUser {
-    
-    var userRef: FIRDatabaseReference {
-        return FIRDatabase.database().reference().child("users")
-    }
-    
-    func saveData(_ user: User?, completion: @escaping (String, String, String) -> ()) {
-        guard  let user = user else {
-            return completion("Usuário inexistente", "Dados do usuário não existem", "Tentar novamente")
-        }
-        let userData: [String : Any] = [
-            "email" : user.email!,
-            "firstName" : user.firstName!,
-            "lastName" : user.lastName!,
-            "photoURL" : user.photo!,
-            "card" : user.card!,
-            "cash" : user.cash!,
-            "carPlate" : user.carPlate!,
-            "isOfficer" : false
-        ]
-        userRef.child(user.userID!).setValue(userData) { (error, _) in
-            if error != nil {
-                if let code = (error as? NSError)?.code {
-                    completion("Código: \(code)", "\(error?.localizedDescription)", "Tentar novamente")
-                }
-            } else {
-                completion("", "", "")
-            }
-        }
-    }
-    
-}
-
-protocol SaveCar {
-    var carRef: FIRDatabaseReference { get }
-    func save(_ car: Car?, completion: @escaping (String, String, String) -> ())
-}
-
-extension SaveCar {
-    
-    var carRef: FIRDatabaseReference {
-        return FIRDatabase.database().reference().child("cars")
-    }
-    func save(_ car: Car?, completion: @escaping (String, String, String) -> ()) {
-        guard  let car = car else {
-            return completion("Usuário inexistente", "Dados do usuário não existem", "Tentar novamente")
-        }
-        let carData: [String : Any] = [
-            "brand" : car.brand!,
-            "model" : car.model!,
-            "color" : car.color!,
-            "userID" : car.userID!
-        ]
-        
-        carRef.child("\(car.plate!)").updateChildValues(carData) { (error, _) in
-            if error != nil {
-                if let code = (error as? NSError)?.code {
-                    completion("Código: \(code)", "\(error?.localizedDescription)", "Tentar novamente")
-                }
-            } else {
-                completion("", "", "")
-            }
-        }
-    }
-}
-
 protocol Readable {
-    var readableRef: FIRDatabaseReference { get }
     func read(_ child: String, id: String, completionObject: @escaping ((User?, Car?)) -> ())
 }
 
 extension Readable {
-    
-    var readableRef: FIRDatabaseReference {
-        return FIRDatabase.database().reference()
-    }
-    
     func read(_ child: String, id: String, completionObject: @escaping ((User?, Car?)) -> ()) {
         var objects = (User(), Car())
         
-        readableRef.child(child).child(id).observeSingleEvent(of: .value, with: { snapshot in
+        rootFBReference.child(child).child(id).observeSingleEvent(of: .value, with: { snapshot in
             
             if child == "users" {
                 
@@ -173,27 +100,26 @@ extension Readable {
     }
 }
 
-protocol EditableProfile {
-    var editProfileRef: FIRDatabaseReference { get }
-    func editProfile(_ user: User?, completion: @escaping (String, String, String) -> ())
+protocol FBProfileEditable {
+    func saveProfile(withUser user: User?, completion: @escaping (String, String, String) -> ())
 }
 
-extension EditableProfile {
-    
-    var editProfileRef: FIRDatabaseReference {
-        return FIRDatabase.database().reference().child("users")
-    }
-    
-    func editProfile(_ user: User?, completion: @escaping (String, String, String) -> ()) {
+extension FBProfileEditable {
+    func saveProfile(withUser user: User?, completion: @escaping (String, String, String) -> ()) {
         guard  let user = user, let id = user.userID else {
             return completion("Usuário inexistente", "Dados do usuário não existem", "Tentar novamente")
         }
         let userData = [
+            "email" : user.email!,
             "firstName" : user.firstName!,
             "lastName" : user.lastName!,
-            "photoURL" : user.photo!
-        ]
-        editProfileRef.child(id).updateChildValues(userData) { (error, _) in
+            "photoURL" : user.photo!,
+            "card" : user.card!,
+            "cash" : user.cash!,
+            "carPlate" : user.carPlate!,
+            "isOfficer" : false
+        ] as [String : Any]
+        rootFBReference.child("users").child(id).updateChildValues(userData) { (error, _) in
             if error != nil {
                 if let code = (error as? NSError)?.code {
                     completion("Código: \(code)", "\(error?.localizedDescription)", "Tentar novamente")
@@ -205,67 +131,20 @@ extension EditableProfile {
     }
 }
 
-protocol EditableCard {
-    var editCardRef: FIRDatabaseReference { get }
-    func editCard(_ user: User?, dbUserID: String, completion: @escaping (String, String, String) -> ())
+protocol FBCardEditable {
+    func saveCard(withUser user: User?, withID id: String, completion: @escaping (String, String, String) -> ())
 }
 
-extension EditableCard {
-    
-    var editCardRef: FIRDatabaseReference {
-        return FIRDatabase.database().reference().child("users")
-    }
-    
-    func editCard(_ user: User?, dbUserID: String, completion: @escaping (String, String, String) -> ()) {
+extension FBCardEditable {
+    func saveCard(withUser user: User?, withID id: String, completion: @escaping (String, String, String) -> ()) {
         guard  let user = user else {
             return completion("Usuário inexistente", "Dados do usuário não existem", "Tentar novamente")
         }
         let userData = [
             "card" : user.card!,
             "cash" : user.cash!
-            ] as [String : Any]
-        editCardRef.child(dbUserID).updateChildValues(userData) { (error, _) in
-            if error != nil {
-                if let code = (error as? NSError)?.code {
-                    completion("Código: \(code)", "\(error?.localizedDescription)", "Tentar novamente")
-                }
-            } else {
-                completion("", "", "")
-            }
-        }
-    }
-}
-
-protocol FBCarEditable {
-    func saveData(withUser user: User?, withCar car: Car?, completion: @escaping (String, String, String) -> ())
-}
-
-extension FBCarEditable {
-    func saveData(withUser user: User?, withCar car: Car?, completion: @escaping (String, String, String) -> ()) {
-        guard  let user = user, let car = car else {
-            return completion("Dados inexistente", "Dados do usuário não existem", "Tentar novamente")
-        }
-        let userPath = "users/\(user.userID!)"
-        let carPath = "cars/\(car.plate!)"
-        let userData: [String : Any] = [
-            "\(userPath)" : [
-                "email" : user.email!,
-                "firstName" : user.firstName!,
-                "lastName" : user.lastName!,
-                "photoURL" : user.photo!,
-                "card" : user.card!,
-                "cash" : user.cash!,
-                "carPlate" : car.plate!,
-                "isOfficer" : false
-            ],
-            "\(carPath)" : [
-                "brand" : car.brand!,
-                "model" : car.model!,
-                "color" : car.color!,
-                "userID" : car.userID!
-            ]
-        ]
-        rootFBReference.updateChildValues(userData) { (error, _) in
+        ] as [String : Any]
+        rootFBReference.child("users").child(id).updateChildValues(userData) { (error, _) in
             if error != nil {
                 if let code = (error as? NSError)?.code {
                     completion("Código: \(code)", "\(error?.localizedDescription)", "Tentar novamente")

@@ -47,7 +47,7 @@ class CardViewController: UIViewController, Alertable, CheckTextField, ValidateC
         super.viewWillAppear(true)
         privacyTextView.text = NSLocalizedString("privacy-card", comment: "card-register")
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -60,7 +60,7 @@ class CardViewController: UIViewController, Alertable, CheckTextField, ValidateC
     }
 }
 
-extension CardViewController: FBRegistrable {
+extension CardViewController: FBUpdatable {
     func save() {
         saveData(withUser: user, withCar: car) { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {

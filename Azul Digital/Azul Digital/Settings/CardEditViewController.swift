@@ -22,10 +22,8 @@ class CardEditViewController: UIViewController, Readable, CheckTextField, Alerta
                 let validate = self?.validateCard((self?.cardEditTextField.text!)!)
                 if validate == true {
                     self?.currentUser?.card = self?.cardEditTextField.text!
-//                    FIXME: Fix decimal separator to every Localization because Firebase returns "." as separator. If I keep .replacing method this way and iPhone's location is US/UK, this method will fail and crashes.
+                    //                    FIXME: Fix decimal separator to every Localization because Firebase returns "." as separator. If I keep .replacing method this way and iPhone's location is US/UK, this method will fail and crashes.
                     self?.currentUser?.cash = roundTwoDecimal((self?.cashEditTextField.text!)!.replacingOccurrences(of: ".", with: ","))
-                    print(self?.cashEditTextField.text!)
-                    print(self?.cardEditTextField.text!)
                     self?.editCard()
                 } else {
                     self?.alert("Formato incorreto", message: "Favor preencher o numero do cartão corretamente", actionTitle: "Tentar novamente")
@@ -39,7 +37,7 @@ class CardEditViewController: UIViewController, Readable, CheckTextField, Alerta
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -48,14 +46,12 @@ class CardEditViewController: UIViewController, Readable, CheckTextField, Alerta
         
         LoadingIndicatorView.show("Loading data")
         read("users", id: id, completionObject: { [weak self] (user, _) in
-            
             DispatchQueue.main.async {
-                LoadingIndicatorView.hide()
                 self?.cardEditTextField.text = user?.card
                 self?.cashEditTextField.text = "\((user?.cash)!)"
                 self?.currentUser = user
+                LoadingIndicatorView.hide()
             }
-            
             })
     }
     
@@ -66,14 +62,14 @@ class CardEditViewController: UIViewController, Readable, CheckTextField, Alerta
     
 }
 
-extension CardEditViewController: EditableCard {
+extension CardEditViewController: FBCardEditable {
     func editCard() {
-        editCard(currentUser, dbUserID: id, completion: { [weak self] (title, message, action) in
+        saveCard(withUser: currentUser, withID: id) { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
                 self?.alert(title, message: message, actionTitle: action)
             } else {
                 let _ = self?.navigationController?.popViewController(animated: true)
             }
-            })
+        }
     }
 }

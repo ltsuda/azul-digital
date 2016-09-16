@@ -9,7 +9,7 @@
 import UIKit
 
 class PresentViewController: UIViewController {
-
+    
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var createAccButton: UIButton!
     @IBOutlet weak var alreadyMemberButton: UIButton!
@@ -19,18 +19,18 @@ class PresentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         backgroundImage.applyMotionEffect(magnitude: 10)
         createAccButton.applyMotionEffect(magnitude: -20)
         alreadyMemberButton.applyMotionEffect(magnitude: -20)
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         createAccButton.configureCorner(to: createAccButton)
         alreadyMemberButton.configureCorner(to: alreadyMemberButton)
-
+        
     }
     
     override func didReceiveMemoryWarning() {

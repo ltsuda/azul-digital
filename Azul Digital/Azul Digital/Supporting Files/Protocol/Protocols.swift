@@ -86,24 +86,6 @@ extension ValidateCard {
     }
 }
 
-//protocol ValidateFunds {
-//    func validatefunds(_ funds: String) -> Bool
-//}
-//
-//extension ValidateFunds {
-//    func validatefunds(_ funds: String) -> Bool {
-//        let regex = try! NSRegularExpression(pattern: "^\\d{1,}(\\,{1})\\d{2}$", options: [.anchorsMatchLines])
-//
-//        let regexResult = regex.firstMatch(in: funds, options:[], range: NSRange(location: 0, length: funds.characters.count)) != nil
-//
-//        if !regexResult {
-//            return false
-//        }
-//
-//        return true
-//    }
-//}
-
 func roundTwoDecimal(_ number: String) -> Double? {
     let format = NumberFormatter()
     format.numberStyle = .currency

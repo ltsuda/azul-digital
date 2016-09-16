@@ -24,6 +24,7 @@ class CarEditViewController: UIViewController, Readable, CheckTextField, Alertab
                 let validate = self?.validatePlate((self?.plateEditTextField.text!)!)
                 if validate == true {
                     if self?.plateEditTextField.text! != self?.tempCar?.plate {
+                        self?.tempCar?.plate = self?.plateEditTextField.text!
                         self?.editCar()
                     } else {
                         self?.alert("Veículo já existente", message: "Favor preencher os campos com os dados do seu novo veículo", actionTitle: "Tentar novamente")
@@ -76,9 +77,9 @@ class CarEditViewController: UIViewController, Readable, CheckTextField, Alertab
     
 }
 
-extension CarEditViewController: SaveCar, FBCarEditable {
+extension CarEditViewController: FBUpdatable {
     func editCar() {
-        let car = Car(plate: plateEditTextField.text!, brand: brandEditTextField.text!, color: colorEditTextField.text!, model: modelEditTextField.text!, userID: id)
+        let car = Car(plate: (tempCar?.plate)!, brand: brandEditTextField.text!, color: colorEditTextField.text!, model: modelEditTextField.text!, userID: id)
         saveData(withUser: user, withCar: car) { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
                 self?.alert(title, message: message, actionTitle: action)
