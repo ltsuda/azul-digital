@@ -23,6 +23,7 @@
 		27689CD91D88D3FE00ECC2CD /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27689CDB1D88D3FE00ECC2CD /* Settings.storyboard */; };
 		2777946F1D88FF04006E9CC6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 277794711D88FF04006E9CC6 /* InfoPlist.strings */; };
 		277794751D890171006E9CC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 277794771D890171006E9CC6 /* Localizable.strings */; };
+		27876B351D8C73ED004E7CFF /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27876B341D8C73ED004E7CFF /* HistoryTableViewController.swift */; };
 		278C49A71D33FA5A00D43AAF /* PresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278C49A61D33FA5A00D43AAF /* PresentViewController.swift */; };
 		278C49A91D33FBBE00D43AAF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278C49A81D33FBBE00D43AAF /* LoginViewController.swift */; };
 		2790778B1D468C4B005BA179 /* AuthProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2790778A1D468C4B005BA179 /* AuthProtocol.swift */; };
@@ -70,6 +71,8 @@
 		277794701D88FF04006E9CC6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		277794761D890171006E9CC6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		277794781D890176006E9CC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		27876B331D8C7221004E7CFF /* Azul Digital.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "Azul Digital.entitlements"; path = "../Azul Digital.entitlements"; sourceTree = "<group>"; };
+		27876B341D8C73ED004E7CFF /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		278C49A61D33FA5A00D43AAF /* PresentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentViewController.swift; sourceTree = "<group>"; };
 		278C49A81D33FBBE00D43AAF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2790778A1D468C4B005BA179 /* AuthProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthProtocol.swift; sourceTree = "<group>"; };
@@ -146,6 +149,7 @@
 				27C7BA401D4704C200746C97 /* ProfileEditViewController.swift */,
 				27689CDB1D88D3FE00ECC2CD /* Settings.storyboard */,
 				27C7BA461D47063200746C97 /* SettingsTableViewController.swift */,
+				27876B341D8C73ED004E7CFF /* HistoryTableViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -186,6 +190,7 @@
 		27CBD2AC1D34455900B01D6E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				27876B331D8C7221004E7CFF /* Azul Digital.entitlements */,
 				273A9BA01D8AD45900AD9EC5 /* Designables */,
 				2790778D1D468CFB005BA179 /* Protocol */,
 				27D4D6421D33E661007BB63A /* AppDelegate.swift */,
@@ -291,6 +296,11 @@
 						DevelopmentTeamName = "Leonardo Tsuda";
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -402,6 +412,7 @@
 				2790778B1D468C4B005BA179 /* AuthProtocol.swift in Sources */,
 				2728D1CB1D3434F300694B53 /* CardViewController.swift in Sources */,
 				2728D1C91D3432B600694B53 /* CarViewController.swift in Sources */,
+				27876B351D8C73ED004E7CFF /* HistoryTableViewController.swift in Sources */,
 				27AD34321D395B0D0084E8FE /* Protocols.swift in Sources */,
 				279D0B151D3AC54200BC1D4C /* Car.swift in Sources */,
 				279D0B171D3AC54B00BC1D4C /* Ticket.swift in Sources */,
@@ -601,6 +612,7 @@
 			baseConfigurationReference = 0C1CE793A240DB8FA3FC0C0C /* Pods-Azul Digital.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Azul Digital/Azul Digital.entitlements";
 				INFOPLIST_FILE = "Azul Digital/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -615,6 +627,7 @@
 			baseConfigurationReference = 78AABDC445D1127DE4923E8E /* Pods-Azul Digital.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Azul Digital/Azul Digital.entitlements";
 				INFOPLIST_FILE = "Azul Digital/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

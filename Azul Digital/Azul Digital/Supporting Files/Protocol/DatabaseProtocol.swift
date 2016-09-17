@@ -100,6 +100,32 @@ extension Readable {
     }
 }
 
+protocol FBTicketReadable {
+    func read(fromCar plate: String, completionObject: @escaping (Ticket?, Error?) -> ())
+}
+
+extension FBTicketReadable {
+    func read(fromCar plate: String, completionObject: @escaping (Ticket?, Error?) -> ()) {
+        
+        rootFBReference.child("cars").child(plate).observe(.value, with: { snapshot in
+            let tickets = snapshot.childSnapshot(forPath: "ticket")
+            for ticket in tickets.children.allObjects as! [FIRDataSnapshot] {
+                guard let address = ticket.childSnapshot(forPath: "address").value as? String,
+                let isPaid = ticket.childSnapshot(forPath: "isPaid").value as? Bool,
+                let name = ticket.childSnapshot(forPath: "name").value as? String,
+                let value = ticket.childSnapshot(forPath: "value").value as? Double,
+                    let timeSince1970 = ticket.childSnapshot(forPath: "timeStampSince1970").value as? Double else { return }
+                guard let newTicket = Ticket(name: name, address: address, isPaid: isPaid, value: value, timeStamp: timeSince1970) else { return }
+                completionObject(newTicket, nil)
+            }
+        }) { error in
+            print(error.localizedDescription)
+            completionObject(nil, error)
+        }
+        
+    }
+}
+
 protocol FBProfileEditable {
     func saveProfile(withUser user: User?, completion: @escaping (String, String, String) -> ())
 }
@@ -118,7 +144,7 @@ extension FBProfileEditable {
             "cash" : user.cash!,
             "carPlate" : user.carPlate!,
             "isOfficer" : false
-        ] as [String : Any]
+            ] as [String : Any]
         rootFBReference.child("users").child(id).updateChildValues(userData) { (error, _) in
             if error != nil {
                 if let code = (error as? NSError)?.code {
@@ -143,7 +169,7 @@ extension FBCardEditable {
         let userData = [
             "card" : user.card!,
             "cash" : user.cash!
-        ] as [String : Any]
+            ] as [String : Any]
         rootFBReference.child("users").child(id).updateChildValues(userData) { (error, _) in
             if error != nil {
                 if let code = (error as? NSError)?.code {

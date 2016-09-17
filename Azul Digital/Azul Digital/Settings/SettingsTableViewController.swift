@@ -53,6 +53,9 @@ class SettingsTableViewController: UITableViewController {
         } else if segue.identifier == "ProfileEditSegue" {
             guard let destination = segue.destination as? ProfileEditViewController else { return print("failed ProfileEditViewController")}
             destination.id = userID
+        } else if segue.identifier == "HistorySegue" {
+            guard let destination = segue.destination as? HistoryTableViewController else { return print("failed HistoryTableViewController")}
+            destination.id = userID
         }
         
     }

@@ -10,13 +10,13 @@ import Foundation
 
 struct Ticket {
     let name: String
-    let userID: String
+    let address: String
     let isPaid: Bool
-    let value: Int
-    let timeStamp: Int
-    init(name: String, userID: String, isPaid: Bool, value: Int, timeStamp: Int){
+    let value: Double
+    let timeStamp: Double
+    init?(name: String, address: String, isPaid: Bool, value: Double, timeStamp: Double) {
         self.name = name
-        self.userID = userID
+        self.address = address
         self.isPaid = isPaid
         self.value = value
         self.timeStamp = timeStamp

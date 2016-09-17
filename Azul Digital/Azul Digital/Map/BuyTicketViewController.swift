@@ -20,7 +20,6 @@ class BuyTicketViewController: UIViewController, Readable {
         performSegue(withIdentifier: "ConfirmationSegue", sender: nil)
     }
     @IBAction func unwindToBuy(withSegue segue: UIStoryboardSegue) {
-        dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {

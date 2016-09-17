@@ -37,4 +37,5 @@ extension User {
     init(cash: Double) {
         self.cash = cash
     }
+    
 }

@@ -23,7 +23,6 @@ class LoginViewController: UIViewController, Alertable, Loggable {
                 print("\(title, message, action)")
                 self?.alert(title, message: message, actionTitle: action)
             } else {
-                print("login success")
                 self?.performSegue(withIdentifier: "MapLoginSegue", sender: nil)
             }
         }
@@ -33,11 +32,7 @@ class LoginViewController: UIViewController, Alertable, Loggable {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
-        
-        backgroundImage.applyMotionEffect(magnitude: 10)
-        loginCardImage.applyMotionEffect(magnitude: -20)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,14 +58,4 @@ class LoginViewController: UIViewController, Alertable, Loggable {
         }
     }
     
-}
-extension LoginViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
 }

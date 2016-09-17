@@ -12,7 +12,6 @@ import FirebaseAuth
 class CreateAccViewController: UIViewController, Alertable, Creatable {
     
     @IBOutlet weak var registerCardImage: UIImageView!
-    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordLabel: UILabel!
@@ -33,11 +32,7 @@ class CreateAccViewController: UIViewController, Alertable, Creatable {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
-        
-        backgroundImage.applyMotionEffect(magnitude: 10)
-        registerCardImage.applyMotionEffect(magnitude: -20)
+
         
     }
     
@@ -64,15 +59,3 @@ class CreateAccViewController: UIViewController, Alertable, Creatable {
         }
     }
 }
-
-extension CreateAccViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
-}
-

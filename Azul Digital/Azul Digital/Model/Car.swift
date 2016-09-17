@@ -13,7 +13,7 @@ struct Car {
     var brand: String?
     var color: String?
     var model: String?
-    var ticket: Ticket?
+    var ticket: [Ticket]?
     var userID: String?
     init(plate: String, brand: String, color: String, model: String, userID: String?) {
         self.plate = plate
@@ -21,9 +21,6 @@ struct Car {
         self.color = color
         self.model = model
         self.userID = userID
-    }
-    init(ticket: Ticket) {
-        self.ticket = ticket
     }
     init() {
         
