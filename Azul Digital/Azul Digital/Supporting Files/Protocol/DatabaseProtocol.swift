@@ -101,26 +101,26 @@ extension Readable {
 }
 
 protocol FBTicketReadable {
-    func read(fromCar plate: String, completionObject: @escaping (Ticket?, Error?) -> ())
+    func read(fromCar plate: String, completionObject: @escaping ([Ticket]?, NSError?) -> ())
 }
 
 extension FBTicketReadable {
-    func read(fromCar plate: String, completionObject: @escaping (Ticket?, Error?) -> ()) {
-        
-        rootFBReference.child("cars").child(plate).observe(.value, with: { snapshot in
-            let tickets = snapshot.childSnapshot(forPath: "ticket")
-            for ticket in tickets.children.allObjects as! [FIRDataSnapshot] {
-                guard let address = ticket.childSnapshot(forPath: "address").value as? String,
-                let isPaid = ticket.childSnapshot(forPath: "isPaid").value as? Bool,
-                let name = ticket.childSnapshot(forPath: "name").value as? String,
-                let value = ticket.childSnapshot(forPath: "value").value as? Double,
-                    let timeSince1970 = ticket.childSnapshot(forPath: "timeStampSince1970").value as? Double else { return }
-                guard let newTicket = Ticket(name: name, address: address, isPaid: isPaid, value: value, timeStamp: timeSince1970) else { return }
-                completionObject(newTicket, nil)
+    func read(fromCar plate: String, completionObject: @escaping ([Ticket]?, NSError?) -> ()) {
+
+        rootFBReference.child("cars").child(plate).child("ticket").queryOrdered(byChild: "timeStampSince1970").observe(.value, with: { snapshot in
+            
+            var tickets: [Ticket] = []
+            
+            for ticket in snapshot.children {
+                guard let newTicket = Ticket(snapshot: ticket as! FIRDataSnapshot) else { return }
+                tickets.append(newTicket)
             }
-        }) { error in
-            print(error.localizedDescription)
-            completionObject(nil, error)
+            
+            completionObject(tickets, nil)
+            
+            }) { error in
+                let error = error as NSError
+                completionObject(nil, error)
         }
         
     }

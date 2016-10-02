@@ -44,13 +44,16 @@ class CardEditViewController: UIViewController, Readable, CheckTextField, Alerta
         self.title = NSLocalizedString("Card", comment: "edit-card")
         textView.text = NSLocalizedString("privacy-card", comment: "edit-card")
         
-        LoadingIndicatorView.show("Loading data")
+        LoadingIndicatorView.show(overlayTarget: view, loadingText: "Loading Data")
+        navigationItem.rightBarButtonItem?.isEnabled = false
+        
         read("users", id: id, completionObject: { [weak self] (user, _) in
             DispatchQueue.main.async {
                 self?.cardEditTextField.text = user?.card
                 self?.cashEditTextField.text = "\((user?.cash)!)"
                 self?.currentUser = user
                 LoadingIndicatorView.hide()
+                self?.navigationItem.rightBarButtonItem?.isEnabled = true
             }
             })
     }

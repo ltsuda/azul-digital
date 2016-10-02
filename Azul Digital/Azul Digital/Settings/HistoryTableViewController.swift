@@ -8,17 +8,17 @@
 
 import UIKit
 
-class HistoryTableViewController: UITableViewController, Readable, FBTicketReadable {
-    
-    
+class HistoryTableViewController: UITableViewController, Readable {
     
     var id = String()
     var car: Car?
-    var array: [Ticket]?
+    var tickets: [Ticket]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 120
+        title = "History"
     }
     
     override func didReceiveMemoryWarning() {
@@ -28,19 +28,8 @@ class HistoryTableViewController: UITableViewController, Readable, FBTicketReada
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        print(id)
-//        LoadingIndicatorView.show("Loading data")
-//        read("users", id: id, completionObject: { [weak self] (user, car) in
-//            guard let plate = car?.plate else { return }
-//            self?.read(fromCar: plate, completionObject: { (ticket, error) in
-//                if error != nil {
-//                    print(error?.localizedDescription)
-//                } else if ticket != nil {
-//                   
-//                }
-//            })
-//            })
-        
+        LoadingIndicatorView.show(overlayTarget: view, loadingText: "Loading Data")
+        getTickets()
     }
     
     // MARK: - Table view data source
@@ -52,25 +41,39 @@ class HistoryTableViewController: UITableViewController, Readable, FBTicketReada
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return array?.count ?? 10
+        return tickets?.count ?? 1
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath)
-        
-        // Configure the cell...
-        cell.textLabel?.text = "Hora cell \(indexPath.row)"
-        cell.detailTextLabel?.text = "Address cell \(indexPath.row)"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as? HistoryTableViewCell else { return UITableViewCell() }
+        guard let ticket = tickets?.reversed()[indexPath.row] else { return UITableViewCell() }
+        cell.configureCell(ticket: ticket)
         
         return cell
     }
+
+}
+
+extension HistoryTableViewController: FBTicketReadable, Alertable {
     
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func getTickets() {
+        read("users", id: id, completionObject: { [weak self] (_, car) in
+            guard let plate = car?.plate else { return }
+            self?.read(fromCar: plate, completionObject: { (tickets, error) in
+                if error != nil {
+                    DispatchQueue.main.async {
+                        LoadingIndicatorView.hide()
+                        self?.alert("\(error?.code)", message: "\(error?.localizedDescription)", actionTitle: "Tentar novamente")
+                    }
+                } else if tickets != nil {
+                    self?.tickets = tickets
+                    DispatchQueue.main.async {
+                        LoadingIndicatorView.hide()
+                        self?.tableView.reloadData()
+                    }
+                }
+            })
+            })
     }
 }

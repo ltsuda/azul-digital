@@ -48,7 +48,8 @@ class CarEditViewController: UIViewController, Readable, CheckTextField, Alertab
         self.title = NSLocalizedString("Car", comment: "edit-car")
         textView.text = NSLocalizedString("privacy-car", comment: "edit-car")
         
-        LoadingIndicatorView.show("Loading data")
+        LoadingIndicatorView.show(overlayTarget: view, loadingText: "Loading Data")
+        navigationItem.rightBarButtonItem?.isEnabled = false
         
         read("users", id: id, completionObject: { [weak self] (user, car) in
             guard let plate = car?.plate, let user = user else { return }
@@ -58,12 +59,13 @@ class CarEditViewController: UIViewController, Readable, CheckTextField, Alertab
             self?.read("cars", id: plate, completionObject: { [weak self] (_, car) in
                 
                 DispatchQueue.main.async {
-                    LoadingIndicatorView.hide()
                     self?.tempCar = car
                     self?.brandEditTextField.text = car?.brand
                     self?.modelEditTextField.text = car?.model
                     self?.colorEditTextField.text = car?.color
                     self?.plateEditTextField.text = car?.plate
+                    LoadingIndicatorView.hide()
+                    self?.navigationItem.rightBarButtonItem?.isEnabled = true
                 }
                 
                 })

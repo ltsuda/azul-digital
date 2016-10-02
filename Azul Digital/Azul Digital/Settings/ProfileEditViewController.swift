@@ -49,7 +49,8 @@ class ProfileEditViewController: UIViewController, Alertable, Readable, CheckTex
         
         self.title = NSLocalizedString("Profile", comment: "edit-profile")
         
-        LoadingIndicatorView.show("Loading data" as String)
+        LoadingIndicatorView.show(overlayTarget: view, loadingText: "Loading Data")
+        navigationItem.rightBarButtonItem?.isEnabled = false
         
         read("users", id: id, completionObject: { [weak self] (user, _) in
             if user?.photo != "localImage" {
@@ -64,8 +65,10 @@ class ProfileEditViewController: UIViewController, Alertable, Readable, CheckTex
                     }
                 })
             } else {
-                self?.editImageView.image = UIImage(named: (user?.photo)!)
-                LoadingIndicatorView.hide()
+                DispatchQueue.main.async {
+                    self?.editImageView.image = UIImage(named: (user?.photo)!)
+                    LoadingIndicatorView.hide()
+                }
             }
             DispatchQueue.main.async {
                 self?.nameEditTextField.text = user?.firstName
@@ -74,6 +77,8 @@ class ProfileEditViewController: UIViewController, Alertable, Readable, CheckTex
                 self?.tempURL = user?.photo
                 self?.editImageView.configureBorder()
                 self?.editImageView.layoutIfNeeded()
+                self?.navigationItem.rightBarButtonItem?.isEnabled = true
+
             }
             })
     }
