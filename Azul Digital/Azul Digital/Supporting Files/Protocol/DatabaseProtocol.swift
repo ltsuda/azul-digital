@@ -9,6 +9,38 @@
 import Foundation
 import Firebase
 
+protocol FBServerTime {
+    func savetime()
+    func gettime(completion: @escaping (Date, String, String) -> ())
+}
+
+extension FBServerTime {
+    func savetime() {
+        
+        guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
+        let timePath = "timeStamps/\(uid)"
+        rootFBReference.child(timePath).setValue(FIRServerValue.timestamp())
+        
+    }
+    
+    func gettime(completion: @escaping (Date, String, String) -> ()) {
+        
+        guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
+        
+        rootFBReference.child("timeStamps/\(uid)").observeSingleEvent(of: .value, with: { snapshot in
+            
+            if let time = snapshot.value as? TimeInterval {
+                let date = Date(timeIntervalSince1970: time / 1000)
+                completion(date, "", "")
+            }
+            
+        }) { error in
+            print(error)
+        }
+    }
+    
+}
+
 protocol FBUpdatable {
     func saveData(withUser user: User?, withCar car: Car?, completion: @escaping (String, String, String) -> ())
 }
@@ -106,7 +138,7 @@ protocol FBTicketReadable {
 
 extension FBTicketReadable {
     func read(fromCar plate: String, completionObject: @escaping ([Ticket]?, NSError?) -> ()) {
-
+        
         rootFBReference.child("cars").child(plate).child("ticket").queryOrdered(byChild: "timeStampSince1970").observe(.value, with: { snapshot in
             
             var tickets: [Ticket] = []
@@ -118,9 +150,9 @@ extension FBTicketReadable {
             
             completionObject(tickets, nil)
             
-            }) { error in
-                let error = error as NSError
-                completionObject(nil, error)
+        }) { error in
+            let error = error as NSError
+            completionObject(nil, error)
         }
         
     }

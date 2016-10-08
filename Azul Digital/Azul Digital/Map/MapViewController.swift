@@ -24,6 +24,8 @@ class MapViewController: UIViewController {
         present(initialViewController, animated: true, completion: nil)
         //        UIApplication.shared().delegate?.window??.rootViewController = initialViewController
     }
+    @IBAction func unwindToMap(withSegue segue: UIStoryboardSegue) {
+    }
     
     @IBAction func requestLocation(_ sender: AnyObject) {
         requestUserLocation()
@@ -37,9 +39,8 @@ class MapViewController: UIViewController {
         // Do any additional setup after loading the view.
         requestUserLocation()
         locationTextField.delegate = self
-        
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         buy.setImage(UIImage(named: NSLocalizedString("Buy", comment: "buy-map")) , for: .normal)
@@ -62,6 +63,9 @@ class MapViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "BuySegue" {
             guard let destination = segue.destination as? BuyTicketViewController else { return }
+            destination.address = locationTextField.text ?? "Empty Address"
+        } else if segue.identifier == "ShareSegue" {
+            guard let destination = segue.destination as? ShareViewController else { return }
             destination.address = locationTextField.text ?? "Empty Address"
         }
     }

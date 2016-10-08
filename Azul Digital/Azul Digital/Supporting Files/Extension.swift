@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import Firebase
 
 
 extension UIView {
@@ -27,10 +28,32 @@ extension UIView {
     }
 }
 
+func formatTime(from: Date) -> String {
+    let date = Date()
+    let dateFormatter = DateFormatter()
+    dateFormatter.locale = Locale(identifier: "pt-BR")
+    dateFormatter.dateFormat = "dd/MM/YYYY HH:mm"
+    return (dateFormatter.string(from: date))
+}
+
+
+func getFIRServerTime(completion: @escaping (Any)->()) {
+    //        rootFBReference.observeSingleEvent(of: .value, with: { snapshot in
+    //
+    //            guard let time = snapshot.value as? TimeInterval else { return }
+    //            print(time)
+    //            let serverTime = Date(timeIntervalSince1970: time)
+    //            completion(serverTime)
+    //
+    //        }) { error in
+    //            completion(error)
+    //        }
+}
+
 extension UIButton {
     
     func configureCorner(to button: UIButton) {
-//        button.backgroundColor = UIColor(red: 15/255, green: 127/255, blue: 223/255, alpha: 1)
+        //        button.backgroundColor = UIColor(red: 15/255, green: 127/255, blue: 223/255, alpha: 1)
         button.layer.cornerRadius = 12
     }
     

@@ -126,7 +126,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="73"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hNb-sX-nji" id="KC3-4i-hua">
-                                    <frame key="frameInset" width="375" height="72"/>
+                                    <frame key="frameInset" width="375" height="72.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="YwY-zz-q6v">
@@ -297,7 +297,7 @@
                                             <frame key="frameInset" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about" translatesAutoresizingMaskIntoConstraints="NO" id="R9X-WT-3br">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="History" translatesAutoresizingMaskIntoConstraints="NO" id="R9X-WT-3br">
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="W2n-x8-XnE"/>
                                                         <constraint firstAttribute="width" constant="32" id="xhf-3G-sfJ"/>
@@ -606,6 +606,7 @@
     </scenes>
     <resources>
         <image name="Carro" width="29" height="29"/>
+        <image name="History" width="29" height="29"/>
         <image name="User" width="29" height="29"/>
         <image name="about" width="29" height="29"/>
         <image name="card" width="32" height="22"/>

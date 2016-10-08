@@ -28,7 +28,7 @@ class HistoryTableViewController: UITableViewController, Readable {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        LoadingIndicatorView.show(overlayTarget: view, loadingText: "Loading Data")
+        LoadingIndicatorView.show("Loading Data")
         getTickets()
     }
     
@@ -52,7 +52,7 @@ class HistoryTableViewController: UITableViewController, Readable {
         
         return cell
     }
-
+    
 }
 
 extension HistoryTableViewController: FBTicketReadable, Alertable {
@@ -70,10 +70,29 @@ extension HistoryTableViewController: FBTicketReadable, Alertable {
                     self?.tickets = tickets
                     DispatchQueue.main.async {
                         LoadingIndicatorView.hide()
-                        self?.tableView.reloadData()
+                        self?.animateTable()
                     }
                 }
             })
             })
+    }
+    
+    func animateTable() {
+        tableView.reloadData()
+        let cells = tableView.visibleCells
+        
+        let tableViewHeight = tableView.bounds.size.height
+        
+        for cell in cells {
+            cell.transform = CGAffineTransform(translationX: 0, y: tableViewHeight)
+        }
+        
+        var delayCounter = 0
+        for cell in cells {
+            UIView.animate(withDuration: 1.0, delay: Double(delayCounter) * 0.05, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+                cell.transform = CGAffineTransform.identity
+                }, completion: nil)
+            delayCounter += 1
+        }
     }
 }

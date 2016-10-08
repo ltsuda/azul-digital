@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class BuyTicketViewController: UIViewController, Readable {
+class BuyTicketViewController: UIViewController, Readable, FBServerTime {
     
     var user: User?
     var address: String?
@@ -18,6 +18,7 @@ class BuyTicketViewController: UIViewController, Readable {
     @IBOutlet weak var buyButton: UIButton!
     @IBAction func buy(_ sender: AnyObject) {
         performSegue(withIdentifier: "ConfirmationSegue", sender: nil)
+        savetime()
     }
     @IBAction func unwindToBuy(withSegue segue: UIStoryboardSegue) {
     }

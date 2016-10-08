@@ -27,7 +27,7 @@ class HistoryTableViewCell: UITableViewCell {
     }
     
     func configureCell(ticket: Ticket) {
-        timeLabel.text = formatTime(time: ticket.timeStamp)
+        timeLabel.text = formatTime(time: ticket.timeStamp / 1000)
         addressLabel.text = ticket.address
         plateLabel.text = ticket.plate
     }

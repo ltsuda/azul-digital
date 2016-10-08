@@ -21,6 +21,7 @@
 		2747C40A1D89A772003FB864 /* ReceiptLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2747C4091D89A772003FB864 /* ReceiptLabel.swift */; };
 		275D46181D5179BD0040E64A /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275D46171D5179BD0040E64A /* LoadingIndicatorView.swift */; };
 		27689CD91D88D3FE00ECC2CD /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27689CDB1D88D3FE00ECC2CD /* Settings.storyboard */; };
+		277207E41DA944950020F608 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277207E31DA944950020F608 /* ShareViewController.swift */; };
 		277794751D890171006E9CC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 277794771D890171006E9CC6 /* Localizable.strings */; };
 		277C5F5F1DA18BA1002ACD04 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277C5F5E1DA18BA1002ACD04 /* HistoryTableViewCell.swift */; };
 		27876B351D8C73ED004E7CFF /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27876B341D8C73ED004E7CFF /* HistoryTableViewController.swift */; };
@@ -63,6 +64,7 @@
 		2747C4091D89A772003FB864 /* ReceiptLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptLabel.swift; sourceTree = "<group>"; };
 		275D46171D5179BD0040E64A /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 		27689CDA1D88D3FE00ECC2CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
+		277207E31DA944950020F608 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		277794781D890176006E9CC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		277C5F5E1DA18BA1002ACD04 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		27876B331D8C7221004E7CFF /* Azul Digital.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "Azul Digital.entitlements"; path = "../Azul Digital.entitlements"; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				27C2B9311D89D71300F6551B /* ConfirmationViewController.swift */,
 				2728D1CF1D34386000694B53 /* Map.storyboard */,
 				2728D1D21D3438B800694B53 /* MapViewController.swift */,
+				277207E31DA944950020F608 /* ShareViewController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				2747C40A1D89A772003FB864 /* ReceiptLabel.swift in Sources */,
 				278C49A71D33FA5A00D43AAF /* PresentViewController.swift in Sources */,
 				27C7BA431D4704D300746C97 /* CarEditViewController.swift in Sources */,
+				277207E41DA944950020F608 /* ShareViewController.swift in Sources */,
 				27ABD5521D42DA3100C11469 /* StorageProtocol.swift in Sources */,
 				270525D51D861ACA001DEB03 /* SharedNavigationController.swift in Sources */,
 				273360F51D8620E6009B20B0 /* BuyTicketViewController.swift in Sources */,

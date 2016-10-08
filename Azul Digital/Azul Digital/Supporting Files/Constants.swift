@@ -10,5 +10,4 @@ import Foundation
 import Firebase
 
 let rootFBReference = FIRDatabase.database().reference()
-let ticketKey = rootFBReference.child("ticket").childByAutoId().key
 

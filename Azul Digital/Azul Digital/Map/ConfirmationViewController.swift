@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ConfirmationViewController: UIViewController, Alertable {
+class ConfirmationViewController: UIViewController, Alertable, FBServerTime {
     
     @IBOutlet weak var askLabel: UILabel!
     @IBOutlet weak var addressLabel: ReceiptLabel!
@@ -64,9 +64,10 @@ class ConfirmationViewController: UIViewController, Alertable {
             self.valueDescriptionLabel.text = NSLocalizedString("value-description", comment: "value-confirmation")
             self.timeDescriptionLabel.text = NSLocalizedString("time-description", comment: "time-confirmation")
             self.valueLabel.text = "R$\(self.getValue().0)"
-            self.timeLabel.text = self.getTime().0
+            self.gettime(completion: { (date, _, _) in
+                self.timeLabel.text = "\(formatTime(from: date))"
+            })
         }
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,13 +77,6 @@ class ConfirmationViewController: UIViewController, Alertable {
 }
 
 extension ConfirmationViewController {
-    func getTime() -> (String, Double) {
-        let date = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "pt-BR")
-        dateFormatter.dateFormat = "dd/MM/YYYY HH:mm"
-        return (dateFormatter.string(from: date), date.timeIntervalSince1970)
-    }
     
     func getValue() -> (String, Double) {
         let format = NumberFormatter()
@@ -95,6 +89,9 @@ extension ConfirmationViewController {
     }
     
     func saveValues(user: User) {
+        
+        let ticketKey = rootFBReference.child("ticket").childByAutoId().key
+        
         guard  let plate = user.carPlate else { return }
         guard let street = address else { return }
         guard let userID = FIRAuth.auth()?.currentUser?.uid else { return }
@@ -106,7 +103,7 @@ extension ConfirmationViewController {
                 "address" : street,
                 "isPaid" : true,
                 "value" : getValue().1,
-                "timeStampSince1970" : getTime().1]
+                "timeStampSince1970" : FIRServerValue.timestamp()]
         ]
         
         rootFBReference.updateChildValues(updateData) { (error, _) in
