@@ -31,7 +31,7 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+        navigationController?.navigationBar.barTintColor = UIColor(red: 15/255, green: 127/255, blue: 223/255, alpha: 1)
         guard let current = FIRAuth.auth()?.currentUser else { return }
         userID = current.uid
         

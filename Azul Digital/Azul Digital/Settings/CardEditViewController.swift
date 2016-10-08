@@ -41,6 +41,7 @@ class CardEditViewController: UIViewController, Readable, CheckTextField, Alerta
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        navigationController?.navigationBar.barTintColor = UIColor(red: 223/255, green: 167/255, blue: 15/255, alpha: 1)
         self.title = NSLocalizedString("Card", comment: "edit-card")
         textView.text = NSLocalizedString("privacy-card", comment: "edit-card")
         

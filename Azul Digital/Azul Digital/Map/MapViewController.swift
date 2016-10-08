@@ -27,6 +27,7 @@ class MapViewController: UIViewController, FBServerTime {
     @IBAction func unwindToMap(withSegue segue: UIStoryboardSegue) {
     }
     
+
     @IBAction func requestLocation(_ sender: AnyObject) {
         requestUserLocation()
     }
@@ -38,11 +39,11 @@ class MapViewController: UIViewController, FBServerTime {
         
         // Do any additional setup after loading the view.
         requestUserLocation()
-        locationTextField.delegate = self
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        navigationController?.navigationBar.barTintColor = UIColor(red: 15/255, green: 127/255, blue: 223/255, alpha: 1)
         buy.setImage(UIImage(named: NSLocalizedString("Buy", comment: "buy-map")) , for: .normal)
         buy.setImage(UIImage(named: NSLocalizedString("Buy_enabled", comment: "buy-map-enabled")) , for: .highlighted)
         locationTextField.leftViewMode = .always
@@ -68,6 +69,8 @@ class MapViewController: UIViewController, FBServerTime {
             guard let destination = segue.destination as? ShareViewController else { return }
             savetime()
             destination.address = locationTextField.text ?? "Empty Address"
+        }  else if segue.identifier == "postSegue" {
+            guard let _ = segue.destination as? PostsTableViewController else { return }
         }
     }
 }
@@ -120,15 +123,4 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         print("Erro: \(error.localizedDescription)")
     }
     
-}
-
-extension MapViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
 }

@@ -13,6 +13,7 @@ class ShareViewController: UIViewController, FBServerTime, FBPostable, Alertable
     @IBOutlet weak var addressLabel: ReceiptLabel!
     @IBOutlet weak var timeLabel: ReceiptLabel!
     @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     @IBAction func share(_ sender: AnyObject) {
         post(withAddress: address) { (title, message, actionTitle) in
             if title != "" {
@@ -34,6 +35,8 @@ class ShareViewController: UIViewController, FBServerTime, FBPostable, Alertable
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        shareButton.configureCorner(to: shareButton)
+        cancelButton.configureCorner(to: cancelButton)
         addressLabel.text = address
         gettime(completion: { (date, _, _) in
             self.timeLabel.text = "\(formatTime(from: date))"

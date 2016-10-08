@@ -37,7 +37,7 @@ class ProfileViewController: UIViewController, Alertable, CheckTextField {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentPickerViewController)))
+         
     }
     
     override func viewWillAppear(_ animated: Bool) {

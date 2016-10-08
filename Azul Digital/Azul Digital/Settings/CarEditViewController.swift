@@ -45,6 +45,7 @@ class CarEditViewController: UIViewController, Readable, CheckTextField, Alertab
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        navigationController?.navigationBar.barTintColor = UIColor(red: 223/255, green: 15/255, blue: 15/255, alpha: 1)
         self.title = NSLocalizedString("Car", comment: "edit-car")
         textView.text = NSLocalizedString("privacy-car", comment: "edit-car")
         

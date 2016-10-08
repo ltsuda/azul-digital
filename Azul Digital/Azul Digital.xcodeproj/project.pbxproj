@@ -22,6 +22,10 @@
 		275D46181D5179BD0040E64A /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275D46171D5179BD0040E64A /* LoadingIndicatorView.swift */; };
 		27689CD91D88D3FE00ECC2CD /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27689CDB1D88D3FE00ECC2CD /* Settings.storyboard */; };
 		277207E41DA944950020F608 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277207E31DA944950020F608 /* ShareViewController.swift */; };
+		277207E61DA995340020F608 /* PostsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277207E51DA995340020F608 /* PostsTableViewController.swift */; };
+		277207E81DA999C90020F608 /* PostCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277207E71DA999C90020F608 /* PostCellTableViewCell.swift */; };
+		277207EC1DA99A850020F608 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277207EB1DA99A850020F608 /* Post.swift */; };
+		277207EE1DA9AAB60020F608 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277207ED1DA9AAB60020F608 /* AboutViewController.swift */; };
 		277794751D890171006E9CC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 277794771D890171006E9CC6 /* Localizable.strings */; };
 		277C5F5F1DA18BA1002ACD04 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277C5F5E1DA18BA1002ACD04 /* HistoryTableViewCell.swift */; };
 		27876B351D8C73ED004E7CFF /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27876B341D8C73ED004E7CFF /* HistoryTableViewController.swift */; };
@@ -60,14 +64,18 @@
 		2728D1D51D3439B500694B53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Register.storyboard; sourceTree = "<group>"; };
 		272ECE2C1D3ED0CC00E251DF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		273360F31D8620E6009B20B0 /* BuyTicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyTicketViewController.swift; sourceTree = "<group>"; };
+		273810601DA9AE9E006AFABE /* Azul Digital.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Azul Digital.entitlements"; sourceTree = "<group>"; };
 		273A9BA31D8AD47A00AD9EC5 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2747C4091D89A772003FB864 /* ReceiptLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptLabel.swift; sourceTree = "<group>"; };
 		275D46171D5179BD0040E64A /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 		27689CDA1D88D3FE00ECC2CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		277207E31DA944950020F608 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		277207E51DA995340020F608 /* PostsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsTableViewController.swift; sourceTree = "<group>"; };
+		277207E71DA999C90020F608 /* PostCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCellTableViewCell.swift; sourceTree = "<group>"; };
+		277207EB1DA99A850020F608 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		277207ED1DA9AAB60020F608 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		277794781D890176006E9CC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		277C5F5E1DA18BA1002ACD04 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
-		27876B331D8C7221004E7CFF /* Azul Digital.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "Azul Digital.entitlements"; path = "../Azul Digital.entitlements"; sourceTree = "<group>"; };
 		27876B341D8C73ED004E7CFF /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		278C49A61D33FA5A00D43AAF /* PresentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentViewController.swift; sourceTree = "<group>"; };
 		278C49A81D33FBBE00D43AAF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				279D0B141D3AC54200BC1D4C /* Car.swift */,
+				277207EB1DA99A850020F608 /* Post.swift */,
 				279D0B161D3AC54B00BC1D4C /* Ticket.swift */,
 				279D0B121D3AC53800BC1D4C /* User.swift */,
 			);
@@ -140,13 +149,14 @@
 		27B50B701D46D147009BF635 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				277207ED1DA9AAB60020F608 /* AboutViewController.swift */,
 				27C7BA421D4704D300746C97 /* CarEditViewController.swift */,
 				27C7BA441D4704DE00746C97 /* CardEditViewController.swift */,
+				277C5F5E1DA18BA1002ACD04 /* HistoryTableViewCell.swift */,
+				27876B341D8C73ED004E7CFF /* HistoryTableViewController.swift */,
 				27C7BA401D4704C200746C97 /* ProfileEditViewController.swift */,
 				27689CDB1D88D3FE00ECC2CD /* Settings.storyboard */,
 				27C7BA461D47063200746C97 /* SettingsTableViewController.swift */,
-				27876B341D8C73ED004E7CFF /* HistoryTableViewController.swift */,
-				277C5F5E1DA18BA1002ACD04 /* HistoryTableViewCell.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -180,6 +190,8 @@
 				27C2B9311D89D71300F6551B /* ConfirmationViewController.swift */,
 				2728D1CF1D34386000694B53 /* Map.storyboard */,
 				2728D1D21D3438B800694B53 /* MapViewController.swift */,
+				277207E71DA999C90020F608 /* PostCellTableViewCell.swift */,
+				277207E51DA995340020F608 /* PostsTableViewController.swift */,
 				277207E31DA944950020F608 /* ShareViewController.swift */,
 			);
 			path = Map;
@@ -188,11 +200,11 @@
 		27CBD2AC1D34455900B01D6E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				27876B331D8C7221004E7CFF /* Azul Digital.entitlements */,
 				273A9BA01D8AD45900AD9EC5 /* Designables */,
 				2790778D1D468CFB005BA179 /* Protocol */,
 				27D4D6421D33E661007BB63A /* AppDelegate.swift */,
 				27D4D6491D33E661007BB63A /* Assets.xcassets */,
+				273810601DA9AE9E006AFABE /* Azul Digital.entitlements */,
 				273A9BA31D8AD47A00AD9EC5 /* Constants.swift */,
 				279F16D81D3572D600CC0C9D /* Extension.swift */,
 				272ECE2C1D3ED0CC00E251DF /* GoogleService-Info.plist */,
@@ -294,6 +306,9 @@
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
 							com.apple.Keychain = {
 								enabled = 1;
 							};
@@ -409,11 +424,13 @@
 				2728D1C91D3432B600694B53 /* CarViewController.swift in Sources */,
 				27876B351D8C73ED004E7CFF /* HistoryTableViewController.swift in Sources */,
 				27AD34321D395B0D0084E8FE /* Protocols.swift in Sources */,
+				277207E61DA995340020F608 /* PostsTableViewController.swift in Sources */,
 				279D0B151D3AC54200BC1D4C /* Car.swift in Sources */,
 				277C5F5F1DA18BA1002ACD04 /* HistoryTableViewCell.swift in Sources */,
 				279D0B171D3AC54B00BC1D4C /* Ticket.swift in Sources */,
 				2747C40A1D89A772003FB864 /* ReceiptLabel.swift in Sources */,
 				278C49A71D33FA5A00D43AAF /* PresentViewController.swift in Sources */,
+				277207EC1DA99A850020F608 /* Post.swift in Sources */,
 				27C7BA431D4704D300746C97 /* CarEditViewController.swift in Sources */,
 				277207E41DA944950020F608 /* ShareViewController.swift in Sources */,
 				27ABD5521D42DA3100C11469 /* StorageProtocol.swift in Sources */,
@@ -427,12 +444,14 @@
 				2728D1C51D341FB200694B53 /* CreateAccViewController.swift in Sources */,
 				27C7BA451D4704DE00746C97 /* CardEditViewController.swift in Sources */,
 				279D0B131D3AC53800BC1D4C /* User.swift in Sources */,
+				277207EE1DA9AAB60020F608 /* AboutViewController.swift in Sources */,
 				27D4D6431D33E661007BB63A /* AppDelegate.swift in Sources */,
 				2790778F1D468D8C005BA179 /* DatabaseProtocol.swift in Sources */,
 				2728D1D31D3438B800694B53 /* MapViewController.swift in Sources */,
 				27C2B9321D89D71300F6551B /* ConfirmationViewController.swift in Sources */,
 				27C7BA471D47063200746C97 /* SettingsTableViewController.swift in Sources */,
 				273A9BA41D8AD47A00AD9EC5 /* Constants.swift in Sources */,
+				277207E81DA999C90020F608 /* PostCellTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +537,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -568,6 +588,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -593,8 +614,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0C1CE793A240DB8FA3FC0C0C /* Pods-Azul Digital.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Azul Digital/Azul Digital.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Azul Digital/Supporting Files/Azul Digital.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = H7US45YQ9L;
 				INFOPLIST_FILE = "Azul Digital/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -608,8 +632,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 78AABDC445D1127DE4923E8E /* Pods-Azul Digital.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Azul Digital/Azul Digital.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Azul Digital/Supporting Files/Azul Digital.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = H7US45YQ9L;
 				INFOPLIST_FILE = "Azul Digital/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

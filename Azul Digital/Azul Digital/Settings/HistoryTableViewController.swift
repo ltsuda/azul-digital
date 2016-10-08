@@ -28,6 +28,7 @@ class HistoryTableViewController: UITableViewController, Readable {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        navigationController?.navigationBar.barTintColor = UIColor(red: 120/255, green: 15/255, blue: 223/255, alpha: 1)
         LoadingIndicatorView.show("Loading Data")
         getTickets()
     }
