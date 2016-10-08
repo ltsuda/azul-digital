@@ -16,7 +16,6 @@ protocol FBServerTime {
 
 extension FBServerTime {
     func savetime() {
-        
         guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
         let timePath = "timeStamps/\(uid)"
         rootFBReference.child(timePath).setValue(FIRServerValue.timestamp())
@@ -38,7 +37,31 @@ extension FBServerTime {
             print(error)
         }
     }
-    
+}
+
+protocol FBPostable {
+    func post(withAddress: String?, completion: @escaping (String, String, String) -> ())
+}
+
+extension FBPostable {
+    func post(withAddress address: String?, completion: @escaping (String, String, String) -> ()) {
+        guard let address = address else {
+            return completion("Dados inexistente", "Endereço não existe", "Tentar novamente")
+        }
+        let userData: [String : Any] = [
+            "address" : address,
+            "time" : FIRServerValue.timestamp()
+        ]
+        rootFBReference.child("posts").childByAutoId().updateChildValues(userData) { (error, _) in
+            if error != nil {
+                if let code = (error as? NSError)?.code {
+                    completion("Código: \(code)", "\(error?.localizedDescription)", "Tentar novamente")
+                }
+            } else {
+                completion("", "", "")
+            }
+        }
+    }
 }
 
 protocol FBUpdatable {
@@ -87,6 +110,7 @@ extension FBUpdatable {
         }
     }
 }
+
 protocol Readable {
     func read(_ child: String, id: String, completionObject: @escaping ((User?, Car?)) -> ())
 }

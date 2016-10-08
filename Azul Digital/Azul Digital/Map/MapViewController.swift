@@ -12,7 +12,7 @@ import MapKit
 import AddressBook
 import IQKeyboardManagerSwift
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, FBServerTime {
     
     @IBOutlet weak var buy: UIButton!
     @IBOutlet weak var locationTextField: UITextField!
@@ -66,6 +66,7 @@ class MapViewController: UIViewController {
             destination.address = locationTextField.text ?? "Empty Address"
         } else if segue.identifier == "ShareSegue" {
             guard let destination = segue.destination as? ShareViewController else { return }
+            savetime()
             destination.address = locationTextField.text ?? "Empty Address"
         }
     }

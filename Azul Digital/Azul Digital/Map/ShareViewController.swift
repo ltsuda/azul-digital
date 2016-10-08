@@ -8,12 +8,19 @@
 
 import UIKit
 
-class ShareViewController: UIViewController {
+class ShareViewController: UIViewController, FBServerTime, FBPostable, Alertable {
 
     @IBOutlet weak var addressLabel: ReceiptLabel!
     @IBOutlet weak var timeLabel: ReceiptLabel!
     @IBOutlet weak var shareButton: UIButton!
     @IBAction func share(_ sender: AnyObject) {
+        post(withAddress: address) { (title, message, actionTitle) in
+            if title != "" {
+                self.alert(title, message: message, actionTitle: actionTitle)
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
     var address: String?
@@ -28,6 +35,9 @@ class ShareViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         addressLabel.text = address
+        gettime(completion: { (date, _, _) in
+            self.timeLabel.text = "\(formatTime(from: date))"
+        })
     }
 
     override func didReceiveMemoryWarning() {
