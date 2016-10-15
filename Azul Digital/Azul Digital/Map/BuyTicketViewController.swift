@@ -25,7 +25,10 @@ class BuyTicketViewController: UIViewController, Readable, FBServerTime {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
+        if defaults.object(forKey: "buyButton") as? Bool != true {
+            buyButton.isEnabled = false
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

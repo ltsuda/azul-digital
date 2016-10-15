@@ -111,8 +111,8 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGH-pD-pJF">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Qw5-Ln-PAD"/>
-                                    <constraint firstAttribute="width" constant="44" id="via-8n-I3L"/>
+                                    <constraint firstAttribute="height" constant="44" id="7ny-x7-2yT"/>
+                                    <constraint firstAttribute="width" constant="44" id="agg-8o-dc6"/>
                                 </constraints>
                                 <state key="normal" image="Posts"/>
                                 <connections>
@@ -128,15 +128,15 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="NMe-Dc-QLh" firstAttribute="centerX" secondItem="c9p-Ph-1Wo" secondAttribute="centerX" id="Dl2-oa-SD4"/>
+                            <constraint firstItem="tGH-pD-pJF" firstAttribute="leading" secondItem="ELI-PY-WIK" secondAttribute="leadingMargin" id="Mtd-77-Tc1"/>
                             <constraint firstItem="Lv4-8E-1ok" firstAttribute="trailing" secondItem="ELI-PY-WIK" secondAttribute="trailingMargin" id="Qfw-R5-opj"/>
                             <constraint firstItem="NMe-Dc-QLh" firstAttribute="centerY" secondItem="c9p-Ph-1Wo" secondAttribute="centerY" id="XkC-7y-ufw"/>
-                            <constraint firstItem="Gj8-t2-bP4" firstAttribute="top" secondItem="tGH-pD-pJF" secondAttribute="bottom" constant="8" id="YZ9-Vt-RYc"/>
                             <constraint firstItem="c9p-Ph-1Wo" firstAttribute="leading" secondItem="ELI-PY-WIK" secondAttribute="leading" id="ag4-Bo-KeA"/>
                             <constraint firstItem="qNW-ND-zqr" firstAttribute="top" secondItem="Gj8-t2-bP4" secondAttribute="bottom" id="bF7-oK-b4q"/>
                             <constraint firstItem="Lv4-8E-1ok" firstAttribute="leading" secondItem="ELI-PY-WIK" secondAttribute="leadingMargin" id="jI4-cK-vaK"/>
-                            <constraint firstItem="tGH-pD-pJF" firstAttribute="centerX" secondItem="ELI-PY-WIK" secondAttribute="centerX" id="jYh-75-UkU"/>
                             <constraint firstAttribute="trailing" secondItem="Gj8-t2-bP4" secondAttribute="trailing" id="llH-rP-5gg"/>
                             <constraint firstItem="Gj8-t2-bP4" firstAttribute="leading" secondItem="ELI-PY-WIK" secondAttribute="leading" id="nPU-gs-68U"/>
+                            <constraint firstItem="Gj8-t2-bP4" firstAttribute="top" secondItem="tGH-pD-pJF" secondAttribute="bottom" constant="22" id="rZ3-FD-IdP"/>
                             <constraint firstAttribute="trailing" secondItem="c9p-Ph-1Wo" secondAttribute="trailing" id="z6N-Mc-SjI"/>
                         </constraints>
                         <variation key="default">
@@ -147,10 +147,10 @@
                                 <exclude reference="6yq-ck-FG9"/>
                                 <exclude reference="ag4-Bo-KeA"/>
                                 <exclude reference="z6N-Mc-SjI"/>
-                                <exclude reference="bF7-oK-b4q"/>
                                 <exclude reference="8zq-et-btY"/>
                                 <exclude reference="llH-rP-5gg"/>
                                 <exclude reference="nPU-gs-68U"/>
+                                <exclude reference="bF7-oK-b4q"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -161,10 +161,10 @@
                                 <include reference="6yq-ck-FG9"/>
                                 <include reference="ag4-Bo-KeA"/>
                                 <include reference="z6N-Mc-SjI"/>
-                                <include reference="bF7-oK-b4q"/>
                                 <include reference="8zq-et-btY"/>
                                 <include reference="llH-rP-5gg"/>
                                 <include reference="nPU-gs-68U"/>
+                                <include reference="bF7-oK-b4q"/>
                             </mask>
                         </variation>
                     </view>

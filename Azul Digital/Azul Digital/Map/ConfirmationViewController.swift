@@ -112,6 +112,8 @@ extension ConfirmationViewController {
                     self.alert("Código: \(code)", message: "\(error?.localizedDescription)", actionTitle: "Tentar novamente")
                 }
             } else {
+                defaults.set(false, forKey: "buyButton")
+                defaults.synchronize()
                 self.dismiss(animated: true, completion: nil)
             }
         }

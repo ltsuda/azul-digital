@@ -10,4 +10,5 @@ import Foundation
 import Firebase
 
 let rootFBReference = FIRDatabase.database().reference()
+let defaults = UserDefaults.standard
 
