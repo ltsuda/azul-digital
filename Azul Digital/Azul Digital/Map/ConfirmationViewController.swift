@@ -41,6 +41,7 @@ class ConfirmationViewController: UIViewController, Alertable, FBServerTime {
     var userFunds = Double()
     let valueToPay = 3.50
     var ticketReference: FIRDatabaseReference?
+    let delegate = UIApplication.shared.delegate as? AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +66,7 @@ class ConfirmationViewController: UIViewController, Alertable, FBServerTime {
             self.timeDescriptionLabel.text = NSLocalizedString("time-description", comment: "time-confirmation")
             self.valueLabel.text = "R$\(self.getValue().0)"
             self.gettime(completion: { (date, _, _) in
-                self.timeLabel.text = "\(formatTime(from: date))"
+                self.timeLabel.text = "\(formatTime(from: date).0)"
             })
         }
     }
@@ -97,6 +98,7 @@ extension ConfirmationViewController {
         guard let userID = FIRAuth.auth()?.currentUser?.uid else { return }
         
         let updateData: [String : Any] = [
+            "timeStamps/\(userID)" : FIRServerValue.timestamp(),
             "users/\(userID)/cash" : userFunds,
             "cars/\(plate)/ticket/\(ticketKey)" : [
                 "name" : "\(user.firstName!) \(user.lastName!)",
@@ -114,6 +116,9 @@ extension ConfirmationViewController {
             } else {
                 defaults.set(false, forKey: "buyButton")
                 defaults.synchronize()
+                self.gettime(completion: { (date, _, _) in
+                    self.delegate?.scheduleNotification(at: date)
+                })
                 self.dismiss(animated: true, completion: nil)
             }
         }

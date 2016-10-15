@@ -28,12 +28,12 @@ extension UIView {
     }
 }
 
-func formatTime(from: Date) -> String {
+func formatTime(from: Date) -> (String, Date) {
     let date = Date()
     let dateFormatter = DateFormatter()
     dateFormatter.locale = Locale(identifier: "pt-BR")
     dateFormatter.dateFormat = "dd/MM/YYYY HH:mm"
-    return (dateFormatter.string(from: date))
+    return ((dateFormatter.string(from: date)), date)
 }
 
 extension UIButton {

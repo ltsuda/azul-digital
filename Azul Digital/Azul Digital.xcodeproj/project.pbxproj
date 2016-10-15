@@ -39,6 +39,8 @@
 		279F16D91D3572D600CC0C9D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F16D81D3572D600CC0C9D /* Extension.swift */; };
 		27ABD5521D42DA3100C11469 /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ABD5511D42DA3100C11469 /* StorageProtocol.swift */; };
 		27AD34321D395B0D0084E8FE /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AD34311D395B0D0084E8FE /* Protocols.swift */; };
+		27B14DC41DB2ACF600A6DE16 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B14DC21DB2ACF600A6DE16 /* UserNotifications.framework */; };
+		27B14DC51DB2ACF600A6DE16 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B14DC31DB2ACF600A6DE16 /* UserNotificationsUI.framework */; };
 		27C2B9321D89D71300F6551B /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2B9311D89D71300F6551B /* ConfirmationViewController.swift */; };
 		27C5292B1D86482800D43616 /* RegisterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C5292A1D86482800D43616 /* RegisterTextField.swift */; };
 		27C7BA411D4704C200746C97 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C7BA401D4704C200746C97 /* ProfileEditViewController.swift */; };
@@ -87,6 +89,8 @@
 		279F16D81D3572D600CC0C9D /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		27ABD5511D42DA3100C11469 /* StorageProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageProtocol.swift; sourceTree = "<group>"; };
 		27AD34311D395B0D0084E8FE /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		27B14DC21DB2ACF600A6DE16 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		27B14DC31DB2ACF600A6DE16 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		27C2B9311D89D71300F6551B /* ConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
 		27C5292A1D86482800D43616 /* RegisterTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterTextField.swift; sourceTree = "<group>"; };
 		27C7BA401D4704C200746C97 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27B14DC41DB2ACF600A6DE16 /* UserNotifications.framework in Frameworks */,
+				27B14DC51DB2ACF600A6DE16 /* UserNotificationsUI.framework in Frameworks */,
 				FCF2DE1F1AC99B908C83CB62 /* Pods_Azul_Digital.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +266,8 @@
 		B092E07884898CD39D0B968C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				27B14DC21DB2ACF600A6DE16 /* UserNotifications.framework */,
+				27B14DC31DB2ACF600A6DE16 /* UserNotificationsUI.framework */,
 				4C40B5981BC78DAE73D2587C /* Pods_Azul_Digital.framework */,
 			);
 			name = Frameworks;
@@ -311,6 +319,9 @@
 							};
 							com.apple.Keychain = {
 								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 0;
 							};
 						};
 					};

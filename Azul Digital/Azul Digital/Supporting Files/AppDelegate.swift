@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import IQKeyboardManagerSwift
+import UserNotifications
 
 
 @UIApplicationMain
@@ -33,6 +34,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let initialViewController = storyboard.instantiateInitialViewController()
             UIApplication.shared.delegate?.window??.rootViewController = initialViewController
         }
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {(accepted, error) in
+            if !accepted {
+                print("Notification access denied.")
+            }
+        }
+        UNUserNotificationCenter.current().delegate = self
         
         
         //        FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
@@ -71,6 +79,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func scheduleNotification(at date: Date) {
+        let current = formatTime(from: date).1
+
+        let calendar = Calendar(identifier: .gregorian)
+        
+        let components = calendar.dateComponents(in: .current, from: current.addingTimeInterval(3600))
+        let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute, second: components.second)
+
+        
+        print(newComponents)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Azul Digital"
+        content.body = "O ticket está prestes a vencer, favor comprar um novo ticket ou retirar o veículo do local estacionado"
+        content.sound = UNNotificationSound.default()
+        content.categoryIdentifier = "myCategory"
+        
+        let request = UNNotificationRequest(identifier: "textNotification", content: content, trigger: trigger)
+        
+       
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        UNUserNotificationCenter.current().add(request) {(error) in
+            if let error = error {
+                print("Uh oh! We had an error: \(error)")
+            }
+        }
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        completionHandler([.alert, .sound])
+        defaults.set(true, forKey: "buyButton")
+        defaults.synchronize()
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        defaults.set(true, forKey: "buyButton")
+        defaults.synchronize()
+        completionHandler()
+
+    }
     
 }
 

@@ -25,10 +25,15 @@ class BuyTicketViewController: UIViewController, Readable, FBServerTime {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+        enableBuyButtonAfterTimer()
+        
         if defaults.object(forKey: "buyButton") as? Bool != true {
             buyButton.isEnabled = false
+        } else {
+            buyButton.isEnabled = true
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,4 +64,15 @@ class BuyTicketViewController: UIViewController, Readable, FBServerTime {
             destination.user = user
         }
     }
+    
+    func enableBuyButtonAfterTimer() {
+        gettime { (date, _, _) in
+            let currentTime = Int(Date().timeIntervalSince(date))
+            if currentTime >= 3600 {
+                defaults.setValue(true, forKey: "buyButton")
+                defaults.synchronize()
+            }
+        }
+    }
+    
 }

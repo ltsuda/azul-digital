@@ -39,6 +39,7 @@ class MapViewController: UIViewController, FBServerTime {
         
         // Do any additional setup after loading the view.
         requestUserLocation()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +55,9 @@ class MapViewController: UIViewController, FBServerTime {
         imageView.contentMode = .scaleAspectFit
         addImageView.addSubview(imageView)
         locationTextField.leftView = addImageView
+        
+//        defaults.set(true, forKey: "buyButton")
+//        defaults.synchronize()
     }
     
     override func didReceiveMemoryWarning() {
@@ -122,5 +126,5 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Erro: \(error.localizedDescription)")
     }
-    
+        
 }

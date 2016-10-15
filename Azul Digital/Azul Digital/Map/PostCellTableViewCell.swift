@@ -25,17 +25,17 @@ class PostCellTableViewCell: UITableViewCell {
     
     func configure(post: Post) {
         addressLabel.text = post.address
-        timeLabel.text = formatTime(time: post.time / 1000)
+        timeLabel.text = formatTime(time: post.time / 1000).0
     }
 
 }
 
 extension PostCellTableViewCell {
-    func formatTime(time: Double) -> String {
+    public func formatTime(time: Double) -> (String, Date) {
         let date = Date(timeIntervalSince1970: time)
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "pt-BR")
         dateFormatter.dateFormat = "dd/MM/YYYY HH:mm"
-        return dateFormatter.string(from: date)
+        return (dateFormatter.string(from: date), date)
     }
 }
