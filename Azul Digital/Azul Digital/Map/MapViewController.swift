@@ -56,8 +56,8 @@ class MapViewController: UIViewController, FBServerTime {
         addImageView.addSubview(imageView)
         locationTextField.leftView = addImageView
         
-//        defaults.set(true, forKey: "buyButton")
-//        defaults.synchronize()
+        defaults.set(true, forKey: "buyButton")
+        defaults.synchronize()
     }
     
     override func didReceiveMemoryWarning() {

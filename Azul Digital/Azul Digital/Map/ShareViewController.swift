@@ -39,7 +39,7 @@ class ShareViewController: UIViewController, FBServerTime, FBPostable, Alertable
         cancelButton.configureCorner(to: cancelButton)
         addressLabel.text = address
         gettime(completion: { (date, _, _) in
-            self.timeLabel.text = "\(formatTime(from: date))"
+            self.timeLabel.text = "\(formatTime(from: date).0)"
         })
     }
 

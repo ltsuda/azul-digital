@@ -147,10 +147,10 @@
                                 <exclude reference="6yq-ck-FG9"/>
                                 <exclude reference="ag4-Bo-KeA"/>
                                 <exclude reference="z6N-Mc-SjI"/>
+                                <exclude reference="bF7-oK-b4q"/>
                                 <exclude reference="8zq-et-btY"/>
                                 <exclude reference="llH-rP-5gg"/>
                                 <exclude reference="nPU-gs-68U"/>
-                                <exclude reference="bF7-oK-b4q"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -161,10 +161,10 @@
                                 <include reference="6yq-ck-FG9"/>
                                 <include reference="ag4-Bo-KeA"/>
                                 <include reference="z6N-Mc-SjI"/>
+                                <include reference="bF7-oK-b4q"/>
                                 <include reference="8zq-et-btY"/>
                                 <include reference="llH-rP-5gg"/>
                                 <include reference="nPU-gs-68U"/>
-                                <include reference="bF7-oK-b4q"/>
                             </mask>
                         </variation>
                     </view>
@@ -263,7 +263,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5qx-eA-HSr">
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="receipt" translatesAutoresizingMaskIntoConstraints="NO" id="Hhr-a0-BFp"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shareCard" translatesAutoresizingMaskIntoConstraints="NO" id="Hhr-a0-BFp"/>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nX5-c4-HAc">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="N6Q-No-cNN"/>
@@ -613,5 +613,6 @@
         <image name="location enabled" width="33" height="31"/>
         <image name="receipt" width="280" height="372"/>
         <image name="share" width="18" height="25"/>
+        <image name="shareCard" width="280" height="372"/>
     </resources>
 </document>
