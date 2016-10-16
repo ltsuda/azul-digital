@@ -263,7 +263,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5qx-eA-HSr">
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shareCard" translatesAutoresizingMaskIntoConstraints="NO" id="Hhr-a0-BFp"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="receipt" translatesAutoresizingMaskIntoConstraints="NO" id="Hhr-a0-BFp"/>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nX5-c4-HAc">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="N6Q-No-cNN"/>
@@ -440,7 +440,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pSH-zq-V2n">
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="receipt" translatesAutoresizingMaskIntoConstraints="NO" id="HNJ-g8-FsK">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shareCard" translatesAutoresizingMaskIntoConstraints="NO" id="HNJ-g8-FsK">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="320" id="Orj-f0-COR"/>
                                             <constraint firstAttribute="width" constant="249" id="xAs-3W-ptB"/>
