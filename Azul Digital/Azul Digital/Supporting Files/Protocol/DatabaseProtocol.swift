@@ -24,13 +24,16 @@ extension FBServerTime {
     
     func gettime(completion: @escaping (Date, String, String) -> ()) {
         
-        guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
-        
-        rootFBReference.child("timeStamps/\(uid)").observeSingleEvent(of: .value, with: { snapshot in
+        rootFBReference.child("timeStamps/serverTime").observeSingleEvent(of: .value, with: { snapshot in
+            
+            let dateFormatter = DateFormatter()
             
             if let time = snapshot.value as? TimeInterval {
                 let date = Date(timeIntervalSince1970: time / 1000)
-                completion(date, "", "")
+                dateFormatter.locale = Locale(identifier: "pt-BR")
+                let dateString = dateFormatter.string(from: date)
+                let newDate = dateFormatter.date(from: dateString)
+                completion(newDate!, "", "")
             }
             
         }) { error in

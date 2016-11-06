@@ -14,9 +14,7 @@ class ProfileViewController: UIViewController, Alertable, CheckTextField {
     var imageURL: String?
     
     @IBAction func cancel(_ sender: AnyObject) {
-        if isImageLoaded == false {
-            deleteUser()
-        }
+        deleteUser()
     }
     @IBAction func next(_ sender: AnyObject) {
         checkEmpty([nameTextField.text!, lastNameTextField.text!]) { [weak self] (title, message, action) in
@@ -37,7 +35,7 @@ class ProfileViewController: UIViewController, Alertable, CheckTextField {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-         
+        profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentPickerViewController)))
     }
     
     override func viewWillAppear(_ animated: Bool) {

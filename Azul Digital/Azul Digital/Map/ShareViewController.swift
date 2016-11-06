@@ -38,9 +38,11 @@ class ShareViewController: UIViewController, FBServerTime, FBPostable, Alertable
         shareButton.configureCorner(to: shareButton)
         cancelButton.configureCorner(to: cancelButton)
         addressLabel.text = address
-        gettime(completion: { (date, _, _) in
-            self.timeLabel.text = "\(formatTime(from: date).0)"
-        })
+        DispatchQueue.main.async {
+            self.gettime(completion: { (date, _, _) in
+                self.timeLabel.text = "\(formatTime(from: date).0)"
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {

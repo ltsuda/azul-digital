@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+        
         // Override point for customization after application launch.
         UINavigationBar.appearance().barTintColor = UIColor(red: 15/255, green: 127/255, blue: 223/255, alpha: 1)
         UINavigationBar.appearance().tintColor = .white
@@ -82,27 +83,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 }
 
-extension AppDelegate: UNUserNotificationCenterDelegate {
+extension AppDelegate: UNUserNotificationCenterDelegate, FBTicketReadable, Readable {
     func scheduleNotification(at date: Date) {
         let current = formatTime(from: date).1
 
         let calendar = Calendar(identifier: .gregorian)
         
-        let components = calendar.dateComponents(in: .current, from: current.addingTimeInterval(3600))
+        let components = calendar.dateComponents(in: .current, from: current.addingTimeInterval(3300))
         let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute, second: components.second)
 
         
-        print(newComponents)
+        let renewAction = UNNotificationAction(identifier: "renew",
+                                      title: "Renovar", options: [])
+        
+        let dismissAction = UNNotificationAction(identifier: "dismiss",
+                                          title: "OK",
+                                          options: [])
+        
+        let category = UNNotificationCategory(identifier: "message", actions: [renewAction, dismissAction], intentIdentifiers: ["renew", "dismiss"], options: [])
+        
+        UNUserNotificationCenter.current().setNotificationCategories([category])
+        
         let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
         
         let content = UNMutableNotificationContent()
         content.title = "Azul Digital"
         content.body = "O ticket está prestes a vencer, favor comprar um novo ticket ou retirar o veículo do local estacionado"
         content.sound = UNNotificationSound.default()
-        content.categoryIdentifier = "myCategory"
+        content.categoryIdentifier = "message"
         
         let request = UNNotificationRequest(identifier: "textNotification", content: content, trigger: trigger)
-        
        
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         UNUserNotificationCenter.current().add(request) {(error) in
@@ -113,6 +123,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
         defaults.set(true, forKey: "buyButton")
         defaults.synchronize()
         completionHandler([.alert, .sound])
@@ -120,11 +131,19 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        defaults.set(true, forKey: "buyButton")
-        defaults.synchronize()
-        completionHandler()
-
+        
+        switch response.actionIdentifier {
+            case "renew":
+                defaults.set(true, forKey: "buyButton")
+                defaults.synchronize()
+                completionHandler()
+            case "dismiss":
+                defaults.set(true, forKey: "buyButton")
+                defaults.synchronize()
+                completionHandler()
+        default:
+            break
+        }
     }
-    
 }
 
