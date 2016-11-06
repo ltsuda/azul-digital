@@ -18,7 +18,6 @@ class BuyTicketViewController: UIViewController, Readable, FBServerTime {
     @IBOutlet weak var buyButton: UIButton!
     @IBAction func buy(_ sender: AnyObject) {
         performSegue(withIdentifier: "ConfirmationSegue", sender: nil)
-        savetime()
     }
     @IBAction func unwindToBuy(withSegue segue: UIStoryboardSegue) {
     }

@@ -134,16 +134,19 @@ extension AppDelegate: UNUserNotificationCenterDelegate, FBTicketReadable, Reada
         
         switch response.actionIdentifier {
             case "renew":
-                defaults.set(true, forKey: "buyButton")
-                defaults.synchronize()
+                restoreBuyButton()
                 completionHandler()
             case "dismiss":
-                defaults.set(true, forKey: "buyButton")
-                defaults.synchronize()
+                restoreBuyButton()
                 completionHandler()
         default:
-            break
+            restoreBuyButton()
         }
+    }
+    
+    func restoreBuyButton() {
+        defaults.set(true, forKey: "buyButton")
+        defaults.synchronize()
     }
 }
 
