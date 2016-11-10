@@ -105,6 +105,7 @@
 		27D4D64E1D33E661007BB63A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C40B5981BC78DAE73D2587C /* Pods_Azul_Digital.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Azul_Digital.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78AABDC445D1127DE4923E8E /* Pods-Azul Digital.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Azul Digital.release.xcconfig"; path = "Pods/Target Support Files/Pods-Azul Digital/Pods-Azul Digital.release.xcconfig"; sourceTree = "<group>"; };
+		AAF6D5901DD447C400712FDE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,6 +335,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 27D4D6361D33E661007BB63A;
 			productRefGroup = 27D4D6401D33E661007BB63A /* Products */;
@@ -500,6 +502,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				277794781D890176006E9CC6 /* Base */,
+				AAF6D5901DD447C400712FDE /* pt-BR */,
 			);
 			name = Localizable.strings;
 			path = .;
