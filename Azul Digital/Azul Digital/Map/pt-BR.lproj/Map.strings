@@ -1,0 +1,54 @@
+
+/* Class = "UIViewController"; title = "Map"; ObjectID = "3Pv-Hd-aEm"; */
+"3Pv-Hd-aEm.title" = "Mapa";
+
+/* Class = "UINavigationItem"; title = "Azul Digital"; ObjectID = "3Vr-fN-HJQ"; */
+"3Vr-fN-HJQ.title" = "Azul Digital";
+
+/* Class = "UILabel"; text = "Rua Doutor Sales de Oliveira, 1745, Vila Industrial"; ObjectID = "5dr-ON-xsL"; */
+"5dr-ON-xsL.text" = "Rua Doutor Sales de Oliveira, 1745, Vila Industrial";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "JvK-fN-9t6"; */
+"JvK-fN-9t6.text" = "Label";
+
+/* Class = "UILabel"; text = "Time:"; ObjectID = "OrZ-6J-Muz"; */
+"OrZ-6J-Muz.text" = "Horário:";
+
+/* Class = "UIBarButtonItem"; title = "Logout"; ObjectID = "S0X-AK-5fP"; */
+"S0X-AK-5fP.title" = "Sair";
+
+/* Class = "UILabel"; text = "Value:"; ObjectID = "SQo-Ni-ydK"; */
+"SQo-Ni-ydK.text" = "Valor:";
+
+/* Class = "UIButton"; normalTitle = "Share"; ObjectID = "T4m-9v-gou"; */
+"T4m-9v-gou.normalTitle" = "Compartilhar";
+
+/* Class = "UILabel"; text = "Rua Doutor Sales de Oliveira, 1745, Vila Industrial"; ObjectID = "UD0-rX-oTI"; */
+"UD0-rX-oTI.text" = "Rua Doutor Sales de Oliveira, 1745, Vila Industrial";
+
+/* Class = "UITextView"; text = "Your ticket is valid for 1 hour only, it’s possible to renew after the timer expires"; ObjectID = "VL6-fE-k1X"; */
+"VL6-fE-k1X.text" = "O bilhete é válido por apenas 1 hora, podendo ser renovado após expirar";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "Yac-uN-zy9"; */
+"Yac-uN-zy9.normalTitle" = "Cancelar";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Zix-e8-GyK"; */
+"Zix-e8-GyK.text" = "Label";
+
+/* Class = "UILabel"; text = "Share?"; ObjectID = "hS0-PO-eXp"; */
+"hS0-PO-eXp.text" = "Compartilhar?";
+
+/* Class = "UILabel"; text = "14H30"; ObjectID = "lCX-Xd-Ye0"; */
+"lCX-Xd-Ye0.text" = "14H30";
+
+/* Class = "UILabel"; text = "Are you sure?"; ObjectID = "nX5-c4-HAc"; */
+"nX5-c4-HAc.text" = "Tem certeza??";
+
+/* Class = "UILabel"; text = "Time:"; ObjectID = "uir-W8-6tV"; */
+"uir-W8-6tV.text" = "Horário:";
+
+/* Class = "UILabel"; text = "R$3,50"; ObjectID = "vuU-69-Q75"; */
+"vuU-69-Q75.text" = "R$3,50";
+
+/* Class = "UILabel"; text = "14H30"; ObjectID = "wIk-f2-YgA"; */
+"wIk-f2-YgA.text" = "14H30";

@@ -1,0 +1,96 @@
+
+/* Class = "UILabel"; text = "History"; ObjectID = "00d-ya-YdJ"; */
+"00d-ya-YdJ.text" = "Histórico";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "0BJ-7y-zYX"; */
+"0BJ-7y-zYX.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "3Ae-F1-wJS"; */
+"3Ae-F1-wJS.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "76o-Sa-QUf"; */
+"76o-Sa-QUf.title" = "Perfil";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "8dm-EK-YZL"; */
+"8dm-EK-YZL.title" = "Voltar";
+
+/* Class = "UITextView"; text = "We need these information only to associate with your profile"; ObjectID = "C2R-aG-Nga"; */
+"C2R-aG-Nga.text" = "Precisamos dessas informações apenas para associá-las ao seu usário";
+
+/* Class = "UILabel"; text = "Car"; ObjectID = "CNM-mz-OMy"; */
+"CNM-mz-OMy.text" = "Carro";
+
+/* Class = "UITextField"; placeholder = "R$ 100,00"; ObjectID = "CWi-I2-8YK"; */
+"CWi-I2-8YK.placeholder" = "R$ 100,00";
+
+/* Class = "UILabel"; text = "About"; ObjectID = "CpG-EM-Tcz"; */
+"CpG-EM-Tcz.text" = "Sobre";
+
+/* Class = "UINavigationItem"; title = "About"; ObjectID = "I1c-y2-24A"; */
+"I1c-y2-24A.title" = "Sobre";
+
+/* Class = "UITextField"; placeholder = "Color"; ObjectID = "Kuq-La-e6R"; */
+"Kuq-La-e6R.placeholder" = "Cor";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "O0O-PA-qjg"; */
+"O0O-PA-qjg.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Car"; ObjectID = "QHp-Mi-5hG"; */
+"QHp-Mi-5hG.title" = "Carro";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "QOL-4d-cqR"; */
+"QOL-4d-cqR.title" = "Salvar";
+
+/* Class = "UITextField"; placeholder = "Plate: ABC0001"; ObjectID = "TAT-cw-iS2"; */
+"TAT-cw-iS2.placeholder" = "Placa: ABC0001";
+
+/* Class = "UITextField"; placeholder = "First"; ObjectID = "UVs-ji-ROb"; */
+"UVs-ji-ROb.placeholder" = "Nome";
+
+/* Class = "UITextField"; placeholder = "Model"; ObjectID = "YaE-6g-8fA"; */
+"YaE-6g-8fA.placeholder" = "Modelo";
+
+/* Class = "UITextField"; placeholder = "Last"; ObjectID = "b6L-GT-hT5"; */
+"b6L-GT-hT5.placeholder" = "Sobrenome";
+
+/* Class = "UILabel"; text = "Card"; ObjectID = "bSI-b7-P3b"; */
+"bSI-b7-P3b.text" = "Cartão";
+
+/* Class = "UILabel"; text = "Profile"; ObjectID = "cdU-lf-9nm"; */
+"cdU-lf-9nm.text" = "Perfil";
+
+/* Class = "UITextField"; placeholder = "Brand"; ObjectID = "cks-ro-iVo"; */
+"cks-ro-iVo.placeholder" = "Marca";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "cqH-zW-GFg"; */
+"cqH-zW-GFg.title" = "Voltar";
+
+/* Class = "UIViewController"; title = "CardViewController"; ObjectID = "dM1-mT-0pc"; */
+"dM1-mT-0pc.title" = "CardViewController";
+
+/* Class = "UIViewController"; title = "CarViewController"; ObjectID = "ebh-Mw-SAc"; */
+"ebh-Mw-SAc.title" = "CarViewController";
+
+/* Class = "UITextField"; placeholder = "4444 1111 2222 0000"; ObjectID = "fhi-qN-xdO"; */
+"fhi-qN-xdO.placeholder" = "4444 1111 2222 0000";
+
+/* Class = "UITextView"; text = "We need these information only to associate with your profile and you'll only be charged if you buy a ticket"; ObjectID = "gXq-ke-9WB"; */
+"gXq-ke-9WB.text" = "Precisamos dessas informações apenas para associá-las ao seu usário, somente será debitado quando comprar um bilhete";
+
+/* Class = "UIViewController"; title = "About"; ObjectID = "iG8-4Z-dMp"; */
+"iG8-4Z-dMp.title" = "Sobre";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "m4B-zX-q2A"; */
+"m4B-zX-q2A.title" = "Voltar";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "qSA-DA-npf"; */
+"qSA-DA-npf.title" = "Salvar";
+
+/* Class = "UINavigationItem"; title = "Card"; ObjectID = "uFL-za-Mpz"; */
+"uFL-za-Mpz.title" = "Cartão";
+
+/* Class = "UIBarButtonItem"; title = "Salvar"; ObjectID = "wmQ-zN-ezK"; */
+"wmQ-zN-ezK.title" = "Salvar";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "yw6-6L-yqc"; */
+"yw6-6L-yqc.title" = "Voltar";

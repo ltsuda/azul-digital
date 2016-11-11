@@ -75,8 +75,8 @@ enum Project {
             case value                                  = "common.value"
             case time                                   = "common.time"
             case email_format                           = "common.email_format"
-            case password                                   = "common.password"
-            case first_name                               = "common.first_name"
+            case password                               = "common.password"
+            case first_name                             = "common.first_name"
             case last_name                              = "common.last_name"
             case brand                                  = "common.brand"
             case model                                  = "common.model"
@@ -84,7 +84,8 @@ enum Project {
             case empty_address                          = "common.empty_address"
             case profile_title                          = "common.profile_title"
             case settings                               = "common.settings_title"
-            case history                               = "common.history"
+            case history                                = "common.history"
+            case notification                           = "common.notification"
         }
     }
 }

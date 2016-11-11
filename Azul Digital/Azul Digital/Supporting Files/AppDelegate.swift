@@ -108,7 +108,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate, FBTicketReadable, Reada
         
         let content = UNMutableNotificationContent()
         content.title = "Azul Digital"
-        content.body = "O ticket está prestes a vencer, favor comprar um novo ticket ou retirar o veículo do local estacionado"
+        content.body = Project.Localizable.Common.notification.localized
         content.sound = UNNotificationSound.default()
         content.categoryIdentifier = "message"
         
