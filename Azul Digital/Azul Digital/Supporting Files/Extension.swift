@@ -47,16 +47,16 @@ extension UIButton {
 
 enum PlaceHolder {
     enum User {
-        static let Email = NSLocalizedString("Email-provider", comment: "email-address")
-        static let Password = NSLocalizedString("Password", comment: "user-password")
-        static let FirstName = NSLocalizedString("First", comment: "user-firstName")
-        static let LastName = NSLocalizedString("Last", comment: "user-lastName")
+        static let Email = Project.Localizable.Common.email_format.localized
+        static let Password = Project.Localizable.Common.password.localized
+        static let FirstName = Project.Localizable.Common.first_name.localized
+        static let LastName = Project.Localizable.Common.last_name.localized
     }
     
     enum Car {
-        static let Brand = NSLocalizedString("Brand", comment: "car-brand")
-        static let Model = NSLocalizedString("Model", comment: "model-brand")
-        static let Color = NSLocalizedString("Color", comment: "color-brand")
+        static let Brand = Project.Localizable.Common.brand.localized
+        static let Model = Project.Localizable.Common.model.localized
+        static let Color = Project.Localizable.Common.color.localized
         static let Plate = "CRZ0001"
     }
     

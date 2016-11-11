@@ -27,10 +27,10 @@ class CarEditViewController: UIViewController, Readable, CheckTextField, Alertab
                         self?.tempCar?.plate = self?.plateEditTextField.text!
                         self?.editCar()
                     } else {
-                        self?.alert("Veículo já existente", message: "Favor preencher os campos com os dados do seu novo veículo", actionTitle: "Tentar novamente")
+                        self?.alert(Project.Localizable.Common.car_used.localized, message: Project.Localizable.Common.car_used_description.localized, actionTitle: Project.Localizable.Common.try_again.localized)
                     }
                 } else {
-                    self?.alert("Formato incorreto", message: "Favor preencher a placa no formato ABC0001", actionTitle: "Tentar novamente")
+                    self?.alert(Project.Localizable.Common.wrong_format.localized, message: Project.Localizable.Common.plate_format_description.localized, actionTitle: Project.Localizable.Common.try_again.localized)
                 }
             }
         }
@@ -46,10 +46,9 @@ class CarEditViewController: UIViewController, Readable, CheckTextField, Alertab
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.navigationBar.barTintColor = UIColor(red: 223/255, green: 15/255, blue: 15/255, alpha: 1)
-        self.title = NSLocalizedString("Car", comment: "edit-car")
-        textView.text = NSLocalizedString("privacy-car", comment: "edit-car")
-        
-        LoadingIndicatorView.show(overlayTarget: view, loadingText: "Loading Data")
+        self.title = Project.Localizable.Common.car.localized
+        textView.text = Project.Localizable.Common.car_description.localized
+        LoadingIndicatorView.show(overlayTarget: view, loadingText: Project.Localizable.Common.loading_data.localized)
         navigationItem.rightBarButtonItem?.isEnabled = false
         
         read("users", id: id, completionObject: { [weak self] (user, car) in

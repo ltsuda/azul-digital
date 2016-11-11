@@ -22,7 +22,7 @@ class CardViewController: UIViewController, Alertable, CheckTextField, ValidateC
                     self?.tryUser = true
                 } else {
                     self?.tryUser = false
-                    self?.alert("Formato incorreto", message: "Favor preencher os campos corretamente", actionTitle: "Tentar novamente")
+                    self?.alert(Project.Localizable.Common.wrong_format.localized, message: Project.Localizable.Common.wrong_format_description.localized, actionTitle: Project.Localizable.Common.try_again.localized)
                 }
             }
         }
@@ -45,7 +45,7 @@ class CardViewController: UIViewController, Alertable, CheckTextField, ValidateC
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        privacyTextView.text = NSLocalizedString("privacy-card", comment: "card-register")
+        privacyTextView.text = Project.Localizable.Common.card_description.localized
     }
     
     override func didReceiveMemoryWarning() {

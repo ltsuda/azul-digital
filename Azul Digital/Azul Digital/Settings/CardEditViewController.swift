@@ -26,7 +26,7 @@ class CardEditViewController: UIViewController, Readable, CheckTextField, Alerta
                     self?.currentUser?.cash = roundTwoDecimal((self?.cashEditTextField.text!)!.replacingOccurrences(of: ".", with: ","))
                     self?.editCard()
                 } else {
-                    self?.alert("Formato incorreto", message: "Favor preencher o numero do cartão corretamente", actionTitle: "Tentar novamente")
+                    self?.alert(Project.Localizable.Common.wrong_format.localized, message: Project.Localizable.Common.wrong_format_description.localized, actionTitle: Project.Localizable.Common.try_again.localized)
                 }
             }
         }
@@ -42,10 +42,10 @@ class CardEditViewController: UIViewController, Readable, CheckTextField, Alerta
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.navigationBar.barTintColor = UIColor(red: 223/255, green: 167/255, blue: 15/255, alpha: 1)
-        self.title = NSLocalizedString("Card", comment: "edit-card")
-        textView.text = NSLocalizedString("privacy-card", comment: "edit-card")
+        self.title = Project.Localizable.Common.card.localized
+        textView.text = Project.Localizable.Common.card_description.localized
         
-        LoadingIndicatorView.show(overlayTarget: view, loadingText: "Loading Data")
+        LoadingIndicatorView.show(overlayTarget: view, loadingText: Project.Localizable.Common.loading_data.localized)
         navigationItem.rightBarButtonItem?.isEnabled = false
         
         read("users", id: id, completionObject: { [weak self] (user, _) in

@@ -49,7 +49,7 @@ protocol FBPostable {
 extension FBPostable {
     func post(withAddress address: String?, completion: @escaping (String, String, String) -> ()) {
         guard let address = address else {
-            return completion("Dados inexistente", "Endereço não existe", "Tentar novamente")
+            return completion(Project.Localizable.Common.data_inexistent.localized, Project.Localizable.Common.data_inexistent_description.localized, Project.Localizable.Common.try_again.localized)
         }
         let userData: [String : Any] = [
             "address" : address,
@@ -58,7 +58,7 @@ extension FBPostable {
         rootFBReference.child("posts").childByAutoId().updateChildValues(userData) { (error, _) in
             if error != nil {
                 if let code = (error as? NSError)?.code {
-                    completion("Código: \(code)", "\(error?.localizedDescription)", "Tentar novamente")
+                    completion("\(Project.Localizable.Common.code.localized): \(code)", "\(error?.localizedDescription)", Project.Localizable.Common.try_again.localized)
                 }
             } else {
                 completion("", "", "")
@@ -74,7 +74,7 @@ protocol FBUpdatable {
 extension FBUpdatable {
     func saveData(withUser user: User?, withCar car: Car?, completion: @escaping (String, String, String) -> ()) {
         guard  var user = user, let car = car else {
-            return completion("Dados inexistente", "Dados do usuário não existem", "Tentar novamente")
+            return completion(Project.Localizable.Common.user_inexistent.localized, Project.Localizable.Common.user_inexistent_description.localized, Project.Localizable.Common.try_again.localized)
         }
         
         if user.carPlate != car.plate {
@@ -105,7 +105,7 @@ extension FBUpdatable {
         rootFBReference.updateChildValues(userData) { (error, _) in
             if error != nil {
                 if let code = (error as? NSError)?.code {
-                    completion("Código: \(code)", "\(error?.localizedDescription)", "Tentar novamente")
+                    completion("\(Project.Localizable.Common.code.localized): \(code)", "\(error?.localizedDescription)", Project.Localizable.Common.try_again.localized)
                 }
             } else {
                 completion("", "", "")
@@ -220,7 +220,7 @@ protocol FBProfileEditable {
 extension FBProfileEditable {
     func saveProfile(withUser user: User?, completion: @escaping (String, String, String) -> ()) {
         guard  let user = user, let id = user.userID else {
-            return completion("Usuário inexistente", "Dados do usuário não existem", "Tentar novamente")
+            return completion(Project.Localizable.Common.user_inexistent.localized, Project.Localizable.Common.user_inexistent_description.localized, Project.Localizable.Common.try_again.localized)
         }
         let userData = [
             "email" : user.email!,
@@ -235,7 +235,7 @@ extension FBProfileEditable {
         rootFBReference.child("users").child(id).updateChildValues(userData) { (error, _) in
             if error != nil {
                 if let code = (error as? NSError)?.code {
-                    completion("Código: \(code)", "\(error?.localizedDescription)", "Tentar novamente")
+                    completion("\(Project.Localizable.Common.code.localized): \(code)", "\(error?.localizedDescription)", Project.Localizable.Common.try_again.localized)
                 }
             } else {
                 completion("", "", "")
@@ -251,7 +251,7 @@ protocol FBCardEditable {
 extension FBCardEditable {
     func saveCard(withUser user: User?, withID id: String, completion: @escaping (String, String, String) -> ()) {
         guard  let user = user else {
-            return completion("Usuário inexistente", "Dados do usuário não existem", "Tentar novamente")
+            return completion(Project.Localizable.Common.user_inexistent.localized, Project.Localizable.Common.user_inexistent_description.localized, Project.Localizable.Common.try_again.localized)
         }
         let userData = [
             "card" : user.card!,
@@ -260,7 +260,7 @@ extension FBCardEditable {
         rootFBReference.child("users").child(id).updateChildValues(userData) { (error, _) in
             if error != nil {
                 if let code = (error as? NSError)?.code {
-                    completion("Código: \(code)", "\(error?.localizedDescription)", "Tentar novamente")
+                    completion("\(Project.Localizable.Common.code.localized): \(code)", "\(error?.localizedDescription)", Project.Localizable.Common.try_again.localized)
                 }
             } else {
                 completion("", "", "")

@@ -47,9 +47,9 @@ class ProfileEditViewController: UIViewController, Alertable, Readable, CheckTex
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        self.title = NSLocalizedString("Profile", comment: "edit-profile")
+        self.title = Project.Localizable.Common.profile_title.localized
         
-        LoadingIndicatorView.show(overlayTarget: view, loadingText: "Loading Data")
+        LoadingIndicatorView.show(overlayTarget: view, loadingText: Project.Localizable.Common.loading_data.localized)
         navigationItem.rightBarButtonItem?.isEnabled = false
         
         read("users", id: id, completionObject: { [weak self] (user, _) in

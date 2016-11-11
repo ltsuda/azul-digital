@@ -16,7 +16,7 @@ protocol Creatable {
 extension Creatable {
     func create(_ email: String?, password: String?, completion: @escaping (String, String, String) -> ()) {
         guard let email = email , !(email.isEmpty), let password = password, !(password.isEmpty) else {
-            return completion("Campos vazios", "Favor preencher os campos Email e Senha", "Tentar novamente")
+            return completion(Project.Localizable.Common.empty.localized, Project.Localizable.Common.fill_email_pass.localized, Project.Localizable.Common.try_again.localized)
         }
         
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (_, error) in
@@ -26,13 +26,13 @@ extension Creatable {
                     if let firebaseCode = FIRAuthErrorCode(rawValue: (code)) {
                         switch firebaseCode {
                         case .errorCodeInvalidEmail:
-                            completion("Email inválido: \(firebaseCode.rawValue)", "Favor preencher no formato usuario@provedor.com.br", "Tentar novamente")
+                            completion("\(Project.Localizable.Common.invalid_email.localized): \(firebaseCode.rawValue)", Project.Localizable.Common.invalid_email_description.localized, Project.Localizable.Common.try_again.localized)
                         case .errorCodeEmailAlreadyInUse:
-                            completion("Email em uso: \(firebaseCode.rawValue)", "Este email já está em uso, favor utilizar outro email", "Tentar novamente")
+                            completion("\(Project.Localizable.Common.email_used.localized): \(firebaseCode.rawValue)", Project.Localizable.Common.email_used_description.localized, Project.Localizable.Common.try_again.localized)
                         case .errorCodeWeakPassword:
-                            completion("Senha insegura: \(firebaseCode.rawValue)", "Favor utilizar uma senha com mais de 6 dígitos", "Tentar novamente")
+                            completion("\(Project.Localizable.Common.weak_pass.localized): \(firebaseCode.rawValue)", Project.Localizable.Common.weak_pass_description.localized, Project.Localizable.Common.try_again.localized)
                         default:
-                            completion("Código: \(firebaseCode.rawValue)", "\(error?.localizedDescription)", "OK")
+                            completion("\(Project.Localizable.Common.code.localized): \(firebaseCode.rawValue)", "\(error?.localizedDescription)", Project.Localizable.Common.ok.localized)
                         }
                     }
                 }
@@ -52,7 +52,7 @@ protocol Loggable {
 extension Loggable {
     func login(_ email: String?, password: String?, completion: @escaping (String, String, String) -> ()) {
         guard let email = email , !(email.isEmpty), let password = password, !(password.isEmpty) else {
-            return completion("Campos vazios", "Favor preencher os campos Email e Senha", "Tentar novamente")
+            return completion(Project.Localizable.Common.empty.localized, Project.Localizable.Common.fill_email_pass.localized, Project.Localizable.Common.try_again.localized)
         }
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
             if error != nil {
@@ -60,15 +60,15 @@ extension Loggable {
                     if let firebaseCode = FIRAuthErrorCode(rawValue: (code)) {
                         switch firebaseCode {
                         case .errorCodeInvalidEmail:
-                            completion("Email inválido: \(firebaseCode.rawValue)", "Favor preencher no formato usuario@provedor.com.br", "Tentar novamente")
+                            completion("\(Project.Localizable.Common.invalid_email.localized): \(firebaseCode.rawValue)", Project.Localizable.Common.invalid_email_description.localized, Project.Localizable.Common.try_again.localized)
                         case .errorCodeOperationNotAllowed:
-                            completion("Serviço desabilitado: \(firebaseCode.rawValue)", "Favor entrar em contato com o desenvolvedor", "Tentar novamente")
+                            completion("\(Project.Localizable.Common.service_disabled.localized): \(firebaseCode.rawValue)", Project.Localizable.Common.service_disabled_description.localized,Project.Localizable.Common.try_again.localized)
                         case .errorCodeUserDisabled:
-                            completion("Conta desabilitada: \(firebaseCode.rawValue)", "Favor entrar em contato com o desenvolvedor", "Tentar novamente")
+                            completion("\(Project.Localizable.Common.account_disabled.localized): \(firebaseCode.rawValue)", Project.Localizable.Common.service_disabled_description.localized, Project.Localizable.Common.try_again.localized)
                         case .errorCodeWrongPassword:
-                            completion("Senha incorreta: \(firebaseCode.rawValue)", "Favor verifique sua senha", "Tentar novamente")
+                            completion("\(Project.Localizable.Common.wrong_pass.localized): \(firebaseCode.rawValue)", Project.Localizable.Common.wrong_pass_description.localized, Project.Localizable.Common.try_again.localized)
                         default:
-                            completion("Código: \(firebaseCode.rawValue)", "\(error?.localizedDescription)", "OK")
+                            completion("\(Project.Localizable.Common.code.localized): \(firebaseCode.rawValue)", "\(error?.localizedDescription)", Project.Localizable.Common.ok.localized)
                             
                         }
                     }

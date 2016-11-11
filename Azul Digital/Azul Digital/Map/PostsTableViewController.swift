@@ -24,7 +24,7 @@ class PostsTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        LoadingIndicatorView.show("Loading Data")
+        LoadingIndicatorView.show(Project.Localizable.Common.loading_data.localized)
         getPosts()
     }
     

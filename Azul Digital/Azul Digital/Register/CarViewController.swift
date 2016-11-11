@@ -24,7 +24,7 @@ class CarViewController: UIViewController, Alertable, CheckTextField, ValidatePl
                 if validate == true {
                     self?.performSegue(withIdentifier: "CardSegue", sender: nil)
                 } else {
-                    self?.alert("Formato incorreto", message: "Favor preencher a placa no formato ABC0001", actionTitle: "Tentar novamente")
+                    self?.alert(Project.Localizable.Common.wrong_format.localized, message: Project.Localizable.Common.plate_format_description.localized, actionTitle: Project.Localizable.Common.try_again.localized)
                 }
             }
         }
@@ -41,7 +41,7 @@ class CarViewController: UIViewController, Alertable, CheckTextField, ValidatePl
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        privacyTextView.text = NSLocalizedString("privacy-car", comment: "car-register")
+        privacyTextView.text = Project.Localizable.Common.car_description.localized
     }
     
     override func viewWillLayoutSubviews() {

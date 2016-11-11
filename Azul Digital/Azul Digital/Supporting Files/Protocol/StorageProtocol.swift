@@ -33,9 +33,9 @@ extension Storagable {
                     if let code = FIRStorageErrorCode(rawValue: (error?._code)!) {
                         switch code {
                         case .retryLimitExceeded:
-                            completion("Tempo excedido: \(code.rawValue)", "O tempo para salvar a imagem excedeu", "Tentar novamente")
+                            completion("\(Project.Localizable.Common.save_timeout.localized): \(code.rawValue)", Project.Localizable.Common.save_timeout_description.localized, Project.Localizable.Common.try_again.localized)
                         default:
-                            completion("Código: \(code.rawValue)", "\(error?.localizedDescription)", "OK")
+                            completion("\(Project.Localizable.Common.code.localized): \(code.rawValue)", "\(error?.localizedDescription)", Project.Localizable.Common.ok.localized)
                         }
                     }
                 } else {
@@ -49,7 +49,7 @@ extension Storagable {
     func download(_ completion: @escaping (AnyObject, String, String) -> ()) {
         storageRef.data(withMaxSize: 500 * 1024, completion: { (data, error) in
             if error != nil {
-                completion("Código: -1" as AnyObject, "\(error?.localizedDescription)", "Tentar novamente")
+                completion(Project.Localizable.Common.code_1.localized as AnyObject, "\(error?.localizedDescription)", Project.Localizable.Common.try_again.localized)
             } else {
                 guard let image = data else { return }
                 completion(image as AnyObject, "", "")

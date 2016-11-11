@@ -43,7 +43,7 @@ extension CheckTextField {
             }
         }
         if isFilled == false {
-            completion("Campos vazios", "Favor preencher todos os campos", "Tentar novamente")
+            completion(Project.Localizable.Common.empty.localized, Project.Localizable.Common.empty_description.localized, Project.Localizable.Common.try_again.localized)
         } else {
             completion("", "", "")
         }

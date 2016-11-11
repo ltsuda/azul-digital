@@ -45,8 +45,8 @@ class MapViewController: UIViewController, FBServerTime {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.navigationBar.barTintColor = UIColor(red: 15/255, green: 127/255, blue: 223/255, alpha: 1)
-        buy.setImage(UIImage(named: NSLocalizedString("Buy", comment: "buy-map")) , for: .normal)
-        buy.setImage(UIImage(named: NSLocalizedString("Buy_enabled", comment: "buy-map-enabled")) , for: .highlighted)
+        buy.setImage(UIImage(named: Project.Images.Buttons.buy.image) , for: .normal)
+        buy.setImage(UIImage(named: Project.Images.Buttons.buy_enabled.image) , for: .highlighted)
         locationTextField.leftViewMode = .always
         let addImageView = UIView(frame: CGRect(x: 0, y: 11, width: 22, height: 44))
         let image = UIImage(named: "annotation")
@@ -68,11 +68,11 @@ class MapViewController: UIViewController, FBServerTime {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "BuySegue" {
             guard let destination = segue.destination as? BuyTicketViewController else { return }
-            destination.address = locationTextField.text ?? "Empty Address"
+            destination.address = locationTextField.text ?? Project.Localizable.Common.empty_address.localized
         } else if segue.identifier == "ShareSegue" {
             guard let destination = segue.destination as? ShareViewController else { return }
             savetime()
-            destination.address = locationTextField.text ?? "Empty Address"
+            destination.address = locationTextField.text ?? Project.Localizable.Common.empty_address.localized
         }  else if segue.identifier == "postSegue" {
             guard let _ = segue.destination as? PostsTableViewController else { return }
         }

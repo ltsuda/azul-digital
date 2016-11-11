@@ -18,7 +18,7 @@ class HistoryTableViewController: UITableViewController, Readable {
         super.viewDidLoad()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
-        title = "History"
+        title = Project.Localizable.Common.history.localized
     }
     
     override func didReceiveMemoryWarning() {
@@ -29,7 +29,7 @@ class HistoryTableViewController: UITableViewController, Readable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.navigationBar.barTintColor = UIColor(red: 120/255, green: 15/255, blue: 223/255, alpha: 1)
-        LoadingIndicatorView.show("Loading Data")
+        LoadingIndicatorView.show(Project.Localizable.Common.loading_data.localized)
         getTickets()
     }
     
@@ -65,7 +65,7 @@ extension HistoryTableViewController: FBTicketReadable, Alertable {
                 if error != nil {
                     DispatchQueue.main.async {
                         LoadingIndicatorView.hide()
-                        self?.alert("\(error?.code)", message: "\(error?.localizedDescription)", actionTitle: "Tentar novamente")
+                        self?.alert("\(error?.code)", message: "\(error?.localizedDescription)", actionTitle: Project.Localizable.Common.try_again.localized)
                     }
                 } else if tickets != nil {
                     self?.tickets = tickets

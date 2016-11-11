@@ -232,7 +232,7 @@
                                     <action selector="buy:" destination="LRz-Uc-Zz3" eventType="touchUpInside" id="N4U-Co-2l5"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Your ticket is valid for 1 hour only, it’s possible to renew after the timer expires" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VL6-fE-k1X">
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Your ticket is valid for 1 hour only, it’s possible to renew after the timer expires" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VL6-fE-k1X">
                                 <rect key="frame" x="16" y="277" width="343" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="mFX-Jg-MyC"/>
@@ -298,8 +298,8 @@
                                             <constraint firstAttribute="height" constant="2" id="UZX-3P-zib"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rua Doutor Sales de Oliveira, 1745, Vila Industrial" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dr-ON-xsL" customClass="ReceiptLabel" customModule="Azul_Digital" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="150" width="257.5" height="38.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rua Doutor Sales de Oliveira, 1745, Vila Industrial" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dr-ON-xsL" customClass="ReceiptLabel" customModule="Azul_Digital" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="150" width="276" height="38.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -311,7 +311,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="128" height="48"/>
                                                 <color key="backgroundColor" red="0.058823529409999999" green="0.49803921569999998" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <state key="normal" title="Cancel">
+                                                <state key="normal">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -322,7 +322,7 @@
                                                 <rect key="frame" x="148" y="0.0" width="128" height="48"/>
                                                 <color key="backgroundColor" red="0.058823529409999999" green="0.49803921569999998" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <state key="normal" title="Buy">
+                                                <state key="normal">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>

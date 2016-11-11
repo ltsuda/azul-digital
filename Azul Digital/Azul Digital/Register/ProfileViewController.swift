@@ -40,8 +40,8 @@ class ProfileViewController: UIViewController, Alertable, CheckTextField {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        nameTextField.placeholder = NSLocalizedString("name-profile", comment: "username-profile")
-        lastNameTextField.placeholder = NSLocalizedString("lastname-profile", comment: "lastname-profile")
+//        nameTextField.placeholder = Project.Localizable.Common.first_name.localized
+//        lastNameTextField.placeholder = NSLocalizedString("lastname-profile", comment: "lastname-profile")
         DispatchQueue.main.async {
             self.profileImageView.image = UIImage(named: "localImage")
             self.profileImageView.configureBorder()
@@ -85,7 +85,7 @@ class ProfileViewController: UIViewController, Alertable, CheckTextField {
         let user = FIRAuth.auth()?.currentUser
         user?.delete { error in
             if let error = error {
-                self.alert("\(error._code)", message: "\(error.localizedDescription)", actionTitle: "OK")
+                self.alert("\(error._code)", message: "\(error.localizedDescription)", actionTitle: Project.Localizable.Common.ok.localized)
                 self.isImageLoaded = false
             } else {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)

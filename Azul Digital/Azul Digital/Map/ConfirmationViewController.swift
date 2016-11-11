@@ -21,11 +21,11 @@ class ConfirmationViewController: UIViewController, Alertable, FBServerTime {
     @IBOutlet weak var buyButton: UIButton!
     @IBAction func buy(_ sender: AnyObject) {
         guard  let user = user, let funds = user.cash else {
-            return alert("Usuário inexistente", message: "Dados do usuário não existem", actionTitle: "Tentar novamente")
+            return alert(Project.Localizable.Common.user_inexistent.localized, message: Project.Localizable.Common.user_inexistent_description.localized, actionTitle: Project.Localizable.Common.try_again.localized)
         }
         
         if funds < valueToPay {
-            alertWithHanlder("Saldo insuficiente", message: "Deseja recarregar?", actionTitle: "OK") { [weak self] in
+            alertWithHanlder(Project.Localizable.Common.empty_cash.localized, message: Project.Localizable.Common.empty_cash_description.localized, actionTitle: Project.Localizable.Common.ok.localized) { [weak self] in
                 self?.userFunds = 100.0 - (self?.valueToPay)!
                 self?.saveValues(user: user)
             }
@@ -58,12 +58,12 @@ class ConfirmationViewController: UIViewController, Alertable, FBServerTime {
         buyButton.configureCorner(to: buyButton)
         
         DispatchQueue.main.async {
-            self.cancelButton.titleLabel?.text = NSLocalizedString("cancel-button", comment: "cancel-confirmation")
-            self.buyButton.titleLabel?.text = NSLocalizedString("buy-button", comment: "buy-confirmation")
-            self.askLabel.text = NSLocalizedString("ask-label", comment: "ask-confirmation")
+            self.cancelButton.setTitle(Project.Localizable.Common.cancel.localized, for: .normal)
+            self.buyButton.setTitle(Project.Localizable.Common.buy.localized, for: .normal)
+            self.askLabel.text = Project.Localizable.Common.confirmation.localized
             self.addressLabel.text = self.address
-            self.valueDescriptionLabel.text = NSLocalizedString("value-description", comment: "value-confirmation")
-            self.timeDescriptionLabel.text = NSLocalizedString("time-description", comment: "time-confirmation")
+            self.valueDescriptionLabel.text = Project.Localizable.Common.value.localized
+            self.timeDescriptionLabel.text = Project.Localizable.Common.time.localized
             self.valueLabel.text = "R$\(self.getValue().0)"
             self.gettime(completion: { (date, _, _) in
                 self.timeLabel.text = "\(formatTime(from: date).0)"
@@ -111,7 +111,7 @@ extension ConfirmationViewController {
         rootFBReference.updateChildValues(updateData) { (error, _) in
             if error != nil {
                 if let code = (error as? NSError)?.code {
-                    self.alert("Código: \(code)", message: "\(error?.localizedDescription)", actionTitle: "Tentar novamente")
+                    self.alert("\(Project.Localizable.Common.code.localized): \(code)", message: "\(error?.localizedDescription)", actionTitle: Project.Localizable.Common.try_again.localized)
                 }
             } else {
                 defaults.set(false, forKey: "buyButton")

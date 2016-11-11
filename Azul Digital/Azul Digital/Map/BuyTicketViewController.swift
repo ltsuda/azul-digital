@@ -37,10 +37,10 @@ class BuyTicketViewController: UIViewController, Readable, FBServerTime {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        LoadingIndicatorView.show("Loading data")
-        buyDescription.text = NSLocalizedString("buy-description", comment: "buy-ticket-description")
-        buyButton.setImage(UIImage(named: NSLocalizedString("Buy-Ticket", comment: "buy-view")) , for: .normal)
-        buyButton.setImage(UIImage(named: NSLocalizedString("Buy-Ticket-enabled", comment: "buy-view")) , for: .highlighted)
+        LoadingIndicatorView.show(Project.Localizable.Common.loading_data.localized)
+        buyDescription.text = Project.Localizable.Common.buy_ticket_description.localized
+        buyButton.setImage(UIImage(named: Project.Images.Buttons.buy_ticket.image) , for: .normal)
+        buyButton.setImage(UIImage(named: Project.Images.Buttons.buy_ticket_enabled.image) , for: .highlighted)
         
         guard let currentUser = FIRAuth.auth()?.currentUser else { return }
         read("users", id: currentUser.uid, completionObject: { [weak self] (user, car) in
@@ -59,7 +59,7 @@ class BuyTicketViewController: UIViewController, Readable, FBServerTime {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ConfirmationSegue" {
             guard let destination = segue.destination as? ConfirmationViewController else { return }
-            destination.address = address ?? "No address"
+            destination.address = address ?? Project.Localizable.Common.no_address.localized
             destination.user = user
         }
     }
