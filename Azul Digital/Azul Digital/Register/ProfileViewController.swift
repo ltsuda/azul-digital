@@ -13,6 +13,8 @@ class ProfileViewController: UIViewController, Alertable, CheckTextField {
     
     var imageURL: String?
     
+    @IBOutlet weak var nextButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBAction func cancel(_ sender: AnyObject) {
         deleteUser()
     }
@@ -35,13 +37,15 @@ class ProfileViewController: UIViewController, Alertable, CheckTextField {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        self.title = Project.Localizable.Common.profile_title.localized
         profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentPickerViewController)))
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-//        nameTextField.placeholder = Project.Localizable.Common.first_name.localized
-//        lastNameTextField.placeholder = NSLocalizedString("lastname-profile", comment: "lastname-profile")
+        
+        nextButton.title = Project.Localizable.Common.next.localized
+        cancelButton.title = Project.Localizable.Common.cancel.localized
         DispatchQueue.main.async {
             self.profileImageView.image = UIImage(named: "localImage")
             self.profileImageView.configureBorder()

@@ -48,7 +48,7 @@
 "common.value" = "Valor:";
 "common.time" = "Horário:";
 "common.email_format" = "usuario@provedor.com.br";
-"common.password" = "Senha";
+"common.password" = "senha";
 "common.first_name" = "Nome";
 "common.last_name" = "Sobrenome";
 "common.brand" = "Marca";
@@ -59,3 +59,21 @@
 "common.settings_title" = "Configurações";
 "common.history" = "Histórico";
 "common.notification" = "O bilhete está prestes a vencer, favor comprar um novo ou retirar o veículo do local estacionado";
+//PresenterVC
+"common.create_account" = "Criar conta";
+"common.already_member" = "Já cadastrado? Entrar";
+//LoginVC
+"common.login" = "Entrar";
+//RegisterVC
+"common.register" = "Registrar";
+//ShareVC
+"common.share?" = "Compartilhar?";
+"common.share" = "Compartilhar";
+//ProfileVC
+"common.next" = "Próximo";
+//CardVC
+"common.done" = "Finalizar";
+//AboutVC
+"common.about" = "Sobre";
+//EditVC
+"common.save" = "Salvar";

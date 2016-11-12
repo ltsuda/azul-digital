@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A319" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zNd-SS-G9M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zNd-SS-G9M">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -22,12 +25,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="c6p-bH-ZRY">
+                                <rect key="frame" x="118" y="72" width="241" height="68"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aRI-SL-1pv" userLabel="Nome">
+                                        <rect key="frame" x="0.0" y="0.0" width="241" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pQK-R3-2fM" userLabel="Nome">
+                                        <rect key="frame" x="0.0" y="38" width="241" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
@@ -47,6 +53,7 @@
                                 </variation>
                             </stackView>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nXm-rO-PeY">
+                                <rect key="frame" x="16" y="72" width="94" height="94"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nXm-rO-PeY" secondAttribute="height" multiplier="1:1" id="koE-hP-SCt"/>
                                 </constraints>
@@ -95,7 +102,6 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="veF-SQ-cmo">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="7qS-FV-fLj"/>
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="tmS-lH-xL9">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -110,8 +116,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelButton" destination="tmS-lH-xL9" id="KWk-Vp-XIY"/>
                         <outlet property="lastNameTextField" destination="pQK-R3-2fM" id="mhB-59-h5D"/>
                         <outlet property="nameTextField" destination="aRI-SL-1pv" id="gWb-7O-pKK"/>
+                        <outlet property="nextButton" destination="IEZ-rb-u4c" id="xUJ-51-Gul"/>
                         <outlet property="profileImageView" destination="nXm-rO-PeY" id="90J-gx-6Sw"/>
                         <segue destination="Ruz-9m-gtH" kind="show" identifier="CarSegue" id="oSz-ts-1x2"/>
                     </connections>
@@ -151,20 +159,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lBG-6n-TdA">
+                                <rect key="frame" x="16" y="72" width="343" height="144"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Brand" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="L5v-yr-9ry" userLabel="Marca">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Model" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2a5-ym-T8s" userLabel="Marca">
+                                        <rect key="frame" x="0.0" y="38" width="343" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Color" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TrA-Qu-m6b" userLabel="Marca">
+                                        <rect key="frame" x="0.0" y="76" width="343" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Plate: ABC0001" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tLv-SD-1p7" userLabel="Marca">
+                                        <rect key="frame" x="0.0" y="114" width="343" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
@@ -172,6 +185,7 @@
                                 <variation key="heightClass=regular-widthClass=compact" axis="vertical"/>
                             </stackView>
                             <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="We need these information only to associate with your profile" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmd-cz-APe">
+                                <rect key="frame" x="16" y="224" width="343" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="KtL-hG-SHH">
                                         <variation key="heightClass=regular-widthClass=compact" constant="80"/>
@@ -224,7 +238,6 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Car" id="skF-UE-fBJ">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="BVM-el-Z0K"/>
                         <barButtonItem key="rightBarButtonItem" title="Next" id="pyn-W0-5cg" userLabel="Próximo">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -236,6 +249,7 @@
                         <outlet property="brandTextField" destination="L5v-yr-9ry" id="hU4-h3-FP3"/>
                         <outlet property="colorTextField" destination="TrA-Qu-m6b" id="Yjf-ZN-Xxb"/>
                         <outlet property="modelTextField" destination="2a5-ym-T8s" id="ei0-jc-ivU"/>
+                        <outlet property="nextButton" destination="pyn-W0-5cg" id="YL2-95-Hgl"/>
                         <outlet property="plateTextField" destination="tLv-SD-1p7" id="YL8-S1-iHj"/>
                         <outlet property="privacyTextView" destination="tmd-cz-APe" id="Lij-ST-RBN"/>
                         <segue destination="h5r-F6-ehz" kind="show" identifier="CardSegue" id="sgw-Y9-OsP"/>
@@ -258,12 +272,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGa-WL-eOQ">
+                                <rect key="frame" x="16" y="110" width="343" height="30"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="R$100.00" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yl7-Tz-Uno" userLabel="funds">
+                                        <rect key="frame" x="64" y="0.0" width="279" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cash" translatesAutoresizingMaskIntoConstraints="NO" id="uLY-Hu-kpl" userLabel="money">
+                                        <rect key="frame" x="0.0" y="1" width="56" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="JfF-H5-6us"/>
                                             <constraint firstAttribute="width" constant="56" id="Q8p-bw-vzy"/>
@@ -280,8 +297,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XJZ-pD-BOL">
+                                <rect key="frame" x="16" y="72" width="343" height="30"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="4444 1111 2222 0000" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7Nl-ai-fbM" userLabel="card">
+                                        <rect key="frame" x="64" y="0.0" width="279" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="pIs-CP-bfR"/>
                                         </constraints>
@@ -289,6 +308,7 @@
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card" translatesAutoresizingMaskIntoConstraints="NO" id="doe-Nv-MEK" userLabel="cardicon">
+                                        <rect key="frame" x="0.0" y="1" width="56" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="56" id="ChJ-7U-Lda"/>
                                             <constraint firstAttribute="height" constant="28" id="Vl6-kv-Net"/>
@@ -305,6 +325,7 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="We need these information only to associate with your profile and you'll only be charged if you buy a ticket" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FmG-uz-oYV">
+                                <rect key="frame" x="16" y="148" width="343" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Vmu-Sw-TNU"/>
                                 </constraints>
@@ -328,8 +349,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Card" id="U65-Fo-sBp">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="bAU-SA-XZv"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="ICx-lM-fdS" userLabel="Próximo">
+                        <barButtonItem key="rightBarButtonItem" id="ICx-lM-fdS" userLabel="Próximo">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="finalizar:" destination="h5r-F6-ehz" id="2cB-2e-UOt"/>
@@ -339,6 +359,7 @@
                     <connections>
                         <outlet property="cardTextField" destination="7Nl-ai-fbM" id="XHU-oM-jbA"/>
                         <outlet property="cashTextField" destination="yl7-Tz-Uno" id="Ae2-KX-jRV"/>
+                        <outlet property="doneButton" destination="ICx-lM-fdS" id="ZTe-o6-lca"/>
                         <outlet property="privacyTextView" destination="FmG-uz-oYV" id="Nem-C0-bcX"/>
                         <segue destination="dYl-u9-gCf" kind="show" identifier="MapSegue" id="fnZ-uW-LqV"/>
                     </connections>

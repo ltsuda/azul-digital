@@ -48,7 +48,7 @@
 "common.value" = "Value:";
 "common.time" = "Time:";
 "common.email_format" = "user@provider.com";
-"common.password" = "Password";
+"common.password" = "password";
 "common.first_name" = "First";
 "common.last_name" = "Last";
 "common.brand" = "Brand";
@@ -59,3 +59,21 @@
 "common.settings_title" = "Settings";
 "common.history" = "History";
 "common.notification" = "Your ticket is about to expires, please renew or remove your car from the local parked";
+//PresenterVC
+"common.create_account" = "Create an account";
+"common.already_member" = "Already a member? Login";
+//LoginVC
+"common.login" = "Login";
+//RegisterVC
+"common.register" = "Register";
+//ShareVC
+"common.share?" = "Share?";
+"common.share" = "Share";
+//ProfileVC
+"common.next" = "Next";
+//CardVC
+"common.done" = "Done";
+//AboutVC
+"common.about" = "About";
+//EditVC
+"common.save" = "Save";

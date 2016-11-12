@@ -40,6 +40,10 @@ class CreateAccViewController: UIViewController, Alertable, Creatable {
         super.viewWillAppear(true)
         cancelButton.configureCorner(to: cancelButton)
         registerButton.configureCorner(to: registerButton)
+        registerButton.setTitle(Project.Localizable.Common.register.localized, for: .normal)
+        cancelButton.setTitle(Project.Localizable.Common.cancel.localized, for: .normal)
+        passwordLabel.text = Project.Localizable.Common.password.localized
+
     }
     
     override func viewWillLayoutSubviews() {

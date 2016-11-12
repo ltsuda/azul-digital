@@ -86,6 +86,15 @@ enum Project {
             case settings                               = "common.settings_title"
             case history                                = "common.history"
             case notification                           = "common.notification"
+            case create_account                         = "common.create_account"
+            case already_member                         = "common.already_member"
+            case login                                  = "common.login"
+            case register                               = "common.register"
+            case share                                  = "common.share"
+            case next                                   = "common.next"
+            case done                                   = "common.done"
+            case about                                  = "common.about"
+            case save                                   = "common.save"
         }
     }
 }

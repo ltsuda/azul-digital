@@ -10,6 +10,7 @@ import UIKit
 
 class ProfileEditViewController: UIViewController, Alertable, Readable, CheckTextField {
     
+    @IBOutlet weak var saveLabel: UIBarButtonItem!
     @IBOutlet weak var editImageView: UIImageView!
     @IBOutlet weak var nameEditTextField: UITextField!
     @IBOutlet weak var lastNameEditTextField: UITextField!
@@ -48,6 +49,7 @@ class ProfileEditViewController: UIViewController, Alertable, Readable, CheckTex
         super.viewWillAppear(true)
         
         self.title = Project.Localizable.Common.profile_title.localized
+        saveLabel.title = Project.Localizable.Common.save.localized
         
         LoadingIndicatorView.show(overlayTarget: view, loadingText: Project.Localizable.Common.loading_data.localized)
         navigationItem.rightBarButtonItem?.isEnabled = false

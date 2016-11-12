@@ -15,6 +15,7 @@ class CarViewController: UIViewController, Alertable, CheckTextField, ValidatePl
     @IBOutlet weak var modelTextField: UITextField!
     @IBOutlet weak var colorTextField: UITextField!
     @IBOutlet weak var plateTextField: UITextField!
+    @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBAction func next(_ sender: AnyObject) {
         checkEmpty([brandTextField.text!, modelTextField.text!, colorTextField.text!, plateTextField.text!]) { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
@@ -33,6 +34,7 @@ class CarViewController: UIViewController, Alertable, CheckTextField, ValidatePl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = Project.Localizable.Common.car.localized
     }
     
     override func didReceiveMemoryWarning() {
@@ -42,6 +44,7 @@ class CarViewController: UIViewController, Alertable, CheckTextField, ValidatePl
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         privacyTextView.text = Project.Localizable.Common.car_description.localized
+        nextButton.title = Project.Localizable.Common.next.localized
     }
     
     override func viewWillLayoutSubviews() {

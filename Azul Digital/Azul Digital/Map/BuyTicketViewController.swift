@@ -32,7 +32,6 @@ class BuyTicketViewController: UIViewController, Readable, FBServerTime {
         } else {
             buyButton.isEnabled = true
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

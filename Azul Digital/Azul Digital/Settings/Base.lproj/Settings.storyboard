@@ -82,27 +82,26 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="F9R-9N-npr"/>
-                                <exclude reference="Sie-bd-EBl"/>
-                                <exclude reference="o2c-8G-XZU"/>
                                 <exclude reference="Asr-Yo-IID"/>
                                 <exclude reference="nbH-oz-oSS"/>
                                 <exclude reference="sg0-si-zuo"/>
+                                <exclude reference="F9R-9N-npr"/>
+                                <exclude reference="Sie-bd-EBl"/>
+                                <exclude reference="o2c-8G-XZU"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
-                                <include reference="F9R-9N-npr"/>
-                                <include reference="Sie-bd-EBl"/>
-                                <include reference="o2c-8G-XZU"/>
                                 <include reference="Asr-Yo-IID"/>
                                 <include reference="nbH-oz-oSS"/>
                                 <include reference="sg0-si-zuo"/>
+                                <include reference="F9R-9N-npr"/>
+                                <include reference="Sie-bd-EBl"/>
+                                <include reference="o2c-8G-XZU"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="76o-Sa-QUf">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="cqH-zW-GFg"/>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="qSA-DA-npf">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -114,6 +113,7 @@
                         <outlet property="editImageView" destination="chX-2F-sLL" id="0h6-wh-Ioj"/>
                         <outlet property="lastNameEditTextField" destination="b6L-GT-hT5" id="23L-1r-L8u"/>
                         <outlet property="nameEditTextField" destination="UVs-ji-ROb" id="JAH-8C-vNj"/>
+                        <outlet property="saveLabel" destination="qSA-DA-npf" id="KbI-Cw-rVz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tqY-Hu-Rec" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -387,6 +387,13 @@
                             <outlet property="delegate" destination="yvA-Qo-KGN" id="FwR-ek-sGJ"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="aboutLabel" destination="CpG-EM-Tcz" id="6xr-rQ-gVz"/>
+                        <outlet property="carLabel" destination="CNM-mz-OMy" id="w0w-58-W9F"/>
+                        <outlet property="cardLabel" destination="bSI-b7-P3b" id="Gyk-g3-sYt"/>
+                        <outlet property="historyLabel" destination="00d-ya-YdJ" id="f4K-gp-BHZ"/>
+                        <outlet property="profileLabel" destination="cdU-lf-9nm" id="bFa-Ya-I7T"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iER-il-Ftg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -463,28 +470,27 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="Ea5-g2-kkg"/>
-                                <exclude reference="OQb-CU-eSy"/>
-                                <exclude reference="l5a-6O-HrC"/>
                                 <exclude reference="2Id-MH-d6q"/>
                                 <exclude reference="Vl0-Re-QhY"/>
                                 <exclude reference="bCV-tH-ibk"/>
+                                <exclude reference="Ea5-g2-kkg"/>
+                                <exclude reference="OQb-CU-eSy"/>
+                                <exclude reference="l5a-6O-HrC"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
-                                <include reference="Ea5-g2-kkg"/>
-                                <include reference="OQb-CU-eSy"/>
-                                <include reference="l5a-6O-HrC"/>
                                 <include reference="2Id-MH-d6q"/>
                                 <include reference="Vl0-Re-QhY"/>
                                 <include reference="bCV-tH-ibk"/>
+                                <include reference="Ea5-g2-kkg"/>
+                                <include reference="OQb-CU-eSy"/>
+                                <include reference="l5a-6O-HrC"/>
                             </mask>
                         </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Car" id="QHp-Mi-5hG">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="m4B-zX-q2A"/>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="QOL-4d-cqR">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -497,6 +503,7 @@
                         <outlet property="colorEditTextField" destination="Kuq-La-e6R" id="Dun-1x-67p"/>
                         <outlet property="modelEditTextField" destination="YaE-6g-8fA" id="RMq-Bw-E8g"/>
                         <outlet property="plateEditTextField" destination="TAT-cw-iS2" id="sY3-5z-fjB"/>
+                        <outlet property="saveLabel" destination="QOL-4d-cqR" id="Vwx-0u-kra"/>
                         <outlet property="textView" destination="C2R-aG-Nga" id="BDa-LT-wmV"/>
                     </connections>
                 </viewController>
@@ -619,7 +626,6 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Card" id="uFL-za-Mpz">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="8dm-EK-YZL"/>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="wmQ-zN-ezK">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -630,6 +636,7 @@
                     <connections>
                         <outlet property="cardEditTextField" destination="fhi-qN-xdO" id="b81-v4-IAZ"/>
                         <outlet property="cashEditTextField" destination="CWi-I2-8YK" id="Ccf-oX-MOQ"/>
+                        <outlet property="saveLabel" destination="wmQ-zN-ezK" id="qoz-wE-zW6"/>
                         <outlet property="textView" destination="gXq-ke-9WB" id="Lxa-F9-mH0"/>
                     </connections>
                 </viewController>

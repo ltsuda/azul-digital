@@ -39,6 +39,9 @@ class LoginViewController: UIViewController, Alertable, Loggable {
         super.viewWillAppear(true)
         cancelButton.configureCorner(to: cancelButton)
         loginButton.configureCorner(to: loginButton)
+        loginButton.setTitle(Project.Localizable.Common.login.localized, for: .normal)
+        cancelButton.setTitle(Project.Localizable.Common.cancel.localized, for: .normal)
+        passwordLabel.text = Project.Localizable.Common.password.localized
     }
     
     override func viewWillLayoutSubviews() {

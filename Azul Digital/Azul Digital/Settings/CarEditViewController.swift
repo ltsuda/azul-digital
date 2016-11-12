@@ -10,6 +10,7 @@ import UIKit
 
 class CarEditViewController: UIViewController, Readable, CheckTextField, Alertable, ValidatePlate {
     
+    @IBOutlet weak var saveLabel: UIBarButtonItem!
     @IBOutlet weak var brandEditTextField: UITextField!
     @IBOutlet weak var modelEditTextField: UITextField!
     @IBOutlet weak var colorEditTextField: UITextField!
@@ -41,6 +42,7 @@ class CarEditViewController: UIViewController, Readable, CheckTextField, Alertab
     var tempCar: Car?
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = Project.Localizable.Common.car.localized
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,7 +52,7 @@ class CarEditViewController: UIViewController, Readable, CheckTextField, Alertab
         textView.text = Project.Localizable.Common.car_description.localized
         LoadingIndicatorView.show(overlayTarget: view, loadingText: Project.Localizable.Common.loading_data.localized)
         navigationItem.rightBarButtonItem?.isEnabled = false
-        
+        saveLabel.title = Project.Localizable.Common.save.localized 
         read("users", id: id, completionObject: { [weak self] (user, car) in
             guard let plate = car?.plate, let user = user else { return }
             DispatchQueue.main.async {

@@ -30,6 +30,8 @@ class PresentViewController: UIViewController {
         super.viewWillAppear(true)
         createAccButton.configureCorner(to: createAccButton)
         alreadyMemberButton.configureCorner(to: alreadyMemberButton)
+        createAccButton.setTitle(Project.Localizable.Common.create_account.localized, for: .normal)
+        alreadyMemberButton.setTitle(Project.Localizable.Common.already_member.localized, for: .normal)
         
     }
     

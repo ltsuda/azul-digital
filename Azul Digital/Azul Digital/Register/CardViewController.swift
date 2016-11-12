@@ -32,6 +32,7 @@ class CardViewController: UIViewController, Alertable, CheckTextField, ValidateC
         }
         
     }
+    @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var privacyTextView: UITextView!
     @IBOutlet weak var cashTextField: UITextField!
     @IBOutlet weak var cardTextField: UITextField!
@@ -41,10 +42,12 @@ class CardViewController: UIViewController, Alertable, CheckTextField, ValidateC
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = Project.Localizable.Common.card.localized
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        doneButton.title = Project.Localizable.Common.done.localized
         privacyTextView.text = Project.Localizable.Common.card_description.localized
     }
     

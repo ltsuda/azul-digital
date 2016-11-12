@@ -10,6 +10,8 @@ import UIKit
 
 class ShareViewController: UIViewController, FBServerTime, FBPostable, Alertable {
 
+    @IBOutlet weak var timeTitleLabel: ReceiptLabel!
+    @IBOutlet weak var shareLabel: UILabel!
     @IBOutlet weak var addressLabel: ReceiptLabel!
     @IBOutlet weak var timeLabel: ReceiptLabel!
     @IBOutlet weak var shareButton: UIButton!
@@ -37,6 +39,10 @@ class ShareViewController: UIViewController, FBServerTime, FBPostable, Alertable
         super.viewWillAppear(true)
         shareButton.configureCorner(to: shareButton)
         cancelButton.configureCorner(to: cancelButton)
+        timeTitleLabel.text = Project.Localizable.Common.time.localized
+        shareLabel.text = Project.Localizable.Common.share.localized
+        shareButton.setTitle(Project.Localizable.Common.share.localized, for: .normal)
+        cancelButton.setTitle(Project.Localizable.Common.cancel.localized, for: .normal)        
         addressLabel.text = address
         DispatchQueue.main.async {
             self.gettime(completion: { (date, _, _) in

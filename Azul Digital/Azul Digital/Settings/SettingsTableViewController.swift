@@ -14,6 +14,11 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func cancelModification(withSegue segue: UIStoryboardSegue) {
         
     }
+    @IBOutlet weak var profileLabel: UILabel!
+    @IBOutlet weak var carLabel: UILabel!
+    @IBOutlet weak var cardLabel: UILabel!
+    @IBOutlet weak var historyLabel: UILabel!
+    @IBOutlet weak var aboutLabel: UILabel!
     
     var userID = String()
     
@@ -28,6 +33,11 @@ class SettingsTableViewController: UITableViewController {
         navigationController?.navigationBar.barTintColor = UIColor(red: 15/255, green: 127/255, blue: 223/255, alpha: 1)
         guard let current = FIRAuth.auth()?.currentUser else { return }
         userID = current.uid
+        profileLabel.text = Project.Localizable.Common.profile_title.localized
+        carLabel.text = Project.Localizable.Common.car.localized
+        cardLabel.text = Project.Localizable.Common.card.localized
+        historyLabel.text = Project.Localizable.Common.history.localized
+        aboutLabel.text = Project.Localizable.Common.about.localized
         
     }
     

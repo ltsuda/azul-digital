@@ -579,7 +579,9 @@
                         <outlet property="addressLabel" destination="UD0-rX-oTI" id="8FN-Uh-CoZ"/>
                         <outlet property="cancelButton" destination="Yac-uN-zy9" id="AiA-1S-swc"/>
                         <outlet property="shareButton" destination="T4m-9v-gou" id="0Ta-lI-jLt"/>
-                        <outlet property="timeLabel" destination="wIk-f2-YgA" id="6TM-8o-eBd"/>
+                        <outlet property="shareLabel" destination="hS0-PO-eXp" id="NDp-Uy-8Xc"/>
+                        <outlet property="timeLabel" destination="wIk-f2-YgA" id="BPa-Ne-ims"/>
+                        <outlet property="timeTitleLabel" destination="OrZ-6J-Muz" id="3yb-LS-DhF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hqd-Pg-xaG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -600,7 +602,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="73"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yn3-3l-G23" id="x7M-aY-GH7">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="72.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zix-e8-GyK">
