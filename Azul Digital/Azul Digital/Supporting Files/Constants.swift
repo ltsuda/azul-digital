@@ -11,6 +11,7 @@ import Firebase
 
 let rootFBReference = FIRDatabase.database().reference()
 let defaults = UserDefaults.standard
+let siteString = "azuldigital.github.io"
 
 // MARK: - Project Constants
 enum Project {
@@ -95,6 +96,8 @@ enum Project {
             case done                                   = "common.done"
             case about                                  = "common.about"
             case save                                   = "common.save"
+            case author                                 = "common.author"
+            case instructor                             = "common.instructor"
         }
     }
 }

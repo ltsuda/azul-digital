@@ -77,3 +77,6 @@
 "common.about" = "Sobre";
 //EditVC
 "common.save" = "Salvar";
+//AboutVC
+"common.author" = "Desenvolvido por:";
+"common.instructor" = "Orientado por:";
