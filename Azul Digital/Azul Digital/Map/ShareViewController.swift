@@ -37,12 +37,12 @@ class ShareViewController: UIViewController, FBServerTime, FBPostable, Alertable
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        shareButton.configureCorner(to: shareButton)
-        cancelButton.configureCorner(to: cancelButton)
         timeTitleLabel.text = Project.Localizable.Common.time.localized
         shareLabel.text = Project.Localizable.Common.share.localized
         shareButton.setTitle(Project.Localizable.Common.share.localized, for: .normal)
-        cancelButton.setTitle(Project.Localizable.Common.cancel.localized, for: .normal)        
+        cancelButton.setTitle(Project.Localizable.Common.cancel.localized, for: .normal)
+        shareButton.configureCorner(to: shareButton)
+        cancelButton.configureCorner(to: cancelButton)
         addressLabel.text = address
         DispatchQueue.main.async {
             self.gettime(completion: { (date, _, _) in

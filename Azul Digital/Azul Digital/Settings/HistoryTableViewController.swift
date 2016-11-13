@@ -18,7 +18,6 @@ class HistoryTableViewController: UITableViewController, Readable {
         super.viewDidLoad()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
-        title = Project.Localizable.Common.history.localized
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,6 +29,7 @@ class HistoryTableViewController: UITableViewController, Readable {
         super.viewWillAppear(true)
         navigationController?.navigationBar.barTintColor = UIColor(red: 120/255, green: 15/255, blue: 223/255, alpha: 1)
         LoadingIndicatorView.show(Project.Localizable.Common.loading_data.localized)
+        title = Project.Localizable.Common.history.localized
         getTickets()
     }
     

@@ -14,7 +14,7 @@ class AboutViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-         self.title = Project.Localizable.Common.about.localized
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -24,6 +24,7 @@ class AboutViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.title = Project.Localizable.Common.about.localized
         navigationController?.navigationBar.barTintColor = UIColor(red: 15/255, green: 223/255, blue: 129/255, alpha: 1)
     }
 }

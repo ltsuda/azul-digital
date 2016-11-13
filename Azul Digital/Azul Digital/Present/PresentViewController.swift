@@ -19,7 +19,6 @@ class PresentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
         backgroundImage.applyMotionEffect(magnitude: 10)
         createAccButton.applyMotionEffect(magnitude: -20)
@@ -28,11 +27,10 @@ class PresentViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        createAccButton.configureCorner(to: createAccButton)
-        alreadyMemberButton.configureCorner(to: alreadyMemberButton)
         createAccButton.setTitle(Project.Localizable.Common.create_account.localized, for: .normal)
         alreadyMemberButton.setTitle(Project.Localizable.Common.already_member.localized, for: .normal)
-        
+        createAccButton.configureCorner(to: createAccButton)
+        alreadyMemberButton.configureCorner(to: alreadyMemberButton)
     }
     
     override func didReceiveMemoryWarning() {

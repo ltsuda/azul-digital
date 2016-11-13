@@ -16,14 +16,13 @@ class PostsTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
-        title = "Posts"
-        
         navigationController?.navigationBar.barTintColor = UIColor(red: 221 / 255, green: 0 / 255, blue: 145 / 255, alpha: 1)
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        title = "Posts"
         LoadingIndicatorView.show(Project.Localizable.Common.loading_data.localized)
         getPosts()
     }

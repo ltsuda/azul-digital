@@ -25,11 +25,12 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = Project.Localizable.Common.settings.localized
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        title = Project.Localizable.Common.settings.localized
         navigationController?.navigationBar.barTintColor = UIColor(red: 15/255, green: 127/255, blue: 223/255, alpha: 1)
         guard let current = FIRAuth.auth()?.currentUser else { return }
         userID = current.uid

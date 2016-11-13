@@ -39,12 +39,12 @@ class CardEditViewController: UIViewController, Readable, CheckTextField, Alerta
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = Project.Localizable.Common.card.localized
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.navigationBar.barTintColor = UIColor(red: 223/255, green: 167/255, blue: 15/255, alpha: 1)
-        self.title = Project.Localizable.Common.card.localized
+        title = Project.Localizable.Common.card.localized
         textView.text = Project.Localizable.Common.card_description.localized
         saveLabel.title = Project.Localizable.Common.save.localized
         LoadingIndicatorView.show(overlayTarget: view, loadingText: Project.Localizable.Common.loading_data.localized)

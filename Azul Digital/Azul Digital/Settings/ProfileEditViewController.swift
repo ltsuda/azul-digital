@@ -48,7 +48,7 @@ class ProfileEditViewController: UIViewController, Alertable, Readable, CheckTex
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        self.title = Project.Localizable.Common.profile_title.localized
+        title = Project.Localizable.Common.profile_title.localized
         saveLabel.title = Project.Localizable.Common.save.localized
         
         LoadingIndicatorView.show(overlayTarget: view, loadingText: Project.Localizable.Common.loading_data.localized)
