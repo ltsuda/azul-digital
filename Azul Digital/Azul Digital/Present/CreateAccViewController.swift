@@ -45,6 +45,11 @@ class CreateAccViewController: UIViewController, Alertable, Creatable {
         registerButton.configureCorner(to: registerButton)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         emailTextField.configureBorder(to: PlaceHolder.User.Email)

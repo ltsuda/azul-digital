@@ -20,7 +20,6 @@ extension Creatable {
         }
         
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (_, error) in
-            
             if error != nil {
                 if let code = (error as? NSError)?.code {
                     if let firebaseCode = FIRAuthErrorCode(rawValue: (code)) {

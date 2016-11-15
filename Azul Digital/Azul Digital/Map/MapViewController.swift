@@ -44,6 +44,7 @@ class MapViewController: UIViewController, FBServerTime {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         navigationController?.navigationBar.barTintColor = UIColor(red: 15/255, green: 127/255, blue: 223/255, alpha: 1)
         buy.setImage(UIImage(named: Project.Images.Buttons.buy.image) , for: .normal)
         buy.setImage(UIImage(named: Project.Images.Buttons.buy_enabled.image) , for: .highlighted)
@@ -71,7 +72,6 @@ class MapViewController: UIViewController, FBServerTime {
             destination.address = locationTextField.text ?? Project.Localizable.Common.empty_address.localized
         } else if segue.identifier == "ShareSegue" {
             guard let destination = segue.destination as? ShareViewController else { return }
-            savetime()
             destination.address = locationTextField.text ?? Project.Localizable.Common.empty_address.localized
         }  else if segue.identifier == "postSegue" {
             guard let _ = segue.destination as? PostsTableViewController else { return }
@@ -82,6 +82,7 @@ class MapViewController: UIViewController, FBServerTime {
 extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     
     func requestUserLocation() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
@@ -101,7 +102,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
             let formattedAddress = street?.joined(separator: ", ")
             
             self?.locationTextField.text = formattedAddress
-            
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
     }
     
@@ -119,6 +120,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     }
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let newLocation = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
         getAddress(location: newLocation)
     }

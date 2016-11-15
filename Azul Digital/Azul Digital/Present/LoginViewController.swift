@@ -35,6 +35,11 @@ class LoginViewController: UIViewController, Alertable, Loggable {
 
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         loginButton.setTitle(Project.Localizable.Common.login.localized, for: .normal)

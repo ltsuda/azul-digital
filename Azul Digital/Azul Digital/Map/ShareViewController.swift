@@ -17,11 +17,15 @@ class ShareViewController: UIViewController, FBServerTime, FBPostable, Alertable
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBAction func share(_ sender: AnyObject) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
         post(withAddress: address) { (title, message, actionTitle) in
             if title != "" {
                 self.alert(title, message: message, actionTitle: actionTitle)
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             } else {
                 self.dismiss(animated: true, completion: nil)
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
         }
     }
@@ -37,6 +41,7 @@ class ShareViewController: UIViewController, FBServerTime, FBPostable, Alertable
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         timeTitleLabel.text = Project.Localizable.Common.time.localized
         shareLabel.text = Project.Localizable.Common.share.localized
         shareButton.setTitle(Project.Localizable.Common.share.localized, for: .normal)
@@ -47,6 +52,7 @@ class ShareViewController: UIViewController, FBServerTime, FBPostable, Alertable
         DispatchQueue.main.async {
             self.gettime(completion: { (date, _, _) in
                 self.timeLabel.text = "\(formatTime(from: date).0)"
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             })
         }
     }

@@ -48,6 +48,7 @@ class CardEditViewController: UIViewController, Readable, CheckTextField, Alerta
         textView.text = Project.Localizable.Common.card_description.localized
         saveLabel.title = Project.Localizable.Common.save.localized
         LoadingIndicatorView.show(overlayTarget: view, loadingText: Project.Localizable.Common.loading_data.localized)
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         navigationItem.rightBarButtonItem?.isEnabled = false
         
         read("users", id: id, completionObject: { [weak self] (user, _) in
@@ -57,6 +58,7 @@ class CardEditViewController: UIViewController, Readable, CheckTextField, Alerta
                 self?.currentUser = user
                 LoadingIndicatorView.hide()
                 self?.navigationItem.rightBarButtonItem?.isEnabled = true
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
             })
     }
@@ -70,10 +72,13 @@ class CardEditViewController: UIViewController, Readable, CheckTextField, Alerta
 
 extension CardEditViewController: FBCardEditable {
     func editCard() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         saveCard(withUser: currentUser, withID: id) { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
                 self?.alert(title, message: message, actionTitle: action)
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             } else {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 let _ = self?.navigationController?.popViewController(animated: true)
             }
         }

@@ -33,6 +33,8 @@ class ConfirmationViewController: UIViewController, Alertable, FBServerTime {
         } else {
             userFunds = funds - valueToPay
             saveValues(user: user)
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
         }
     }
     
@@ -53,7 +55,8 @@ class ConfirmationViewController: UIViewController, Alertable, FBServerTime {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
         cancelButton.configureCorner(to: cancelButton)
         buyButton.configureCorner(to: buyButton)
         
@@ -67,6 +70,7 @@ class ConfirmationViewController: UIViewController, Alertable, FBServerTime {
             self.valueLabel.text = "R$\(self.getValue().0)"
             self.gettime(completion: { (date, _, _) in
                 self.timeLabel.text = "\(formatTime(from: date).0)"
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             })
         }
     }
@@ -98,7 +102,6 @@ extension ConfirmationViewController {
         guard let userID = FIRAuth.auth()?.currentUser?.uid else { return }
         
         let updateData: [String : Any] = [
-            "timeStamps/\(userID)" : FIRServerValue.timestamp(),
             "users/\(userID)/cash" : userFunds,
             "cars/\(plate)/ticket/\(ticketKey)" : [
                 "name" : "\(user.firstName!) \(user.lastName!)",
@@ -112,6 +115,7 @@ extension ConfirmationViewController {
             if error != nil {
                 if let code = (error as? NSError)?.code {
                     self.alert("\(Project.Localizable.Common.code.localized): \(code)", message: "\(error?.localizedDescription)", actionTitle: Project.Localizable.Common.try_again.localized)
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }
             } else {
                 defaults.set(false, forKey: "buyButton")
@@ -119,6 +123,7 @@ extension ConfirmationViewController {
                 self.gettime(completion: { (date, _, _) in
                     self.delegate?.scheduleNotification(at: date)
                 })
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.dismiss(animated: true, completion: nil)
             }
         }

@@ -43,7 +43,7 @@ class ProfileViewController: UIViewController, Alertable, CheckTextField {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         nextButton.title = Project.Localizable.Common.next.localized
         cancelButton.title = Project.Localizable.Common.cancel.localized
         DispatchQueue.main.async {
@@ -86,14 +86,18 @@ class ProfileViewController: UIViewController, Alertable, CheckTextField {
     }
     
     func deleteUser() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
         let user = FIRAuth.auth()?.currentUser
         user?.delete { error in
             if let error = error {
                 self.alert("\(error._code)", message: "\(error.localizedDescription)", actionTitle: Project.Localizable.Common.ok.localized)
                 self.isImageLoaded = false
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             } else {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let initialViewController = storyboard.instantiateViewController(withIdentifier: "UINavigationControllerMain")
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.present(initialViewController, animated: true, completion: nil)
             }
         }
@@ -119,13 +123,17 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         }
         if let selectedImage = selectedImageFromPicker {
             DispatchQueue.main.async {
-                self.profileImageView.image = selectedImage            }
+                self.profileImageView.image = selectedImage
+            }
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             upload(selectedImage, completion: { [weak self] (title, message, action) in
                 if title != "" && message != "" && action != "" {
                     self?.alert(title, message: message, actionTitle: action)
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 } else if !title.isEmpty {
                     self?.imageURL = title
                     self?.isImageLoaded = true
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }
                 })
         }

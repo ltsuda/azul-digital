@@ -65,10 +65,13 @@ class CardViewController: UIViewController, Alertable, CheckTextField, ValidateC
 
 extension CardViewController: FBUpdatable {
     func save() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         saveData(withUser: user, withCar: car) { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
                 self?.alert(title, message: message, actionTitle: action)
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             } else {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self?.performSegue(withIdentifier: "MapSegue", sender: nil)
             }
         }

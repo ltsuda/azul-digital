@@ -37,6 +37,8 @@ class BuyTicketViewController: UIViewController, Readable, FBServerTime {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         LoadingIndicatorView.show(Project.Localizable.Common.loading_data.localized)
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
         buyDescription.text = Project.Localizable.Common.buy_ticket_description.localized
         buyButton.setImage(UIImage(named: Project.Images.Buttons.buy_ticket.image) , for: .normal)
         buyButton.setImage(UIImage(named: Project.Images.Buttons.buy_ticket_enabled.image) , for: .highlighted)
@@ -47,6 +49,7 @@ class BuyTicketViewController: UIViewController, Readable, FBServerTime {
             DispatchQueue.main.async {
                 self?.user = user
                 LoadingIndicatorView.hide()
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }})
     }
     

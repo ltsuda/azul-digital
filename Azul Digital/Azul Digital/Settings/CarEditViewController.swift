@@ -51,6 +51,7 @@ class CarEditViewController: UIViewController, Readable, CheckTextField, Alertab
         title = Project.Localizable.Common.car.localized
         textView.text = Project.Localizable.Common.car_description.localized
         LoadingIndicatorView.show(overlayTarget: view, loadingText: Project.Localizable.Common.loading_data.localized)
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         navigationItem.rightBarButtonItem?.isEnabled = false
         saveLabel.title = Project.Localizable.Common.save.localized 
         read("users", id: id, completionObject: { [weak self] (user, car) in
@@ -68,6 +69,7 @@ class CarEditViewController: UIViewController, Readable, CheckTextField, Alertab
                     self?.plateEditTextField.text = car?.plate
                     LoadingIndicatorView.hide()
                     self?.navigationItem.rightBarButtonItem?.isEnabled = true
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }
                 
                 })
@@ -83,11 +85,14 @@ class CarEditViewController: UIViewController, Readable, CheckTextField, Alertab
 
 extension CarEditViewController: FBUpdatable {
     func editCar() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let car = Car(plate: (tempCar?.plate)!, brand: brandEditTextField.text!, color: colorEditTextField.text!, model: modelEditTextField.text!, userID: id)
         saveData(withUser: user, withCar: car) { [weak self] (title, message, action) in
             if title != "" && message != "" && action != "" {
                 self?.alert(title, message: message, actionTitle: action)
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             } else {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 let _ = self?.navigationController?.popViewController(animated: true)
             }
         }

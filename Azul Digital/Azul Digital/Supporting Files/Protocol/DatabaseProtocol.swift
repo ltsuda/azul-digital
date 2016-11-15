@@ -25,7 +25,6 @@ extension FBServerTime {
     func gettime(completion: @escaping (Date, String, String) -> ()) {
         
         rootFBReference.child("timeStamps/serverTime").observeSingleEvent(of: .value, with: { snapshot in
-            
             let dateFormatter = DateFormatter()
             
             if let time = snapshot.value as? TimeInterval {

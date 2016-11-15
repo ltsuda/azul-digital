@@ -47,11 +47,11 @@ class ProfileEditViewController: UIViewController, Alertable, Readable, CheckTex
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
         title = Project.Localizable.Common.profile_title.localized
         saveLabel.title = Project.Localizable.Common.save.localized
         
         LoadingIndicatorView.show(overlayTarget: view, loadingText: Project.Localizable.Common.loading_data.localized)
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         navigationItem.rightBarButtonItem?.isEnabled = false
         
         read("users", id: id, completionObject: { [weak self] (user, _) in
@@ -63,6 +63,7 @@ class ProfileEditViewController: UIViewController, Alertable, Readable, CheckTex
                         DispatchQueue.main.async {
                             self?.editImageView.image = UIImage(data: object as! Data)
                             LoadingIndicatorView.hide()
+                            UIApplication.shared.isNetworkActivityIndicatorVisible = false
                         }
                     }
                 })
@@ -70,6 +71,7 @@ class ProfileEditViewController: UIViewController, Alertable, Readable, CheckTex
                 DispatchQueue.main.async {
                     self?.editImageView.image = UIImage(named: (user?.photo)!)
                     LoadingIndicatorView.hide()
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }
             }
             DispatchQueue.main.async {
@@ -124,12 +126,15 @@ extension ProfileEditViewController: UIImagePickerControllerDelegate, UINavigati
                 self.editImageView.image = selectedImage
                 
             }
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             upload(selectedImage, completion: { [weak self] (title, message, action) in
                 if title != "" && message != "" && action != "" {
                     self?.alert(title, message: message, actionTitle: action)
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 } else if !title.isEmpty {
                     self?.currentUser?.photo = title
                     self?.isImageLoaded = true
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }
                 })
         }

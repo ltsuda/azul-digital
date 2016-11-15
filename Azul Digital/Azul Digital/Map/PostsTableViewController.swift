@@ -58,12 +58,14 @@ class PostsTableViewController: UITableViewController {
 
 extension PostsTableViewController: FBPostsReadable {
     func getPosts() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         read(completionObject: { [weak self] (posts, error) in
             guard let posts = posts else { return }
             self?.posts = posts
             DispatchQueue.main.async {
                 LoadingIndicatorView.hide()
                 self?.animateTable()
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
             })
     }
