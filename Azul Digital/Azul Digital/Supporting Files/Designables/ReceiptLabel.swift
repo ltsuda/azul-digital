@@ -11,9 +11,9 @@ import UIKit
 @IBDesignable
 class ReceiptLabel: UILabel {
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.sizeToFit()
-    }
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        self.sizeToFit()
+//    }
 
 }
