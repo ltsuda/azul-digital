@@ -10,10 +10,10 @@ import UIKit
 
 class ShareViewController: UIViewController, FBServerTime, FBPostable, Alertable {
 
-    @IBOutlet weak var timeTitleLabel: ReceiptLabel!
+    @IBOutlet weak var timeTitleLabel: UILabel!
     @IBOutlet weak var shareLabel: UILabel!
-    @IBOutlet weak var addressLabel: ReceiptLabel!
-    @IBOutlet weak var timeLabel: ReceiptLabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBAction func share(_ sender: AnyObject) {

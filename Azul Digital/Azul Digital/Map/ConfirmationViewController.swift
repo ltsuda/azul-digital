@@ -12,11 +12,11 @@ import Firebase
 class ConfirmationViewController: UIViewController, Alertable, FBServerTime {
     
     @IBOutlet weak var askLabel: UILabel!
-    @IBOutlet weak var addressLabel: ReceiptLabel!
-    @IBOutlet weak var valueDescriptionLabel: ReceiptLabel!
-    @IBOutlet weak var timeDescriptionLabel: ReceiptLabel!
-    @IBOutlet weak var valueLabel: ReceiptLabel!
-    @IBOutlet weak var timeLabel: ReceiptLabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var valueDescriptionLabel: UILabel!
+    @IBOutlet weak var timeDescriptionLabel: UILabel!
+    @IBOutlet weak var valueLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var buyButton: UIButton!
     @IBAction func buy(_ sender: AnyObject) {
