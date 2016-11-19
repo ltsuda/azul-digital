@@ -69,7 +69,7 @@ class BuyTicketViewController: UIViewController, Readable, FBServerTime {
     func enableBuyButtonAfterTimer() {
         gettime { (date, _, _) in
             let currentTime = Int(Date().timeIntervalSince(date))
-            if currentTime >= 3600 {
+            if currentTime >= 20 {
                 defaults.setValue(true, forKey: "buyButton")
                 defaults.synchronize()
             }

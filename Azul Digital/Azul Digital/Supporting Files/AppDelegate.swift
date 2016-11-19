@@ -89,7 +89,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate, FBTicketReadable, Reada
 
         let calendar = Calendar(identifier: .gregorian)
         
-        let components = calendar.dateComponents(in: .current, from: current.addingTimeInterval(3300))
+        let components = calendar.dateComponents(in: .current, from: current.addingTimeInterval(20))
         let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute, second: components.second)
 
         
