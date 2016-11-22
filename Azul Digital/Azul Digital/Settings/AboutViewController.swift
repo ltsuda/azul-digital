@@ -21,7 +21,7 @@ class AboutViewController: UIViewController, SFSafariViewControllerDelegate {
     @IBOutlet weak var siteButton: UIButton!
     @IBOutlet weak var siteLabel: UILabel!
     @IBAction func site(_ sender: Any) {
-        let safariViewController = SFSafariViewController(url: URL(string: "https://azuldigital.github.io")!)
+        let safariViewController = SFSafariViewController(url: URL(string: "https://ltsuda.github.io/azul-digital")!)
         safariViewController.delegate = self
         present(safariViewController, animated: true, completion: nil)
     }
