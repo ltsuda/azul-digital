@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">Azul Fiscal</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in_short">Entrar</string>
+    <string name="error_invalid_email">Email inválido</string>
+    <string name="error_invalid_password">Senha muito curta</string>
+    <string name="error_incorrect_password">Senha incorreta</string>
+    <string name="error_field_required">Campo obrigatório</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <string name="ok">OK</string>
+    <string name="permission_camera_rationale">É necessário acesso a camera para capturar a placa</string>
+    <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
+    <string name="low_storage_error">Ocr dependencies cannot be downloaded due to low device storage</string>
+    <string name="title_activity_main">Ocr Detector Sample</string>
+    <string name="ocr_header">Click &quot;Detect Text&quot; to detect text</string>
+    <string name="read_text">Detectar texto</string>
+    <string name="auto_focus">Auto Focus</string>
+    <string name="use_flash">Use Flash</string>
+    <string name="ocr_success">Texto obtido com sucesso</string>
+    <string name="ocr_failure">Nenhum texto capturado</string>
+    <string name="ocr_error">\"Erro ao ler texto: %1$s\"</string>
+    <string name="buscar">Buscar</string>
+    <string name="camera">Camera</string>
+    <string name="enviar_e_mail">Enviar e-mail</string>
+    <string name="logout">Logout</string>
+    <string name="placa">Digite a placa</string>
+    <string name="zzz0000">ZZZ0000</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="search_location_here">Search Location Here</string>
+    <string name="Próximo">Próximo</string>
+    <string name="marker">marker</string>
+    <string name="carro">Carro</string>
+    <string name="cor">Cor</string>
+    <string name="marca">Marca</string>
+    <string name="modelo">Modelo</string>
+    <string name="ticket">Ticket</string>
+    <string name="voltar">Voltar</string>
+    <string name="make_photo">Make Photo</string>
+    <string name="confirmar_email">Confirmar email?</string>
+    <string name="assunto">Assunto:</string>
+    <string name="de">De:</string>
+    <string name="para">Para:</string>
+    <string name="enviar">Enviar</string>
+    <string name="wait_address">Aguardando endereço</string>
+    <string name="action_sign_in">Entrar ou Registrar</string>
+    <string name="permissao_camera">Desculpe, é necessário permitir acesso a camera para utilizar o aplicativo</string>
+    <string name="title_activity_map">Map</string>
+    <string name="tempo_restante">Tempo restante</string>
+    <string name="azul_fiscal">Azul Fiscal</string>
+    <string name="officer_img">officer_img</string>
+    <string name="abc0010">ABC0010</string>
+    <string name="historico_multas">Histórico</string>
+    <string name="action_history">action_history</string>
+    <string name="digite_a_placa">Digite a placa</string>
+    <string name="thumbnail">thumbnail</string>
+    <string name="detail">detail</string>
+</resources>

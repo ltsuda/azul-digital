@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="buscar">Buscar</string>
+    <string name="camera">Camera</string>
+    <string name="enviar_e_mail">Enviar e-mail</string>
+    <string name="logout">Logout</string>
+    <string name="placa">Placa</string>
+    <string name="zzz0000">ZZZ0000</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="search_location_here">Search Location Here</string>
+    <string name="search">Busca</string>
+    <string name="marker">marker</string>
+    <string name="carro">Carro</string>
+    <string name="cor">Cor</string>
+    <string name="make_photo">Make Photo</string>
+    <string name="getpicture">Tirar Foto</string>
+    <string name="confirmar_email">Confirmar email?</string>
+    <string name="assunto">Assunto:</string>
+    <string name="de">De:</string>
+    <string name="para">Para:</string>
+    <string name="enviar">Enviar</string>
+    <string name="wait_address">Aguardando endereço</string>
+    <string name="permissao_camera">Desculpe, é necessário permitir acesso a camera para utilizar o aplicativo</string>
+    <string name="azul_fiscal">Azul Fiscal</string>
+    <string name="ABC0000">plate_hint</string>
+    <string name="abc0010">ABC0010</string>
+    <string name="historico_multas">Histórico</string>
+    <string name="action_history">action_history</string>
+    <string name="action_settings">action_settings</string>
+    <string name="digite_a_placa">Digite a placa</string>
+    <string name="thumbnail">thumbnail</string>
+    <string name="detail">detail</string>
+</resources>
