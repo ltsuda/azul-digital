@@ -27,7 +27,7 @@ Prof. Anderson P. Rocha
 - Os agentes de trânsito acessam o sistema para consultar placas de carros estacionados, verificando se o pagamento da vaga para aquela placa foi efetuado. Caso positivo, é possível visualizar o prazo para expiração do bilhete. O agente de trânsito pode enviar um e-mail para o setor administrativo diretamente pelo aplicativo para os carros que estiverem em situação irregular.
 
 - ###FUNCIONAMENTO
-![IOS-FLUXO](https://s16.postimg.org/550z24v5x/android_fluxo.png)
+![android-FLUXO](https://s11.postimg.org/brqrc1lkz/Fluxograma_Motorista_2.png)
 
 
 ##DEMONSTRAÇÃO
